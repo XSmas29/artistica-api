@@ -8,17 +8,16 @@ export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number;
 
-  @Field()
-  @Column()
-  name!: string;
+  @Field({nullable: true})
+  @Column({nullable: true})
+  name?: string;
 
   @Field()
   @Column()
   email!: string;
 
-  @Field()
-  @Column()
-  password!: string;
+  @Column({nullable: true})
+  password?: string;
 
   @Field()
   @Column({ default: false })

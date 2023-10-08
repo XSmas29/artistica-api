@@ -7,32 +7,37 @@ import { User } from '@entity/User.entity';
 import * as env from 'env-var';
 import { UserResolver } from './resolvers/User.resolver';
 import  dotenv from 'dotenv';
+import { authChecker } from '@utils/auth';
+import cors from 'cors';
+
 dotenv.config();
 
 const main = async () => {
   const app = express();
   app.use(express.json());
+  app.use(cors())
 
   const port = env.get('PORT').required().asPortNumber();
   
   const AppDataSource = new DataSource({
     type: "mysql",
-    host: env.get('HOST').required().asString(),
+    host: env.get('DB_HOST').required().asString(),
     port: env.get('DB_PORT').required().asPortNumber(),
-    username: env.get('username').required().asString(),
-    password: env.get('password').asString(),
-    database: env.get('database').required().asString(),
+    username: env.get('DB_USERNAME').required().asString(),
+    password: env.get('DB_PASSWORD').asString(),
+    database: env.get('DB_NAME').required().asString(),
     synchronize: true,
-    logging: true,
+    logging: false,
     entities: [User],
   });
-  
+
   await AppDataSource.initialize();
   
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
       resolvers: [UserResolver],
       validate: false,
+      authChecker: authChecker,
     }),
   });
   await apolloServer.start();
