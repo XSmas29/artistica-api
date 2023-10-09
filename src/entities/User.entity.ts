@@ -1,8 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn } from 'typeorm';
 import { ObjectType, Field } from 'type-graphql';
 
 @ObjectType()
-@Entity()
+@Entity({name: 'users'})
 export class User extends BaseEntity {
   @Field()
   @PrimaryGeneratedColumn()
@@ -13,13 +13,25 @@ export class User extends BaseEntity {
   name?: string;
 
   @Field()
-  @Column()
+  @Column({unique: true})
   email!: string;
 
   @Column({nullable: true})
   password?: string;
 
   @Field()
+  @Column({ default: false})
+  is_verified!: boolean;
+
+  @Field()
+  @Column()
+  hash!: string;
+
+  @Field()
   @Column({ default: false })
   isAdmin!: boolean;
+
+  @Field()
+  @CreateDateColumn()
+  createdAt!: Date;
 }
