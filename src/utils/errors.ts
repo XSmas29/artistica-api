@@ -5,10 +5,24 @@ export class DuplicateEntryError extends Error {
   }
 }
 
+export class InvalidInputError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'InvalidInput';
+  }
+}
+
+export class UnauthorizedError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = 'Unauthorized';
+  }
+}
+
 export class NotFoundError extends Error {
   constructor(message: string) {
     super(message);
-    this.name = 'DuplicateEntry';
+    this.name = 'NotFound';
   }
 }
 

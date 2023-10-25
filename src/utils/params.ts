@@ -10,6 +10,8 @@ class VerifyData {
   phone?: string;
   @Field()
   password!: string;
+  @Field()
+  password_confirmation!: string;
 };
 
 export {

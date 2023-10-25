@@ -1,10 +1,12 @@
 import { Resolver, Query, Arg, Mutation, Authorized, Args, ArgsType } from "type-graphql";
 import { User } from "@entity/User.entity";
 import { ServerResponse } from "@utils/types";
-import { DuplicateEntryError, GmailTokenError, NotFoundError } from "@utils/errors";
+import { DuplicateEntryError, GmailTokenError, InvalidInputError, NotFoundError, UnauthorizedError } from "@utils/errors";
 import { GmailService } from "@utils/email";
 import crypto from 'crypto';
 import { VerifyData } from "@utils/params";
+import { hashPassword } from "@utils/hash";
+import bcrypt from 'bcrypt';
 
 @Resolver(User)
 export class UserResolver {
@@ -82,11 +84,48 @@ export class UserResolver {
       throw new DuplicateEntryError("User sudah terverifikasi");
     }
 
-    await User.update(user.id, { ...data, is_verified: true });
+    if (data.password !== data.password_confirmation) {
+      throw new InvalidInputError("Password dan konfirmasi tidak sama");
+    }
+
+    await User.update(user.id, { 
+      first_name: data.first_name,
+      last_name: data.last_name,
+      phone: data.phone,
+      password: await hashPassword(data.password),
+      is_verified: true 
+    });
 
     return {
       success: true,
       message: "Berhasil mendaftarkan akun",
+      data: JSON.stringify(user),
+    };
+  }
+
+  @Mutation(() => ServerResponse, { nullable: true })
+  async login(
+    @Arg("email") email: string,
+    @Arg("password") password: string,
+  ): Promise<ServerResponse> {
+    const user = await User.findOneBy({ email });
+
+    if (!user) {
+      throw new NotFoundError("User tidak ditemukan");
+    }
+
+    if (!user.is_verified) {
+      throw new UnauthorizedError("User belum terverifikasi");
+    }
+
+    const result = await bcrypt.compare(password, user.password!)
+    if (!result) {
+      throw new UnauthorizedError("Password salah");
+    }
+
+    return {
+      success: true,
+      message: "Berhasil login",
       data: JSON.stringify(user),
     };
   }
