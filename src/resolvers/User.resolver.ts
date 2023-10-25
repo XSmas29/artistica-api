@@ -1,16 +1,24 @@
-import { Resolver, Query, Arg, Mutation, Authorized } from "type-graphql";
+import { Resolver, Query, Arg, Mutation, Authorized, Args, ArgsType } from "type-graphql";
 import { User } from "@entity/User.entity";
 import { ServerResponse } from "@utils/types";
-import { DuplicateEntryError, GmailTokenError } from "@utils/errors";
+import { DuplicateEntryError, GmailTokenError, NotFoundError } from "@utils/errors";
 import { GmailService } from "@utils/email";
 import crypto from 'crypto';
+import { VerifyData } from "@utils/params";
 
 @Resolver(User)
 export class UserResolver {
   @Authorized()
   @Query(() => User, { nullable: true })
-  async user(@Arg("id") id: number): Promise<User> {
-    const user = await User.findOneByOrFail({ id });
+  async user(
+    @Arg("id") id: number
+  ): Promise<User> {
+    const user = await User.findOneBy({ id });
+
+    if (!user) {
+      throw new NotFoundError("User tidak ditemukan");
+    }
+
     return user;
   }
 
@@ -41,7 +49,44 @@ export class UserResolver {
     await gmail.sendConfirmationMail(email, sha256Hash)
     return {
       success: true,
-      message: "Berhasil mendaftar",
+      message: "Silahkan konfirmasi akun anda melalui email yang sudah dikirim",
+      data: JSON.stringify(user),
+    };
+  }
+
+  @Query(() => User, { nullable: true })
+  async checkVerifyCode(
+    @Arg("code") code: string,
+  ): Promise<User> {
+    const user = await User.findOneBy({ hash: code, is_verified: false });
+
+    if (!user) {
+      throw new NotFoundError("Kode tidak valid atau sudah kadaluarsa");
+    }
+
+    return user;
+  }
+
+  @Mutation(() => ServerResponse, { nullable: true })
+  async verifyUser(
+    @Arg("id") id: number,
+    @Arg("data") data: VerifyData,
+  ): Promise<ServerResponse> {
+    const user = await User.findOneBy({ id });
+
+    if (!user) {
+      throw new NotFoundError("User tidak ditemukan");
+    }
+
+    if (user.is_verified) {
+      throw new DuplicateEntryError("User sudah terverifikasi");
+    }
+
+    await User.update(user.id, { ...data, is_verified: true });
+
+    return {
+      success: true,
+      message: "Berhasil mendaftarkan akun",
       data: JSON.stringify(user),
     };
   }

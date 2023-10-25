@@ -17,7 +17,6 @@ export class GmailService {
     this.client_secret = env.get('GOOGLE_CLIENT_SECRET').required().asString();
     this.redirect_uri = env.get('GOOGLE_REDIRECT_URI').required().asString();
     this.refresh_token = env.get('GOOGLE_REFRESH_TOKEN').required().asString();
-
     this.oAuthClient = new google.auth.OAuth2(
       this.client_id,
       this.client_secret,
@@ -28,9 +27,11 @@ export class GmailService {
 
   async sendConfirmationMail(email: string, hash: string) {
     const access_token = await this.oAuthClient.getAccessToken();
+    console.log("access token: ", access_token.token)
     if (!access_token.token) {
       throw new GmailTokenError("Gagal mendapatkan access token");
     } else {
+      
       const transport = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -52,6 +53,8 @@ export class GmailService {
 
       await transport.sendMail(mailOptions).catch((err) => {
         throw new GmailTokenError(err.message);
+      }).then(() => {
+        console.log("Email sent");
       })
     }
   }
@@ -122,7 +125,7 @@ export class GmailService {
             <tr>
               <th>
                 <div class="action">
-                  <a class="button" style="text-decoration:none;color:#ffffff" href="${env.get("CLIENT").asUrlString()}/verify?code=${hash}" target="_blank">
+                  <a class="button" style="text-decoration:none;color:#ffffff" href="${env.get("CLIENT").asUrlString()}verify?code=${hash}" target="_blank">
                     Verifikasi
                   </a>
                 </div>

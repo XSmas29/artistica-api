@@ -10,7 +10,15 @@ export class User extends BaseEntity {
 
   @Field({nullable: true})
   @Column({nullable: true})
-  name?: string;
+  first_name?: string;
+
+  @Field({nullable: true})
+  @Column({nullable: true})
+  last_name?: string;
+
+  @Field({nullable: true})
+  @Column({nullable: true})
+  phone?: string;
 
   @Field()
   @Column({unique: true})
