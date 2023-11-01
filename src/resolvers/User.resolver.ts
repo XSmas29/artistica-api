@@ -7,6 +7,8 @@ import crypto from 'crypto';
 import { VerifyData } from "@utils/params";
 import { hashPassword } from "@utils/hash";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import * as env from 'env-var';
 
 @Resolver(User)
 export class UserResolver {
@@ -123,10 +125,16 @@ export class UserResolver {
       throw new UnauthorizedError("Password salah");
     }
 
+    console.log(env.get('JWT_SECRET').required().asString())
+
+    const token = jwt.sign({user: user}, env.get('JWT_SECRET').required().asString(), {
+      expiresIn: '7d',
+    });
+
     return {
       success: true,
       message: "Berhasil login",
-      data: JSON.stringify(user),
+      data: token,
     };
   }
 }
