@@ -9,6 +9,7 @@ import { UserResolver } from './resolvers/User.resolver';
 import  dotenv from 'dotenv';
 import { authChecker } from '@utils/auth';
 import cors from 'cors';
+import jwt from 'jsonwebtoken';
 
 dotenv.config();
 
@@ -43,7 +44,14 @@ const main = async () => {
   await apolloServer.start();
 
   app.use('/graphql',
-    expressMiddleware(apolloServer)
+    expressMiddleware(apolloServer, {
+      context: async (context) => {
+        return {
+          req: context.req,
+          auth: jwt.decode(context.req.headers.authorization || '')
+        }
+      },
+    })
   );
 
   app.get('/', (req, res) => {

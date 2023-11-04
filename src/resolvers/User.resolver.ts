@@ -1,6 +1,6 @@
-import { Resolver, Query, Arg, Mutation, Authorized, Args, ArgsType } from "type-graphql";
+import { Resolver, Query, Arg, Mutation, Authorized, Args, ArgsType, Ctx } from "type-graphql";
 import { User } from "@entity/User.entity";
-import { ServerResponse } from "@utils/types";
+import { Context, ServerResponse } from "@utils/types";
 import { DuplicateEntryError, GmailTokenError, InvalidInputError, NotFoundError, UnauthorizedError } from "@utils/errors";
 import { GmailService } from "@utils/email";
 import crypto from 'crypto';
@@ -12,17 +12,18 @@ import * as env from 'env-var';
 
 @Resolver(User)
 export class UserResolver {
+  
   @Authorized()
   @Query(() => User, { nullable: true })
-  async user(
-    @Arg("id") id: number
+  async profileInfo(
+    @Ctx() { auth: { userData } }: Context
   ): Promise<User> {
+    const id = userData.id;
     const user = await User.findOneBy({ id });
 
     if (!user) {
       throw new NotFoundError("User tidak ditemukan");
     }
-
     return user;
   }
 
@@ -125,10 +126,9 @@ export class UserResolver {
       throw new UnauthorizedError("Password salah");
     }
 
-    console.log(env.get('JWT_SECRET').required().asString())
-
-    const token = jwt.sign({user: user}, env.get('JWT_SECRET').required().asString(), {
-      expiresIn: '7d',
+    const token = jwt.sign({userData: user}, env.get('JWT_SECRET').required().asString(), {
+      expiresIn: '3min',
+      
     });
 
     return {
