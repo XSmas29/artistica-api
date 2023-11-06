@@ -4,7 +4,7 @@ import { Context, ServerResponse } from "@utils/types";
 import { DuplicateEntryError, GmailTokenError, InvalidInputError, NotFoundError, UnauthorizedError } from "@utils/errors";
 import { GmailService } from "@utils/email";
 import crypto from 'crypto';
-import { VerifyData } from "@utils/params";
+import { ProfileData, VerifyData } from "@utils/params";
 import { hashPassword } from "@utils/hash";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -25,6 +25,32 @@ export class UserResolver {
       throw new NotFoundError("User tidak ditemukan");
     }
     return user;
+  }
+
+  @Authorized()
+  @Mutation(() => ServerResponse, { nullable: true })
+  async editProfile(
+    @Arg("data") data: ProfileData,
+    @Ctx() { auth: { userData } }: Context
+  ): Promise<ServerResponse> {
+    const id = userData.id;
+    const user = await User.findOneBy({ id });
+
+    if (!user) {
+      throw new NotFoundError("User tidak ditemukan");
+    }
+
+    await User.update(user.id, {
+      first_name: data.first_name,
+      last_name: data.last_name,
+      phone: data.phone,
+    })
+
+    return {
+      success: true,
+      message: "Berhasil Update Profil",
+      data: JSON.stringify(user),
+    };
   }
 
   @Mutation(() => ServerResponse)
