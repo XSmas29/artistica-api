@@ -15,7 +15,7 @@ class VerifyData {
 };
 
 @InputType()
-class ProfileData {
+class EditProfileData {
   @Field()
   first_name!: string;
   @Field()
@@ -26,5 +26,5 @@ class ProfileData {
 
 export {
   VerifyData,
-  ProfileData,
+  EditProfileData,
 }
