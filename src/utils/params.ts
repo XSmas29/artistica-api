@@ -14,6 +14,17 @@ class VerifyData {
   password_confirmation!: string;
 };
 
+@InputType()
+class ProfileData {
+  @Field()
+  first_name!: string;
+  @Field()
+  last_name?: string;
+  @Field()
+  phone?: string;
+}
+
 export {
   VerifyData,
+  ProfileData,
 }
