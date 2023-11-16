@@ -8,9 +8,25 @@ class ServerResponse {
   success!: boolean;
   @Field()
   message?: string;
-  @Field()
-  data?: string;
+  @Field(() => String)
+  data?: string | null;
 };
+
+@ObjectType()
+class LoginResponse extends ServerResponse {
+  @Field()
+  token!: string;
+  @Field()
+  refresh_token!: string;
+};
+
+@ObjectType()
+class AuthToken {
+  @Field()
+  token!: string;
+  @Field()
+  refresh_token!: string;
+}
 
 type Context = {
   req: Request;
@@ -24,4 +40,6 @@ type Context = {
 export {
   ServerResponse,
   Context,
+  AuthToken,
+  LoginResponse,
 }

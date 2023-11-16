@@ -1,14 +1,15 @@
 import { Resolver, Query, Arg, Mutation, Authorized, Args, ArgsType, Ctx } from "type-graphql";
 import { User } from "@entity/User.entity";
-import { Context, ServerResponse } from "@utils/types";
+import { AuthToken, Context, LoginResponse, ServerResponse } from "@utils/types";
 import { DuplicateEntryError, GmailTokenError, InvalidInputError, NotFoundError, UnauthorizedError } from "@utils/errors";
 import { GmailService } from "@utils/email";
 import crypto from 'crypto';
-import { EditProfileData, VerifyData } from "@utils/params";
+import { EditPaswordData, EditProfileData, VerifyData } from "@utils/params";
 import { hashPassword } from "@utils/hash";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import * as env from 'env-var';
+import { generateAccessToken } from "@utils/auth";
 
 @Resolver(User)
 export class UserResolver {
@@ -19,8 +20,7 @@ export class UserResolver {
     @Ctx() { auth: { userData } }: Context
   ): Promise<User> {
     const id = userData.id;
-    const user = await User.findOneBy({ id });
-
+    const user = await User.findOneBy({ id, is_verified: true });
     if (!user) {
       throw new NotFoundError("User tidak ditemukan");
     }
@@ -34,7 +34,7 @@ export class UserResolver {
     @Ctx() { auth: { userData } }: Context
   ): Promise<ServerResponse> {
     const id = userData.id;
-    const user = await User.findOneBy({ id });
+    const user = await User.findOneBy({ id, is_verified: true });
 
     if (!user) {
       throw new NotFoundError("User tidak ditemukan");
@@ -53,6 +53,39 @@ export class UserResolver {
     };
   }
 
+  @Authorized()
+  @Mutation(() => ServerResponse, { nullable: true })
+  async editPassword(
+    @Arg("data") data: EditPaswordData,
+    @Ctx() { auth: { userData } }: Context
+  ): Promise<ServerResponse> {
+    const id = userData.id;
+    const user = await User.findOneBy({ id, is_verified: true });
+
+    if (!user) {
+      throw new NotFoundError("User tidak ditemukan");
+    }
+
+    const result = await bcrypt.compare(data.old_password, user.password!)
+    if (!result) {
+      throw new UnauthorizedError("Password salah");
+    }
+
+    if (data.new_password !== data.password_confirmation) {
+      throw new InvalidInputError("Password dan konfirmasi tidak sama");
+    }
+
+    await User.update(user.id, {
+      password: await hashPassword(data.new_password),
+    })
+
+    return {
+      success: true,
+      message: "Berhasil update password",
+      data: JSON.stringify(user),
+    };
+  }
+
   @Mutation(() => ServerResponse)
   async register(
     @Arg("email") email: string,
@@ -61,7 +94,6 @@ export class UserResolver {
     if (user_check) {
       throw new DuplicateEntryError("Email sudah terdaftar");
     }
-    
     const hash = crypto.createHash('sha256');
     const data = `${email}${Date.now()}`;
     hash.update(data);
@@ -74,13 +106,12 @@ export class UserResolver {
     } else {
       user = await User.create({ email, hash: sha256Hash }).save();
     }
-
     const gmail = new GmailService();
     
     await gmail.sendConfirmationMail(email, sha256Hash)
     return {
       success: true,
-      message: "Silahkan konfirmasi akun anda melalui email yang sudah dikirim",
+      message: "Silahkan konfirmasi akun anda melalui email yang sudah dikirim ke akun email anda",
       data: JSON.stringify(user),
     };
   }
@@ -96,6 +127,24 @@ export class UserResolver {
     }
 
     return user;
+  }
+
+  @Query(() => AuthToken, { nullable: true })
+  async refreshToken(
+    @Arg("refresh_token") refresh_token: string,
+  ): Promise<AuthToken> {
+    const user = await User.findOneBy({ refresh_token, is_verified: true });
+
+    if (!user) {
+      throw new NotFoundError("User tidak ditemukan");
+    }
+
+    const token = generateAccessToken(user)
+
+    return {
+      token,
+      refresh_token: user.refresh_token
+    };
   }
 
   @Mutation(() => ServerResponse, { nullable: true })
@@ -125,6 +174,13 @@ export class UserResolver {
       is_verified: true 
     });
 
+    //insert refresh token
+    const newUser = await User.findOneByOrFail({ id });
+
+    const refresh_token = jwt.sign({userData: newUser}, env.get('JWT_REFRESH_SECRET').required().asString())
+
+    await User.update(user.id, { refresh_token })
+
     return {
       success: true,
       message: "Berhasil mendaftarkan akun",
@@ -132,11 +188,11 @@ export class UserResolver {
     };
   }
 
-  @Mutation(() => ServerResponse, { nullable: true })
+  @Mutation(() => LoginResponse, { nullable: true })
   async login(
     @Arg("email") email: string,
     @Arg("password") password: string,
-  ): Promise<ServerResponse> {
+  ): Promise<LoginResponse> {
     const user = await User.findOneBy({ email });
 
     if (!user) {
@@ -152,15 +208,13 @@ export class UserResolver {
       throw new UnauthorizedError("Password salah");
     }
 
-    const token = jwt.sign({userData: user}, env.get('JWT_SECRET').required().asString(), {
-      expiresIn: '3min',
-      
-    });
-
+    const token = generateAccessToken(user)
+    
     return {
       success: true,
       message: "Berhasil login",
-      data: token,
+      token,
+      refresh_token: user.refresh_token
     };
   }
 }

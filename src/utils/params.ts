@@ -24,7 +24,19 @@ class EditProfileData {
   phone?: string;
 }
 
+@InputType()
+class EditPaswordData {
+  @Field()
+  old_password!: string;
+  @Field()
+  new_password!: string;
+  @Field()
+  password_confirmation!: string;
+
+}
+
 export {
   VerifyData,
   EditProfileData,
+  EditPaswordData,
 }
