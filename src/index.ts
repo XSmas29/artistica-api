@@ -48,6 +48,7 @@ const main = async () => {
       context: async (context) => {
         return {
           req: context.req,
+          res: context.res,
           auth: jwt.decode(context.req.headers.authorization || '')
         }
       },
