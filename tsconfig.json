@@ -4,21 +4,22 @@
     "target": "es2016",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-
     /* Modules */
     "module": "commonjs",
     "baseUrl": ".",
     "paths": {
-      "@entity/*": ["src/entities/*"],
-      "@utils/*": ["src/utils/*"],
+      "@entity/*": [
+        "src/entities/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
     },
     /* Emit */
     "outDir": "./dist",
-
     /* Interop Constraints */
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-
     /* Type Checking */
     "strict": true,
   },
