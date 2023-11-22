@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   apps : [{
     script: 'index.ts',
     watch: '.'
@@ -19,4 +19,4 @@ module.exports = {
       'pre-setup': ''
     }
   }
-};
+}

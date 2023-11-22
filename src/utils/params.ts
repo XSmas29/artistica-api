@@ -1,37 +1,37 @@
-import { Field, Arg, ObjectType, ArgsType, InputType, } from "type-graphql";
+import { Field, InputType } from 'type-graphql'
 
 @InputType()
 class VerifyData {
   @Field()
-  first_name!: string;
+  first_name!: string
   @Field()
-  last_name?: string;
+  last_name?: string
   @Field()
-  phone?: string;
+  phone?: string
   @Field()
-  password!: string;
+  password!: string
   @Field()
-  password_confirmation!: string;
-};
+  password_confirmation!: string
+}
 
 @InputType()
 class EditProfileData {
   @Field()
-  first_name!: string;
+  first_name!: string
   @Field()
-  last_name?: string;
+  last_name?: string
   @Field()
-  phone?: string;
+  phone?: string
 }
 
 @InputType()
 class EditPaswordData {
   @Field()
-  old_password!: string;
+  old_password!: string
   @Field()
-  new_password!: string;
+  new_password!: string
   @Field()
-  password_confirmation!: string;
+  password_confirmation!: string
 
 }
 

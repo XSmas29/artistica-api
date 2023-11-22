@@ -1,60 +1,59 @@
-import nodemailer from 'nodemailer';
-import { google } from 'googleapis';
-import * as env from 'env-var';
-import { GmailTokenError } from './errors';
+import nodemailer from 'nodemailer'
+import { google } from 'googleapis'
+import * as env from 'env-var'
+import { GmailTokenError } from './errors'
 
 export class GmailService {
-  client_id: string;
-  client_secret: string;
-  redirect_uri: string;
-  refresh_token: string;
+  client_id: string
+  client_secret: string
+  redirect_uri: string
+  refresh_token: string
 
-  oAuthClient = new google.auth.OAuth2();
-
+  oAuthClient = new google.auth.OAuth2()
   
   constructor() {
-    this.client_id = env.get('GOOGLE_CLIENT_ID').required().asString();
-    this.client_secret = env.get('GOOGLE_CLIENT_SECRET').required().asString();
-    this.redirect_uri = env.get('GOOGLE_REDIRECT_URI').required().asString();
-    this.refresh_token = env.get('GOOGLE_REFRESH_TOKEN').required().asString();
+    this.client_id = env.get('GOOGLE_CLIENT_ID').required().asString()
+    this.client_secret = env.get('GOOGLE_CLIENT_SECRET').required().asString()
+    this.redirect_uri = env.get('GOOGLE_REDIRECT_URI').required().asString()
+    this.refresh_token = env.get('GOOGLE_REFRESH_TOKEN').required().asString()
     this.oAuthClient = new google.auth.OAuth2(
       this.client_id,
       this.client_secret,
       this.redirect_uri
-    );
-    this.oAuthClient.setCredentials({ refresh_token: this.refresh_token });
+    )
+    this.oAuthClient.setCredentials({ refresh_token: this.refresh_token })
   }
 
   async sendConfirmationMail(email: string, hash: string) {
-    const access_token = await this.oAuthClient.getAccessToken();
-    console.log("access token: ", access_token.token)
+    const access_token = await this.oAuthClient.getAccessToken()
+    console.log('access token: ', access_token.token)
     if (!access_token.token) {
-      throw new GmailTokenError("Gagal mendapatkan access token");
+      throw new GmailTokenError('Gagal mendapatkan access token')
     } else {
       
       const transport = nodemailer.createTransport({
-        service: "gmail",
+        service: 'gmail',
         auth: {
-          type: "OAuth2",
-          user: "bumantara.surya2213@gmail.com",
+          type: 'OAuth2',
+          user: 'bumantara.surya2213@gmail.com',
           clientId: this.client_id,
           clientSecret: this.client_secret,
           refreshToken: this.refresh_token,
           accessToken: access_token.token,
         },
-      });
+      })
       const mailOptions = {
-        from: "bumantara.surya2213@gmail.com",
+        from: 'bumantara.surya2213@gmail.com',
         to: email,
-        subject: "Konfirmasi Akun Artistica Jewelry",
-        text: "Klik link berikut untuk konfirmasi email",
+        subject: 'Konfirmasi Akun Artistica Jewelry',
+        text: 'Klik link berikut untuk konfirmasi email',
         html: this.getMailContent(hash),
-      };
+      }
 
-      await transport.sendMail(mailOptions).catch((err) => {
-        throw new GmailTokenError(err.message);
+      await transport.sendMail(mailOptions).catch(err => {
+        throw new GmailTokenError(err.message)
       }).then(() => {
-        console.log("Email sent");
+        console.log('Email sent')
       })
     }
   }
@@ -125,7 +124,7 @@ export class GmailService {
             <tr>
               <th>
                 <div class="action">
-                  <a class="button" style="text-decoration:none;color:#ffffff" href="${env.get("CLIENT").asUrlString()}verify?code=${hash}" target="_blank">
+                  <a class="button" style="text-decoration:none;color:#ffffff" href="${env.get('CLIENT').asUrlString()}verify?code=${hash}" target="_blank">
                     Verifikasi
                   </a>
                 </div>

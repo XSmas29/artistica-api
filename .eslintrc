@@ -12,6 +12,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "@typescript-eslint/no-unused-vars": "warn",
         "max-len": "off",
         "no-multiple-empty-lines": [
             "warn",

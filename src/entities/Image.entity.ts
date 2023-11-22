@@ -2,6 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne } from 't
 import { ObjectType, Field } from 'type-graphql'
 import { Variant } from '@entity/Variant.entity'
 import { TypeormLoader } from 'type-graphql-dataloader'
+import { Product } from './Product.entity'
 
 @ObjectType()
 @Entity({name: 'product_images'})
@@ -14,8 +15,13 @@ export class Image extends BaseEntity {
   @Column()
   name!: string
 
-  @Field(() => Variant)
+  @Field(() => Variant, {nullable: true})
   @TypeormLoader()
   @ManyToOne(() => Variant, variant => variant.images)
-  variant!: Variant
+  variant?: Variant | null
+
+	@Field(() => Product, {nullable: true})
+  @TypeormLoader()
+  @ManyToOne(() => Product, product => product.images)
+  product?: Product | null
 }
