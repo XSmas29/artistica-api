@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
+
 @ObjectType()
 @Entity({name: 'users'})
 export class User extends BaseEntity {
