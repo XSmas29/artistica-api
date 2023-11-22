@@ -1,15 +1,15 @@
-import { Resolver, Query, Arg, Mutation, Authorized, Args, ArgsType, Ctx } from "type-graphql";
-import { User } from "@entity/User.entity";
-import { AuthToken, Context, LoginResponse, ServerResponse } from "@utils/types";
-import { DuplicateEntryError, GmailTokenError, InvalidInputError, NotFoundError, UnauthorizedError } from "@utils/errors";
-import { GmailService } from "@utils/email";
-import crypto from 'crypto';
-import { EditPaswordData, EditProfileData, VerifyData } from "@utils/params";
-import { hashPassword } from "@utils/hash";
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import * as env from 'env-var';
-import { generateAccessToken } from "@utils/auth";
+import { Resolver, Query, Arg, Mutation, Authorized, Ctx } from 'type-graphql'
+import { User } from '@entity/User.entity'
+import { AuthToken, Context, LoginResponse, ServerResponse } from '@utils/types'
+import { DuplicateEntryError, InvalidInputError, NotFoundError, UnauthorizedError } from '@utils/errors'
+import { GmailService } from '@utils/email'
+import crypto from 'crypto'
+import { EditPaswordData, EditProfileData, VerifyData } from '@utils/params'
+import { hashPassword } from '@utils/hash'
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import * as env from 'env-var'
+import { generateAccessToken } from '@utils/auth'
 
 @Resolver(User)
 export class UserResolver {
@@ -19,25 +19,26 @@ export class UserResolver {
   async profileInfo(
     @Ctx() { auth: { userData } }: Context
   ): Promise<User> {
-    const id = userData.id;
-    const user = await User.findOneBy({ id, is_verified: true });
+    const id = userData.id
+    const user = await User.findOneBy({ id, is_verified: true })
     if (!user) {
-      throw new NotFoundError("User tidak ditemukan");
+      throw new NotFoundError('User tidak ditemukan')
     }
-    return user;
+    
+return user
   }
 
   @Authorized()
   @Mutation(() => ServerResponse, { nullable: true })
   async editProfile(
-    @Arg("data") data: EditProfileData,
+    @Arg('data') data: EditProfileData,
     @Ctx() { auth: { userData } }: Context
   ): Promise<ServerResponse> {
-    const id = userData.id;
-    const user = await User.findOneBy({ id, is_verified: true });
+    const id = userData.id
+    const user = await User.findOneBy({ id, is_verified: true })
 
     if (!user) {
-      throw new NotFoundError("User tidak ditemukan");
+      throw new NotFoundError('User tidak ditemukan')
     }
 
     await User.update(user.id, {
@@ -48,31 +49,31 @@ export class UserResolver {
 
     return {
       success: true,
-      message: "Berhasil Update Profil",
+      message: 'Berhasil Update Profil',
       data: JSON.stringify(user),
-    };
+    }
   }
 
   @Authorized()
   @Mutation(() => ServerResponse, { nullable: true })
   async editPassword(
-    @Arg("data") data: EditPaswordData,
+    @Arg('data') data: EditPaswordData,
     @Ctx() { auth: { userData } }: Context
   ): Promise<ServerResponse> {
-    const id = userData.id;
-    const user = await User.findOneBy({ id, is_verified: true });
+    const id = userData.id
+    const user = await User.findOneBy({ id, is_verified: true })
 
     if (!user) {
-      throw new NotFoundError("User tidak ditemukan");
+      throw new NotFoundError('User tidak ditemukan')
     }
 
     const result = await bcrypt.compare(data.old_password, user.password!)
     if (!result) {
-      throw new UnauthorizedError("Password salah");
+      throw new UnauthorizedError('Password salah')
     }
 
     if (data.new_password !== data.password_confirmation) {
-      throw new InvalidInputError("Password dan konfirmasi tidak sama");
+      throw new InvalidInputError('Password dan konfirmasi tidak sama')
     }
 
     await User.update(user.id, {
@@ -81,62 +82,63 @@ export class UserResolver {
 
     return {
       success: true,
-      message: "Berhasil update password",
+      message: 'Berhasil update password',
       data: JSON.stringify(user),
-    };
+    }
   }
 
   @Mutation(() => ServerResponse)
   async register(
-    @Arg("email") email: string,
+    @Arg('email') email: string,
   ): Promise<ServerResponse> {
     const user_check = await User.findOneBy({ email, is_verified: true })
     if (user_check) {
-      throw new DuplicateEntryError("Email sudah terdaftar");
+      throw new DuplicateEntryError('Email sudah terdaftar')
     }
-    const hash = crypto.createHash('sha256');
-    const data = `${email}${Date.now()}`;
-    hash.update(data);
-    const sha256Hash = hash.digest('hex');
-    console.log(sha256Hash);
+    const hash = crypto.createHash('sha256')
+    const data = `${email}${Date.now()}`
+    hash.update(data)
+    const sha256Hash = hash.digest('hex')
+    console.log(sha256Hash)
 
-    let user = await User.findOneBy({ email });
+    let user = await User.findOneBy({ email })
     if (user) {
-      await User.update(user.id, { hash: sha256Hash });
+      await User.update(user.id, { hash: sha256Hash })
     } else {
-      user = await User.create({ email, hash: sha256Hash }).save();
+      user = await User.create({ email, hash: sha256Hash }).save()
     }
-    const gmail = new GmailService();
+    const gmail = new GmailService()
     
     await gmail.sendConfirmationMail(email, sha256Hash)
-    return {
+    
+return {
       success: true,
-      message: "Silahkan konfirmasi akun anda melalui email yang sudah dikirim ke akun email anda",
+      message: 'Silahkan konfirmasi akun anda melalui email yang sudah dikirim ke akun email anda',
       data: JSON.stringify(user),
-    };
+    }
   }
 
   @Query(() => User, { nullable: true })
   async checkVerifyCode(
-    @Arg("code") code: string,
+    @Arg('code') code: string,
   ): Promise<User> {
-    const user = await User.findOneBy({ hash: code, is_verified: false });
+    const user = await User.findOneBy({ hash: code, is_verified: false })
 
     if (!user) {
-      throw new NotFoundError("Kode tidak valid atau sudah kadaluarsa");
+      throw new NotFoundError('Kode tidak valid atau sudah kadaluarsa')
     }
 
-    return user;
+    return user
   }
 
   @Query(() => AuthToken, { nullable: true })
   async refreshToken(
-    @Arg("refresh_token") refresh_token: string,
+    @Arg('refresh_token') refresh_token: string,
   ): Promise<AuthToken> {
-    const user = await User.findOneBy({ refresh_token, is_verified: true });
+    const user = await User.findOneBy({ refresh_token, is_verified: true })
 
     if (!user) {
-      throw new NotFoundError("User tidak ditemukan");
+      throw new NotFoundError('User tidak ditemukan')
     }
 
     const token = generateAccessToken(user)
@@ -144,26 +146,26 @@ export class UserResolver {
     return {
       token,
       refresh_token: user.refresh_token
-    };
+    }
   }
 
   @Mutation(() => ServerResponse, { nullable: true })
   async verifyUser(
-    @Arg("id") id: number,
-    @Arg("data") data: VerifyData,
+    @Arg('id') id: number,
+    @Arg('data') data: VerifyData,
   ): Promise<ServerResponse> {
-    const user = await User.findOneBy({ id });
+    const user = await User.findOneBy({ id })
 
     if (!user) {
-      throw new NotFoundError("User tidak ditemukan");
+      throw new NotFoundError('User tidak ditemukan')
     }
 
     if (user.is_verified) {
-      throw new DuplicateEntryError("User sudah terverifikasi");
+      throw new DuplicateEntryError('User sudah terverifikasi')
     }
 
     if (data.password !== data.password_confirmation) {
-      throw new InvalidInputError("Password dan konfirmasi tidak sama");
+      throw new InvalidInputError('Password dan konfirmasi tidak sama')
     }
 
     await User.update(user.id, { 
@@ -172,10 +174,10 @@ export class UserResolver {
       phone: data.phone,
       password: await hashPassword(data.password),
       is_verified: true 
-    });
+    })
 
     //insert refresh token
-    const newUser = await User.findOneByOrFail({ id });
+    const newUser = await User.findOneByOrFail({ id })
 
     const refresh_token = jwt.sign({userData: newUser}, env.get('JWT_REFRESH_SECRET').required().asString())
 
@@ -183,38 +185,38 @@ export class UserResolver {
 
     return {
       success: true,
-      message: "Berhasil mendaftarkan akun",
+      message: 'Berhasil mendaftarkan akun',
       data: JSON.stringify(user),
-    };
+    }
   }
 
   @Mutation(() => LoginResponse, { nullable: true })
   async login(
-    @Arg("email") email: string,
-    @Arg("password") password: string,
+    @Arg('email') email: string,
+    @Arg('password') password: string,
   ): Promise<LoginResponse> {
-    const user = await User.findOneBy({ email });
+    const user = await User.findOneBy({ email })
 
     if (!user) {
-      throw new NotFoundError("User tidak ditemukan");
+      throw new NotFoundError('User tidak ditemukan')
     }
 
     if (!user.is_verified) {
-      throw new UnauthorizedError("User belum terverifikasi");
+      throw new UnauthorizedError('User belum terverifikasi')
     }
 
     const result = await bcrypt.compare(password, user.password!)
     if (!result) {
-      throw new UnauthorizedError("Password salah");
+      throw new UnauthorizedError('Password salah')
     }
 
     const token = generateAccessToken(user)
     
     return {
       success: true,
-      message: "Berhasil login",
+      message: 'Berhasil login',
       token,
       refresh_token: user.refresh_token
-    };
+    }
   }
 }
