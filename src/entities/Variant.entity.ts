@@ -1,8 +1,9 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToMany } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
-import { Product } from '@entity/Product.entity'
-import { Image } from '@entity/Image.entity'
+import { Product } from '../entities/Product.entity'
+import { Image } from '../entities/Image.entity'
 import { TypeormLoader } from 'type-graphql-dataloader'
+
 @ObjectType()
 @Entity({name: 'product_variants'})
 export class Variant extends BaseEntity {
@@ -15,11 +16,11 @@ export class Variant extends BaseEntity {
   name!: string
 
   @Field()
-  @Column({unique: true})
-  price!: string
+  @Column()
+  price!: number
 
   @Field()
-  @Column()
+  @Column({unique: true})
   sku!: string
 
   @Field()

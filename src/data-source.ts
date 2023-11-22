@@ -1,4 +1,8 @@
-export = {
+import { MainSeeder } from './seeder/MainSeeder.seed'
+import { DataSource, DataSourceOptions } from 'typeorm'
+import { SeederOptions } from 'typeorm-extension'
+
+const config: DataSourceOptions & SeederOptions = {
   type: 'mysql',
   host: 'localhost',
   port: 3306,
@@ -11,7 +15,7 @@ export = {
   entities: [`${__dirname}/**/entities/**/*.ts`],
   migrations: [`${__dirname}/**/migration/**/*.ts`],
   subscribers: [`${__dirname}/**/subscriber/**/*.ts`],
-  seeds: [`${__dirname}/**/seeds/**/*{.ts,.js}`],
+  seeds: [MainSeeder],
   charset: 'utf8mb4_unicode_ci',
 
   // cli: {
@@ -20,3 +24,4 @@ export = {
   //   "subscribersDir": "src/subscriber"
   // }
 }
+export const AppDataSource = new DataSource(config)

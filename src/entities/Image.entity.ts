@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
-import { Variant } from '@entity/Variant.entity'
+import { Variant } from '../entities/Variant.entity'
 import { TypeormLoader } from 'type-graphql-dataloader'
 import { Product } from './Product.entity'
 

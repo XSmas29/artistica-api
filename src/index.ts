@@ -2,15 +2,14 @@ import express from 'express'
 import { ApolloServer } from '@apollo/server'
 import { expressMiddleware } from '@apollo/server/express4'
 import { buildSchema } from 'type-graphql'
-import { DataSource } from 'typeorm'
+import { DataSource, DataSourceOptions } from 'typeorm'
 import * as env from 'env-var'
 import { UserResolver } from './resolvers/User.resolver'
 import  dotenv from 'dotenv'
 import { authChecker } from '@utils/auth'
 import cors from 'cors'
 import jwt from 'jsonwebtoken'
-import config from 'ormconfig'
-
+import { AppDataSource } from './data-source'
 dotenv.config()
 
 const main = async () => {
@@ -19,8 +18,6 @@ const main = async () => {
   app.use(cors())
 
   const port = env.get('PORT').required().asPortNumber()
-  
-  const AppDataSource = new DataSource(config)
 
   await AppDataSource.initialize()
   

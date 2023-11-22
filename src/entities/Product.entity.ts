@@ -1,8 +1,9 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToMany } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
-import { Variant } from '@entity/Variant.entity'
+import { Variant } from '../entities/Variant.entity'
 import { TypeormLoader } from 'type-graphql-dataloader'
 import { Image } from './Image.entity'
+
 @ObjectType()
 @Entity({name: 'products'})
 export class Product extends BaseEntity {
@@ -15,7 +16,7 @@ export class Product extends BaseEntity {
   name!: string
 
   @Field()
-  @Column()
+  @Column({length:'1000', collation: 'utf8mb4_bin'})
   description!: string
 
   @Field()
