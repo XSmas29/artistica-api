@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 
 @ObjectType()
@@ -42,6 +42,14 @@ export class User extends BaseEntity {
   @Field()
   @CreateDateColumn()
   created_at!: Date
+
+  @Field()
+  @UpdateDateColumn()
+  updated_at!: Date
+
+  @Field()
+  @DeleteDateColumn()
+  deleted_at!: Date
 
   @Column({nullable: true, length: 1000})
   refresh_token!: string
