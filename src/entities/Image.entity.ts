@@ -13,7 +13,7 @@ export class Image extends BaseEntity {
 
   @Field()
   @Column()
-  name!: string
+  path!: string
 
   @Field(() => Variant, {nullable: true})
   @TypeormLoader()
