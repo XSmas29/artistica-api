@@ -1,8 +1,10 @@
 import { DataSource } from 'typeorm'
 import { runSeeder, Seeder } from 'typeorm-extension'
-import VariantSeeder from './Variant.seed'
-import ProductSeeder from './Product.seed'
-import ImageSeeder from './Image.seed'
+import VariantSeeder from '@seeder/Variant.seed'
+import ProductSeeder from '@seeder/Product.seed'
+import MaterialSeeder from '@seeder/Material.seed'
+import CategorySeeder from '@seeder/Category.seed'
+import ImageSeeder from '@seeder/Image.seed'
 
 export class MainSeeder implements Seeder {
 	async run(
@@ -11,5 +13,7 @@ export class MainSeeder implements Seeder {
 		await runSeeder(dataSource, ProductSeeder)
 		await runSeeder(dataSource, VariantSeeder)
 		await runSeeder(dataSource, ImageSeeder)
+		await runSeeder(dataSource, MaterialSeeder)
+		await runSeeder(dataSource, CategorySeeder)
 	}
 }

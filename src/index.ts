@@ -2,14 +2,14 @@ import express from 'express'
 import { ApolloServer } from '@apollo/server'
 import { expressMiddleware } from '@apollo/server/express4'
 import { buildSchema } from 'type-graphql'
-import { DataSource, DataSourceOptions } from 'typeorm'
 import * as env from 'env-var'
-import { UserResolver } from './resolvers/User.resolver'
+import { UserResolver } from '@resolver/User.resolver'
 import  dotenv from 'dotenv'
 import { authChecker } from '@utils/auth'
 import cors from 'cors'
 import jwt from 'jsonwebtoken'
 import { AppDataSource } from './data-source'
+import { ProductResolver } from './resolvers/Product.resolver'
 dotenv.config()
 
 const main = async () => {
@@ -23,7 +23,7 @@ const main = async () => {
   
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [UserResolver],
+      resolvers: [UserResolver, ProductResolver],
       validate: false,
       authChecker: authChecker,
     }),

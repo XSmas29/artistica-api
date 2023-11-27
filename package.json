@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --watch --transpile-only src/index.ts",
-    "seed:initial": "ts-node ./node_modules/typeorm-extension/bin/cli.cjs seed:run -d ./src/data-source.ts",
+    "seed:initial": "ts-node -r tsconfig-paths/register ./node_modules/typeorm-extension/bin/cli.cjs seed:run -d ./src/data-source.ts",
     "build": "tsc",
     "start": "node dist/index.js"
   },
