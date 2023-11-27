@@ -10,6 +10,7 @@ import cors from 'cors'
 import jwt from 'jsonwebtoken'
 import { AppDataSource } from './data-source'
 import { ProductResolver } from './resolvers/Product.resolver'
+import { ApolloServerLoaderPlugin } from '@xsmas29/type-graphql-dataloader'
 dotenv.config()
 
 const main = async () => {
@@ -24,19 +25,26 @@ const main = async () => {
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
       resolvers: [UserResolver, ProductResolver],
-      validate: false,
+      validate: true,
       authChecker: authChecker,
     }),
+    
+    plugins: [ 
+      ApolloServerLoaderPlugin({ typeormGetConnection() {
+          return AppDataSource
+      }, })
+    ],
+
   })
   await apolloServer.start()
 
   app.use('/graphql',
     expressMiddleware(apolloServer, {
-      context: async context => {
+      context: async requestContext => {
         return {
-          req: context.req,
-          res: context.res,
-          auth: jwt.decode(context.req.headers.authorization || '')
+          req: requestContext.req,
+          res: requestContext.res,
+          auth: jwt.decode(requestContext.req.headers.authorization || '')
         }
       },
     })

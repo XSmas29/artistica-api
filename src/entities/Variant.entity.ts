@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToMan
 import { ObjectType, Field } from 'type-graphql'
 import { Product } from '@entity/Product.entity'
 import { Image } from '@entity/Image.entity'
-import { TypeormLoader } from 'type-graphql-dataloader'
+import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 
 @ObjectType()
 @Entity({name: 'product_variants'})
