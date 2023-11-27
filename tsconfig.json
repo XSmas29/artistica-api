@@ -11,6 +11,9 @@
       "@entity/*": [
         "src/entities/*"
       ],
+      "@resolver/*": [
+        "src/resolvers/*"
+      ],
       "@utils/*": [
         "src/utils/*"
       ],

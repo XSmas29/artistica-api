@@ -1,8 +1,8 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
-import { Variant } from '../entities/Variant.entity'
+import { Variant } from '@entity/Variant.entity'
 import { TypeormLoader } from 'type-graphql-dataloader'
-import { Product } from './Product.entity'
+import { Product } from '@entity/Product.entity'
 
 @ObjectType()
 @Entity({name: 'product_images'})

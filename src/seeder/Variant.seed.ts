@@ -1,12 +1,11 @@
-import { Product } from '../entities/Product.entity'
-import { Variant } from '../entities/Variant.entity'
+import { Product } from '@entity/Product.entity'
+import { Variant } from '@entity/Variant.entity'
 import { Seeder } from 'typeorm-extension'
 
 // ...
 
 export default class VariantSeed implements Seeder {
   public async run(): Promise<void> {
-    console.log('Seeding variants...')
     const data: Variant[] = [
       {
         id: 1,

@@ -1,4 +1,4 @@
-import { MainSeeder } from './seeder/MainSeeder.seed'
+import { MainSeeder } from '@seeder/MainSeeder.seed'
 import { DataSource, DataSourceOptions } from 'typeorm'
 import { SeederOptions } from 'typeorm-extension'
 

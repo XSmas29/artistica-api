@@ -25,7 +25,7 @@ export class UserResolver {
       throw new NotFoundError('User tidak ditemukan')
     }
     
-return user
+    return user
   }
 
   @Authorized()

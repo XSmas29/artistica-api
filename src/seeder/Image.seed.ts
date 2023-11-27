@@ -1,6 +1,6 @@
-import { Image } from '../entities/Image.entity'
-import { Variant } from '../entities/Variant.entity'
-import { Product } from '../entities/Product.entity'
+import { Image } from '@entity/Image.entity'
+import { Variant } from '@entity/Variant.entity'
+import { Product } from '@entity/Product.entity'
 import { Seeder } from 'typeorm-extension'
 
 // ...

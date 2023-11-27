@@ -1,4 +1,4 @@
-import { Product } from '../entities/Product.entity'
+import { Product } from '@entity/Product.entity'
 import { Seeder } from 'typeorm-extension'
 
 // ...
