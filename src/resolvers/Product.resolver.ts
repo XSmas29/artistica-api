@@ -22,7 +22,10 @@ export class ProductResolver {
     productsQuery.limit(pagination.limit)
     productsQuery.offset(pagination.offset * pagination.limit)
     
+    // productsQuery.leftJoinAndSelect('products.material', 'mtr')
+
     const products = await productsQuery.getMany()
+    console.log(products)
 
     return products
   }

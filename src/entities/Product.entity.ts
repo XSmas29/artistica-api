@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToMany, ManyToOne } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { Variant } from '@entity/Variant.entity'
-import { TypeormLoader } from 'type-graphql-dataloader'
+import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { Image } from '@entity/Image.entity'
 import { Category } from '@entity/Category.entity'
 import { Material } from '@entity/Material.entity'
