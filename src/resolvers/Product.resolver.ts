@@ -1,32 +1,86 @@
 import { Product } from '@entity/Product.entity'
-import { filterProducts, pagination, sort } from '@utils/params'
-import { Arg, Query, Resolver } from 'type-graphql'
+import { pagination, sort } from '@utils/params'
+import { Arg, FieldResolver, Query, Resolver, Root } from 'type-graphql'
+import * as env from 'env-var'
+import { Image } from '@entity/Image.entity'
+import { Loader } from '@xsmas29/type-graphql-dataloader'
+import { Brackets, In } from 'typeorm'
+import { groupBy } from 'lodash'
+import DataLoader from 'dataloader'
+import { filterProducts, ProductList } from '@utils/product.type'
+import { Variant } from '@entity/Variant.entity'
 
 @Resolver(Product)
 export class ProductResolver {
-  @Query(() => [Product])
+  @FieldResolver()
+  @Loader<number, Image[]>(async ids => {
+    const images = await Image.find({
+      where: { product: { id: In([...ids]) } },
+      relations: ['product'],
+    })
+    const base_url = env.get('BASE_URL').required().asString()
+    images.forEach(image => image.path = `${base_url}/products/${image.product!.id.toString()}/${image.path}`)
+    const imagesById = groupBy(images, 'product.id')
+
+    return ids.map(id => imagesById[id] ?? [])
+  })
+  images(@Root() root: Product) {
+    return (dataloader: DataLoader<number, Image[]>) =>
+      dataloader.load(root.id)
+  }
+
+  @Query(() => ProductList)
   async products(
     @Arg('filter') filter: filterProducts,
     @Arg('sort') sort: sort,
     @Arg('pagination') pagination: pagination,
-  ): Promise<Product[]> {
-    const productsQuery = Product.createQueryBuilder('products')
-    
-    filter.price_min && productsQuery.andWhere('products.price >= :price_min', { price_min: filter.price_min })
-    filter.price_max && productsQuery.andWhere('products.price <= :price_max', { price_max: filter.price_max })
-    filter.category_id && productsQuery.andWhere('products.category = :category_id', { category_id: filter.category_id })
-    filter.material_id && productsQuery.andWhere('products.material = :material_id', { material_id: filter.material_id })
-    filter.search && productsQuery.andWhere('products.name LIKE :search', { search: `%${filter.search}%` })
-    
-    productsQuery.orderBy(`products.${sort.field}`, sort.sort)
+  ): Promise<ProductList> {
+    const productsQuery = Product.createQueryBuilder('prod')
+
+    const variant = Variant.createQueryBuilder('var')
+    const min_price = await variant.clone().orderBy('var.price', 'ASC').getOneOrFail()
+    const max_price = await variant.clone().orderBy('var.price', 'DESC').getOneOrFail()
+
+    filter.price_min && productsQuery.andWhere(qb => {
+      const subQuery = qb.subQuery()
+        .select('count(*)')
+        .from(Variant, 'var')
+        .where('var.price >= :price_min', { price_min: filter.price_min })
+        .andWhere('var.product = prod.id')
+        .getQuery()
+        
+        return subQuery + ' > 0'
+    })
+    filter.price_max && productsQuery.andWhere(qb => {
+      const subQuery = qb.subQuery()
+        .select('count(*)')
+        .from(Variant, 'var')
+        .where('var.price <= :price_max', { price_max: filter.price_max })
+        .andWhere('var.product = prod.id')
+        .getQuery()
+        
+        return subQuery + ' > 0'
+    })
+    filter.category_ids && filter.category_ids.length > 0 && productsQuery.andWhere('prod.category IN (:c_ids)', { c_ids: filter.category_ids })
+    filter.material_ids && filter.material_ids.length > 0 && productsQuery.andWhere('prod.material IN (:m_ids)', { m_ids: filter.material_ids })
+    filter.search && productsQuery.andWhere('prod.name LIKE :search', { search: `%${filter.search}%` })
+
+    productsQuery.orderBy(`prod.${sort.field}`, sort.sort)
+
     productsQuery.limit(pagination.limit)
-    productsQuery.offset(pagination.offset * pagination.limit)
+
+    // productsQuery.offset(pagination.offset * pagination.limit)
+    console.log(productsQuery.getQueryAndParameters())
+
+    const products = await productsQuery.getManyAndCount()
+
+    console.log(products[0].length)
     
-    // productsQuery.leftJoinAndSelect('products.material', 'mtr')
-
-    const products = await productsQuery.getMany()
-    console.log(products)
-
-    return products
+return {
+      count: products[1],
+      products: products[0],
+      price_min:  min_price.price,
+      price_max:  max_price.price,
+    }
   }
 }
