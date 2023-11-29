@@ -5,7 +5,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     /* Modules */
-    "module": "commonjs",
+    "module": "NodeNext",
     "baseUrl": ".",
     "paths": {
       "@entity/*": [

@@ -21,7 +21,7 @@
                 "maxEOF": 1
             }
         ],
-        "linebreak-style": "off",
+        "linebreak-style": "warn",
         "quotes": [
             "error",
             "single"
