@@ -11,12 +11,15 @@ import jwt from 'jsonwebtoken'
 import { AppDataSource } from './data-source'
 import { ProductResolver } from './resolvers/Product.resolver'
 import { ApolloServerLoaderPlugin } from '@xsmas29/type-graphql-dataloader'
+import { MaterialResolver } from '@resolver/Material.resolver'
+import { CategoryResolver } from '@resolver/Category.resolver'
 dotenv.config()
 
 const main = async () => {
   const app = express()
   app.use(express.json())
   app.use(cors())
+  app.use(express.static('public'))
 
   const port = env.get('PORT').required().asPortNumber()
 
@@ -24,7 +27,7 @@ const main = async () => {
   
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [UserResolver, ProductResolver],
+      resolvers: [UserResolver, ProductResolver, MaterialResolver, CategoryResolver],
       validate: true,
       authChecker: authChecker,
     }),
