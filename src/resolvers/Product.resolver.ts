@@ -86,7 +86,7 @@ export class ProductResolver {
 
     productsQuery.limit(pagination.limit)
 
-    // productsQuery.offset(pagination.offset * pagination.limit)
+    productsQuery.offset((pagination.page - 1) * pagination.limit)
     console.log(productsQuery.getQueryAndParameters())
 
     const products = await productsQuery.getManyAndCount()

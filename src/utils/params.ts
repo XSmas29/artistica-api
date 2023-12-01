@@ -39,7 +39,7 @@ class pagination {
   @Field()
   limit!: number
   @Field()
-  offset!: number
+  page!: number
 }
 
 @InputType()
