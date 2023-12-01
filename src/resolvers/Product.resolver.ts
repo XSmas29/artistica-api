@@ -65,7 +65,24 @@ export class ProductResolver {
     filter.material_ids && filter.material_ids.length > 0 && productsQuery.andWhere('prod.material IN (:m_ids)', { m_ids: filter.material_ids })
     filter.search && productsQuery.andWhere('prod.name LIKE :search', { search: `%${filter.search}%` })
 
-    productsQuery.orderBy(`prod.${sort.field}`, sort.sort)
+    if (sort.field === 'price') {
+      productsQuery.addSelect(subQuery => {
+        return subQuery
+          .select('MIN(var.price)')
+          .from(Variant, 'var')
+          .where('var.product = prod.id')
+      }, 'min_price')
+      productsQuery.addSelect(subQuery => {
+        return subQuery
+          .select('MAX(var.price)')
+          .from(Variant, 'var')
+          .where('var.product = prod.id')
+      }, 'max_price')
+      productsQuery.orderBy(`${sort.sort === 'ASC' ? 'min_price' : 'max_price'}`, sort.sort)
+    }
+    else {
+      productsQuery.orderBy(`prod.${sort.field}`, sort.sort)
+    }
 
     productsQuery.limit(pagination.limit)
 
