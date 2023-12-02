@@ -13,6 +13,7 @@ import { ProductResolver } from './resolvers/Product.resolver'
 import { ApolloServerLoaderPlugin } from '@xsmas29/type-graphql-dataloader'
 import { MaterialResolver } from '@resolver/Material.resolver'
 import { CategoryResolver } from '@resolver/Category.resolver'
+import { VariantResolver } from '@resolver/Variant.resolver'
 dotenv.config()
 
 const main = async () => {
@@ -27,7 +28,7 @@ const main = async () => {
   
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [UserResolver, ProductResolver, MaterialResolver, CategoryResolver],
+      resolvers: [UserResolver, ProductResolver, MaterialResolver, CategoryResolver, VariantResolver],
       validate: true,
       authChecker: authChecker,
     }),
