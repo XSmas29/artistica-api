@@ -4,7 +4,7 @@ import { Arg, FieldResolver, Query, Resolver, Root } from 'type-graphql'
 import * as env from 'env-var'
 import { Image } from '@entity/Image.entity'
 import { Loader } from '@xsmas29/type-graphql-dataloader'
-import { Brackets, In } from 'typeorm'
+import { In } from 'typeorm'
 import { groupBy } from 'lodash'
 import DataLoader from 'dataloader'
 import { filterProducts, ProductList } from '@utils/product.type'
@@ -99,5 +99,18 @@ return {
       price_min:  min_price.price,
       price_max:  max_price.price,
     }
+  }
+  
+  @Query(() => Product)
+  async productDetail(
+    @Arg('id') id: number,
+  ): Promise<Product> {
+    const product = await Product.createQueryBuilder('prod')
+      .leftJoinAndSelect('prod.variants', 'var')
+      .leftJoinAndSelect('var.images', 'vimg')
+      .where('prod.id = :id', { id })
+      .getOneOrFail()
+    
+    return product
   }
 }
