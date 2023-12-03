@@ -85,15 +85,11 @@ export class ProductResolver {
     }
 
     productsQuery.limit(pagination.limit)
-
     productsQuery.offset((pagination.page - 1) * pagination.limit)
-    console.log(productsQuery.getQueryAndParameters())
 
     const products = await productsQuery.getManyAndCount()
-
-    console.log(products[0].length)
     
-return {
+    return {
       count: products[1],
       products: products[0],
       price_min:  min_price.price,
@@ -106,8 +102,6 @@ return {
     @Arg('id') id: number,
   ): Promise<Product> {
     const product = await Product.createQueryBuilder('prod')
-      .leftJoinAndSelect('prod.variants', 'var')
-      .leftJoinAndSelect('var.images', 'vimg')
       .where('prod.id = :id', { id })
       .getOneOrFail()
     

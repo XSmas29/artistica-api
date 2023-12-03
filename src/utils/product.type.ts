@@ -29,5 +29,5 @@ class filterProducts {
 
 export {
   ProductList,
-  filterProducts
+  filterProducts,
 }

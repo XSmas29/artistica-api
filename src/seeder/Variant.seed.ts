@@ -9,7 +9,7 @@ export default class VariantSeed implements Seeder {
     const data: Variant[] = [
       {
         id: 1,
-        name: 'Butterfly Earring Rose Gold, Single variant',
+        name: 'Single variant',
         price: 90000,
         sku: 'S16771244441',
         stock: 268,
@@ -17,7 +17,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 2,
-        name: 'Butterfly Earring Gold, Single variant',
+        name: 'Single variant',
         price: 90000,
         sku: 'S16771243091',
         stock: 267,
@@ -25,7 +25,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 3,
-        name: 'Chain Earrings, Single variant',
+        name: 'Single variant',
         price: 90000,
         sku: 'S16771239631',
         stock: 269,
@@ -33,7 +33,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 4,
-        name: 'Chan Earrings, Single variant',
+        name: 'Single variant',
         price: 90000,
         sku: 'S16771230341',
         stock: 270,
@@ -41,7 +41,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 5,
-        name: 'Tiffany Necklace, Single variant',
+        name: 'Single variant',
         price: 125000,
         sku: 'S16771216551',
         stock: 300,
@@ -49,7 +49,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 6,
-        name: 'Gems Two Necklace, Single variant',
+        name: 'Single variant',
         price: 125000,
         sku: 'S16771209411',
         stock: 300,
@@ -57,7 +57,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 7,
-        name: 'Greenbelle Necklace, Single variant',
+        name: 'Single variant',
         price: 125000,
         sku: 'S16771206661',
         stock: 30,
@@ -65,7 +65,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 8,
-        name: 'Dalmi 2in1 Necklace, Single variant',
+        name: 'Single variant',
         price: 125000,
         sku: 'S16771201141',
         stock: 50,
@@ -73,7 +73,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 9,
-        name: 'Ceren Ring, Single variant',
+        name: 'Single variant',
         price: 60000,
         sku: 'S16752381461',
         stock: 50,
@@ -81,7 +81,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 10,
-        name: 'Casey Ring, Single variant',
+        name: 'Single variant',
         price: 60000,
         sku: 'S16752371321',
         stock: 30,
@@ -89,7 +89,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 11,
-        name: 'BULCHNI RING, gold',
+        name: 'Gold',
         price: 60000,
         sku: 'S16752274721',
         stock: 50,
@@ -97,7 +97,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 12,
-        name: 'Dami Ring, Single variant',
+        name: 'Single variant',
         price: 60000,
         sku: 'S16751494281',
         stock: 20,
@@ -105,7 +105,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 13,
-        name: 'Korean Ring Woman Rose-Stainless Steel, gold',
+        name: 'Gold',
         price: 100000,
         sku: 'S16740349561',
         stock: 10,
@@ -113,7 +113,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 14,
-        name: 'Ring Love rose small-Stainless Steel, Black',
+        name: 'Black',
         price: 100000,
         sku: 'S16740348461',
         stock: 20,
@@ -121,7 +121,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 15,
-        name: 'Bracelet night butterfly_Stanless steel, Single variant',
+        name: 'Single variant',
         price: 90000,
         sku: 'S16740346211',
         stock: 10,
@@ -129,7 +129,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 16,
-        name: 'bracelet woman Strong -stainless steel, Single variant',
+        name: 'Single variant',
         price: 160000,
         sku: 'S16740345411',
         stock: 10,
@@ -137,7 +137,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 17,
-        name: 'Lyra bracelet woman_Stanless steel, gold',
+        name: 'Gold',
         price: 95000,
         sku: 'S16740340911',
         stock: 10,
@@ -145,7 +145,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 18,
-        name: 'Lyra bracelet woman_Stanless steel, rose',
+        name: 'Rose',
         price: 95000,
         sku: 'S16740340912',
         stock: 10,
@@ -153,7 +153,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 19,
-        name: 'Julia Necklace woman -stainless steel, Single variant',
+        name: 'Single variant',
         price: 95000,
         sku: 'S16740334911',
         stock: 10,
@@ -161,7 +161,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 20,
-        name: 'Varya bracelet woman -stainless steel, Single variant',
+        name: 'Single variant',
         price: 95000,
         sku: 'S16740332651',
         stock: 10,
@@ -169,7 +169,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 21,
-        name: 'sephia bracelet woman -stainless steel, gold',
+        name: 'Gold',
         price: 95000,
         sku: 'S16740248011',
         stock: 20,
@@ -177,7 +177,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 22,
-        name: 'sephia bracelet woman -stainless steel, silver',
+        name: 'Silver',
         price: 95000,
         sku: 'S16740251151',
         stock: 0,
@@ -185,7 +185,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 23,
-        name: 'celeste necklace woman -stainless steel, Black',
+        name: 'Black',
         price: 95000,
         sku: 'S16740077501',
         stock: 10,
@@ -193,7 +193,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 24,
-        name: 'celeste necklace woman -stainless steel, white',
+        name: 'White',
         price: 95000,
         sku: 'S16740077502',
         stock: 10,
@@ -201,7 +201,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 25,
-        name: 'Riana Necklace woman -stainless steel, rose',
+        name: 'Rose',
         price: 95000,
         sku: 'S16739497841',
         stock: 20,
@@ -209,7 +209,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 26,
-        name: 'Riana Necklace woman -stainless steel, gold',
+        name: 'Gold',
         price: 95000,
         sku: 'S16739497981',
         stock: 10,
@@ -217,7 +217,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 27,
-        name: 'Maria Necklace woman -stainless steel, rose',
+        name: 'Rose',
         price: 95000,
         sku: 'S16739489421',
         stock: 10,
@@ -225,7 +225,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 28,
-        name: 'Maria Necklace woman -stainless steel, gold',
+        name: 'Gold',
         price: 65000,
         sku: 'S16739489422',
         stock: 10,
@@ -233,7 +233,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 29,
-        name: 'Maria Necklace woman -stainless steel, silver',
+        name: 'Silver',
         price: 95000,
         sku: 'S16740112111',
         stock: 10,
@@ -241,7 +241,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 30,
-        name: 'Alea Necklace woman -stainless steel, rose',
+        name: 'Rose',
         price: 95000,
         sku: 'S16739485541',
         stock: 10,
@@ -249,7 +249,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 31,
-        name: 'Alea Necklace woman -stainless steel, silver',
+        name: 'Silver',
         price: 95000,
         sku: 'S16739486421',
         stock: 10,
@@ -257,7 +257,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 32,
-        name: 'Ring loving woman -Stainless Steel, gold',
+        name: 'Gold',
         price: 100000,
         sku: 'S16739432581',
         stock: 20,
@@ -265,7 +265,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 33,
-        name: 'Ring loving woman -Stainless Steel, silver',
+        name: 'Silver',
         price: 100000,
         sku: 'S16739432582',
         stock: 20,
@@ -273,7 +273,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 34,
-        name: 'Ring loving woman -Stainless Steel, rose',
+        name: 'Rose',
         price: 100000,
         sku: 'S16739432583',
         stock: 20,
@@ -281,7 +281,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 35,
-        name: 'Necklace shybird Gold-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 97000,
         sku: 'S16739396491',
         stock: 10,
@@ -289,7 +289,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 36,
-        name: 'Bracelet Antiquity Woman Rose-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 95000,
         sku: 'S16736035381',
         stock: 10,
@@ -297,7 +297,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 37,
-        name: 'Eternity Ring Woman SIlver-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 93000,
         sku: 'S16736031051',
         stock: 10,
@@ -305,7 +305,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 38,
-        name: 'Korean Ring Woman Rose-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 60000,
         sku: 'S16736028061',
         stock: 10,
@@ -313,7 +313,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 39,
-        name: 'Ring Love rose-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 60000,
         sku: 'S16736007121',
         stock: 10,
@@ -321,7 +321,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 40,
-        name: 'Dahlia Leaf Bross Gold-Stainless steel, Single variant',
+        name: 'Single variant',
         price: 35000,
         sku: 'S16735177831',
         stock: 10,
@@ -329,7 +329,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 41,
-        name: 'Jena Bross Gold-Stainless steel, Single variant',
+        name: 'Single variant',
         price: 55000,
         sku: 'S16735174901',
         stock: 10,
@@ -337,7 +337,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 42,
-        name: 'Aleya Broos Stainless steel Collection, 01',
+        name: '01',
         price: 55000,
         sku: 'S16734187601',
         stock: 10,
@@ -345,7 +345,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 43,
-        name: 'Aleya Broos Stainless steel Collection, 02',
+        name: '02',
         price: 55000,
         sku: 'S16734193951',
         stock: 10,
@@ -353,7 +353,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 44,
-        name: 'Aleya Broos Stainless steel Collection, 03',
+        name: '03',
         price: 55000,
         sku: 'S16734193952',
         stock: 10,
@@ -361,7 +361,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 45,
-        name: 'Aleya Broos Stainless steel Collection, 04',
+        name: '04',
         price: 55000,
         sku: 'S16734193953',
         stock: 10,
@@ -369,7 +369,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 46,
-        name: 'Aleya Broos Stainless steel Collection, 05',
+        name: '05',
         price: 55000,
         sku: 'S16734193954',
         stock: 10,
@@ -377,7 +377,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 47,
-        name: 'Aleya Broos Stainless steel Collection, 06',
+        name: '06',
         price: 55000,
         sku: 'S16734193955',
         stock: 10,
@@ -385,7 +385,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 48,
-        name: 'Aleya Broos Stainless steel Collection, 07',
+        name: '07',
         price: 55000,
         sku: 'S16734193956',
         stock: 10,
@@ -393,7 +393,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 49,
-        name: 'Aleya Broos Stainless steel Collection, 08',
+        name: '08',
         price: 55000,
         sku: 'S16734193957',
         stock: 10,
@@ -401,7 +401,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 50,
-        name: 'Aleya Broos Stainless steel Collection, 09',
+        name: '09',
         price: 55000,
         sku: 'S16734193958',
         stock: 10,
@@ -409,7 +409,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 51,
-        name: 'Aleya Broos Stainless steel Collection, 10',
+        name: '10',
         price: 55000,
         sku: 'S16734193959',
         stock: 10,
@@ -417,7 +417,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 52,
-        name: 'Aleya Broos Stainless steel Collection, 11',
+        name: '11',
         price: 55000,
         sku: 'S167341939510',
         stock: 10,
@@ -425,7 +425,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 53,
-        name: 'Aleya Broos Stainless steel Collection, 12',
+        name: '12',
         price: 55000,
         sku: 'S167341939511',
         stock: 10,
@@ -433,7 +433,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 54,
-        name: 'Aleya Broos Stainless steel Collection, 13',
+        name: '13',
         price: 55000,
         sku: 'S167341939512',
         stock: 10,
@@ -441,7 +441,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 55,
-        name: 'Aleya Broos Stainless steel Collection, 14',
+        name: '14',
         price: 55000,
         sku: 'S167341939513',
         stock: 10,
@@ -449,7 +449,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 56,
-        name: 'Aleya Broos Stainless steel Collection, 15',
+        name: '15',
         price: 55000,
         sku: 'S167341939514',
         stock: 10,
@@ -457,7 +457,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 57,
-        name: 'Aleya Broos Stainless steel Collection, 16',
+        name: '16',
         price: 55000,
         sku: 'S167341939515',
         stock: 10,
@@ -465,7 +465,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 58,
-        name: 'Bracelet silver 925-Korean style, Single variant',
+        name: 'Single variant',
         price: 350000,
         sku: 'S16734894931',
         stock: 10,
@@ -473,7 +473,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 59,
-        name: 'Ring love edition-Silver 925, Single variant',
+        name: 'Single variant',
         price: 150000,
         sku: 'S16734884321',
         stock: 10,
@@ -481,7 +481,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 60,
-        name: 'Cincin silver 925-korean style 2, Single variant',
+        name: 'Single variant',
         price: 150000,
         sku: 'S16733313781',
         stock: 100,
@@ -489,7 +489,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 61,
-        name: 'Gelang silver 925-Permata mutiara, Single variant',
+        name: 'Single variant',
         price: 400000,
         sku: 'S16733308011',
         stock: 100,
@@ -497,7 +497,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 62,
-        name: 'Cincin silver 925-Permata putih bulat, Single variant',
+        name: 'Single variant',
         price: 150000,
         sku: 'S16733305781',
         stock: 100,
@@ -505,7 +505,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 63,
-        name: 'Anting silver 925-Model Panjang, Single variant',
+        name: 'Single variant',
         price: 300000,
         sku: 'S16733303231',
         stock: 100,
@@ -513,7 +513,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 64,
-        name: 'Cincin silver 925-Model permata 5, Single variant',
+        name: 'Single variant',
         price: 300000,
         sku: 'S16733300391',
         stock: 90,
@@ -521,7 +521,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 65,
-        name: 'Anting silver 925-Koren style, Single variant',
+        name: 'Single variant',
         price: 300000,
         sku: 'S16733296911',
         stock: 90,
@@ -529,7 +529,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 66,
-        name: 'Cincin silver 925-Permata biru, Single variant',
+        name: 'Single variant',
         price: 250000,
         sku: 'S16733234121',
         stock: 90,
@@ -537,7 +537,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 67,
-        name: 'Cincin silver 925-Permata hitam besar, Single variant',
+        name: 'Single variant',
         price: 150000,
         sku: 'S16733225401',
         stock: 90,
@@ -545,7 +545,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 68,
-        name: 'Cincin silver 925-Permata kuning, Single variant',
+        name: 'Single variant',
         price: 150000,
         sku: 'S16733224221',
         stock: 90,
@@ -553,7 +553,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 69,
-        name: 'Cincin silver 925-style eropa, Single variant',
+        name: 'Single variant',
         price: 350000,
         sku: 'S16733221531',
         stock: 100,
@@ -561,7 +561,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 70,
-        name: 'Cincin silver 925-permata love hitam, Single variant',
+        name: 'Single variant',
         price: 150000,
         sku: 'S16733215941',
         stock: 90,
@@ -569,7 +569,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 71,
-        name: 'Cincin ilver 925-Permata hitam, Single variant',
+        name: 'Single variant',
         price: 165000,
         sku: 'S16733214321',
         stock: 90,
@@ -577,7 +577,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 72,
-        name: 'Kalung silver 925-simplicity collection, Single variant',
+        name: 'Single variant',
         price: 235000,
         sku: 'S16733212661',
         stock: 90,
@@ -585,7 +585,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 73,
-        name: 'Cincin silver 925-Permata hijau, Single variant',
+        name: 'Single variant',
         price: 200000,
         sku: 'S16733211231',
         stock: 90,
@@ -593,7 +593,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 74,
-        name: 'Gelang silver 925-permata queen, Single variant',
+        name: 'Single variant',
         price: 400000,
         sku: 'S16733209131',
         stock: 90,
@@ -601,7 +601,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 75,
-        name: 'Cincin silver 925-Triple ring-triple permata, Single variant',
+        name: 'Single variant',
         price: 300000,
         sku: 'S16733207081',
         stock: 90,
@@ -609,7 +609,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 76,
-        name: 'Anting silver 925-korean style, Single variant',
+        name: 'Single variant',
         price: 250000,
         sku: 'S16733205521',
         stock: 90,
@@ -617,7 +617,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 77,
-        name: 'Kalung silver 925-Korean Style, Single variant',
+        name: 'Single variant',
         price: 400000,
         sku: 'S16733204141',
         stock: 90,
@@ -625,7 +625,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 78,
-        name: 'Cincin silver 925-Queen Ring, Single variant',
+        name: 'Single variant',
         price: 200000,
         sku: 'S16733199201',
         stock: 90,
@@ -633,7 +633,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 79,
-        name: 'Kalung Mutiara Korean Style, Single variant',
+        name: 'Single variant',
         price: 300000,
         sku: 'S16733196911',
         stock: 90,
@@ -641,7 +641,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 80,
-        name: 'Anting silver 925-Model Panjang, Single variant',
+        name: 'Single variant',
         price: 200000,
         sku: 'S16733191921',
         stock: 100,
@@ -649,7 +649,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 81,
-        name: 'Anting Silver 925-europen style, Single variant',
+        name: 'Single variant',
         price: 300000,
         sku: 'S16733190241',
         stock: 90,
@@ -657,7 +657,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 82,
-        name: 'Cincin Silver 925-Triple Ring, Single variant',
+        name: 'Single variant',
         price: 160000,
         sku: 'S16733185881',
         stock: 90,
@@ -665,7 +665,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 83,
-        name: 'Cincin silver 925-Koean Style 2, Single variant',
+        name: 'Single variant',
         price: 300000,
         sku: 'S16733182641',
         stock: 90,
@@ -673,7 +673,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 84,
-        name: 'Anting Silver 925-Korean Style, Single variant',
+        name: 'Single variant',
         price: 200000,
         sku: 'S16733178131',
         stock: 90,
@@ -681,7 +681,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 85,
-        name: 'Cincin Silver 925-Permata Putih, Single variant',
+        name: 'Single variant',
         price: 170000,
         sku: 'S16733173141',
         stock: 80,
@@ -689,7 +689,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 86,
-        name: 'Cincin Silver 925-Permata Hitam, Single variant',
+        name: 'Single variant',
         price: 150000,
         sku: 'S16733169041',
         stock: 90,
@@ -697,7 +697,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 87,
-        name: 'Anting Silver 925-Bulat, Single variant',
+        name: 'Single variant',
         price: 150000,
         sku: 'S16733165871',
         stock: 90,
@@ -705,7 +705,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 88,
-        name: 'Kalung Model Korea terbaru, Single variant',
+        name: 'Single variant',
         price: 150000,
         sku: 'S16729057321',
         stock: 90,
@@ -713,7 +713,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 89,
-        name: 'Gelang Model Korea, Single variant',
+        name: 'Single variant',
         price: 100000,
         sku: 'S16729056671',
         stock: 100,
@@ -721,7 +721,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 90,
-        name: 'Kalung Beaded Collcetion by Artistica, Single variant',
+        name: 'Single variant',
         price: 40000,
         sku: 'S16729052711',
         stock: 100,
@@ -729,7 +729,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 91,
-        name: 'Anting Korean style Silver 925, Single variant',
+        name: 'Single variant',
         price: 250000,
         sku: 'S16729051501',
         stock: 100,
@@ -737,7 +737,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 92,
-        name: 'Gelang cewek model USA, Single variant',
+        name: 'Single variant',
         price: 400000,
         sku: 'S16729050931',
         stock: 100,
@@ -745,7 +745,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 93,
-        name: 'Cincin cowo Keren Silver 925, Single variant',
+        name: 'Single variant',
         price: 200000,
         sku: 'S16729050281',
         stock: 100,
@@ -753,7 +753,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 94,
-        name: 'Cincin Cowok Silver 925, Single variant',
+        name: 'Single variant',
         price: 200000,
         sku: 'S16729049141',
         stock: 100,
@@ -761,7 +761,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 95,
-        name: 'Cincin Eropan style silver 925, Single variant',
+        name: 'Single variant',
         price: 180000,
         sku: 'S16728900631',
         stock: 100,
@@ -769,7 +769,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 96,
-        name: 'Cincin Triple Ring silver 925, Single variant',
+        name: 'Single variant',
         price: 180000,
         sku: 'S16728897961',
         stock: 100,
@@ -777,7 +777,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 97,
-        name: 'Cincin Perak Permata Ungu, Single variant',
+        name: 'Single variant',
         price: 180000,
         sku: 'S16728896361',
         stock: 100,
@@ -785,7 +785,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 98,
-        name: 'Cincin Wanita Model Korea, Single variant',
+        name: 'Single variant',
         price: 180000,
         sku: 'S16728894731',
         stock: 100,
@@ -793,7 +793,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 99,
-        name: 'CIncin Birthstone Ring Silver 925, Single variant',
+        name: 'Single variant',
         price: 180000,
         sku: 'S16728890811',
         stock: 100,
@@ -801,7 +801,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 100,
-        name: 'Cincin Birthstone Ring siilver 925, Single variant',
+        name: 'Single variant',
         price: 180000,
         sku: 'S16728887571',
         stock: 100,
@@ -809,7 +809,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 101,
-        name: 'Cincin Birthstone Ring Silver 925, Single variant',
+        name: 'Single variant',
         price: 180000,
         sku: 'S16728885361',
         stock: 100,
@@ -817,7 +817,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 102,
-        name: 'Cincin Birthstoner ring silver 925, Single variant',
+        name: 'Single variant',
         price: 180000,
         sku: 'S16728879661',
         stock: 100,
@@ -825,7 +825,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 103,
-        name: 'Birthstone ring putih moonston silver 925, Single variant',
+        name: 'Single variant',
         price: 150000,
         sku: 'S16728876861',
         stock: 100,
@@ -833,7 +833,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 104,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, merah garnet',
+        name: 'Merah garnet',
         price: 150000,
         sku: 'S16728156441',
         stock: 100,
@@ -841,7 +841,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 105,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, ungu amethyst',
+        name: 'Ungu amethyst',
         price: 150000,
         sku: 'S16733328561',
         stock: 100,
@@ -849,7 +849,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 106,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, biru aquamarine',
+        name: 'Biru aquamarine',
         price: 150000,
         sku: 'S16733328562',
         stock: 100,
@@ -857,7 +857,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 107,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, putih diamond',
+        name: 'Putih diamond',
         price: 150000,
         sku: 'S16733328563',
         stock: 100,
@@ -865,7 +865,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 108,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, hijau emerald',
+        name: 'Hijau emerald',
         price: 150000,
         sku: 'S16733328564',
         stock: 100,
@@ -873,7 +873,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 109,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, putih moonstone',
+        name: 'Putih moonstone',
         price: 150000,
         sku: 'S16733328565',
         stock: 100,
@@ -881,7 +881,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 110,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, biru sapphire',
+        name: 'Biru sapphire',
         price: 150000,
         sku: 'S16733328566',
         stock: 100,
@@ -889,7 +889,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 111,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, yellow citrine',
+        name: 'Yellow citrine',
         price: 150000,
         sku: 'S16733328567',
         stock: 90,
@@ -897,7 +897,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 112,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, hijau peridot',
+        name: 'Hijau peridot',
         price: 150000,
         sku: 'S16733328568',
         stock: 100,
@@ -905,7 +905,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 113,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, green turquoise',
+        name: 'Green turquoise',
         price: 150000,
         sku: 'S16733328569',
         stock: 100,
@@ -913,7 +913,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 114,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, pink ruby',
+        name: 'Pink ruby',
         price: 150000,
         sku: 'S167333285610',
         stock: 100,
@@ -921,7 +921,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 115,
-        name: 'Cincin Birthstone Ring Adjustable Silver 925, black tourmaline',
+        name: 'Black tourmaline',
         price: 150000,
         sku: 'S167333285611',
         stock: 100,
@@ -929,7 +929,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 116,
-        name: 'Necklace night butterfly_Stanless steel, Single variant',
+        name: 'Single variant',
         price: 90000,
         sku: 'S16741150551',
         stock: 0,
@@ -937,7 +937,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 117,
-        name: 'Bracelet Korean Style_Stanless steel, gold',
+        name: 'Gold',
         price: 95000,
         sku: 'S16740343421',
         stock: 0,
@@ -945,7 +945,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 118,
-        name: 'bracelet woman Strong -stainless steel, Single variant',
+        name: 'Single variant',
         price: 95000,
         sku: 'S16740339631',
         stock: 0,
@@ -953,7 +953,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 119,
-        name: 'Julia Necklace woman -stainless steel, Single variant',
+        name: 'Single variant',
         price: 95000,
         sku: 'S16740336161',
         stock: 0,
@@ -961,7 +961,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 120,
-        name: 'Varya necklace woman -stainless steel, Single variant',
+        name: 'Single variant',
         price: 96000,
         sku: 'S16740333991',
         stock: 0,
@@ -969,7 +969,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 121,
-        name: 'Kestrel necklace woman -stainless steel, Single variant',
+        name: 'Single variant',
         price: 95000,
         sku: 'S16740331461',
         stock: 0,
@@ -977,7 +977,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 122,
-        name: 'Necklace falling in love -stainless steel, Single variant',
+        name: 'Single variant',
         price: 95000,
         sku: 'S16740304481',
         stock: 0,
@@ -985,7 +985,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 123,
-        name: 'bracelet woman Strong -stainless steel, Single variant',
+        name: 'Single variant',
         price: 95000,
         sku: 'S16740245131',
         stock: 0,
@@ -993,7 +993,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 124,
-        name: 'Jeni Ring Woman-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 100000,
         sku: 'S16740237001',
         stock: 0,
@@ -1001,7 +1001,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 125,
-        name: 'Hermosa necklace woman -stainless steel, rose',
+        name: 'Rose',
         price: 95000,
         sku: 'S16740073541',
         stock: 10,
@@ -1009,7 +1009,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 126,
-        name: 'Hermosa necklace woman -stainless steel, gold',
+        name: 'Gold',
         price: 95000,
         sku: 'S16740073542',
         stock: 0,
@@ -1017,7 +1017,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 127,
-        name: 'RIng tough woman -Stainless Steel, gold',
+        name: 'Gold',
         price: 100000,
         sku: 'S16739419381',
         stock: 10,
@@ -1025,7 +1025,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 128,
-        name: 'RIng tough woman -Stainless Steel, rose',
+        name: 'Rose',
         price: 100000,
         sku: 'S16739419991',
         stock: 10,
@@ -1033,7 +1033,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 129,
-        name: 'RIng tough woman -Stainless Steel, silver',
+        name: 'Silver',
         price: 100000,
         sku: 'S16739423491',
         stock: 0,
@@ -1041,7 +1041,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 130,
-        name: 'Necklace dream woman-Stainless Steel, gold',
+        name: 'Gold',
         price: 95000,
         sku: 'S16739414571',
         stock: 0,
@@ -1049,7 +1049,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 131,
-        name: 'Necklace tough woman -Stainless Steel, gold',
+        name: 'Gold',
         price: 95000,
         sku: 'S16739409841',
         stock: 0,
@@ -1057,7 +1057,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 132,
-        name: 'Necklace tough woman -Stainless Steel, rose',
+        name: 'Rose',
         price: 95000,
         sku: 'S16739409842',
         stock: 10,
@@ -1065,7 +1065,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 133,
-        name: 'Necklace night butterfly-Stainless Steel, gold',
+        name: 'Gold',
         price: 65000,
         sku: 'S16739399892',
         stock: 10,
@@ -1073,7 +1073,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 134,
-        name: 'Necklace night butterfly-Stainless Steel, rose',
+        name: 'Rose',
         price: 65000,
         sku: 'S16739406341',
         stock: 10,
@@ -1081,7 +1081,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 135,
-        name: 'Necklace night butterfly-Stainless Steel, silver',
+        name: 'Silver',
         price: 65000,
         sku: 'S16739406342',
         stock: 0,
@@ -1089,7 +1089,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 136,
-        name: 'Eternity Ring Woman SIlver-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 93000,
         sku: 'S16736032551',
         stock: 0,
@@ -1097,7 +1097,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 137,
-        name: 'Korean Ring Woman Silver-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 60000,
         sku: 'S16736025811',
         stock: 0,
@@ -1105,7 +1105,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 138,
-        name: 'Korean Ring Woman Gold-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 60000,
         sku: 'S16736022451',
         stock: 0,
@@ -1113,7 +1113,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 139,
-        name: 'Cyntia Ring Woman-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 60000,
         sku: 'S16736020251',
         stock: 0,
@@ -1121,7 +1121,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 140,
-        name: 'Adel Ring Woman-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 60000,
         sku: 'S16736016691',
         stock: 0,
@@ -1129,7 +1129,7 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 141,
-        name: 'Ring Love Gold-Stainless Steel, Single variant',
+        name: 'Single variant',
         price: 60000,
         sku: 'S16736008691',
         stock: 0,
