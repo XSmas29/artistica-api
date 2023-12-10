@@ -50,10 +50,21 @@ class sort {
   sort!: 'ASC' | 'DESC'
 }
 
+@InputType()
+class CartParams {
+  @Field()
+  product_id!: number
+  @Field()
+  variant_id!: number
+  @Field()
+  quantity!: number
+}
+
 export {
   VerifyData,
   EditProfileData,
   EditPaswordData,
   pagination,
-  sort
+  sort,
+  CartParams
 }
