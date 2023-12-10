@@ -1,4 +1,5 @@
 import { Product } from '@entity/Product.entity'
+import { Variant } from '@entity/Variant.entity'
 import { Field, InputType, ObjectType } from 'type-graphql'
 
 @ObjectType()
@@ -27,7 +28,16 @@ class filterProducts {
   search?: string | null
 }
 
+@ObjectType()
+class CartData {
+  @Field(() => Variant)
+  variant!: Variant
+  @Field(() => Number)
+  quantity!: number
+}
+
 export {
   ProductList,
   filterProducts,
+  CartData,
 }
