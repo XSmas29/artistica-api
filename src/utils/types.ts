@@ -38,9 +38,35 @@ type Context = {
   };
 }
 
+@ObjectType()
+class Province {
+  @Field()
+  province_id!: string
+  @Field()
+  province!: string
+}
+
+@ObjectType()
+class City {
+  @Field()
+  city_id!: string
+  @Field()
+  province_id!: string
+  @Field()
+  province!: string
+  @Field()
+  type!: string
+  @Field()
+  city_name!: string
+  @Field()
+  postal_code!: string
+}
+
 export {
   ServerResponse,
   Context,
   AuthToken,
   LoginResponse,
+  Province,
+  City
 }
