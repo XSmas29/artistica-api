@@ -1,6 +1,6 @@
 import { Resolver, Query, Arg, Mutation, Authorized, Ctx } from 'type-graphql'
 import { User } from '@entity/User.entity'
-import { AuthToken, Context, LoginResponse, ServerResponse } from '@utils/types'
+import { AuthToken, City, Context, LoginResponse, Province, ServerResponse } from '@utils/types'
 import { DuplicateEntryError, InvalidInputError, NotFoundError, UnauthorizedError } from '@utils/errors'
 import { GmailService } from '@utils/email'
 import crypto from 'crypto'
@@ -10,7 +10,7 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import * as env from 'env-var'
 import { generateAccessToken } from '@utils/auth'
-
+import RJInstance from '@utils/api/rajaongkir.api'
 @Resolver(User)
 export class UserResolver {
   
@@ -218,5 +218,17 @@ return {
       token,
       refresh_token: user.refresh_token
     }
+  }
+
+  @Query(() => [Province])
+  async provinces(): Promise<Province[]> {
+    return await RJInstance.getProvinces()
+  }
+
+  @Query(() => [City])
+  async cities(
+    @Arg('provinceId') provinceId: number
+  ): Promise<City[]> {
+    return await RJInstance.getCities(provinceId)
   }
 }
