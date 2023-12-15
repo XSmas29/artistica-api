@@ -1,5 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, OneToMany } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
+import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
+import { TransactionHeader } from './TransactionHeader.entity'
 
 @ObjectType()
 @Entity({name: 'users'})
@@ -53,4 +55,9 @@ export class User extends BaseEntity {
 
   @Column({nullable: true, length: 1000})
   refresh_token!: string
+
+  @Field(() => [TransactionHeader])
+  @TypeormLoader()
+  @OneToMany(() => TransactionHeader, trans => trans.user)
+  transactions!: TransactionHeader[]
 }
