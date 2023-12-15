@@ -4,6 +4,8 @@ import  dotenv from 'dotenv'
 import axios from 'axios'
 dotenv.config()
 
+type CourierOption = 'jne' | 'pos' | 'tiki'
+
 class RajaOngkir {
   api_key: string
 
@@ -43,7 +45,7 @@ class RajaOngkir {
     })
   }
 
-  getCost(origin: string, destination: string, weight: string, courier: string) {
+  getCost(origin: string, destination: string, weight: string, courier: CourierOption) {
     return new Promise((resolve, reject) => {
       axios.get('https://api.rajaongkir.com/starter/cost', {
         headers: {
