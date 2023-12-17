@@ -13,7 +13,6 @@ const authChecker: AuthChecker<MyContext> = ({ context: { req, res } }) => {
   const token = req.headers.authorization
   if (!token) return false
 
-  console.log('tes')
   jwt.verify(token, env.get('JWT_SECRET').required().asString(), (err, decoded) => {
     // if (err) throw err;
     if (err) return res.sendStatus(403)

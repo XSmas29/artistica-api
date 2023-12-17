@@ -6,6 +6,7 @@ import MaterialSeeder from '@seeder/Material.seed'
 import CategorySeeder from '@seeder/Category.seed'
 import ImageSeeder from '@seeder/Image.seed'
 import DeliveryProviderSeed from './DeliveryProvider.seed'
+import UserSeed from './User.seed'
 
 export class MainSeeder implements Seeder {
 	async run(
@@ -17,5 +18,6 @@ export class MainSeeder implements Seeder {
 		await runSeeder(dataSource, MaterialSeeder)
 		await runSeeder(dataSource, CategorySeeder)
 		await runSeeder(dataSource, DeliveryProviderSeed)
+		await runSeeder(dataSource, UserSeed)
 	}
 }
