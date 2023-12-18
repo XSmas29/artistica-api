@@ -25,7 +25,7 @@ class EditProfileData {
 }
 
 @InputType()
-class EditPaswordData {
+class EditPasswordData {
   @Field()
   old_password!: string
   @Field()
@@ -63,7 +63,7 @@ class CartParams {
 export {
   VerifyData,
   EditProfileData,
-  EditPaswordData,
+  EditPasswordData,
   pagination,
   sort,
   CartParams
