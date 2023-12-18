@@ -4,7 +4,7 @@ import { AuthToken, Context, LoginResponse, ServerResponse } from '@utils/types'
 import { DuplicateEntryError, InvalidInputError, NotFoundError, UnauthorizedError } from '@utils/errors'
 import { GmailService } from '@utils/email'
 import crypto from 'crypto'
-import { EditPaswordData, EditProfileData, VerifyData } from '@utils/params'
+import { EditPasswordData, EditProfileData, VerifyData } from '@utils/params'
 import { hashPassword } from '@utils/hash'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -56,7 +56,7 @@ export class UserResolver {
   @Authorized()
   @Mutation(() => ServerResponse, { nullable: true })
   async editPassword(
-    @Arg('data') data: EditPaswordData,
+    @Arg('data') data: EditPasswordData,
     @Ctx() { auth: { userData } }: Context
   ): Promise<ServerResponse> {
     const id = userData.id
