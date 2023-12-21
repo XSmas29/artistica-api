@@ -5,6 +5,8 @@ const product = [
     description: ' <br />Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Models (consult first)<br /> <br /> ',
     slug: 'butterfly-earring-rose-gold',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 4
   },
@@ -14,6 +16,8 @@ const product = [
     description: ' <br />Product Specifications:<br /><br />1. Material : Titanium<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Models (consult first)<br /> <br /> ',
     slug: 'butterfly-earring-gold',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 4
   },
@@ -23,6 +27,8 @@ const product = [
     description: ' <br />Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Models (consult first)<br /> <br /> ',
     slug: 'chain-earrings',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 4
   },
@@ -32,6 +38,8 @@ const product = [
     description: ' <br />Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Models (consult first)<br /> <br /> ',
     slug: 'chan-earrings',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 4
   },
@@ -41,6 +49,8 @@ const product = [
     description: ' <br />Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Models (consult first)<br /> <br /> ',
     slug: 'tiffany-necklace',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -50,6 +60,8 @@ const product = [
     description: ' <br />Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Models (consult first)<br /> ',
     slug: 'gems-two-necklace',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -59,6 +71,8 @@ const product = [
     description: ' <br />Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Models (consult first)<br /> ',
     slug: 'greenbelle-necklace',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -68,6 +82,8 @@ const product = [
     description: ' <br />Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Models (consult first)<br /> ',
     slug: 'dalmi-2in1-necklace',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -77,6 +93,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ceren-ring',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -86,6 +104,8 @@ const product = [
     description: ' <br />Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)<br /> ',
     slug: 'casey-ring',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -95,6 +115,8 @@ const product = [
     description: ' <br />Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)<br /> ',
     slug: 'bulchni-ring',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -104,6 +126,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'dami-ring',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -113,6 +137,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1-1-ring-112331',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -122,6 +148,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1-1-ring-11233',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -131,6 +159,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the bracelet that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion-necklace-braceletta',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 4
   },
@@ -140,6 +170,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion-necklace-bracelett',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 4
   },
@@ -149,6 +181,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion-necklace-bracelet-',
     single_variant: false,
+    option_1_id: 1,
+    option_2_id: null,
     category_id: 2,
     material_id: 4
   },
@@ -158,6 +192,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the necklace that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-woman-fashion-accessories-braceletfashion-necklace-love',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -167,6 +203,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-woman-fashion-accessories-braceletfashion-necklace12111',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 4
   },
@@ -176,6 +214,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion-necklace1191211',
     single_variant: false,
+    option_1_id: 2,
+    option_2_id: null,
     category_id: 2,
     material_id: 4
   },
@@ -185,6 +225,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the Necklace that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion-necklace114',
     single_variant: false,
+    option_1_id: 3,
+    option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -194,6 +236,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion-necklace12',
     single_variant: false,
+    option_1_id: 4,
+    option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -203,6 +247,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion1-1-ring-1141111123412',
     single_variant: false,
+    option_1_id: 5,
+    option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -212,6 +258,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion1-1-ring-11411111234',
     single_variant: false,
+    option_1_id: 6,
+    option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -221,6 +269,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1-1-ring-1123',
     single_variant: false,
+    option_1_id: 7,
+    option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -230,6 +280,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1-1-necklace',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -239,6 +291,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1-1111',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 4
   },
@@ -248,6 +302,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1-11',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -257,6 +313,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -266,6 +324,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -275,6 +335,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'dahlia-leaf-bross-stainless-steel',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 6,
     material_id: 4
   },
@@ -284,6 +346,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'jena-bross-gold-stainless-stell',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 6,
     material_id: 4
   },
@@ -293,6 +357,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'aleya-broos-stainless-stell-collection',
     single_variant: false,
+    option_1_id: 8,
+    option_2_id: null,
     category_id: 6,
     material_id: 4
   },
@@ -302,6 +368,8 @@ const product = [
     description: 'Kamu manis, ditemenin sama gelang yang manis kaya diatas 👆😌 btw,ini limited edition cuma ada di toko artistica jewelry. #gelangmanis #gelangcantik #gelang #jewelry',
     slug: 'gelang-silver-925with-permata-mutiara',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 2
   },
@@ -311,6 +379,8 @@ const product = [
     description: 'Cinta tidak menjadi kenyataan sampai di uji dan di panaskan seperti cincin yang di tempa ini. Ibarat pedang tajam yang terus menerus di tempa diatas bara api,dibutuhkan rintangan, kedewasaan, kecerdasan, serta kesabaran. #jewelry #ring #love #cinta #perjuangan #lovestory',
     slug: 'cincin-silver-925-ring-love',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -320,6 +390,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-korean-style-2',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 2
   },
@@ -329,6 +401,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : mutiara<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Perhiasan<br /><br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'gelang-silver-925-permata-mutiara',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 1
   },
@@ -338,6 +412,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Perhiasan<br /><br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-permata-putih-bulat',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -347,6 +423,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Perhiasan<br /><br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'silver-9235',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 1
   },
@@ -356,6 +434,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Perhiasan<br /><br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-model-permata-5',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -365,6 +445,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Perhiasan<br /><br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'anting-silver-925-koren-style',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 1
   },
@@ -374,6 +456,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-permata-biru',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -383,6 +467,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-permata-hitam-besar',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -392,6 +478,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-permata-kuning',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -401,6 +489,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-style-eropa',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 1
   },
@@ -410,6 +500,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-permata-love-hitam',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -419,6 +511,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-ilver-925-permata-hitam',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -428,6 +522,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'kalung-silver-925-simplicity-collection',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 1
   },
@@ -437,6 +533,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-permata-hijau',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -446,6 +544,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'gelang-silver-925-permata-queen',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 1
   },
@@ -455,6 +555,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-triple-ring-triple-permata',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -464,6 +566,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'anting',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 1
   },
@@ -473,6 +577,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'kalung-silver-925-korean-style',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 1
   },
@@ -482,6 +588,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-queen-ring',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -491,6 +599,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'kalung-mutiara-korean-style',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -500,6 +610,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'anting-silver-925-model-panjang',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 1
   },
@@ -509,6 +621,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'anting-silver-925-europen-style',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 1
   },
@@ -518,6 +632,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-triple-ring',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -527,6 +643,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-koean-style-2',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -536,6 +654,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'anting-silver-925-korean-style',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 1
   },
@@ -545,6 +665,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-permata-putih',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -554,6 +676,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-silver-925-permata-hitam',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -563,6 +687,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'anting-silver-925-bulat',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 1
   },
@@ -572,6 +698,8 @@ const product = [
     description: 'kalau dilihat lihat warna bulatnya kayak buah apa ya 😳😳😳 #kalung #indonesia #jewelry #jakarta #gold #accessories #necklace #gelang #aksesoris #cincin #kalung #perhiasan #emas #anting #aksesorismurah #titanium #kalungmurah #gelangmurah #xuping #cincincouple #jualkalung',
     slug: 'kalung-model-korea-terbaru',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 6,
     material_id: 4
   },
@@ -581,6 +709,8 @@ const product = [
     description: '#gelang #indonesia #jewelry #jakarta #gold #accessories #necklace #bracelet #diamond #gelang #aksesoris #cincin #kalung #perhiasan #emas #anting #aksesorismurah #titanium #kalungmurah #gelangmurah #xuping',
     slug: 'gelang-model-korea',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 1
   },
@@ -590,6 +720,8 @@ const product = [
     description: 'Let your mood speak for itself with our new fall jewelry collection. #jewelry #shopping #luxury #bhfyp #jewelry #stylish #onlineshopping #gold #smallbusiness #accessories #trendy #etsy #earrings #jewellery #necklace #silver #handmadejewelry #bracelet #ring #crystals #diamond',
     slug: 'kalung-beaded-collcetion-by-artistica',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 6,
     material_id: 4
   },
@@ -599,6 +731,8 @@ const product = [
     description: 'Have you ever been caught by surprise? Let’s just say that you can never go wrong with this trendy jewelry ring. #jewelry #shopping #luxury #bhfyp #jewelry #stylish #onlineshopping #gold #smallbusiness #accessories #trendy #etsy #earrings #jewellery #necklace #silver #handmadejewelry #bracelet #ring #crystals #diamond',
     slug: 'anting-korean-style-silver-925',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 4,
     material_id: 1
   },
@@ -608,6 +742,8 @@ const product = [
     description: 'Gelang eksklusif #gelang #indonesia #jewelry #jakarta #gold #accessories #necklace #bracelet #diamond #gelang #aksesoris #cincin #kalung #perhiasan #emas #anting #aksesorismurah #titanium #kalungmurah #gelangmurah ##gelang #indonesia #jewelry #jakarta #gold #accessories #necklace #bracelet #diamond #gelang #aksesoris #cincin #kalung #perhiasan #emas #anting #aksesorismurah #titanium #kalungmurah #gelangmurah ##xupingxuping',
     slug: 'gelang-cewek-model-usa',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 4
   },
@@ -617,6 +753,8 @@ const product = [
     description: 'If you&#39;ve ever been a jewelry lover, then you already know that there&#39;s nothing like the feeling of finding a piece that truly speaks to you. #jewelry #shopping #luxury #bhfyp #jewelry #stylish #onlineshopping #gold #smallbusiness #accessories #trendy #etsy #earrings #jewellery #necklace #silver #handmadejewelry #bracelet #ring #crystals #diamond',
     slug: 'cincin-cowo-keren-silver-925',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -626,6 +764,8 @@ const product = [
     description: 'Wear a ring that makes you smile. #jewelry #shopping #luxury #bhfyp #jewelry #stylish #onlineshopping #gold #smallbusiness #accessories #trendy #etsy #earrings #jewellery #necklace #silver #handmadejewelry #bracelet #ring #crystals #diamond',
     slug: 'cincin-cowok-silver-925',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -635,6 +775,8 @@ const product = [
     description: 'Everybody loves jewelry. Make it your own with these simple, affordable pieces! ☀ #cincin #jewelry #jakarta #gold #accessories #jewellery #silver #murah #bracelet #ring #diamond #rings #gelang #aksesoris #cincin #kalung #perhiasan #cincinnati #emas #anting #titanium',
     slug: 'cincin-eropan-style-silver-925',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -644,6 +786,8 @@ const product = [
     description: 'Get your nails done, get your hair done, and shop our jewelry. We have everything you need to be ready for fall. #kalung #indonesia #jewelry #jakarta #gold #accessories #necklace #gelang #aksesoris #cincin #kalung #perhiasan #emas #anting #aksesorismurah #titanium #kalungmurah #gelangmurah #xuping #cincincouple #jualkalung',
     slug: 'cincin-triple-ring-silver-925',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -653,6 +797,8 @@ const product = [
     description: 'You are the queen. You&#39;ll always shine through in the most gorgeous way. #jewelry #shopping #luxury #bhfyp #jewelry #stylish #onlineshopping #gold #smallbusiness #accessories #trendy #etsy #earrings #jewellery #necklace #silver #handmadejewelry #bracelet #ring #crystals #diamond',
     slug: 'cincin-perak-permata-ungu',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -662,6 +808,8 @@ const product = [
     description: 'A little extra sparkle never hurt anyone. Shop our latest jewelry designs now! #jewelry #shopping #luxury #bhfyp #jewelry #stylish #onlineshopping #gold #smallbusiness #accessories #trendy #etsy #earrings #jewellery #necklace #silver #handmadejewelry #bracelet #ring #crystals #diamond',
     slug: 'cincin-wanita-model-korea',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -671,6 +819,8 @@ const product = [
     description: 'We believe in the power of jewelry to transform us, to make us feel good, and to remind us that we are enough. That&#39;s why we love recycling our old jewelry into new pieces. We&#39;re not just creating new jewelry—we&#39;re turning old trash into treasure! #Jewelry #jewelryshop #jewelrygram #love #beautifulgirls',
     slug: 'cincin',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -680,6 +830,8 @@ const product = [
     description: 'Humanity at its finest. We hope you&#39;ve enjoyed this collection of jewelry made from recycled silver. #jewelry #jewelryshop #recycleart #love',
     slug: 'cincin-birthstone-ring-siilver-925',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -689,6 +841,8 @@ const product = [
     description: 'In our new series, "Jewelry Recycling: Humanity," we&#39;ll be profiling some of the most beautiful and inspiring pieces of jewelry that have been made from recycled silver. We&#39;re so excited to start this journey with you, and we hope you&#39;ll join us on the next chapter. #jewelry #fashion #jewellery #handmade #earrings #accessories #necklace #gold #handmadejewelry #love #style #jewelrydesigner #silver #jewelryaddict #ring #bracelet #jewelrydesign #jewels #rings #bracelets #diamonds #design #diamond #beautiful #instagood #art #instajewelry #gemstones #luxury #jewelrygram',
     slug: 'cincin-birthstone-ring-silver-925',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -698,6 +852,8 @@ const product = [
     description: 'Wear your heart on your sleeve. #perhiasan #emas #cincin #gelang #perhiasanemas #kalung #jewelry #anting #cincinemas #k #xuping #tokoemas #perhiasanmurah #berlian #aksesoris #perhiasanwanita #jewellery #gold #perhiasanlapisemas #fashion #xupingmurah #emasmurah #gelangemas #jakarta #titanium #kalungmurah #kalungemas #liontin #perak #jualemas',
     slug: 'cincin-birthstoner-ring-silver-925',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -707,6 +863,8 @@ const product = [
     description: 'Are you ready to feel like a queen? We&#39;ve got the perfect ring for you. This is a piece of jewelry that&#39;s sure to make you feel like royalty and leave your friends green with envy. #weddingring #jewelry #jewellry #cincinnikah',
     slug: 'birthstone-ring-putih-moonston-silver-925',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -716,6 +874,8 @@ const product = [
     description: 'Spesifikasi Produk :<br /><br />1. Bahan : Perak 925 ( bahan perak dengan kadar 92,5%, kadar perak ini paling baik dibuat untuk perhiasan, sisanya bahan lain sebagai komposisi 7,5% ).<br />2. Jenis Permata : Zirconia<br /><br />KELENGKAPAN SETIAP PEMESANAN CINCIN :<br />1. Kotak Cincin <br />JAMINAN PRODUK BERGARANSI<br />1. Garansi REPAIR untuk bentuk / model cincin yang tidak sesuai dengan yang sudah dipesan<br />2. Garansi RESIZE jika salah ukuran<br />3. Garansi REPAIR jika permata lepas selama 1 Tahun<br />Keuntungan berbelanja di Artistica Jewelry :<br />1. Material Bahan Berkualitas, Terjamin Bukti Keaslian<br />2. Bisa Custom Model Cincin (konsultasikan terlebih dahulu)<br />3. Dikerjakan oleh Tenaga Ahli Berpengalaman',
     slug: 'cincin-birthstone-ring-adjustable-silver-925',
     single_variant: false,
+    option_1_id: 9,
+    option_2_id: null,
     category_id: 1,
     material_id: 1
   },
@@ -725,6 +885,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the bracelet that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion-necklace-braceletta1',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -734,6 +896,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion-necklace-bracelet-gelang',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 4
   },
@@ -743,6 +907,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion-necklace-bracelet',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 4
   },
@@ -752,6 +918,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the necklace that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-woman-fashion-accessories-braceletfashion-necklace-love-kalung',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -761,6 +929,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-woman-fashion-accessories-braceletfashion-necklace121111',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -770,6 +940,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the Necklace that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-woman-fashion-accessories-braceletfashion-necklace121',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -779,6 +951,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the Necklace that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-woman-fashion-accessories-braceletfashion-necklace12',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -788,6 +962,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion-necklace11912',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 2,
     material_id: 4
   },
@@ -797,6 +973,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel11',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -806,6 +984,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the Necklace that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-braceletfashion-necklace113',
     single_variant: false,
+    option_1_id: 10,
+    option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -815,6 +995,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1-1-ring-11',
     single_variant: false,
+    option_1_id: 11,
+    option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -824,6 +1006,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1-1-necklace-11',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -833,6 +1017,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1-1-necklace-1',
     single_variant: false,
+    option_1_id: 12,
+    option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -842,6 +1028,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1-1-bracelet',
     single_variant: false,
+    option_1_id: 13,
+    option_2_id: null,
     category_id: 3,
     material_id: 4
   },
@@ -851,6 +1039,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion1-111',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -860,6 +1050,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ringfashion',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -869,6 +1061,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories-ring',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -878,6 +1072,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman-fashion-accessories',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -887,6 +1083,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin-ring-woman',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   },
@@ -896,6 +1094,8 @@ const product = [
     description: 'Product Specifications:<br /><br />1. Material : Stainless steel<br /><br />WARRANTY PRODUCT WARRANTY<br /><br />1. REPAIR guarantee for the shape / model of the ring that does not match what has been ordered<br />2. RESIZE guarantee if wrong size<br />3. REPAIR guarantee if the gem is loose for 1 year<br /><br />Benefits of shopping at Artistica Jewelry:<br />1. Quality Materials, Guaranteed Evidence of Authenticity<br />2. Custom Ring Models (consult first)',
     slug: 'ring-love-rose-stainless-steel-cincin',
     single_variant: true,
+option_1_id: null,
+option_2_id: null,
     category_id: 1,
     material_id: 4
   }
@@ -904,1128 +1104,987 @@ const product = [
 const variant = [
   {
     id: 1,
-    name: 'Butterfly Earring Rose Gold, Single variant',
-    price: 90000,
+        price: 90000,
     sku: 'S16771244441',
     stock: 268,
     product_id: 1
   },
   {
     id: 2,
-    name: 'Butterfly Earring Gold, Single variant',
-    price: 90000,
+        price: 90000,
     sku: 'S16771243091',
     stock: 267,
     product_id: 2
   },
   {
     id: 3,
-    name: 'Chain Earrings, Single variant',
-    price: 90000,
+        price: 90000,
     sku: 'S16771239631',
     stock: 269,
     product_id: 3
   },
   {
     id: 4,
-    name: 'Chan Earrings, Single variant',
-    price: 90000,
+        price: 90000,
     sku: 'S16771230341',
     stock: 270,
     product_id: 4
   },
   {
     id: 5,
-    name: 'Tiffany Necklace, Single variant',
-    price: 125000,
+        price: 125000,
     sku: 'S16771216551',
     stock: 300,
     product_id: 5
   },
   {
     id: 6,
-    name: 'Gems Two Necklace, Single variant',
-    price: 125000,
+        price: 125000,
     sku: 'S16771209411',
     stock: 300,
     product_id: 6
   },
   {
     id: 7,
-    name: 'Greenbelle Necklace, Single variant',
-    price: 125000,
+        price: 125000,
     sku: 'S16771206661',
     stock: 30,
     product_id: 7
   },
   {
     id: 8,
-    name: 'Dalmi 2in1 Necklace, Single variant',
-    price: 125000,
+        price: 125000,
     sku: 'S16771201141',
     stock: 50,
     product_id: 8
   },
   {
     id: 9,
-    name: 'Ceren Ring, Single variant',
-    price: 60000,
+        price: 60000,
     sku: 'S16752381461',
     stock: 50,
     product_id: 9
   },
   {
     id: 10,
-    name: 'Casey Ring, Single variant',
-    price: 60000,
+        price: 60000,
     sku: 'S16752371321',
     stock: 30,
     product_id: 10
   },
   {
     id: 11,
-    name: 'BULCHNI RING, gold',
-    price: 60000,
+        price: 60000,
     sku: 'S16752274721',
     stock: 50,
     product_id: 11
   },
   {
     id: 12,
-    name: 'Dami Ring, Single variant',
-    price: 60000,
+        price: 60000,
     sku: 'S16751494281',
     stock: 20,
     product_id: 12
   },
   {
     id: 13,
-    name: 'Korean Ring Woman Rose-Stainless Steel, gold',
-    price: 100000,
+        price: 100000,
     sku: 'S16740349561',
     stock: 10,
     product_id: 13
   },
   {
     id: 14,
-    name: 'Ring Love rose small-Stainless Steel, Black',
-    price: 100000,
+        price: 100000,
     sku: 'S16740348461',
     stock: 20,
     product_id: 14
   },
   {
     id: 15,
-    name: 'Bracelet night butterfly_Stanless steel, Single variant',
-    price: 90000,
+        price: 90000,
     sku: 'S16740346211',
     stock: 10,
     product_id: 15
   },
   {
     id: 16,
-    name: 'bracelet woman Strong -stainless steel, Single variant',
-    price: 160000,
+        price: 160000,
     sku: 'S16740345411',
     stock: 10,
     product_id: 16
   },
   {
     id: 17,
-    name: 'Lyra bracelet woman_Stanless steel, gold',
-    price: 95000,
+        price: 95000,
     sku: 'S16740340911',
     stock: 10,
     product_id: 17
   },
   {
     id: 18,
-    name: 'Lyra bracelet woman_Stanless steel, rose',
-    price: 95000,
+        price: 95000,
     sku: 'S16740340912',
     stock: 10,
     product_id: 17
   },
   {
     id: 19,
-    name: 'Julia Necklace woman -stainless steel, Single variant',
-    price: 95000,
+        price: 95000,
     sku: 'S16740334911',
     stock: 10,
     product_id: 18
   },
   {
     id: 20,
-    name: 'Varya bracelet woman -stainless steel, Single variant',
-    price: 95000,
+        price: 95000,
     sku: 'S16740332651',
     stock: 10,
     product_id: 19
   },
   {
     id: 21,
-    name: 'sephia bracelet woman -stainless steel, gold',
-    price: 95000,
+        price: 95000,
     sku: 'S16740248011',
     stock: 20,
     product_id: 20
   },
   {
     id: 22,
-    name: 'sephia bracelet woman -stainless steel, silver',
-    price: 95000,
+        price: 95000,
     sku: 'S16740251151',
     stock: 0,
     product_id: 20
   },
   {
     id: 23,
-    name: 'celeste necklace woman -stainless steel, Black',
-    price: 95000,
+        price: 95000,
     sku: 'S16740077501',
     stock: 10,
     product_id: 21
   },
   {
     id: 24,
-    name: 'celeste necklace woman -stainless steel, white',
-    price: 95000,
+        price: 95000,
     sku: 'S16740077502',
     stock: 10,
     product_id: 21
   },
   {
     id: 25,
-    name: 'Riana Necklace woman -stainless steel, rose',
-    price: 95000,
+        price: 95000,
     sku: 'S16739497841',
     stock: 20,
     product_id: 22
   },
   {
     id: 26,
-    name: 'Riana Necklace woman -stainless steel, gold',
-    price: 95000,
+        price: 95000,
     sku: 'S16739497981',
     stock: 10,
     product_id: 22
   },
   {
     id: 27,
-    name: 'Maria Necklace woman -stainless steel, rose',
-    price: 95000,
+        price: 95000,
     sku: 'S16739489421',
     stock: 10,
     product_id: 23
   },
   {
     id: 28,
-    name: 'Maria Necklace woman -stainless steel, gold',
-    price: 65000,
+        price: 65000,
     sku: 'S16739489422',
     stock: 10,
     product_id: 23
   },
   {
     id: 29,
-    name: 'Maria Necklace woman -stainless steel, silver',
-    price: 95000,
+        price: 95000,
     sku: 'S16740112111',
     stock: 10,
     product_id: 23
   },
   {
     id: 30,
-    name: 'Alea Necklace woman -stainless steel, rose',
-    price: 95000,
+        price: 95000,
     sku: 'S16739485541',
     stock: 10,
     product_id: 24
   },
   {
     id: 31,
-    name: 'Alea Necklace woman -stainless steel, silver',
-    price: 95000,
+        price: 95000,
     sku: 'S16739486421',
     stock: 10,
     product_id: 24
   },
   {
     id: 32,
-    name: 'Ring loving woman -Stainless Steel, gold',
-    price: 100000,
+        price: 100000,
     sku: 'S16739432581',
     stock: 20,
     product_id: 25
   },
   {
     id: 33,
-    name: 'Ring loving woman -Stainless Steel, silver',
-    price: 100000,
+        price: 100000,
     sku: 'S16739432582',
     stock: 20,
     product_id: 25
   },
   {
     id: 34,
-    name: 'Ring loving woman -Stainless Steel, rose',
-    price: 100000,
+        price: 100000,
     sku: 'S16739432583',
     stock: 20,
     product_id: 25
   },
   {
     id: 35,
-    name: 'Necklace shybird Gold-Stainless Steel, Single variant',
-    price: 97000,
+        price: 97000,
     sku: 'S16739396491',
     stock: 10,
     product_id: 26
   },
   {
     id: 36,
-    name: 'Bracelet Antiquity Woman Rose-Stainless Steel, Single variant',
-    price: 95000,
+        price: 95000,
     sku: 'S16736035381',
     stock: 10,
     product_id: 27
   },
   {
     id: 37,
-    name: 'Eternity Ring Woman SIlver-Stainless Steel, Single variant',
-    price: 93000,
+        price: 93000,
     sku: 'S16736031051',
     stock: 10,
     product_id: 28
   },
   {
     id: 38,
-    name: 'Korean Ring Woman Rose-Stainless Steel, Single variant',
-    price: 60000,
+        price: 60000,
     sku: 'S16736028061',
     stock: 10,
     product_id: 29
   },
   {
     id: 39,
-    name: 'Ring Love rose-Stainless Steel, Single variant',
-    price: 60000,
+        price: 60000,
     sku: 'S16736007121',
     stock: 10,
     product_id: 30
   },
   {
     id: 40,
-    name: 'Dahlia Leaf Bross Gold-Stainless steel, Single variant',
-    price: 35000,
+        price: 35000,
     sku: 'S16735177831',
     stock: 10,
     product_id: 31
   },
   {
     id: 41,
-    name: 'Jena Bross Gold-Stainless steel, Single variant',
-    price: 55000,
+        price: 55000,
     sku: 'S16735174901',
     stock: 10,
     product_id: 32
   },
   {
     id: 42,
-    name: 'Aleya Broos Stainless steel Collection, 01',
-    price: 55000,
+        price: 55000,
     sku: 'S16734187601',
     stock: 10,
     product_id: 33
   },
   {
     id: 43,
-    name: 'Aleya Broos Stainless steel Collection, 02',
-    price: 55000,
+        price: 55000,
     sku: 'S16734193951',
     stock: 10,
     product_id: 33
   },
   {
     id: 44,
-    name: 'Aleya Broos Stainless steel Collection, 03',
-    price: 55000,
+        price: 55000,
     sku: 'S16734193952',
     stock: 10,
     product_id: 33
   },
   {
     id: 45,
-    name: 'Aleya Broos Stainless steel Collection, 04',
-    price: 55000,
+        price: 55000,
     sku: 'S16734193953',
     stock: 10,
     product_id: 33
   },
   {
     id: 46,
-    name: 'Aleya Broos Stainless steel Collection, 05',
-    price: 55000,
+        price: 55000,
     sku: 'S16734193954',
     stock: 10,
     product_id: 33
   },
   {
     id: 47,
-    name: 'Aleya Broos Stainless steel Collection, 06',
-    price: 55000,
+        price: 55000,
     sku: 'S16734193955',
     stock: 10,
     product_id: 33
   },
   {
     id: 48,
-    name: 'Aleya Broos Stainless steel Collection, 07',
-    price: 55000,
+        price: 55000,
     sku: 'S16734193956',
     stock: 10,
     product_id: 33
   },
   {
     id: 49,
-    name: 'Aleya Broos Stainless steel Collection, 08',
-    price: 55000,
+        price: 55000,
     sku: 'S16734193957',
     stock: 10,
     product_id: 33
   },
   {
     id: 50,
-    name: 'Aleya Broos Stainless steel Collection, 09',
-    price: 55000,
+        price: 55000,
     sku: 'S16734193958',
     stock: 10,
     product_id: 33
   },
   {
     id: 51,
-    name: 'Aleya Broos Stainless steel Collection, 10',
-    price: 55000,
+        price: 55000,
     sku: 'S16734193959',
     stock: 10,
     product_id: 33
   },
   {
     id: 52,
-    name: 'Aleya Broos Stainless steel Collection, 11',
-    price: 55000,
+        price: 55000,
     sku: 'S167341939510',
     stock: 10,
     product_id: 33
   },
   {
     id: 53,
-    name: 'Aleya Broos Stainless steel Collection, 12',
-    price: 55000,
+        price: 55000,
     sku: 'S167341939511',
     stock: 10,
     product_id: 33
   },
   {
     id: 54,
-    name: 'Aleya Broos Stainless steel Collection, 13',
-    price: 55000,
+        price: 55000,
     sku: 'S167341939512',
     stock: 10,
     product_id: 33
   },
   {
     id: 55,
-    name: 'Aleya Broos Stainless steel Collection, 14',
-    price: 55000,
+        price: 55000,
     sku: 'S167341939513',
     stock: 10,
     product_id: 33
   },
   {
     id: 56,
-    name: 'Aleya Broos Stainless steel Collection, 15',
-    price: 55000,
+        price: 55000,
     sku: 'S167341939514',
     stock: 10,
     product_id: 33
   },
   {
     id: 57,
-    name: 'Aleya Broos Stainless steel Collection, 16',
-    price: 55000,
+        price: 55000,
     sku: 'S167341939515',
     stock: 10,
     product_id: 33
   },
   {
     id: 58,
-    name: 'Bracelet silver 925-Korean style, Single variant',
-    price: 350000,
+        price: 350000,
     sku: 'S16734894931',
     stock: 10,
     product_id: 34
   },
   {
     id: 59,
-    name: 'Ring love edition-Silver 925, Single variant',
-    price: 150000,
+        price: 150000,
     sku: 'S16734884321',
     stock: 10,
     product_id: 35
   },
   {
     id: 60,
-    name: 'Cincin silver 925-korean style 2, Single variant',
-    price: 150000,
+        price: 150000,
     sku: 'S16733313781',
     stock: 100,
     product_id: 36
   },
   {
     id: 61,
-    name: 'Gelang silver 925-Permata mutiara, Single variant',
-    price: 400000,
+        price: 400000,
     sku: 'S16733308011',
     stock: 100,
     product_id: 37
   },
   {
     id: 62,
-    name: 'Cincin silver 925-Permata putih bulat, Single variant',
-    price: 150000,
+        price: 150000,
     sku: 'S16733305781',
     stock: 100,
     product_id: 38
   },
   {
     id: 63,
-    name: 'Anting silver 925-Model Panjang, Single variant',
-    price: 300000,
+        price: 300000,
     sku: 'S16733303231',
     stock: 100,
     product_id: 39
   },
   {
     id: 64,
-    name: 'Cincin silver 925-Model permata 5, Single variant',
-    price: 300000,
+        price: 300000,
     sku: 'S16733300391',
     stock: 90,
     product_id: 40
   },
   {
     id: 65,
-    name: 'Anting silver 925-Koren style, Single variant',
-    price: 300000,
+        price: 300000,
     sku: 'S16733296911',
     stock: 90,
     product_id: 41
   },
   {
     id: 66,
-    name: 'Cincin silver 925-Permata biru, Single variant',
-    price: 250000,
+        price: 250000,
     sku: 'S16733234121',
     stock: 90,
     product_id: 42
   },
   {
     id: 67,
-    name: 'Cincin silver 925-Permata hitam besar, Single variant',
-    price: 150000,
+        price: 150000,
     sku: 'S16733225401',
     stock: 90,
     product_id: 43
   },
   {
     id: 68,
-    name: 'Cincin silver 925-Permata kuning, Single variant',
-    price: 150000,
+        price: 150000,
     sku: 'S16733224221',
     stock: 90,
     product_id: 44
   },
   {
     id: 69,
-    name: 'Cincin silver 925-style eropa, Single variant',
-    price: 350000,
+        price: 350000,
     sku: 'S16733221531',
     stock: 100,
     product_id: 45
   },
   {
     id: 70,
-    name: 'Cincin silver 925-permata love hitam, Single variant',
-    price: 150000,
+        price: 150000,
     sku: 'S16733215941',
     stock: 90,
     product_id: 46
   },
   {
     id: 71,
-    name: 'Cincin ilver 925-Permata hitam, Single variant',
-    price: 165000,
+        price: 165000,
     sku: 'S16733214321',
     stock: 90,
     product_id: 47
   },
   {
     id: 72,
-    name: 'Kalung silver 925-simplicity collection, Single variant',
-    price: 235000,
+        price: 235000,
     sku: 'S16733212661',
     stock: 90,
     product_id: 48
   },
   {
     id: 73,
-    name: 'Cincin silver 925-Permata hijau, Single variant',
-    price: 200000,
+        price: 200000,
     sku: 'S16733211231',
     stock: 90,
     product_id: 49
   },
   {
     id: 74,
-    name: 'Gelang silver 925-permata queen, Single variant',
-    price: 400000,
+        price: 400000,
     sku: 'S16733209131',
     stock: 90,
     product_id: 50
   },
   {
     id: 75,
-    name: 'Cincin silver 925-Triple ring-triple permata, Single variant',
-    price: 300000,
+        price: 300000,
     sku: 'S16733207081',
     stock: 90,
     product_id: 51
   },
   {
     id: 76,
-    name: 'Anting silver 925-korean style, Single variant',
-    price: 250000,
+        price: 250000,
     sku: 'S16733205521',
     stock: 90,
     product_id: 52
   },
   {
     id: 77,
-    name: 'Kalung silver 925-Korean Style, Single variant',
-    price: 400000,
+        price: 400000,
     sku: 'S16733204141',
     stock: 90,
     product_id: 53
   },
   {
     id: 78,
-    name: 'Cincin silver 925-Queen Ring, Single variant',
-    price: 200000,
+        price: 200000,
     sku: 'S16733199201',
     stock: 90,
     product_id: 54
   },
   {
     id: 79,
-    name: 'Kalung Mutiara Korean Style, Single variant',
-    price: 300000,
+        price: 300000,
     sku: 'S16733196911',
     stock: 90,
     product_id: 55
   },
   {
     id: 80,
-    name: 'Anting silver 925-Model Panjang, Single variant',
-    price: 200000,
+        price: 200000,
     sku: 'S16733191921',
     stock: 100,
     product_id: 56
   },
   {
     id: 81,
-    name: 'Anting Silver 925-europen style, Single variant',
-    price: 300000,
+        price: 300000,
     sku: 'S16733190241',
     stock: 90,
     product_id: 57
   },
   {
     id: 82,
-    name: 'Cincin Silver 925-Triple Ring, Single variant',
-    price: 160000,
+        price: 160000,
     sku: 'S16733185881',
     stock: 90,
     product_id: 58
   },
   {
     id: 83,
-    name: 'Cincin silver 925-Koean Style 2, Single variant',
-    price: 300000,
+        price: 300000,
     sku: 'S16733182641',
     stock: 90,
     product_id: 59
   },
   {
     id: 84,
-    name: 'Anting Silver 925-Korean Style, Single variant',
-    price: 200000,
+        price: 200000,
     sku: 'S16733178131',
     stock: 90,
     product_id: 60
   },
   {
     id: 85,
-    name: 'Cincin Silver 925-Permata Putih, Single variant',
-    price: 170000,
+        price: 170000,
     sku: 'S16733173141',
     stock: 80,
     product_id: 61
   },
   {
     id: 86,
-    name: 'Cincin Silver 925-Permata Hitam, Single variant',
-    price: 150000,
+        price: 150000,
     sku: 'S16733169041',
     stock: 90,
     product_id: 62
   },
   {
     id: 87,
-    name: 'Anting Silver 925-Bulat, Single variant',
-    price: 150000,
+        price: 150000,
     sku: 'S16733165871',
     stock: 90,
     product_id: 63
   },
   {
     id: 88,
-    name: 'Kalung Model Korea terbaru, Single variant',
-    price: 150000,
+        price: 150000,
     sku: 'S16729057321',
     stock: 90,
     product_id: 64
   },
   {
     id: 89,
-    name: 'Gelang Model Korea, Single variant',
-    price: 100000,
+        price: 100000,
     sku: 'S16729056671',
     stock: 100,
     product_id: 65
   },
   {
     id: 90,
-    name: 'Kalung Beaded Collcetion by Artistica, Single variant',
-    price: 40000,
+        price: 40000,
     sku: 'S16729052711',
     stock: 100,
     product_id: 66
   },
   {
     id: 91,
-    name: 'Anting Korean style Silver 925, Single variant',
-    price: 250000,
+        price: 250000,
     sku: 'S16729051501',
     stock: 100,
     product_id: 67
   },
   {
     id: 92,
-    name: 'Gelang cewek model USA, Single variant',
-    price: 400000,
+        price: 400000,
     sku: 'S16729050931',
     stock: 100,
     product_id: 68
   },
   {
     id: 93,
-    name: 'Cincin cowo Keren Silver 925, Single variant',
-    price: 200000,
+        price: 200000,
     sku: 'S16729050281',
     stock: 100,
     product_id: 69
   },
   {
     id: 94,
-    name: 'Cincin Cowok Silver 925, Single variant',
-    price: 200000,
+        price: 200000,
     sku: 'S16729049141',
     stock: 100,
     product_id: 70
   },
   {
     id: 95,
-    name: 'Cincin Eropan style silver 925, Single variant',
-    price: 180000,
+        price: 180000,
     sku: 'S16728900631',
     stock: 100,
     product_id: 71
   },
   {
     id: 96,
-    name: 'Cincin Triple Ring silver 925, Single variant',
-    price: 180000,
+        price: 180000,
     sku: 'S16728897961',
     stock: 100,
     product_id: 72
   },
   {
     id: 97,
-    name: 'Cincin Perak Permata Ungu, Single variant',
-    price: 180000,
+        price: 180000,
     sku: 'S16728896361',
     stock: 100,
     product_id: 73
   },
   {
     id: 98,
-    name: 'Cincin Wanita Model Korea, Single variant',
-    price: 180000,
+        price: 180000,
     sku: 'S16728894731',
     stock: 100,
     product_id: 74
   },
   {
     id: 99,
-    name: 'CIncin Birthstone Ring Silver 925, Single variant',
-    price: 180000,
+        price: 180000,
     sku: 'S16728890811',
     stock: 100,
     product_id: 75
   },
   {
     id: 100,
-    name: 'Cincin Birthstone Ring siilver 925, Single variant',
-    price: 180000,
+        price: 180000,
     sku: 'S16728887571',
     stock: 100,
     product_id: 76
   },
   {
     id: 101,
-    name: 'Cincin Birthstone Ring Silver 925, Single variant',
-    price: 180000,
+        price: 180000,
     sku: 'S16728885361',
     stock: 100,
     product_id: 77
   },
   {
     id: 102,
-    name: 'Cincin Birthstoner ring silver 925, Single variant',
-    price: 180000,
+        price: 180000,
     sku: 'S16728879661',
     stock: 100,
     product_id: 78
   },
   {
     id: 103,
-    name: 'Birthstone ring putih moonston silver 925, Single variant',
-    price: 150000,
+        price: 150000,
     sku: 'S16728876861',
     stock: 100,
     product_id: 79
   },
   {
     id: 104,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, merah garnet',
-    price: 150000,
+        price: 150000,
     sku: 'S16728156441',
     stock: 100,
     product_id: 80
   },
   {
     id: 105,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, ungu amethyst',
-    price: 150000,
+        price: 150000,
     sku: 'S16733328561',
     stock: 100,
     product_id: 80
   },
   {
     id: 106,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, biru aquamarine',
-    price: 150000,
+        price: 150000,
     sku: 'S16733328562',
     stock: 100,
     product_id: 80
   },
   {
     id: 107,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, putih diamond',
-    price: 150000,
+        price: 150000,
     sku: 'S16733328563',
     stock: 100,
     product_id: 80
   },
   {
     id: 108,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, hijau emerald',
-    price: 150000,
+        price: 150000,
     sku: 'S16733328564',
     stock: 100,
     product_id: 80
   },
   {
     id: 109,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, putih moonstone',
-    price: 150000,
+        price: 150000,
     sku: 'S16733328565',
     stock: 100,
     product_id: 80
   },
   {
     id: 110,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, biru sapphire',
-    price: 150000,
+        price: 150000,
     sku: 'S16733328566',
     stock: 100,
     product_id: 80
   },
   {
     id: 111,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, yellow citrine',
-    price: 150000,
+        price: 150000,
     sku: 'S16733328567',
     stock: 90,
     product_id: 80
   },
   {
     id: 112,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, hijau peridot',
-    price: 150000,
+        price: 150000,
     sku: 'S16733328568',
     stock: 100,
     product_id: 80
   },
   {
     id: 113,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, green turquoise',
-    price: 150000,
+        price: 150000,
     sku: 'S16733328569',
     stock: 100,
     product_id: 80
   },
   {
     id: 114,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, pink ruby',
-    price: 150000,
+        price: 150000,
     sku: 'S167333285610',
     stock: 100,
     product_id: 80
   },
   {
     id: 115,
-    name: 'Cincin Birthstone Ring Adjustable Silver 925, black tourmaline',
-    price: 150000,
+        price: 150000,
     sku: 'S167333285611',
     stock: 100,
     product_id: 80
   },
   {
     id: 116,
-    name: 'Necklace night butterfly_Stanless steel, Single variant',
-    price: 90000,
+        price: 90000,
     sku: 'S16741150551',
     stock: 0,
     product_id: 81
   },
   {
     id: 117,
-    name: 'Bracelet Korean Style_Stanless steel, gold',
-    price: 95000,
+        price: 95000,
     sku: 'S16740343421',
     stock: 0,
     product_id: 82
   },
   {
     id: 118,
-    name: 'bracelet woman Strong -stainless steel, Single variant',
-    price: 95000,
+        price: 95000,
     sku: 'S16740339631',
     stock: 0,
     product_id: 83
   },
   {
     id: 119,
-    name: 'Julia Necklace woman -stainless steel, Single variant',
-    price: 95000,
+        price: 95000,
     sku: 'S16740336161',
     stock: 0,
     product_id: 84
   },
   {
     id: 120,
-    name: 'Varya necklace woman -stainless steel, Single variant',
-    price: 96000,
+        price: 96000,
     sku: 'S16740333991',
     stock: 0,
     product_id: 85
   },
   {
     id: 121,
-    name: 'Kestrel necklace woman -stainless steel, Single variant',
-    price: 95000,
+        price: 95000,
     sku: 'S16740331461',
     stock: 0,
     product_id: 86
   },
   {
     id: 122,
-    name: 'Necklace falling in love -stainless steel, Single variant',
-    price: 95000,
+        price: 95000,
     sku: 'S16740304481',
     stock: 0,
     product_id: 87
   },
   {
     id: 123,
-    name: 'bracelet woman Strong -stainless steel, Single variant',
-    price: 95000,
+        price: 95000,
     sku: 'S16740245131',
     stock: 0,
     product_id: 88
   },
   {
     id: 124,
-    name: 'Jeni Ring Woman-Stainless Steel, Single variant',
-    price: 100000,
+        price: 100000,
     sku: 'S16740237001',
     stock: 0,
     product_id: 89
   },
   {
     id: 125,
-    name: 'Hermosa necklace woman -stainless steel, rose',
-    price: 95000,
+        price: 95000,
     sku: 'S16740073541',
     stock: 10,
     product_id: 90
   },
   {
     id: 126,
-    name: 'Hermosa necklace woman -stainless steel, gold',
-    price: 95000,
+        price: 95000,
     sku: 'S16740073542',
     stock: 0,
     product_id: 90
   },
   {
     id: 127,
-    name: 'RIng tough woman -Stainless Steel, gold',
-    price: 100000,
+        price: 100000,
     sku: 'S16739419381',
     stock: 10,
     product_id: 91
   },
   {
     id: 128,
-    name: 'RIng tough woman -Stainless Steel, rose',
-    price: 100000,
+        price: 100000,
     sku: 'S16739419991',
     stock: 10,
     product_id: 91
   },
   {
     id: 129,
-    name: 'RIng tough woman -Stainless Steel, silver',
-    price: 100000,
+        price: 100000,
     sku: 'S16739423491',
     stock: 0,
     product_id: 91
   },
   {
     id: 130,
-    name: 'Necklace dream woman-Stainless Steel, gold',
-    price: 95000,
+        price: 95000,
     sku: 'S16739414571',
     stock: 0,
     product_id: 92
   },
   {
     id: 131,
-    name: 'Necklace tough woman -Stainless Steel, gold',
-    price: 95000,
+        price: 95000,
     sku: 'S16739409841',
     stock: 0,
     product_id: 93
   },
   {
     id: 132,
-    name: 'Necklace tough woman -Stainless Steel, rose',
-    price: 95000,
+        price: 95000,
     sku: 'S16739409842',
     stock: 10,
     product_id: 93
   },
   {
     id: 133,
-    name: 'Necklace night butterfly-Stainless Steel, gold',
-    price: 65000,
+        price: 65000,
     sku: 'S16739399892',
     stock: 10,
     product_id: 94
   },
   {
     id: 134,
-    name: 'Necklace night butterfly-Stainless Steel, rose',
-    price: 65000,
+        price: 65000,
     sku: 'S16739406341',
     stock: 10,
     product_id: 94
   },
   {
     id: 135,
-    name: 'Necklace night butterfly-Stainless Steel, silver',
-    price: 65000,
+        price: 65000,
     sku: 'S16739406342',
     stock: 0,
     product_id: 94
   },
   {
     id: 136,
-    name: 'Eternity Ring Woman SIlver-Stainless Steel, Single variant',
-    price: 93000,
+        price: 93000,
     sku: 'S16736032551',
     stock: 0,
     product_id: 95
   },
   {
     id: 137,
-    name: 'Korean Ring Woman Silver-Stainless Steel, Single variant',
-    price: 60000,
+        price: 60000,
     sku: 'S16736025811',
     stock: 0,
     product_id: 96
   },
   {
     id: 138,
-    name: 'Korean Ring Woman Gold-Stainless Steel, Single variant',
-    price: 60000,
+        price: 60000,
     sku: 'S16736022451',
     stock: 0,
     product_id: 97
   },
   {
     id: 139,
-    name: 'Cyntia Ring Woman-Stainless Steel, Single variant',
-    price: 60000,
+        price: 60000,
     sku: 'S16736020251',
     stock: 0,
     product_id: 98
   },
   {
     id: 140,
-    name: 'Adel Ring Woman-Stainless Steel, Single variant',
-    price: 60000,
+        price: 60000,
     sku: 'S16736016691',
     stock: 0,
     product_id: 99
   },
   {
     id: 141,
-    name: 'Ring Love Gold-Stainless Steel, Single variant',
-    price: 60000,
+        price: 60000,
     sku: 'S16736008691',
     stock: 0,
     product_id: 100

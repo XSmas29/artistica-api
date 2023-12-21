@@ -1,3 +1,4 @@
+import { OptionValue } from '@entity/OptionValue.entity'
 import { Product } from '@entity/Product.entity'
 import { Variant } from '@entity/Variant.entity'
 import { Seeder } from 'typeorm-extension'
@@ -9,79 +10,89 @@ export default class VariantSeed implements Seeder {
     const data: Variant[] = [
       {
         id: 1,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 90000,
         sku: 'S16771244441',
         stock: 268,
-        product: await Product.findOneOrFail({ where: { id: 1 } }) 
+        product: await Product.findOneOrFail({ where: { id: 1 } })
       },
       {
         id: 2,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 90000,
         sku: 'S16771243091',
         stock: 267,
-        product: await Product.findOneOrFail({ where: { id: 2 } }) 
+        product: await Product.findOneOrFail({ where: { id: 2 } })
       },
       {
         id: 3,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 90000,
         sku: 'S16771239631',
         stock: 269,
-        product: await Product.findOneOrFail({ where: { id: 3 } }) 
+        product: await Product.findOneOrFail({ where: { id: 3 } })
       },
       {
         id: 4,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 90000,
         sku: 'S16771230341',
         stock: 270,
-        product: await Product.findOneOrFail({ where: { id: 4 } }) 
+        product: await Product.findOneOrFail({ where: { id: 4 } })
       },
       {
         id: 5,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 125000,
         sku: 'S16771216551',
         stock: 300,
-        product: await Product.findOneOrFail({ where: { id: 5 } }) 
+        product: await Product.findOneOrFail({ where: { id: 5 } })
       },
       {
         id: 6,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 125000,
         sku: 'S16771209411',
         stock: 300,
-        product: await Product.findOneOrFail({ where: { id: 6 } }) 
+        product: await Product.findOneOrFail({ where: { id: 6 } })
       },
       {
         id: 7,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 125000,
         sku: 'S16771206661',
         stock: 30,
-        product: await Product.findOneOrFail({ where: { id: 7 } }) 
+        product: await Product.findOneOrFail({ where: { id: 7 } })
       },
       {
         id: 8,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 125000,
         sku: 'S16771201141',
         stock: 50,
-        product: await Product.findOneOrFail({ where: { id: 8 } }) 
+        product: await Product.findOneOrFail({ where: { id: 8 } })
       },
       {
         id: 9,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 60000,
         sku: 'S16752381461',
         stock: 50,
-        product: await Product.findOneOrFail({ where: { id: 9 } }) 
+        product: await Product.findOneOrFail({ where: { id: 9 } })
       },
       {
         id: 10,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 60000,
         sku: 'S16752371321',
         stock: 30,
@@ -89,7 +100,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 11,
-        name: 'Gold',
+        option_1_value: null,
+        option_2_value: null,
         price: 60000,
         sku: 'S16752274721',
         stock: 50,
@@ -97,7 +109,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 12,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 60000,
         sku: 'S16751494281',
         stock: 20,
@@ -105,7 +118,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 13,
-        name: 'Gold',
+        option_1_value: null,
+        option_2_value: null,
         price: 100000,
         sku: 'S16740349561',
         stock: 10,
@@ -113,7 +127,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 14,
-        name: 'Black',
+        option_1_value: null,
+        option_2_value: null,
         price: 100000,
         sku: 'S16740348461',
         stock: 20,
@@ -121,7 +136,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 15,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 90000,
         sku: 'S16740346211',
         stock: 10,
@@ -129,7 +145,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 16,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 160000,
         sku: 'S16740345411',
         stock: 10,
@@ -137,7 +154,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 17,
-        name: 'Gold',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 1 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16740340911',
         stock: 10,
@@ -145,7 +163,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 18,
-        name: 'Rose',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 2 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16740340912',
         stock: 10,
@@ -153,7 +172,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 19,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 95000,
         sku: 'S16740334911',
         stock: 10,
@@ -161,7 +181,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 20,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 95000,
         sku: 'S16740332651',
         stock: 10,
@@ -169,7 +190,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 21,
-        name: 'Gold',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 3 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16740248011',
         stock: 20,
@@ -177,7 +199,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 22,
-        name: 'Silver',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 4 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16740251151',
         stock: 0,
@@ -185,7 +208,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 23,
-        name: 'Black',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 5 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16740077501',
         stock: 10,
@@ -193,7 +217,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 24,
-        name: 'White',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 6 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16740077502',
         stock: 10,
@@ -201,7 +226,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 25,
-        name: 'Rose',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 7 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16739497841',
         stock: 20,
@@ -209,7 +235,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 26,
-        name: 'Gold',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 8 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16739497981',
         stock: 10,
@@ -217,7 +244,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 27,
-        name: 'Rose',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 9 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16739489421',
         stock: 10,
@@ -225,7 +253,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 28,
-        name: 'Gold',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 10 }}),
+        option_2_value: null,
         price: 65000,
         sku: 'S16739489422',
         stock: 10,
@@ -233,7 +262,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 29,
-        name: 'Silver',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 11 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16740112111',
         stock: 10,
@@ -241,7 +271,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 30,
-        name: 'Rose',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 12 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16739485541',
         stock: 10,
@@ -249,7 +280,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 31,
-        name: 'Silver',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 13 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16739486421',
         stock: 10,
@@ -257,7 +289,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 32,
-        name: 'Gold',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 14 }}),
+        option_2_value: null,
         price: 100000,
         sku: 'S16739432581',
         stock: 20,
@@ -265,7 +298,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 33,
-        name: 'Silver',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 15 }}),
+        option_2_value: null,
         price: 100000,
         sku: 'S16739432582',
         stock: 20,
@@ -273,7 +307,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 34,
-        name: 'Rose',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 16 }}),
+        option_2_value: null,
         price: 100000,
         sku: 'S16739432583',
         stock: 20,
@@ -281,7 +316,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 35,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 97000,
         sku: 'S16739396491',
         stock: 10,
@@ -289,7 +325,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 36,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 95000,
         sku: 'S16736035381',
         stock: 10,
@@ -297,7 +334,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 37,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 93000,
         sku: 'S16736031051',
         stock: 10,
@@ -305,7 +343,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 38,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 60000,
         sku: 'S16736028061',
         stock: 10,
@@ -313,7 +352,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 39,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 60000,
         sku: 'S16736007121',
         stock: 10,
@@ -321,7 +361,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 40,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 35000,
         sku: 'S16735177831',
         stock: 10,
@@ -329,7 +370,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 41,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 55000,
         sku: 'S16735174901',
         stock: 10,
@@ -337,7 +379,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 42,
-        name: '01',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 17 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S16734187601',
         stock: 10,
@@ -345,7 +388,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 43,
-        name: '02',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 18 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S16734193951',
         stock: 10,
@@ -353,7 +397,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 44,
-        name: '03',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 19 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S16734193952',
         stock: 10,
@@ -361,7 +406,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 45,
-        name: '04',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 20 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S16734193953',
         stock: 10,
@@ -369,7 +415,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 46,
-        name: '05',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 21 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S16734193954',
         stock: 10,
@@ -377,7 +424,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 47,
-        name: '06',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 22 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S16734193955',
         stock: 10,
@@ -385,7 +433,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 48,
-        name: '07',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 23 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S16734193956',
         stock: 10,
@@ -393,7 +442,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 49,
-        name: '08',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 24 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S16734193957',
         stock: 10,
@@ -401,7 +451,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 50,
-        name: '09',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 25 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S16734193958',
         stock: 10,
@@ -409,7 +460,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 51,
-        name: '10',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 26 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S16734193959',
         stock: 10,
@@ -417,7 +469,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 52,
-        name: '11',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 27 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S167341939510',
         stock: 10,
@@ -425,7 +478,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 53,
-        name: '12',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 28 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S167341939511',
         stock: 10,
@@ -433,7 +487,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 54,
-        name: '13',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 29 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S167341939512',
         stock: 10,
@@ -441,7 +496,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 55,
-        name: '14',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 30 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S167341939513',
         stock: 10,
@@ -449,7 +505,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 56,
-        name: '15',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 31 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S167341939514',
         stock: 10,
@@ -457,7 +514,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 57,
-        name: '16',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 32 }}),
+        option_2_value: null,
         price: 55000,
         sku: 'S167341939515',
         stock: 10,
@@ -465,7 +523,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 58,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 350000,
         sku: 'S16734894931',
         stock: 10,
@@ -473,7 +532,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 59,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 150000,
         sku: 'S16734884321',
         stock: 10,
@@ -481,7 +541,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 60,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 150000,
         sku: 'S16733313781',
         stock: 100,
@@ -489,7 +550,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 61,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 400000,
         sku: 'S16733308011',
         stock: 100,
@@ -497,7 +559,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 62,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 150000,
         sku: 'S16733305781',
         stock: 100,
@@ -505,7 +568,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 63,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 300000,
         sku: 'S16733303231',
         stock: 100,
@@ -513,7 +577,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 64,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 300000,
         sku: 'S16733300391',
         stock: 90,
@@ -521,7 +586,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 65,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 300000,
         sku: 'S16733296911',
         stock: 90,
@@ -529,7 +595,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 66,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 250000,
         sku: 'S16733234121',
         stock: 90,
@@ -537,7 +604,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 67,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 150000,
         sku: 'S16733225401',
         stock: 90,
@@ -545,7 +613,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 68,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 150000,
         sku: 'S16733224221',
         stock: 90,
@@ -553,7 +622,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 69,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 350000,
         sku: 'S16733221531',
         stock: 100,
@@ -561,7 +631,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 70,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 150000,
         sku: 'S16733215941',
         stock: 90,
@@ -569,7 +640,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 71,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 165000,
         sku: 'S16733214321',
         stock: 90,
@@ -577,7 +649,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 72,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 235000,
         sku: 'S16733212661',
         stock: 90,
@@ -585,7 +658,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 73,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 200000,
         sku: 'S16733211231',
         stock: 90,
@@ -593,7 +667,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 74,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 400000,
         sku: 'S16733209131',
         stock: 90,
@@ -601,7 +676,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 75,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 300000,
         sku: 'S16733207081',
         stock: 90,
@@ -609,7 +685,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 76,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 250000,
         sku: 'S16733205521',
         stock: 90,
@@ -617,7 +694,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 77,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 400000,
         sku: 'S16733204141',
         stock: 90,
@@ -625,7 +703,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 78,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 200000,
         sku: 'S16733199201',
         stock: 90,
@@ -633,7 +712,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 79,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 300000,
         sku: 'S16733196911',
         stock: 90,
@@ -641,7 +721,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 80,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 200000,
         sku: 'S16733191921',
         stock: 100,
@@ -649,7 +730,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 81,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 300000,
         sku: 'S16733190241',
         stock: 90,
@@ -657,7 +739,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 82,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 160000,
         sku: 'S16733185881',
         stock: 90,
@@ -665,7 +748,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 83,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 300000,
         sku: 'S16733182641',
         stock: 90,
@@ -673,7 +757,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 84,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 200000,
         sku: 'S16733178131',
         stock: 90,
@@ -681,7 +766,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 85,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 170000,
         sku: 'S16733173141',
         stock: 80,
@@ -689,7 +775,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 86,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 150000,
         sku: 'S16733169041',
         stock: 90,
@@ -697,7 +784,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 87,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 150000,
         sku: 'S16733165871',
         stock: 90,
@@ -705,7 +793,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 88,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 150000,
         sku: 'S16729057321',
         stock: 90,
@@ -713,7 +802,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 89,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 100000,
         sku: 'S16729056671',
         stock: 100,
@@ -721,7 +811,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 90,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 40000,
         sku: 'S16729052711',
         stock: 100,
@@ -729,7 +820,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 91,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 250000,
         sku: 'S16729051501',
         stock: 100,
@@ -737,7 +829,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 92,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 400000,
         sku: 'S16729050931',
         stock: 100,
@@ -745,7 +838,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 93,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 200000,
         sku: 'S16729050281',
         stock: 100,
@@ -753,7 +847,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 94,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 200000,
         sku: 'S16729049141',
         stock: 100,
@@ -761,7 +856,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 95,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 180000,
         sku: 'S16728900631',
         stock: 100,
@@ -769,7 +865,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 96,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 180000,
         sku: 'S16728897961',
         stock: 100,
@@ -777,7 +874,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 97,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 180000,
         sku: 'S16728896361',
         stock: 100,
@@ -785,7 +883,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 98,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 180000,
         sku: 'S16728894731',
         stock: 100,
@@ -793,7 +892,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 99,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 180000,
         sku: 'S16728890811',
         stock: 100,
@@ -801,7 +901,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 100,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 180000,
         sku: 'S16728887571',
         stock: 100,
@@ -809,7 +910,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 101,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 180000,
         sku: 'S16728885361',
         stock: 100,
@@ -817,7 +919,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 102,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 180000,
         sku: 'S16728879661',
         stock: 100,
@@ -825,7 +928,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 103,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 150000,
         sku: 'S16728876861',
         stock: 100,
@@ -833,7 +937,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 104,
-        name: 'Merah garnet',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 33 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S16728156441',
         stock: 100,
@@ -841,7 +946,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 105,
-        name: 'Ungu amethyst',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 34 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S16733328561',
         stock: 100,
@@ -849,7 +955,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 106,
-        name: 'Biru aquamarine',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 35 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S16733328562',
         stock: 100,
@@ -857,7 +964,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 107,
-        name: 'Putih diamond',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 36 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S16733328563',
         stock: 100,
@@ -865,7 +973,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 108,
-        name: 'Hijau emerald',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 37 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S16733328564',
         stock: 100,
@@ -873,7 +982,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 109,
-        name: 'Putih moonstone',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 38 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S16733328565',
         stock: 100,
@@ -881,7 +991,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 110,
-        name: 'Biru sapphire',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 39 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S16733328566',
         stock: 100,
@@ -889,7 +1000,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 111,
-        name: 'Yellow citrine',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 40 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S16733328567',
         stock: 90,
@@ -897,7 +1009,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 112,
-        name: 'Hijau peridot',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 41 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S16733328568',
         stock: 100,
@@ -905,7 +1018,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 113,
-        name: 'Green turquoise',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 42 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S16733328569',
         stock: 100,
@@ -913,7 +1027,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 114,
-        name: 'Pink ruby',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 43 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S167333285610',
         stock: 100,
@@ -921,7 +1036,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 115,
-        name: 'Black tourmaline',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 44 }}),
+        option_2_value: null,
         price: 150000,
         sku: 'S167333285611',
         stock: 100,
@@ -929,7 +1045,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 116,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 90000,
         sku: 'S16741150551',
         stock: 0,
@@ -937,7 +1054,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 117,
-        name: 'Gold',
+        option_1_value: null,
+        option_2_value: null,
         price: 95000,
         sku: 'S16740343421',
         stock: 0,
@@ -945,7 +1063,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 118,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 95000,
         sku: 'S16740339631',
         stock: 0,
@@ -953,7 +1072,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 119,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 95000,
         sku: 'S16740336161',
         stock: 0,
@@ -961,7 +1081,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 120,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 96000,
         sku: 'S16740333991',
         stock: 0,
@@ -969,7 +1090,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 121,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 95000,
         sku: 'S16740331461',
         stock: 0,
@@ -977,7 +1099,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 122,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 95000,
         sku: 'S16740304481',
         stock: 0,
@@ -985,7 +1108,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 123,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 95000,
         sku: 'S16740245131',
         stock: 0,
@@ -993,7 +1117,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 124,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 100000,
         sku: 'S16740237001',
         stock: 0,
@@ -1001,7 +1126,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 125,
-        name: 'Rose',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 45 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16740073541',
         stock: 10,
@@ -1009,7 +1135,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 126,
-        name: 'Gold',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 46 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16740073542',
         stock: 0,
@@ -1017,7 +1144,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 127,
-        name: 'Gold',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 47 }}),
+        option_2_value: null,
         price: 100000,
         sku: 'S16739419381',
         stock: 10,
@@ -1025,7 +1153,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 128,
-        name: 'Rose',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 48 }}),
+        option_2_value: null,
         price: 100000,
         sku: 'S16739419991',
         stock: 10,
@@ -1033,7 +1162,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 129,
-        name: 'Silver',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 49 }}),
+        option_2_value: null,
         price: 100000,
         sku: 'S16739423491',
         stock: 0,
@@ -1041,7 +1171,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 130,
-        name: 'Gold',
+        option_1_value: null,
+        option_2_value: null,
         price: 95000,
         sku: 'S16739414571',
         stock: 0,
@@ -1049,7 +1180,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 131,
-        name: 'Gold',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 50 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16739409841',
         stock: 0,
@@ -1057,7 +1189,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 132,
-        name: 'Rose',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 51 }}),
+        option_2_value: null,
         price: 95000,
         sku: 'S16739409842',
         stock: 10,
@@ -1065,7 +1198,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 133,
-        name: 'Gold',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 52 }}),
+        option_2_value: null,
         price: 65000,
         sku: 'S16739399892',
         stock: 10,
@@ -1073,7 +1207,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 134,
-        name: 'Rose',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 53 }}),
+        option_2_value: null,
         price: 65000,
         sku: 'S16739406341',
         stock: 10,
@@ -1081,7 +1216,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 135,
-        name: 'Silver',
+        option_1_value: await OptionValue.findOneOrFail({ where: { id: 54 }}),
+        option_2_value: null,
         price: 65000,
         sku: 'S16739406342',
         stock: 0,
@@ -1089,7 +1225,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 136,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 93000,
         sku: 'S16736032551',
         stock: 0,
@@ -1097,7 +1234,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 137,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 60000,
         sku: 'S16736025811',
         stock: 0,
@@ -1105,7 +1243,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 138,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 60000,
         sku: 'S16736022451',
         stock: 0,
@@ -1113,7 +1252,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 139,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 60000,
         sku: 'S16736020251',
         stock: 0,
@@ -1121,7 +1261,8 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 140,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 60000,
         sku: 'S16736016691',
         stock: 0,
@@ -1129,13 +1270,14 @@ export default class VariantSeed implements Seeder {
       },
       {
         id: 141,
-        name: 'Single variant',
+        option_1_value: null,
+        option_2_value: null,
         price: 60000,
         sku: 'S16736008691',
         stock: 0,
         product: await Product.findOneOrFail({ where: { id: 100 } })
       }
-    ] as Variant[]
+    ] as unknown as Variant[]
 
     const variants = Variant.create(data)
     await Variant.save(variants)
