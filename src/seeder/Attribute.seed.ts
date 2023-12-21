@@ -1,15 +1,15 @@
 
 import { Seeder } from 'typeorm-extension'
 import dotenv from 'dotenv'
-import { Option } from '@entity/Option.entity'
+import { Attribute } from '@entity/Attribute.entity'
 import { Product } from '@entity/Product.entity'
 dotenv.config()
 
 // ...
 
-export default class OptionSeed implements Seeder {
+export default class AttributeSeed implements Seeder {
   public async run(): Promise<void> {
-    const data: Option[] = [
+    const data: Attribute[] = [
       {
         id: 1,
         name: 'Color',
@@ -75,9 +75,9 @@ export default class OptionSeed implements Seeder {
         name: 'Color',
         product: await Product.findOneOrFail({ where: { id: 94 } }),
       },
-    ] as Option[]
+    ] as Attribute[]
 
-    const options = Option.create(data)
-    await Option.save(options)
+    const options = Attribute.create(data)
+    await Attribute.save(options)
   }
 }
