@@ -1,11 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToMany, ManyToOne } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToMany, ManyToOne, OneToOne, JoinColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { Variant } from '@entity/Variant.entity'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { Image } from '@entity/Image.entity'
 import { Category } from '@entity/Category.entity'
 import { Material } from '@entity/Material.entity'
-import { Option } from './Option.entity'
+import { Attribute } from './Attribute.entity'
 
 @ObjectType()
 @Entity({name: 'products'})
@@ -40,15 +40,11 @@ export class Product extends BaseEntity {
   @ManyToOne(() => Material, material => material.products)
   material!: Material
 
-  @Field(() => Option)
+  @Field(() => [Attribute])
   @TypeormLoader()
-  @ManyToOne(() => Option, option => option.product)
-  option_1!: Option
-
-  @Field(() => Option)
-  @TypeormLoader()
-  @ManyToOne(() => Option, option => option.product)
-  option_2!: Option
+  @OneToMany(() => Attribute, attribute => attribute.product)
+  @JoinColumn()
+  attributes!: Attribute[]
 
   @Field(() => [Variant])
   @TypeormLoader()
