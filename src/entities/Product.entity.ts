@@ -5,6 +5,7 @@ import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { Image } from '@entity/Image.entity'
 import { Category } from '@entity/Category.entity'
 import { Material } from '@entity/Material.entity'
+import { Option } from './Option.entity'
 
 @ObjectType()
 @Entity({name: 'products'})
@@ -38,6 +39,16 @@ export class Product extends BaseEntity {
   @TypeormLoader()
   @ManyToOne(() => Material, material => material.products)
   material!: Material
+
+  @Field(() => Option)
+  @TypeormLoader()
+  @ManyToOne(() => Option, option => option.product)
+  option_1!: Option
+
+  @Field(() => Option)
+  @TypeormLoader()
+  @ManyToOne(() => Option, option => option.product)
+  option_2!: Option
 
   @Field(() => [Variant])
   @TypeormLoader()

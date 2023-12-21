@@ -7,12 +7,16 @@ import CategorySeeder from '@seeder/Category.seed'
 import ImageSeeder from '@seeder/Image.seed'
 import DeliveryProviderSeed from './DeliveryProvider.seed'
 import UserSeed from './User.seed'
+import OptionSeed from './Option.seed'
+import OptionValueSeed from './OptionValue.seed'
 
 export class MainSeeder implements Seeder {
 	async run(
 		dataSource: DataSource,
 	): Promise<void> {
+		await runSeeder(dataSource, OptionSeed)
 		await runSeeder(dataSource, ProductSeeder)
+		await runSeeder(dataSource, OptionValueSeed)
 		await runSeeder(dataSource, VariantSeeder)
 		await runSeeder(dataSource, ImageSeeder)
 		await runSeeder(dataSource, MaterialSeeder)
