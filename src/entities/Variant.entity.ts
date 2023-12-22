@@ -37,5 +37,5 @@ export class Variant extends BaseEntity {
   @Field(() => [VariantValue])
   @TypeormLoader()
   @OneToMany(() => VariantValue, variantValue => variantValue.variant)
-  values!: VariantValue[]
+  attribute_values!: VariantValue[]
 }
