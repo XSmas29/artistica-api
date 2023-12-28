@@ -110,7 +110,7 @@ export class UserResolver {
     
     await gmail.sendConfirmationMail(email, sha256Hash)
     
-return {
+    return {
       success: true,
       message: 'Silahkan konfirmasi akun anda melalui email yang sudah dikirim ke akun email anda',
       data: JSON.stringify(user),

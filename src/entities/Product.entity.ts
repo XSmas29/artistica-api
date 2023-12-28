@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToMany, ManyToOne, OneToOne, JoinColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToMany, ManyToOne, JoinColumn, DeleteDateColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { Variant } from '@entity/Variant.entity'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
@@ -29,6 +29,10 @@ export class Product extends BaseEntity {
   @Field()
   @Column({default: true})
   single_variant!: boolean
+
+  @Field()
+  @DeleteDateColumn()
+  deleted_at!: Date
 
   @Field(() => Category)
   @TypeormLoader()

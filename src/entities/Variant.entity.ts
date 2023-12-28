@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToMany } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToMany, DeleteDateColumn, Index } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { Product } from '@entity/Product.entity'
 import { Image } from '@entity/Image.entity'
@@ -6,6 +6,8 @@ import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { VariantValue } from './VariantValue.entity'
 
 @ObjectType()
+
+// @Index('UNIQUE_SKU', ['sku'], { unique: true, where: 'deleted_at IS NULL' })
 @Entity({name: 'product_variants'})
 export class Variant extends BaseEntity {
   @Field()
@@ -17,12 +19,16 @@ export class Variant extends BaseEntity {
   price!: number
 
   @Field()
-  @Column({unique: true})
+  @Column()
   sku!: string
 
   @Field()
   @Column()
   stock!: number
+
+  @Field()
+  @DeleteDateColumn()
+  deleted_at!: Date
 
   @Field(() => Product)
   @TypeormLoader()

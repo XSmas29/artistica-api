@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, BaseEntity, ManyToOne } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, BaseEntity, ManyToOne, DeleteDateColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { Variant } from './Variant.entity'
@@ -12,18 +12,22 @@ export class VariantValue extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number
 
+  @Field()
+  @DeleteDateColumn()
+  deleted_at!: Date
+
   @Field(() => Variant)
   @TypeormLoader()
-  @ManyToOne(() => Variant, variant => variant.values)
+  @ManyToOne(() => Variant, variant => variant.attribute_values)
   variant!: Variant
 
   @Field(() => Attribute)
   @TypeormLoader()
-  @ManyToOne(() => Attribute, attribute => attribute.values)
+  @ManyToOne(() => Attribute, attribute => attribute.attribute_values)
   attribute!: Attribute
 
   @Field(() => AttributeOption)
   @TypeormLoader()
-  @ManyToOne(() => AttributeOption, attributeOption => attributeOption.values)
+  @ManyToOne(() => AttributeOption, attributeOption => attributeOption.attribute_values)
   option!: AttributeOption
 }
