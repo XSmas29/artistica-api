@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToMany } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToMany, DeleteDateColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { Product } from '@entity/Product.entity'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
@@ -16,6 +16,10 @@ export class Attribute extends BaseEntity {
   @Column()
   name!: string
 
+  @Field()
+  @DeleteDateColumn()
+  deleted_at!: Date
+
   @Field(() => Product)
   @TypeormLoader()
   @ManyToOne(() => Product, product => product.attributes)
@@ -29,5 +33,5 @@ export class Attribute extends BaseEntity {
   @Field(() => [VariantValue])
   @TypeormLoader()
   @OneToMany(() => VariantValue, variantValue => variantValue.attribute)
-  values!: VariantValue[]
+  attribute_values!: VariantValue[]
 }

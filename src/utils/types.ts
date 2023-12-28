@@ -9,7 +9,7 @@ class ServerResponse {
   success!: boolean
   @Field()
   message?: string
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   data?: string | null
 }
 

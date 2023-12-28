@@ -1,6 +1,6 @@
 import { Product } from '@entity/Product.entity'
-import { pagination, sort } from '@utils/params'
-import { Arg, FieldResolver, Query, Resolver, Root } from 'type-graphql'
+import { AddProductData, pagination, sort } from '@utils/params'
+import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
 import * as env from 'env-var'
 import { Image } from '@entity/Image.entity'
 import { Loader } from '@xsmas29/type-graphql-dataloader'
@@ -9,6 +9,14 @@ import { groupBy } from 'lodash'
 import DataLoader from 'dataloader'
 import { filterProducts, ProductList } from '@utils/product.type'
 import { Variant } from '@entity/Variant.entity'
+import { ServerResponse } from '@utils/types'
+import { AppDataSource } from 'src/data-source'
+import { createSlug, fillVariantValues } from '@utils/format'
+import { Attribute } from '@entity/Attribute.entity'
+import { AttributeOption } from '@entity/AttributeOption.entity'
+import { VariantValue } from '@entity/VariantValue.entity'
+import { checkUniqueSKU } from '@utils/composables'
+import { DuplicateEntryError } from '@utils/errors'
 
 @Resolver(Product)
 export class ProductResolver {
@@ -106,5 +114,147 @@ export class ProductResolver {
       .getOneOrFail()
     
     return product
+  }
+
+  @Mutation(() => ServerResponse)
+  async addProduct(
+    @Arg('data') data: AddProductData,
+  ): Promise<ServerResponse> {
+    const {product, attributes, variants } = data
+
+    const isSKUUnique = await checkUniqueSKU(variants.map(variant => variant.sku))
+
+    if (!isSKUUnique) {
+      throw new DuplicateEntryError('SKU tidak boleh sama / sudah digunakan sebelumnya')
+    }
+
+    const newProduct = Product.create({
+      name: product.name,
+      description: product.description,
+      slug: createSlug(product.name),
+      category: { id: product.category_id },
+      material: { id: product.material_id },
+      single_variant: attributes.length === 0,
+    })
+    const productData = await Product.save(newProduct)
+
+    const newAttributes = attributes.map(async attr => {
+      const attribute = Attribute.create({
+        name: attr.name,
+        product: productData,
+      })
+
+      const attributeData = await Attribute.save(attribute)
+      const options = attr.values.map(value => {
+        return AttributeOption.create({
+          name: value,
+          attribute: attributeData
+        })
+      })
+      
+      const optionsData = await AttributeOption.save(options)
+      
+      return {...attributeData, options: optionsData}
+    })
+    const attributeData = await Promise.all(newAttributes)
+
+    // console.log(attributeData.map(attr => attr.options))
+
+    const newVariants = variants.map(async variant => {
+      const newVariant = Variant.create({
+        price: variant.price,
+        stock: variant.stock,
+        sku: variant.sku,
+        product: productData,
+      })
+
+      const data = await Variant.save(newVariant)
+
+      return data
+    })
+
+    const result: number[][] = []
+    fillVariantValues(attributeData as Attribute[], 0, [], result)
+
+    const variantData = await Promise.all(newVariants)
+
+    // console.log(variantData)
+    console.log(attributeData)
+    console.log(attributeData.length)
+    const newValues = variantData.map(async (variant, index) => {
+      // for (const [i, attr] of attributeData.entries()) {
+      for (let i = 0; i < attributeData.length; i++) {
+        console.log('index attr: ', i)
+        console.log('index vars: ', index)
+        console.log(attributeData[i].id)
+
+        // console.log({
+        //   variant: await Variant.findOneByOrFail({ id: variant.id }),
+        //   attribute: await Attribute.findOneByOrFail({ id: attr.id }),
+        //   option: await AttributeOption.findOneByOrFail({ id: result[index][i] }),
+        // })
+        const variantValue = VariantValue.create({
+          variant: await Variant.findOneByOrFail({ id: variant.id }),
+          attribute: await Attribute.findOneByOrFail({ id: attributeData[i].id }),
+          option: await AttributeOption.findOneByOrFail({ id: result[index][i] }),
+        })
+
+        // console.log(variantValue)
+        const data = await VariantValue.save(variantValue)
+        console.log('vv id: ', data.id)
+        
+        // return data
+      }
+    })
+    const valueData = await Promise.all(newValues)
+
+    // console.log(valueData)
+
+    console.log(result)
+      
+    return {
+      message: 'Produk berhasil ditambahkan',
+      success: true,
+
+      // data: product
+    }
+  }
+
+  @Mutation(() => ServerResponse)
+  async deleteProduct(
+    @Arg('id') id: number,
+  ): Promise<ServerResponse> {
+    //delete product
+    const product = await Product.findOneByOrFail({ id })
+    await Product.softRemove(product)
+
+    //delete product attributes
+    const attributes = await Attribute.createQueryBuilder('attr')
+      .where('attr.product = :id', { id })
+      .getMany()
+    await Attribute.softRemove(attributes)
+
+    //delete product attribute options
+    const options = await AttributeOption.createQueryBuilder('opt')
+      .where('opt.attribute IN (:...ids)', { ids: attributes.map(attr => attr.id) })
+      .getMany()
+    await AttributeOption.softRemove(options)
+
+    //delete product variants
+    const variants = await Variant.createQueryBuilder('var')
+      .where('var.product = :id', { id })
+      .getMany()
+    await Variant.softRemove(variants)
+
+    //delete product variant values
+    const values = await VariantValue.createQueryBuilder('val')
+      .where('val.variant IN (:...ids)', { ids: variants.map(variant => variant.id) })
+      .getMany()
+    await VariantValue.softRemove(values)
+
+    return {
+      message: 'Produk berhasil dihapus',
+      success: true,
+    }
   }
 }

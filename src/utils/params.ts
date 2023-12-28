@@ -1,4 +1,6 @@
 import { Field, InputType } from 'type-graphql'
+import GraphQLUpload from 'graphql-upload/GraphQLUpload.js'
+import Upload from 'graphql-upload/Upload.js'
 
 @InputType()
 class VerifyData {
@@ -60,11 +62,56 @@ class CartParams {
   quantity!: number
 }
 
+@InputType()
+class AddProductDataProduct {
+  @Field()
+  name!: string
+  @Field()
+  description!: string
+  @Field()
+  category_id!: number
+  @Field()
+  material_id!: number
+  @Field(() => [GraphQLUpload])
+  images!: Upload[]
+}
+
+@InputType()
+class AddProductDataAttributes {
+  @Field()
+  name!: string
+  @Field(() => [String])
+  values!: string[]
+}
+
+@InputType()
+class AddProductDataVariants {
+  @Field()
+  price!: number
+  @Field()
+  stock!: number
+  @Field()
+  sku!: string
+  @Field(() => GraphQLUpload, { nullable: true })
+  image!: Upload | null
+}
+
+@InputType()
+class AddProductData {
+  @Field(() => AddProductDataProduct)
+  product!: AddProductDataProduct
+  @Field(() => [AddProductDataAttributes])
+  attributes!: AddProductDataAttributes[]
+  @Field(() => [AddProductDataVariants])
+  variants!: AddProductDataVariants[]
+}
+
 export {
   VerifyData,
   EditProfileData,
   EditPasswordData,
   pagination,
   sort,
-  CartParams
+  CartParams,
+  AddProductData
 }
