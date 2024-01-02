@@ -259,30 +259,39 @@ export class ProductResolver {
     //delete product
     const product = await Product.findOneByOrFail({ id })
     await Product.softRemove(product)
+    console.log('produk id: ', product.id)
 
     //delete product attributes
     const attributes = await Attribute.createQueryBuilder('attr')
       .where('attr.product = :id', { id })
       .getMany()
     await Attribute.softRemove(attributes)
+    console.log('atribut: ', attributes)
 
     //delete product attribute options
-    const options = await AttributeOption.createQueryBuilder('opt')
-      .where('opt.attribute IN (:...ids)', { ids: attributes.map(attr => attr.id) })
-      .getMany()
-    await AttributeOption.softRemove(options)
+    if (attributes.length > 0) {
+      const options = await AttributeOption.createQueryBuilder('opt')
+        .where('opt.attribute IN (:...ids)', { ids: attributes.map(attr => attr.id) })
+        .getMany()
+      await AttributeOption.softRemove(options)
+      console.log('options: ', options)
+    }
 
     //delete product variants
     const variants = await Variant.createQueryBuilder('var')
       .where('var.product = :id', { id })
       .getMany()
     await Variant.softRemove(variants)
+    console.log('variants: ', variants)
 
     //delete product variant values
-    const values = await VariantValue.createQueryBuilder('val')
-      .where('val.variant IN (:...ids)', { ids: variants.map(variant => variant.id) })
-      .getMany()
-    await VariantValue.softRemove(values)
+    if (variants.length > 0) {
+      const values = await VariantValue.createQueryBuilder('val')
+        .where('val.variant IN (:...ids)', { ids: variants.map(variant => variant.id) })
+        .getMany()
+      await VariantValue.softRemove(values)
+      console.log('values: ', values)
+    }
 
     return {
       message: 'Produk berhasil dihapus',
