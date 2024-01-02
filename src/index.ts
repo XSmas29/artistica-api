@@ -16,6 +16,8 @@ import { CategoryResolver } from '@resolver/Category.resolver'
 import { VariantResolver } from '@resolver/Variant.resolver'
 import { DeliveryResolver } from '@resolver/Delivery.resolver'
 import { TransactionResolver } from '@resolver/Transaction.resolver'
+import { ApolloServerPluginLandingPageDisabled } from '@apollo/server/plugin/disabled'
+import graphqlUploadExpress from 'graphql-upload/graphqlUploadExpress.js'
 dotenv.config()
 
 const main = async () => {
@@ -23,6 +25,7 @@ const main = async () => {
   app.use(express.json())
   app.use(cors())
   app.use(express.static('public'))
+  app.use(graphqlUploadExpress())
 
   const port = env.get('PORT').required().asPortNumber()
 
@@ -46,8 +49,12 @@ const main = async () => {
     plugins: [ 
       ApolloServerLoaderPlugin({ typeormGetConnection() {
           return AppDataSource
-      }, })
+      }, }),
+
+      // ApolloServerPluginLandingPageDisabled(),
     ],
+
+    // csrfPrevention: false,
 
   })
   await apolloServer.start()
