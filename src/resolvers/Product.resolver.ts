@@ -10,13 +10,14 @@ import DataLoader from 'dataloader'
 import { filterProducts, ProductList } from '@utils/product.type'
 import { Variant } from '@entity/Variant.entity'
 import { ServerResponse } from '@utils/types'
-import { AppDataSource } from 'src/data-source'
 import { createSlug, fillVariantValues } from '@utils/format'
 import { Attribute } from '@entity/Attribute.entity'
 import { AttributeOption } from '@entity/AttributeOption.entity'
 import { VariantValue } from '@entity/VariantValue.entity'
 import { checkUniqueSKU } from '@utils/composables'
 import { DuplicateEntryError } from '@utils/errors'
+import { uploadFile } from '@utils/upload'
+import { parse } from 'path'
 
 @Resolver(Product)
 export class ProductResolver {
@@ -121,7 +122,7 @@ export class ProductResolver {
     @Arg('data') data: AddProductData,
   ): Promise<ServerResponse> {
     const {product, attributes, variants } = data
-
+    
     const isSKUUnique = await checkUniqueSKU(variants.map(variant => variant.sku))
 
     if (!isSKUUnique) {
@@ -137,6 +138,21 @@ export class ProductResolver {
       single_variant: attributes.length === 0,
     })
     const productData = await Product.save(newProduct)
+
+    product.images.forEach(async image => {
+      const data = await image
+      const { ext } = parse(data.filename)
+      const path = `img_${productData.id}_${Date.now().toString()}${ext}`
+
+      await uploadFile(image, `products/${productData.id}`, path)
+      
+      const newImage = Image.create({
+        path: path,
+        product: productData,
+      })
+
+      await Image.save(newImage)
+    })
 
     const newAttributes = attributes.map(async attr => {
       const attribute = Attribute.create({
@@ -168,9 +184,25 @@ export class ProductResolver {
         product: productData,
       })
 
-      const data = await Variant.save(newVariant)
+      const variantData = await Variant.save(newVariant)
+      
+      //upload variant image
+      if (variant.image) {
+        const data = await variant.image
+        const { ext } = parse(data.filename)
+        const path = `img_${variantData.id}_${Date.now().toString()}${ext}`
 
-      return data
+        await uploadFile(variant.image, `variants/${productData.id}`, path)
+        
+        const newImage = Image.create({
+          path: path,
+          variant: variantData,
+        })
+
+        await Image.save(newImage)
+      }
+
+      return variantData
     })
 
     const result: number[][] = []

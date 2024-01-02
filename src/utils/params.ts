@@ -1,6 +1,6 @@
 import { Field, InputType } from 'type-graphql'
 import GraphQLUpload from 'graphql-upload/GraphQLUpload.js'
-import Upload from 'graphql-upload/Upload.js'
+import Upload, { FileUpload } from 'graphql-upload/Upload.js'
 
 @InputType()
 class VerifyData {
@@ -73,7 +73,7 @@ class AddProductDataProduct {
   @Field()
   material_id!: number
   @Field(() => [GraphQLUpload])
-  images!: Upload[]
+  images!: FileUpload[]
 }
 
 @InputType()
@@ -93,7 +93,7 @@ class AddProductDataVariants {
   @Field()
   sku!: string
   @Field(() => GraphQLUpload, { nullable: true })
-  image!: Upload | null
+  image!: FileUpload | null
 }
 
 @InputType()
