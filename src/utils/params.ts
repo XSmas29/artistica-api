@@ -97,7 +97,7 @@ class AddProductDataVariants {
 }
 
 @InputType()
-class AddProductData {
+class ProductData {
   @Field(() => AddProductDataProduct)
   product!: AddProductDataProduct
   @Field(() => [AddProductDataAttributes])
@@ -113,5 +113,5 @@ export {
   pagination,
   sort,
   CartParams,
-  AddProductData
+  ProductData
 }
