@@ -1,5 +1,5 @@
 import { Product } from '@entity/Product.entity'
-import { AddProductData, pagination, sort } from '@utils/params'
+import { ProductData, pagination, sort } from '@utils/params'
 import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
 import * as env from 'env-var'
 import { Image } from '@entity/Image.entity'
@@ -16,7 +16,7 @@ import { AttributeOption } from '@entity/AttributeOption.entity'
 import { VariantValue } from '@entity/VariantValue.entity'
 import { checkUniqueSKU } from '@utils/composables'
 import { DuplicateEntryError } from '@utils/errors'
-import { uploadFile } from '@utils/upload'
+import { deleteFile, uploadFile } from '@utils/files'
 import { parse } from 'path'
 
 @Resolver(Product)
@@ -95,7 +95,6 @@ export class ProductResolver {
 
     productsQuery.limit(pagination.limit)
     productsQuery.offset((pagination.page - 1) * pagination.limit)
-
     const products = await productsQuery.getManyAndCount()
     
     return {
@@ -113,13 +112,13 @@ export class ProductResolver {
     const product = await Product.createQueryBuilder('prod')
       .where('prod.id = :id', { id })
       .getOneOrFail()
-    
+
     return product
   }
 
   @Mutation(() => ServerResponse)
   async addProduct(
-    @Arg('data') data: AddProductData,
+    @Arg('data') data: ProductData,
   ): Promise<ServerResponse> {
     const {product, attributes, variants } = data
     
@@ -192,14 +191,17 @@ export class ProductResolver {
         const { ext } = parse(data.filename)
         const path = `img_${variantData.id}_${Date.now().toString()}${ext}`
 
-        await uploadFile(variant.image, `variants/${productData.id}`, path)
+        await uploadFile(variant.image, `variants/${variantData.id}`, path)
         
         const newImage = Image.create({
           path: path,
           variant: variantData,
         })
 
-        await Image.save(newImage)
+        const imageData = await Image.save(newImage)
+
+        variantData.image = imageData
+        await Variant.save(variantData)
       }
 
       return variantData
@@ -259,43 +261,77 @@ export class ProductResolver {
     //delete product
     const product = await Product.findOneByOrFail({ id })
     await Product.softRemove(product)
-    console.log('produk id: ', product.id)
 
-    //delete product attributes
+    //soft delete product attributes
     const attributes = await Attribute.createQueryBuilder('attr')
       .where('attr.product = :id', { id })
       .getMany()
     await Attribute.softRemove(attributes)
-    console.log('atribut: ', attributes)
 
-    //delete product attribute options
+    //delete product images
+    const images = await Image.createQueryBuilder('img')
+      .where('img.product = :id', { id })
+      .getMany()
+    
+    images.forEach(image => {
+      deleteFile(`products/${product.id}/${image.path}`)
+    })
+    await Image.remove(images)
+
+    //soft delete product attribute options
     if (attributes.length > 0) {
       const options = await AttributeOption.createQueryBuilder('opt')
         .where('opt.attribute IN (:...ids)', { ids: attributes.map(attr => attr.id) })
         .getMany()
       await AttributeOption.softRemove(options)
-      console.log('options: ', options)
     }
 
-    //delete product variants
+    //soft delete product variants
     const variants = await Variant.createQueryBuilder('var')
       .where('var.product = :id', { id })
       .getMany()
-    await Variant.softRemove(variants)
-    console.log('variants: ', variants)
 
-    //delete product variant values
-    if (variants.length > 0) {
-      const values = await VariantValue.createQueryBuilder('val')
-        .where('val.variant IN (:...ids)', { ids: variants.map(variant => variant.id) })
-        .getMany()
-      await VariantValue.softRemove(values)
-      console.log('values: ', values)
-    }
+      if (variants.length > 0) {
+        const values = await VariantValue.createQueryBuilder('val')
+          .where('val.variant IN (:...ids)', { ids: variants.map(variant => variant.id) })
+          .getMany()
+        await VariantValue.softRemove(values)
+  
+        //delete variant images
+        const variant_images = await Image.createQueryBuilder('img')
+          .leftJoinAndSelect('img.variant', 'variant')
+          .where('img.variant IN (:...ids)', { ids: variants.map(variant => variant.id) })
+          .getMany()
+          console.log(variant_images)
+        variant_images.forEach(image => {
+          deleteFile(`variants/${image.variant!.id}/${image.path}`)
+        })
+        await Image.remove(variant_images)
+      }
+
+    await Variant.softRemove(variants)
+
+    //soft delete product variant values
 
     return {
       message: 'Produk berhasil dihapus',
       success: true,
     }
+  }
+
+  @Mutation(() => ServerResponse)
+  async updateProduct(
+    @Arg('id') id: number,
+    @Arg('data') data: ProductData,
+  ): Promise<ServerResponse> {
+    const {product, attributes, variants } = data
+    
+    const isSKUUnique = await checkUniqueSKU(variants.map(variant => variant.sku))
+
+    if (!isSKUUnique) {
+      throw new DuplicateEntryError('SKU tidak boleh sama / sudah digunakan sebelumnya')
+    }
+
+    //delete old data
   }
 }
