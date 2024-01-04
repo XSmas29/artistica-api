@@ -12,20 +12,17 @@ import { CartData } from '@utils/product.type'
 @Resolver(Variant)
 export class VariantResolver {
   @FieldResolver()
-  @Loader<number, Image[]>(async ids => {
-    const images = await Image.find({
-      where: { variant: { id: In([...ids]) } },
-      relations: ['variant', 'product'],
-    })
-    const base_url = env.get('BASE_URL').required().asString()
-    images.forEach(image => image.path = `${base_url}/products/${image.product!.id.toString()}/${image.path}`)
-    const imagesById = groupBy(images, 'variant.id')
+  async image(@Root() root: Variant) {
+    const image = await Image.createQueryBuilder('img')
+    .leftJoinAndSelect('img.variant', 'variant')
+      .where('img.variant = :id', { id: root.id })
+      .getOne()
+    if (image) {
+      const base_url = env.get('BASE_URL').required().asString()
+      image.path = `${base_url}/variants/${image.variant!.id.toString()}/${image.path}`
+    }
 
-    return ids.map(id => imagesById[id] ?? [])
-  })
-  images(@Root() root: Variant) {
-    return (dataloader: DataLoader<number, Image[]>) =>
-      dataloader.load(root.id)
+    return image
   }
 
   @Query(() => [CartData])

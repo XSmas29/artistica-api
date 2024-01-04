@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToOne, JoinColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { Variant } from '@entity/Variant.entity'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
@@ -17,7 +17,8 @@ export class Image extends BaseEntity {
 
   @Field(() => Variant, {nullable: true})
   @TypeormLoader()
-  @ManyToOne(() => Variant, variant => variant.images)
+  @OneToOne(() => Variant, variant => variant.image)
+  @JoinColumn()
   variant?: Variant | null
 
 	@Field(() => Product, {nullable: true})
