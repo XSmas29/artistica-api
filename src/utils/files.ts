@@ -1,6 +1,6 @@
 import { FileUpload } from 'graphql-upload/Upload.js'
 import { join } from 'path'
-import { createWriteStream, existsSync, mkdirSync, writeFileSync } from 'fs'
+import { createWriteStream, existsSync, mkdirSync, unlinkSync } from 'fs'
 import { finished } from 'stream/promises'
 
 export const uploadFile = async (file: FileUpload, uploadDir: string, fileName: string): Promise<string> => {
@@ -24,4 +24,12 @@ export const uploadFile = async (file: FileUpload, uploadDir: string, fileName: 
   //       part.file.pipe(writeStream);
 
   return filePath
+}
+
+export const deleteFile = (filePath: string): void => {
+  const fullPath = join(__dirname, `../../public/${filePath}`)
+  console.log(fullPath)
+  if (existsSync(fullPath)) {
+    unlinkSync(fullPath)
+  }
 }
