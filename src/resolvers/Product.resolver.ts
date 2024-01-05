@@ -311,8 +311,6 @@ export class ProductResolver {
 
     await Variant.softRemove(variants)
 
-    //soft delete product variant values
-
     return {
       message: 'Produk berhasil dihapus',
       success: true,
@@ -332,6 +330,180 @@ export class ProductResolver {
       throw new DuplicateEntryError('SKU tidak boleh sama / sudah digunakan sebelumnya')
     }
 
+    const oldProduct = await Product.findOneByOrFail({ id })
+    await Product.update(oldProduct.id, {
+      name: product.name,
+      description: product.description,
+      slug: createSlug(product.name),
+      category: { id: product.category_id },
+      material: { id: product.material_id },
+      single_variant: attributes.length === 0,
+    })
+
+    const productData = await Product.findOneByOrFail({ id })
+
     //delete old data
+
+    //soft delete product attributes
+    const oldAttributes = await Attribute.createQueryBuilder('attr')
+      .where('attr.product = :id', { id })
+      .getMany()
+    await Attribute.softRemove(oldAttributes)
+
+    //delete product images
+    const oldProductImages = await Image.createQueryBuilder('img')
+      .where('img.product = :id', { id })
+      .getMany()
+    
+      oldProductImages.forEach(image => {
+      deleteFile(`products/${productData.id}/${image.path}`)
+    })
+    await Image.remove(oldProductImages)
+
+    //soft delete product attribute options
+    if (oldAttributes.length > 0) {
+      const oldOptions = await AttributeOption.createQueryBuilder('opt')
+        .where('opt.attribute IN (:...ids)', { ids: oldAttributes.map(attr => attr.id) })
+        .getMany()
+      await AttributeOption.softRemove(oldOptions)
+    }
+
+    //soft delete product variants
+    const oldVariants = await Variant.createQueryBuilder('var')
+      .where('var.product = :id', { id })
+      .getMany()
+
+      if (oldVariants.length > 0) {
+        const oldValues = await VariantValue.createQueryBuilder('val')
+          .where('val.variant IN (:...ids)', { ids: oldVariants.map(variant => variant.id) })
+          .getMany()
+        await VariantValue.softRemove(oldValues)
+  
+        //delete variant images
+        const old_variant_images = await Image.createQueryBuilder('img')
+          .leftJoinAndSelect('img.variant', 'variant')
+          .where('img.variant IN (:...ids)', { ids: oldVariants.map(variant => variant.id) })
+          .getMany()
+          console.log(old_variant_images)
+        old_variant_images.forEach(image => {
+          deleteFile(`variants/${image.variant!.id}/${image.path}`)
+        })
+        await Image.remove(old_variant_images)
+      }
+
+    await Variant.softRemove(oldVariants)
+
+    product.images.forEach(async image => {
+      const data = await image
+      const { ext } = parse(data.filename)
+      const path = `img_${productData.id}_${Date.now().toString()}${ext}`
+
+      await uploadFile(image, `products/${productData.id}`, path)
+      
+      const newImage = Image.create({
+        path: path,
+        product: productData,
+      })
+
+      await Image.save(newImage)
+    })
+
+    const newAttributes = attributes.map(async attr => {
+      const attribute = Attribute.create({
+        name: attr.name,
+        product: productData,
+      })
+
+      const attributeData = await Attribute.save(attribute)
+      const options = attr.values.map(value => {
+        return AttributeOption.create({
+          name: value,
+          attribute: attributeData
+        })
+      })
+      
+      const optionsData = await AttributeOption.save(options)
+      
+      return {...attributeData, options: optionsData}
+    })
+    const attributeData = await Promise.all(newAttributes)
+
+    const newVariants = variants.map(async variant => {
+      const newVariant = Variant.create({
+        price: variant.price,
+        stock: variant.stock,
+        sku: variant.sku,
+        product: productData,
+      })
+
+      const variantData = await Variant.save(newVariant)
+      
+      //upload variant image
+      if (variant.image) {
+        const data = await variant.image
+        const { ext } = parse(data.filename)
+        const path = `img_${variantData.id}_${Date.now().toString()}${ext}`
+
+        await uploadFile(variant.image, `variants/${variantData.id}`, path)
+        
+        const newImage = Image.create({
+          path: path,
+          variant: variantData,
+        })
+
+        const imageData = await Image.save(newImage)
+
+        variantData.image = imageData
+        await Variant.save(variantData)
+      }
+
+      return variantData
+    })
+
+    const result: number[][] = []
+    fillVariantValues(attributeData as Attribute[], 0, [], result)
+
+    const variantData = await Promise.all(newVariants)
+
+    // console.log(variantData)
+    console.log(attributeData)
+    console.log(attributeData.length)
+    const newValues = variantData.map(async (variant, index) => {
+      // for (const [i, attr] of attributeData.entries()) {
+      for (let i = 0; i < attributeData.length; i++) {
+        console.log('index attr: ', i)
+        console.log('index vars: ', index)
+        console.log(attributeData[i].id)
+
+        // console.log({
+        //   variant: await Variant.findOneByOrFail({ id: variant.id }),
+        //   attribute: await Attribute.findOneByOrFail({ id: attr.id }),
+        //   option: await AttributeOption.findOneByOrFail({ id: result[index][i] }),
+        // })
+        const variantValue = VariantValue.create({
+          variant: await Variant.findOneByOrFail({ id: variant.id }),
+          attribute: await Attribute.findOneByOrFail({ id: attributeData[i].id }),
+          option: await AttributeOption.findOneByOrFail({ id: result[index][i] }),
+        })
+
+        // console.log(variantValue)
+        const data = await VariantValue.save(variantValue)
+        console.log('vv id: ', data.id)
+        
+        // return data
+      }
+    })
+    const valueData = await Promise.all(newValues)
+
+    // console.log(valueData)
+
+    console.log(result)
+      
+    return {
+      message: 'Produk berhasil diperbarui',
+      success: true,
+
+      // data: product
+    }
   }
 }
