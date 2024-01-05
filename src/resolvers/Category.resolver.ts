@@ -3,7 +3,7 @@ import { Category } from '@entity/Category.entity'
 import { CategoryList, filterCategories } from '@utils/category.type'
 import { CategoryData, pagination } from '@utils/params'
 import { ServerResponse } from '@utils/types'
-import { DuplicateEntryError } from '@utils/errors'
+import { DuplicateEntryError, NotFoundError } from '@utils/errors'
 
 @Resolver(Category)
 export class CategoryResolver {
@@ -48,6 +48,60 @@ export class CategoryResolver {
     return {
       success: true,
       message: 'Berhasil menambahkan kategori',
+    }
+  }
+
+  @Mutation(() => ServerResponse)
+  async updateCategory(
+    @Arg('id') id: number,
+    @Arg('data') data: CategoryData,
+  ): Promise<ServerResponse> {
+    const category = await Category.findOneBy({ id: id })
+    if (!category) {
+      throw new NotFoundError('Kategori tidak ditemukan')
+    }
+
+    const sameName = await Category.createQueryBuilder('cat')
+      .where('cat.name = :name', { name: data.name })
+      .andWhere('cat.id != :id', { id: id })
+      .getOne()
+
+    if (sameName) {
+      throw new DuplicateEntryError('Kategori sudah ada')
+    }
+
+    await Category.update(category.id, {
+      name: data.name,
+    })
+
+    return {
+      success: true,
+      message: 'Berhasil mengubah kategori',
+    }
+  }
+
+  @Mutation(() => ServerResponse)
+  async deleteCategory(
+    @Arg('id') id: number,
+  ): Promise<ServerResponse> {
+    const category = await Category.createQueryBuilder('cat')
+      .where('cat.id = :id', { id: id })
+      .leftJoinAndSelect('cat.products', 'products')
+      .getOne()
+
+    if (!category) {
+      throw new NotFoundError('Kategori tidak ditemukan')
+    }
+
+    if (category.products.length > 0) {
+      throw new Error('Kategori tidak dapat dihapus karena masih memiliki produk')
+    }
+
+    await Category.delete(category.id)
+
+    return {
+      success: true,
+      message: 'Berhasil menghapus kategori',
     }
   }
 }

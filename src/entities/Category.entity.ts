@@ -14,8 +14,8 @@ export class Category extends BaseEntity {
   @Column()
   name!: string
 
-	@Field(() => [Product], {nullable: true})
+	@Field(() => [Product])
   @TypeormLoader()
   @OneToMany(() => Product, product => product.category)
-  products?: Product[]
+  products!: Product[]
 }
