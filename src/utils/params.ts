@@ -106,6 +106,12 @@ class ProductData {
   variants!: AddProductDataVariants[]
 }
 
+@InputType()
+class CategoryData {
+  @Field()
+  name!: string
+}
+
 export {
   VerifyData,
   EditProfileData,
@@ -113,5 +119,6 @@ export {
   pagination,
   sort,
   CartParams,
-  ProductData
+  ProductData,
+  CategoryData,
 }
