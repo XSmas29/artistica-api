@@ -1,6 +1,6 @@
 import { Product } from '@entity/Product.entity'
 import { ProductData, pagination, sort } from '@utils/params'
-import { Arg, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
+import { Arg, Authorized, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
 import * as env from 'env-var'
 import { Image } from '@entity/Image.entity'
 import { Loader } from '@xsmas29/type-graphql-dataloader'
@@ -116,6 +116,7 @@ export class ProductResolver {
     return product
   }
 
+  @Authorized(['ADMIN'])
   @Mutation(() => ServerResponse)
   async addProduct(
     @Arg('data') data: ProductData,
@@ -240,7 +241,7 @@ export class ProductResolver {
         // return data
       }
     })
-    const valueData = await Promise.all(newValues)
+    await Promise.all(newValues)
 
     // console.log(valueData)
 
@@ -254,6 +255,7 @@ export class ProductResolver {
     }
   }
 
+  @Authorized(['ADMIN'])
   @Mutation(() => ServerResponse)
   async deleteProduct(
     @Arg('id') id: number,
@@ -317,6 +319,7 @@ export class ProductResolver {
     }
   }
 
+  @Authorized(['ADMIN'])
   @Mutation(() => ServerResponse)
   async updateProduct(
     @Arg('id') id: number,
@@ -493,7 +496,7 @@ export class ProductResolver {
         // return data
       }
     })
-    const valueData = await Promise.all(newValues)
+    await Promise.all(newValues)
 
     // console.log(valueData)
 

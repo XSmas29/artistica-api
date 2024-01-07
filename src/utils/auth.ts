@@ -9,14 +9,23 @@ interface MyContext {
   res: Response;
 }
 
-const authChecker: AuthChecker<MyContext> = ({ context: { req, res } }) => {
+type Role = 'ADMIN' | 'USER'
+
+const authChecker: AuthChecker<MyContext, Role> = ({ context: { req, res } }, roles?: Role[]) => {
   const token = req.headers.authorization
   if (!token) return false
 
   jwt.verify(token, env.get('JWT_SECRET').required().asString(), (err, decoded) => {
     // if (err) throw err;
+    
     if (err) return res.sendStatus(403)
-    else return true
+    else {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const role = (decoded as any).userData.is_admin ? 'ADMIN' : 'USER'
+
+      if (roles && roles.length > 0 && !roles.includes(role)) return res.sendStatus(403) 
+      else return true
+    }
   })
   
   return true

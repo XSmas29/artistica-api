@@ -13,7 +13,7 @@ import { generateAccessToken } from '@utils/auth'
 @Resolver(User)
 export class UserResolver {
   
-  @Authorized()
+  @Authorized(['USER', 'ADMIN'])
   @Query(() => User, { nullable: true })
   async profileInfo(
     @Ctx() { auth: { userData } }: Context
@@ -27,7 +27,7 @@ export class UserResolver {
     return user
   }
 
-  @Authorized()
+  @Authorized(['USER', 'ADMIN'])
   @Mutation(() => ServerResponse, { nullable: true })
   async editProfile(
     @Arg('data') data: EditProfileData,
@@ -53,7 +53,7 @@ export class UserResolver {
     }
   }
 
-  @Authorized()
+  @Authorized(['USER', 'ADMIN'])
   @Mutation(() => ServerResponse, { nullable: true })
   async editPassword(
     @Arg('data') data: EditPasswordData,
@@ -130,6 +130,7 @@ export class UserResolver {
     return user
   }
 
+  @Authorized(['USER', 'ADMIN'])
   @Query(() => AuthToken, { nullable: true })
   async refreshToken(
     @Arg('refresh_token') refresh_token: string,

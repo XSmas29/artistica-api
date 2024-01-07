@@ -1,4 +1,4 @@
-import { Arg, Mutation, Query, Resolver } from 'type-graphql'
+import { Arg, Authorized, Mutation, Query, Resolver } from 'type-graphql'
 import { Material } from '@entity/Material.entity'
 import { MaterialData, pagination } from '@utils/params'
 import { ServerResponse } from '@utils/types'
@@ -32,6 +32,7 @@ export class MaterialResolver {
     }
   }
 
+  @Authorized(['ADMIN'])
   @Mutation(() => ServerResponse)
   async addMaterial(
     @Arg('data') data: MaterialData,
@@ -55,6 +56,7 @@ export class MaterialResolver {
     }
   }
 
+  @Authorized(['ADMIN'])
   @Mutation(() => ServerResponse)
   async updateMaterial(
     @Arg('id') id: number,
@@ -88,6 +90,7 @@ export class MaterialResolver {
     }
   }
 
+  @Authorized(['ADMIN'])
   @Mutation(() => ServerResponse)
   async deleteMaterial(
     @Arg('id') id: number,

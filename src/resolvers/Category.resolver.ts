@@ -1,4 +1,4 @@
-import { Arg, Mutation, Query, Resolver } from 'type-graphql'
+import { Arg, Authorized, Mutation, Query, Resolver } from 'type-graphql'
 import { Category } from '@entity/Category.entity'
 import { CategoryList, filterCategories } from '@utils/category.type'
 import { CategoryData, pagination } from '@utils/params'
@@ -32,6 +32,7 @@ export class CategoryResolver {
     }
   }
 
+  @Authorized(['ADMIN'])
   @Mutation(() => ServerResponse)
   async addCategory(
     @Arg('data') data: CategoryData,
@@ -55,6 +56,7 @@ export class CategoryResolver {
     }
   }
 
+  @Authorized(['ADMIN'])
   @Mutation(() => ServerResponse)
   async updateCategory(
     @Arg('id') id: number,
@@ -88,6 +90,7 @@ export class CategoryResolver {
     }
   }
 
+  @Authorized(['ADMIN'])
   @Mutation(() => ServerResponse)
   async deleteCategory(
     @Arg('id') id: number,
