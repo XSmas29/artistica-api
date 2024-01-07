@@ -112,6 +112,12 @@ class CategoryData {
   name!: string
 }
 
+@InputType()
+class MaterialData {
+  @Field()
+  name!: string
+}
+
 export {
   VerifyData,
   EditProfileData,
@@ -121,4 +127,5 @@ export {
   CartParams,
   ProductData,
   CategoryData,
+  MaterialData,
 }
