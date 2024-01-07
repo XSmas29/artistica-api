@@ -14,8 +14,8 @@ export class Material extends BaseEntity {
   @Column()
   name!: string
 
-	@Field(() => [Product], {nullable: true})
+	@Field(() => [Product])
   @TypeormLoader()
   @OneToMany(() => Product, product => product.material)
-  products?: Product[]
+  products!: Product[]
 }
