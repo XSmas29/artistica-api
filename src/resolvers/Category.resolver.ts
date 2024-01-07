@@ -19,10 +19,10 @@ export class CategoryResolver {
       categoriesQuery.where('cat.name LIKE :search', { search: `%${filter.search}%` })
     }
 
-  if (pagination) {
-    categoriesQuery.limit(pagination.limit)
-    categoriesQuery.offset((pagination.page - 1) * pagination.limit)
-  }
+    if (pagination) {
+      categoriesQuery.limit(pagination.limit)
+      categoriesQuery.offset((pagination.page - 1) * pagination.limit)
+    }
     
     const categories = await categoriesQuery.getManyAndCount()
 
@@ -39,6 +39,10 @@ export class CategoryResolver {
     const category = await Category.findOneBy({ name: data.name })
     if (category) {
       throw new DuplicateEntryError('Kategori sudah ada')
+    }
+
+    if (!data.name) {
+      throw new Error('Nama kategori tidak boleh kosong')
     }
 
     await Category.insert({
@@ -59,6 +63,10 @@ export class CategoryResolver {
     const category = await Category.findOneBy({ id: id })
     if (!category) {
       throw new NotFoundError('Kategori tidak ditemukan')
+    }
+
+    if (!data.name) {
+      throw new Error('Nama kategori tidak boleh kosong')
     }
 
     const sameName = await Category.createQueryBuilder('cat')
