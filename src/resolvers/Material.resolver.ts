@@ -1,18 +1,35 @@
 import { Arg, Mutation, Query, Resolver } from 'type-graphql'
 import { Material } from '@entity/Material.entity'
-import { MaterialData } from '@utils/params'
+import { MaterialData, pagination } from '@utils/params'
 import { ServerResponse } from '@utils/types'
 import { DuplicateEntryError, NotFoundError } from '@utils/errors'
+import { MaterialList, filterMaterials } from '@utils/material.type'
 
 @Resolver(Material)
 export class MaterialResolver {
 
-  @Query(() => [Material])
+  @Query(() => MaterialList)
   async materials(
-  ): Promise<Material[]> {
-    const materials = await Material.find()
+    @Arg('filter', { nullable: true }) filter?: filterMaterials,
+    @Arg('pagination', { nullable: true }) pagination?: pagination,
+  ): Promise<MaterialList> {
+    const materialsQuery = await Material.createQueryBuilder('mat')
 
-    return materials
+    if (filter?.search) {
+      materialsQuery.where('mat.name LIKE :search', { search: `%${filter.search}%` })
+    }
+
+    if (pagination) {
+      materialsQuery.limit(pagination.limit)
+      materialsQuery.offset((pagination.page - 1) * pagination.limit)
+    }
+
+    const materials = await materialsQuery.getManyAndCount()
+
+    return {
+      count: materials[1],
+      materials: materials[0],
+    }
   }
 
   @Mutation(() => ServerResponse)
@@ -22,6 +39,10 @@ export class MaterialResolver {
     const material = await Material.findOneBy({ name: data.name })
     if (material) {
       throw new DuplicateEntryError('Material sudah ada')
+    }
+
+    if (!data.name) {
+      throw new Error('Nama material tidak boleh kosong')
     }
 
     await Material.insert({
@@ -42,6 +63,10 @@ export class MaterialResolver {
     const material = await Material.findOneBy({ id: id })
     if (!material) {
       throw new NotFoundError('Material tidak ditemukan')
+    }
+
+    if (!data.name) {
+      throw new Error('Nama kategori tidak boleh kosong')
     }
 
     const sameName = await Material.createQueryBuilder('mat')
