@@ -1,6 +1,6 @@
 import { Field, InputType } from 'type-graphql'
 import GraphQLUpload from 'graphql-upload/GraphQLUpload.js'
-import Upload, { FileUpload } from 'graphql-upload/Upload.js'
+import { FileUpload } from 'graphql-upload/Upload.js'
 
 @InputType()
 class VerifyData {

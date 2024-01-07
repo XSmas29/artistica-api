@@ -16,7 +16,6 @@ import { CategoryResolver } from '@resolver/Category.resolver'
 import { VariantResolver } from '@resolver/Variant.resolver'
 import { DeliveryResolver } from '@resolver/Delivery.resolver'
 import { TransactionResolver } from '@resolver/Transaction.resolver'
-import { ApolloServerPluginLandingPageDisabled } from '@apollo/server/plugin/disabled'
 import graphqlUploadExpress from 'graphql-upload/graphqlUploadExpress.js'
 dotenv.config()
 
