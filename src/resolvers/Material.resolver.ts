@@ -13,7 +13,7 @@ export class MaterialResolver {
     @Arg('filter', { nullable: true }) filter?: filterMaterials,
     @Arg('pagination', { nullable: true }) pagination?: pagination,
   ): Promise<MaterialList> {
-    const materialsQuery = await Material.createQueryBuilder('mat')
+    const materialsQuery = Material.createQueryBuilder('mat')
 
     if (filter?.search) {
       materialsQuery.where('mat.name LIKE :search', { search: `%${filter.search}%` })

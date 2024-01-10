@@ -4,14 +4,41 @@ import { AuthToken, Context, LoginResponse, ServerResponse } from '@utils/types'
 import { DuplicateEntryError, InvalidInputError, NotFoundError, UnauthorizedError } from '@utils/errors'
 import { GmailService } from '@utils/email'
 import crypto from 'crypto'
-import { EditPasswordData, EditProfileData, VerifyData } from '@utils/params'
+import { EditPasswordData, EditProfileData, VerifyData, pagination } from '@utils/params'
 import { hashPassword } from '@utils/hash'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import * as env from 'env-var'
 import { generateAccessToken } from '@utils/auth'
+import { UserList, filterUsers } from '@utils/user.type'
 @Resolver(User)
 export class UserResolver {
+
+  @Authorized(['ADMIN'])
+  @Query(() => UserList, { nullable: true })
+  async users(
+    @Arg('filter', { nullable: true }) filter?: filterUsers,
+    @Arg('pagination', { nullable: true }) pagination?: pagination,
+  ): Promise<UserList> {
+    const usersQuery = User.createQueryBuilder('user')
+
+    if (filter?.search) {
+      usersQuery.where('mat.first_name LIKE :search', { search: `%${filter.search}%` })
+      usersQuery.orWhere('mat.last_name LIKE :search', { search: `%${filter.search}%` })
+    }
+
+    if (pagination) {
+      usersQuery.limit(pagination.limit)
+      usersQuery.offset((pagination.page - 1) * pagination.limit)
+    }
+
+    const users = await usersQuery.getManyAndCount()
+
+    return {
+      count: users[1],
+      users: users[0],
+    }
+  }
   
   @Authorized(['USER', 'ADMIN'])
   @Query(() => User, { nullable: true })
