@@ -22,9 +22,12 @@ export class UserResolver {
   ): Promise<UserList> {
     const usersQuery = User.createQueryBuilder('user')
 
+    usersQuery.where('user.is_admin = :is_admin', { is_admin: false })
     if (filter?.search) {
-      usersQuery.where('mat.first_name LIKE :search', { search: `%${filter.search}%` })
-      usersQuery.orWhere('mat.last_name LIKE :search', { search: `%${filter.search}%` })
+      usersQuery.andWhere(qb => {
+        qb.where('user.first_name LIKE :search', { search: `%${filter.search}%` })
+        qb.orWhere('user.last_name LIKE :search', { search: `%${filter.search}%` })
+      })
     }
 
     if (pagination) {
