@@ -11,6 +11,7 @@ import jwt from 'jsonwebtoken'
 import * as env from 'env-var'
 import { generateAccessToken } from '@utils/auth'
 import { UserList, filterUsers } from '@utils/user.type'
+import { Brackets } from 'typeorm'
 @Resolver(User)
 export class UserResolver {
 
@@ -21,14 +22,18 @@ export class UserResolver {
     @Arg('pagination', { nullable: true }) pagination?: pagination,
   ): Promise<UserList> {
     const usersQuery = User.createQueryBuilder('user')
-
+    
     usersQuery.where('user.is_admin = :is_admin', { is_admin: false })
     if (filter?.search) {
-      usersQuery.andWhere(qb => {
-        qb.where('user.first_name LIKE :search', { search: `%${filter.search}%` })
-        qb.orWhere('user.last_name LIKE :search', { search: `%${filter.search}%` })
-      })
+      usersQuery.andWhere(
+        new Brackets(qb => {
+          qb.where('user.first_name LIKE :search', { search: `%${filter.search}%` })
+          qb.orWhere('user.last_name LIKE :search', { search: `%${filter.search}%` })
+        })
+      )
     }
+
+    console.log(usersQuery.getSql())
 
     if (pagination) {
       usersQuery.limit(pagination.limit)
