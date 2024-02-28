@@ -4,6 +4,7 @@ import { Product } from '@entity/Product.entity'
 import { Image } from '@entity/Image.entity'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { VariantValue } from './VariantValue.entity'
+import { TransactionDetail } from '@entity/TransactionDetail.entity'
 
 @ObjectType()
 
@@ -45,4 +46,9 @@ export class Variant extends BaseEntity {
   @TypeormLoader()
   @OneToMany(() => VariantValue, variantValue => variantValue.variant)
   attribute_values!: VariantValue[]
+
+  @Field(() => [TransactionDetail])
+  @TypeormLoader()
+  @OneToMany(() => TransactionDetail, detail => detail.variant)
+  transaction_details!: TransactionDetail[]
 }
