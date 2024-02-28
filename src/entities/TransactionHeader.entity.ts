@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, OneToMany } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { User } from './User.entity'
+import { TransactionDetail } from '@entity/TransactionDetail.entity'
 
 @ObjectType()
 @Entity({name: 'transaction_headers'})
@@ -14,6 +15,11 @@ export class TransactionHeader extends BaseEntity {
   @TypeormLoader()
   @ManyToOne(() => User, user => user.transactions)
   user!: User
+
+  @Field(() => [TransactionDetail])
+  @TypeormLoader()
+  @OneToMany(() => TransactionDetail, detail => detail.header)
+  details!: TransactionDetail[]
 
   @Field()
   @Column()
@@ -29,10 +35,6 @@ export class TransactionHeader extends BaseEntity {
 
   @Field()
   @Column()
-  shipping_courier!: string
-
-  @Field()
-  @Column()
   shipping_service!: string
 
   @Field()
@@ -41,11 +43,11 @@ export class TransactionHeader extends BaseEntity {
 
   @Field()
   @Column()
-  shipping_province_id!: number
+  shipping_province!: number
 
   @Field()
   @Column()
-  shipping_city_id!: number
+  shipping_city!: number
 
   @Field()
   @Column()
@@ -53,31 +55,19 @@ export class TransactionHeader extends BaseEntity {
 
   @Field()
   @Column()
-  shipping_phone!: string
+  customer_phone!: string
 
   @Field()
   @Column()
-  shipping_name!: string
+  customer_name!: string
+
+  @Field()
+  @Column()
+  customer_email!: string
 
   @Field()
   @Column()
   payment_method!: string
-
-  @Field()
-  @Column()
-  payment_status!: string
-
-  @Field()
-  @Column()
-  payment_expiration!: Date
-
-  @Field()
-  @Column()
-  payment_code!: string
-
-  @Field()
-  @Column()
-  payment_url!: string
 
   @Field()
   @Column()

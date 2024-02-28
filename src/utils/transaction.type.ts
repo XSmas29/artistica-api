@@ -21,13 +21,13 @@ class Address {
 }
 
 @InputType()
-class CreditCard {
+class CreditCardMT {
   @Field()
   secure!: boolean
 }
 
 @InputType()
-class TransactionDetail {
+class TransactionDetailMT {
   @Field()
   order_id!: string
   @Field()
@@ -35,7 +35,7 @@ class TransactionDetail {
 }
 
 @InputType()
-class ItemDetail {
+class ItemDetailMT {
   @Field()
   id!: string
   @Field()
@@ -47,7 +47,7 @@ class ItemDetail {
 }
 
 @InputType()
-class CustomerDetail {
+class CustomerDetailMT {
   @Field()
   first_name?: string
   @Field()
@@ -72,9 +72,9 @@ class MTCreateTransResp {
 
 export {
   Address,
-  CreditCard,
-  TransactionDetail,
-  ItemDetail,
-  CustomerDetail,
+  CreditCardMT,
+  TransactionDetailMT,
+  ItemDetailMT,
+  CustomerDetailMT,
   MTCreateTransResp,
 }

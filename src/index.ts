@@ -17,6 +17,7 @@ import { VariantResolver } from '@resolver/Variant.resolver'
 import { DeliveryResolver } from '@resolver/Delivery.resolver'
 import { TransactionResolver } from '@resolver/Transaction.resolver'
 import graphqlUploadExpress from 'graphql-upload/graphqlUploadExpress.js'
+import MidtransREST from '@utils/webhook/midtrans.webhook'
 dotenv.config()
 
 const main = async () => {
@@ -77,6 +78,8 @@ const main = async () => {
   app.listen(port, () => {
     console.log(`Server listening on port ${port}`)
   })
+
+  app.use('/midtrans', MidtransREST)
 }
 
 main().catch(err => {

@@ -1,4 +1,4 @@
-import { CreditCard, CustomerDetail, ItemDetail, MTCreateTransResp, TransactionDetail } from '@utils/transaction.type'
+import { CreditCardMT, CustomerDetailMT, ItemDetailMT, MTCreateTransResp, TransactionDetailMT } from '@utils/transaction.type'
 import axios from 'axios'
 import * as env from 'env-var'
 
@@ -12,10 +12,10 @@ class MidTrans {
   }
 
   createTransaction(
-    transaction_details: TransactionDetail,
-    item_details?: ItemDetail[],
-    customer_details?: CustomerDetail,
-    credit_card?: CreditCard,
+    transaction_details: TransactionDetailMT,
+    item_details?: ItemDetailMT[],
+    customer_details?: CustomerDetailMT,
+    credit_card?: CreditCardMT,
   ): Promise<MTCreateTransResp> {
     return new Promise((resolve, reject) => {
       axios.post(`${this.base_url}/transactions`, {
@@ -33,7 +33,7 @@ class MidTrans {
       .then(response => {
         resolve(response.data)
       })
-      .catch(error => {
+      .catch((error): void => {
         reject(error)
       })
     })
