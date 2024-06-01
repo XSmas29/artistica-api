@@ -2,6 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, U
 import { ObjectType, Field } from 'type-graphql'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { TransactionHeader } from './TransactionHeader.entity'
+import { CustomTransaction } from './CustomTransaction'
 
 @ObjectType()
 @Entity({name: 'users'})
@@ -60,4 +61,9 @@ export class User extends BaseEntity {
   @TypeormLoader()
   @OneToMany(() => TransactionHeader, trans => trans.user)
   transactions!: TransactionHeader[]
+
+  @Field(() => [CustomTransaction])
+  @TypeormLoader()
+  @OneToMany(() => CustomTransaction, customTransaction => customTransaction.user)
+  custom_transactions!: CustomTransaction[]
 }

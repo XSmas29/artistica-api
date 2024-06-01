@@ -31,7 +31,7 @@ router.post('/status', (req, res) => {
   const payload = req.body as MidtransStatusNotification
 
   if (payload.status_code === '201') {
-
+    //
   }
   if (payload.status_code === '200' && payload.transaction_status === 'settlement' && payload.fraud_status === 'accept') {
     console.log(payload)
