@@ -3,6 +3,7 @@ import { ObjectType, Field } from 'type-graphql'
 import { Variant } from '@entity/Variant.entity'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { Product } from '@entity/Product.entity'
+import { CustomTransaction } from './CustomTransaction'
 
 @ObjectType()
 @Entity({name: 'product_images'})
@@ -25,4 +26,9 @@ export class Image extends BaseEntity {
   @TypeormLoader()
   @ManyToOne(() => Product, product => product.images)
   product?: Product | null
+
+  @Field(() => CustomTransaction, {nullable: true})
+  @TypeormLoader()
+  @ManyToOne(() => CustomTransaction, customTransaction => customTransaction.images)
+  custom_transaction?: CustomTransaction | null
 }

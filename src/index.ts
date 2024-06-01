@@ -18,6 +18,7 @@ import { DeliveryResolver } from '@resolver/Delivery.resolver'
 import { TransactionResolver } from '@resolver/Transaction.resolver'
 import graphqlUploadExpress from 'graphql-upload/graphqlUploadExpress.js'
 import MidtransREST from '@utils/webhook/midtrans.webhook'
+import { CustomTransactionResolver } from '@resolver/CustomTransaction.resolver'
 dotenv.config()
 
 const main = async () => {
@@ -41,6 +42,7 @@ const main = async () => {
         VariantResolver,
         DeliveryResolver,
         TransactionResolver,
+        CustomTransactionResolver,
       ],
       validate: true,
       authChecker: authChecker,
