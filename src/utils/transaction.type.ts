@@ -1,21 +1,23 @@
+import { User } from '@entity/User.entity'
+import { Variant } from '@entity/Variant.entity'
 import { Field, InputType, ObjectType } from 'type-graphql'
 
 @InputType()
 class Address {
   @Field()
-  first_name?: string
+  first_name!: string
   @Field()
   last_name?: string
   @Field()
-  email?: string
+  email!: string
   @Field()
   phone?: string
   @Field()
-  address?: string
+  address!: string
   @Field()
-  city?: string
+  city!: string
   @Field()
-  postal_code?: string
+  postal_code!: string
   @Field()
   country_code?: string
 }
@@ -49,11 +51,11 @@ class ItemDetailMT {
 @InputType()
 class CustomerDetailMT {
   @Field()
-  first_name?: string
+  first_name!: string
   @Field()
   last_name?: string
   @Field()
-  email?: string
+  email!: string
   @Field()
   phone?: string
   @Field(() => Address)
@@ -70,6 +72,44 @@ class MTCreateTransResp {
   redirect_url!: string
 }
 
+@InputType()
+class TransactionData {
+  @Field()
+  transaction_id!: string
+  @Field()
+  total_price!: number
+  @Field()
+  shipping_cost!: number
+  @Field()
+  shipping_service!: string
+  @Field()
+  shipping_address!: string
+  @Field()
+  shipping_city!: string
+  @Field()
+  shipping_postal_code!: string
+  @Field()
+  customer_phone!: string
+  @Field()
+  customer_name!: string
+  @Field()
+  customer_email!: string
+  @Field(() => String, { nullable: true })
+  payment_method?: string
+  @Field()
+  status!: string
+}
+
+@InputType()
+class TransactionItemData {
+  @Field()
+  variant_id!: number
+  @Field()
+  price!: number
+  @Field()
+  quantity!: number
+}
+
 export {
   Address,
   CreditCardMT,
@@ -77,4 +117,6 @@ export {
   ItemDetailMT,
   CustomerDetailMT,
   MTCreateTransResp,
+  TransactionData,
+  TransactionItemData,
 }
