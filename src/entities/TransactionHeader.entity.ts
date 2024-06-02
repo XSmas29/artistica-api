@@ -1,15 +1,16 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, OneToMany } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, OneToMany, PrimaryColumn, BeforeInsert } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { User } from './User.entity'
 import { TransactionDetail } from '@entity/TransactionDetail.entity'
+import { transactionStatus } from '@utils/types'
 
 @ObjectType()
 @Entity({name: 'transaction_headers'})
 export class TransactionHeader extends BaseEntity {
   @Field()
-  @PrimaryGeneratedColumn()
-  id!: number
+  @PrimaryColumn()
+  id!: string
 
   @Field(() => User)
   @TypeormLoader()
@@ -27,10 +28,6 @@ export class TransactionHeader extends BaseEntity {
 
   @Field()
   @Column()
-  total_weight!: number
-
-  @Field()
-  @Column()
   shipping_cost!: number
 
   @Field()
@@ -43,11 +40,7 @@ export class TransactionHeader extends BaseEntity {
 
   @Field()
   @Column()
-  shipping_province!: number
-
-  @Field()
-  @Column()
-  shipping_city!: number
+  shipping_city!: string
 
   @Field()
   @Column()
@@ -55,7 +48,7 @@ export class TransactionHeader extends BaseEntity {
 
   @Field()
   @Column()
-  customer_phone!: string
+  customer_phone?: string
 
   @Field()
   @Column()
@@ -65,13 +58,17 @@ export class TransactionHeader extends BaseEntity {
   @Column()
   customer_email!: string
 
-  @Field()
-  @Column()
-  payment_method!: string
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  payment_method?: string
 
-  @Field()
-  @Column()
-  status!: string
+  @Field(() => transactionStatus)
+  @Column({
+    type: 'enum',
+    enum: transactionStatus,
+    default: transactionStatus.PENDING
+  })
+  status!: transactionStatus
 
   @Field()
   @CreateDateColumn()
@@ -84,4 +81,9 @@ export class TransactionHeader extends BaseEntity {
   @Field()
   @DeleteDateColumn()
   deleted_at!: Date
+
+  @BeforeInsert()
+  async capitalizeShipping() {
+    this.shipping_service = this.shipping_service.toUpperCase()
+  }
 }
