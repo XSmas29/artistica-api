@@ -65,7 +65,8 @@ class City {
 enum transactionStatus {
   PENDING = 0,
   IN_PROGRESS = 1,
-  COMPLETED = 2,
+  DELIVERED = 2,
+  COMPLETED = 3,
 }
 
 registerEnumType(transactionStatus, {
