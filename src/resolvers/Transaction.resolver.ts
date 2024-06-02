@@ -53,7 +53,7 @@ export class TransactionResolver {
     item_data.forEach(async item => {
       await TransactionDetail.create({
         header,
-        variant: await Variant.findOneOrFail({ where: { id: item.variant_id } }),
+        variant: await Variant.findOneByOrFail({ id: item.variant_id }),
         price: item.price,
         quantity: item.quantity,
       }).save()

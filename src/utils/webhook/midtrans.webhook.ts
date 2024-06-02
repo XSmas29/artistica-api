@@ -2,6 +2,8 @@ import { Router } from 'express'
 import * as env from 'env-var'
 import crypto from 'crypto'
 import { MidtransStatusNotification } from './types'
+import { TransactionHeader } from '@entity/TransactionHeader.entity'
+import { transactionStatus } from '@utils/types'
 
 const router = Router()
 
@@ -27,14 +29,19 @@ router.post('/success', (req, res) => {
   res.send('Hello World!')
 })
 
-router.post('/status', (req, res) => {
+router.post('/status', async (req, res) => {
   const payload = req.body as MidtransStatusNotification
-
-  if (payload.status_code === '201') {
-    //
-  }
-  if (payload.status_code === '200' && payload.transaction_status === 'settlement' && payload.fraud_status === 'accept') {
-    console.log(payload)
+  if (
+    payload.status_code === '200' && 
+    payload.fraud_status === 'accept' &&
+    (payload.transaction_status === 'settlement' || payload.transaction_status === 'capture')
+  ) {
+    const order = await TransactionHeader.findOneBy({ id: payload.order_id })
+    if (order) {
+      order.payment_method = payload.payment_type
+      order.status = transactionStatus.IN_PROGRESS
+      order.save()
+    }
   }
   res.status(200).send('OK')
 })
