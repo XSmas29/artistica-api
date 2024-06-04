@@ -1,12 +1,12 @@
 import { CustomTransaction } from '@entity/CustomTransaction'
 import { CustomTransactionData } from '@utils/params'
-import { Context, ServerResponse } from '@utils/types'
+import { Context, Roles, ServerResponse } from '@utils/types'
 import { Arg, Authorized, Ctx, Mutation, Resolver } from 'type-graphql'
 
 @Resolver(CustomTransaction)
 export class CustomTransactionResolver {
   
-  @Authorized(['USER'])
+  @Authorized<Roles>(['USER'])
   @Mutation(() => ServerResponse)
   async createCustomTransaction(
     @Arg('data') data: CustomTransactionData,

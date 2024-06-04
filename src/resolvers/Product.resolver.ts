@@ -9,7 +9,7 @@ import { groupBy } from 'lodash'
 import DataLoader from 'dataloader'
 import { filterProducts, ProductList } from '@utils/product.type'
 import { Variant } from '@entity/Variant.entity'
-import { ServerResponse } from '@utils/types'
+import { Roles, ServerResponse } from '@utils/types'
 import { createSlug, fillVariantValues } from '@utils/format'
 import { Attribute } from '@entity/Attribute.entity'
 import { AttributeOption } from '@entity/AttributeOption.entity'
@@ -116,7 +116,7 @@ export class ProductResolver {
     return product
   }
 
-  @Authorized(['ADMIN'])
+  @Authorized<Roles>(['ADMIN'])
   @Mutation(() => ServerResponse)
   async addProduct(
     @Arg('data') data: ProductData,
@@ -255,7 +255,7 @@ export class ProductResolver {
     }
   }
 
-  @Authorized(['ADMIN'])
+  @Authorized<Roles>(['ADMIN'])
   @Mutation(() => ServerResponse)
   async deleteProduct(
     @Arg('id') id: number,
@@ -319,7 +319,7 @@ export class ProductResolver {
     }
   }
 
-  @Authorized(['ADMIN'])
+  @Authorized<Roles>(['ADMIN'])
   @Mutation(() => ServerResponse)
   async updateProduct(
     @Arg('id') id: number,

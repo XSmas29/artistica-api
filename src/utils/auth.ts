@@ -3,15 +3,14 @@ import { Request, Response } from 'express'
 import jwt from 'jsonwebtoken'
 import * as env from 'env-var'
 import { User } from '@entity/User.entity'
+import { Roles } from './types'
 
 interface MyContext {
   req: Request;
   res: Response;
 }
 
-type Role = 'ADMIN' | 'USER'
-
-const authChecker: AuthChecker<MyContext, Role> = ({ context: { req, res } }, roles?: Role[]) => {
+const authChecker: AuthChecker<MyContext, Roles> = ({ context: { req, res } }, roles?: Roles[]) => {
   const token = req.headers.authorization
   if (!token || token === 'null') return false
   else {

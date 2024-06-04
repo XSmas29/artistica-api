@@ -8,6 +8,7 @@ import { groupBy } from 'lodash'
 import DataLoader from 'dataloader'
 import { CartParams } from '@utils/params'
 import { CartData } from '@utils/product.type'
+import { Roles } from '@utils/types'
 
 @Resolver(Variant)
 export class VariantResolver {
@@ -25,7 +26,7 @@ export class VariantResolver {
     return image
   }
 
-  @Authorized(['USER'])
+  @Authorized<Roles>(['USER'])
   @Query(() => [CartData])
   async cartData(
     @Arg('data', () => [CartParams]) data: [CartParams],
