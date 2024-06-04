@@ -1,4 +1,4 @@
-import { DataSource } from 'typeorm'
+import { DataSource, Transaction } from 'typeorm'
 import { runSeeder, Seeder } from 'typeorm-extension'
 import VariantSeed from '@seeder/Variant.seed'
 import ProductSeed from '@seeder/Product.seed'
@@ -10,6 +10,7 @@ import UserSeed from './User.seed'
 import AttributeSeed from './Attribute.seed'
 import AttributeOptionSeed from './AttributeOption.seed'
 import VariantValueSeed from './VariantValue.seed'
+import TransactionStatusSeed from './TransactionStatus.seed'
 
 export class MainSeeder implements Seeder {
 	async run(
@@ -25,5 +26,6 @@ export class MainSeeder implements Seeder {
 		await runSeeder(dataSource, CategorySeed)
 		await runSeeder(dataSource, DeliveryProviderSeed)
 		await runSeeder(dataSource, UserSeed)
+		await runSeeder(dataSource, TransactionStatusSeed)
 	}
 }
