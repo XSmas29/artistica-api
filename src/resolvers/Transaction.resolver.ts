@@ -3,8 +3,9 @@ import { TransactionHeader } from '@entity/TransactionHeader.entity'
 import { TransactionStatus } from '@entity/TransactionStatus.entity'
 import { Variant } from '@entity/Variant.entity'
 import MidTransInstance from '@utils/api/midtrans.api'
-import { CreditCardMT, CustomerDetailMT, ItemDetailMT, MTCreateTransResp, TransactionData, TransactionDetailMT, TransactionItemData } from '@utils/transaction.type'
-import { Context, ServerResponse } from '@utils/types'
+import { pagination, sort } from '@utils/params'
+import { CreditCardMT, CustomerDetailMT, ItemDetailMT, MTCreateTransResp, TransactionData, TransactionDetailMT, TransactionItemData, TransactionList, filterTransaction } from '@utils/transaction.type'
+import { Context, Roles, ServerResponse } from '@utils/types'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 
 @Resolver()
@@ -70,5 +71,29 @@ export class TransactionResolver {
   @Query(() => [TransactionStatus])
   async transactionStatuses(): Promise<TransactionStatus[]> {
     return TransactionStatus.find()
+  }
+
+  @Authorized<Roles>(['ADMIN', 'USER'])
+  @Query(() => TransactionList)
+  async transactions(
+    @Arg('filter') filter: filterTransaction,
+    @Arg('sort') sort: sort,
+    @Arg('pagination') pagination: pagination,
+  ): Promise<TransactionList> {
+    const transactions = TransactionHeader.createQueryBuilder('header')
+
+    filter.status_ids && filter.status_ids.length > 0 && transactions.where('header.status in :statuses', { statuses: filter.status_ids })
+
+    transactions.orderBy(`header.${sort.field}`, sort.sort)
+      .limit(pagination.limit)
+      .offset((pagination.page - 1) * pagination.limit)
+      .getManyAndCount()
+
+    const result = await transactions.getManyAndCount()
+
+    return {
+      count: result[1],
+      transactions: result[0],
+    }
   }
 }

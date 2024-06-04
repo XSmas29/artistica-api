@@ -1,3 +1,4 @@
+import { TransactionHeader } from '@entity/TransactionHeader.entity'
 import { User } from '@entity/User.entity'
 import { Variant } from '@entity/Variant.entity'
 import { Field, InputType, ObjectType } from 'type-graphql'
@@ -110,6 +111,20 @@ class TransactionItemData {
   quantity!: number
 }
 
+@InputType()
+class filterTransaction {
+  @Field(() => [Number], {nullable: true})
+  status_ids?: []
+}
+
+@ObjectType()
+class TransactionList {
+  @Field()
+  count!: number
+  @Field(() => [TransactionHeader])
+  transactions!: TransactionHeader[]
+}
+
 export {
   Address,
   CreditCardMT,
@@ -119,4 +134,6 @@ export {
   MTCreateTransResp,
   TransactionData,
   TransactionItemData,
+  filterTransaction,
+  TransactionList,
 }
