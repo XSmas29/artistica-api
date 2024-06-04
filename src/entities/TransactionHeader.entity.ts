@@ -1,10 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, OneToMany, PrimaryColumn, BeforeInsert } from 'typeorm'
+import { Entity, Column, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, OneToMany, PrimaryColumn, BeforeInsert } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { User } from './User.entity'
 import { TransactionDetail } from '@entity/TransactionDetail.entity'
-import { transactionStatus } from '@utils/types'
-
+import { TransactionStatus } from '@entity/TransactionStatus.entity'
 @ObjectType()
 @Entity({name: 'transaction_headers'})
 export class TransactionHeader extends BaseEntity {
@@ -21,6 +20,11 @@ export class TransactionHeader extends BaseEntity {
   @TypeormLoader()
   @OneToMany(() => TransactionDetail, detail => detail.header)
   details!: TransactionDetail[]
+
+  @Field(() => TransactionStatus)
+  @TypeormLoader()
+  @ManyToOne(() => TransactionStatus, status => status.transactions)
+  status!: TransactionStatus
 
   @Field()
   @Column()
@@ -61,14 +65,6 @@ export class TransactionHeader extends BaseEntity {
   @Field({ nullable: true })
   @Column({ nullable: true })
   payment_method?: string
-
-  @Field(() => transactionStatus)
-  @Column({
-    type: 'enum',
-    enum: transactionStatus,
-    default: transactionStatus.PENDING
-  })
-  status!: transactionStatus
 
   @Field()
   @CreateDateColumn()

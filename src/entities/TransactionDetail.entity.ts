@@ -13,7 +13,7 @@ export class TransactionDetail extends BaseEntity {
 
   @Field(() => TransactionHeader)
   @TypeormLoader()
-  @OneToMany(() => TransactionHeader, header => header.details)
+  @ManyToOne(() => TransactionHeader, header => header.details)
   header!: TransactionHeader
   
   @Field(() => Variant)
