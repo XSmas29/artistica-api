@@ -65,4 +65,10 @@ export class TransactionResolver {
       message: 'Berhasil menyimpan transaksi',
     }
   }
+
+  @Authorized(['ADMIN'])
+  @Query(() => [TransactionStatus])
+  async transactionStatuses(): Promise<TransactionStatus[]> {
+    return TransactionStatus.find()
+  }
 }
