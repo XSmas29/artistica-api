@@ -13,9 +13,6 @@ type Role = 'ADMIN' | 'USER'
 
 const authChecker: AuthChecker<MyContext, Role> = ({ context: { req, res } }, roles?: Role[]) => {
   const token = req.headers.authorization
-  console.log(token)
-  console.log(typeof token)
-  console.log(!token || token === 'null')
   if (!token || token === 'null') return false
   else {
     jwt.verify(token, env.get('JWT_SECRET').required().asString(), (err, decoded) => {
