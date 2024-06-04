@@ -2,6 +2,8 @@ import { Request } from 'express'
 import { Field, ObjectType } from 'type-graphql'
 import { User } from '@entity/User.entity'
 
+type Roles = 'ADMIN' | 'USER'
+
 // Define a type for the server response data
 @ObjectType()
 class ServerResponse {
@@ -69,4 +71,5 @@ export {
   LoginResponse,
   Province,
   City,
+  Roles
 }

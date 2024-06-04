@@ -2,7 +2,7 @@ import { Arg, Authorized, Mutation, Query, Resolver } from 'type-graphql'
 import { Category } from '@entity/Category.entity'
 import { CategoryList, filterCategories } from '@utils/category.type'
 import { CategoryData, pagination } from '@utils/params'
-import { ServerResponse } from '@utils/types'
+import { Roles, ServerResponse } from '@utils/types'
 import { DuplicateEntryError, NotFoundError } from '@utils/errors'
 
 @Resolver(Category)
@@ -32,7 +32,7 @@ export class CategoryResolver {
     }
   }
 
-  @Authorized(['ADMIN'])
+  @Authorized<Roles>(['ADMIN'])
   @Mutation(() => ServerResponse)
   async addCategory(
     @Arg('data') data: CategoryData,
@@ -56,7 +56,7 @@ export class CategoryResolver {
     }
   }
 
-  @Authorized(['ADMIN'])
+  @Authorized<Roles>(['ADMIN'])
   @Mutation(() => ServerResponse)
   async updateCategory(
     @Arg('id') id: number,
@@ -90,7 +90,7 @@ export class CategoryResolver {
     }
   }
 
-  @Authorized(['ADMIN'])
+  @Authorized<Roles>(['ADMIN'])
   @Mutation(() => ServerResponse)
   async deleteCategory(
     @Arg('id') id: number,

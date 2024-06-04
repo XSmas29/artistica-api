@@ -10,7 +10,7 @@ import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 @Resolver()
 export class TransactionResolver {
 
-  @Authorized(['USER'])
+  @Authorized<Roles>(['USER'])
   @Mutation(() => MTCreateTransResp)
   async addTransactionMT(
     @Arg('transaction_detail') transaction_detail: TransactionDetailMT,
@@ -28,7 +28,7 @@ export class TransactionResolver {
     return res
   }
 
-  @Authorized(['USER'])
+  @Authorized<Roles>(['USER'])
   @Mutation(() => ServerResponse)
   async addTransaction(
     @Arg('transaction_data') transaction_data: TransactionData,
@@ -66,7 +66,7 @@ export class TransactionResolver {
     }
   }
 
-  @Authorized(['ADMIN'])
+  @Authorized<Roles>(['ADMIN'])
   @Query(() => [TransactionStatus])
   async transactionStatuses(): Promise<TransactionStatus[]> {
     return TransactionStatus.find()

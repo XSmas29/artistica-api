@@ -1,6 +1,6 @@
 import { Resolver, Query, Arg, Mutation, Authorized, Ctx } from 'type-graphql'
 import { User } from '@entity/User.entity'
-import { AuthToken, Context, LoginResponse, ServerResponse } from '@utils/types'
+import { AuthToken, Context, LoginResponse, Roles, ServerResponse } from '@utils/types'
 import { DuplicateEntryError, InvalidInputError, NotFoundError, UnauthorizedError } from '@utils/errors'
 import { GmailService } from '@utils/email'
 import crypto from 'crypto'
@@ -15,7 +15,7 @@ import { Brackets } from 'typeorm'
 @Resolver(User)
 export class UserResolver {
 
-  @Authorized(['ADMIN'])
+  @Authorized<Roles>(['ADMIN'])
   @Query(() => UserList, { nullable: true })
   async users(
     @Arg('filter', { nullable: true }) filter?: filterUsers,
@@ -48,7 +48,7 @@ export class UserResolver {
     }
   }
   
-  @Authorized(['USER', 'ADMIN'])
+  @Authorized<Roles>(['USER', 'ADMIN'])
   @Query(() => User, { nullable: true })
   async profileInfo(
     @Ctx() { auth: { userData } }: Context
@@ -62,7 +62,7 @@ export class UserResolver {
     return user
   }
 
-  @Authorized(['USER', 'ADMIN'])
+  @Authorized<Roles>(['USER', 'ADMIN'])
   @Mutation(() => ServerResponse, { nullable: true })
   async editProfile(
     @Arg('data') data: EditProfileData,
@@ -88,7 +88,7 @@ export class UserResolver {
     }
   }
 
-  @Authorized(['USER', 'ADMIN'])
+  @Authorized<Roles>(['USER', 'ADMIN'])
   @Mutation(() => ServerResponse, { nullable: true })
   async editPassword(
     @Arg('data') data: EditPasswordData,
@@ -165,7 +165,7 @@ export class UserResolver {
     return user
   }
 
-  @Authorized(['USER', 'ADMIN'])
+  @Authorized<Roles>(['USER', 'ADMIN'])
   @Query(() => AuthToken, { nullable: true })
   async refreshToken(
     @Arg('refresh_token') refresh_token: string,
