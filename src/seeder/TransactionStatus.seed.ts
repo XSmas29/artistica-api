@@ -1,4 +1,4 @@
-import { TransactionStatus } from '@entity/TransactionStatus'
+import { TransactionStatus } from '@entity/TransactionStatus.entity'
 import { Seeder } from 'typeorm-extension'
 
 export default class TransactionStatusSeed implements Seeder {

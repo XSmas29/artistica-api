@@ -1,5 +1,5 @@
 import { Request } from 'express'
-import { Field, ObjectType, registerEnumType } from 'type-graphql'
+import { Field, ObjectType } from 'type-graphql'
 import { User } from '@entity/User.entity'
 
 // Define a type for the server response data
@@ -62,18 +62,6 @@ class City {
   postal_code!: string
 }
 
-enum transactionStatus {
-  PENDING = 0,
-  IN_PROGRESS = 1,
-  DELIVERED = 2,
-  COMPLETED = 3,
-}
-
-registerEnumType(transactionStatus, {
-  name: 'transactionStatus',
-  description: 'Transaction Status',
-})
-
 export {
   ServerResponse,
   Context,
@@ -81,5 +69,4 @@ export {
   LoginResponse,
   Province,
   City,
-  transactionStatus,
 }

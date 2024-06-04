@@ -1,5 +1,6 @@
 import { TransactionDetail } from '@entity/TransactionDetail.entity'
 import { TransactionHeader } from '@entity/TransactionHeader.entity'
+import { TransactionStatus } from '@entity/TransactionStatus.entity'
 import { Variant } from '@entity/Variant.entity'
 import MidTransInstance from '@utils/api/midtrans.api'
 import { CreditCardMT, CustomerDetailMT, ItemDetailMT, MTCreateTransResp, TransactionData, TransactionDetailMT, TransactionItemData } from '@utils/transaction.type'
@@ -47,7 +48,7 @@ export class TransactionResolver {
       customer_phone: transaction_data.customer_phone,
       customer_name: transaction_data.customer_name,
       customer_email: transaction_data.customer_email,
-      
+      status: await TransactionStatus.findOneByOrFail({ id: 1 }),
     }).save()
 
     item_data.forEach(async item => {
