@@ -14,10 +14,18 @@ export default class TransactionStatusSeed implements Seeder {
       },
       {
         id: 3,
-        status: 'Delivered'
+        status: 'Shipping'
       },
       {
         id: 4,
+        status: 'Arrived'
+      },
+      {
+        id: 5,
+        status: 'Complaint'
+      },
+      {
+        id: 6,
         status: 'Completed'
       }
     ] as TransactionStatus[]
