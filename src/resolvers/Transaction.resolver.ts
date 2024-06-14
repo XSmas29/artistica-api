@@ -79,10 +79,12 @@ export class TransactionResolver {
     @Arg('filter') filter: filterTransaction,
     @Arg('sort') sort: sort,
     @Arg('pagination') pagination: pagination,
+    @Ctx() { auth: { userData } }: Context,
   ): Promise<TransactionList> {
     const transactions = TransactionHeader.createQueryBuilder('header')
 
     filter.status_ids && filter.status_ids.length > 0 && transactions.where('header.status in (:statuses)', { statuses: filter.status_ids })
+    userData.is_admin === false && transactions.andWhere('header.user = :user_id', { user_id: userData.id })
 
     transactions.orderBy(`header.${sort.field}`, sort.sort)
       .limit(pagination.limit)
