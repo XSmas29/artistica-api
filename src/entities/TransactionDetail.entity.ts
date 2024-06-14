@@ -1,6 +1,6 @@
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { Field, ObjectType } from 'type-graphql'
-import { BaseEntity, Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { TransactionHeader } from './TransactionHeader.entity'
 import { Variant } from './Variant.entity'
 
