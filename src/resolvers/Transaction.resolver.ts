@@ -82,12 +82,14 @@ export class TransactionResolver {
   ): Promise<TransactionList> {
     const transactions = TransactionHeader.createQueryBuilder('header')
 
-    filter.status_ids && filter.status_ids.length > 0 && transactions.where('header.status in :statuses', { statuses: filter.status_ids })
+    filter.status_ids && filter.status_ids.length > 0 && transactions.where('header.status in (:statuses)', { statuses: filter.status_ids })
 
     transactions.orderBy(`header.${sort.field}`, sort.sort)
       .limit(pagination.limit)
       .offset((pagination.page - 1) * pagination.limit)
       .getManyAndCount()
+    
+      console.log(transactions.getQueryAndParameters())
 
     const result = await transactions.getManyAndCount()
 
