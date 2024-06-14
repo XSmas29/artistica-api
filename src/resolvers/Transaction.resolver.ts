@@ -96,4 +96,30 @@ export class TransactionResolver {
       transactions: result[0],
     }
   }
+
+  @Authorized<Roles>(['ADMIN', 'USER'])
+  @Query(() => TransactionHeader)
+  async transactionDetail(
+    @Arg('transaction_id') transaction_id: string,
+  ): Promise<TransactionHeader> {
+    return TransactionHeader.findOneByOrFail({ id: transaction_id })
+  }
+
+  @Authorized<Roles>(['ADMIN', 'USER'])
+  @Mutation(() => ServerResponse)
+  async changeTransactionStatus(
+    @Arg('transaction_id') transaction_id: string,
+    @Arg('status_id') status_id: number,
+  ): Promise<ServerResponse> {
+    const header = await TransactionHeader.findOneByOrFail({ id: transaction_id })
+    const status = await TransactionStatus.findOneByOrFail({ id: status_id })
+
+    header.status = status
+    await header.save()
+
+    return {
+      success: true,
+      message: 'Berhasil mengubah status transaksi',
+    }
+  }
 }
