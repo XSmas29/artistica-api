@@ -107,7 +107,7 @@ export class TransactionResolver {
 
   @Authorized<Roles>(['ADMIN', 'USER'])
   @Mutation(() => ServerResponse)
-  async changeTransactionStatus(
+  async updateTransactionStatus(
     @Arg('transaction_id') transaction_id: string,
     @Arg('status_id') status_id: number,
   ): Promise<ServerResponse> {
