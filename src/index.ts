@@ -19,6 +19,9 @@ import { TransactionResolver } from '@resolver/Transaction.resolver'
 import graphqlUploadExpress from 'graphql-upload/graphqlUploadExpress.js'
 import MidtransREST from '@utils/webhook/midtrans.webhook'
 import { CustomTransactionResolver } from '@resolver/CustomTransaction.resolver'
+import { Server } from 'socket.io'
+import { createServer } from 'http'
+
 dotenv.config()
 
 const main = async () => {
@@ -82,6 +85,17 @@ const main = async () => {
   })
 
   app.use('/midtrans', MidtransREST)
+
+  const httpServer = createServer(app)
+  const socketIO = new Server(httpServer, {
+    cors: {
+      origin: '*',
+    }
+  })
+
+  socketIO.on('connection', socket => {
+    console.log(`a user connected to socket ${socket}`)
+  })
 }
 
 main().catch(err => {
