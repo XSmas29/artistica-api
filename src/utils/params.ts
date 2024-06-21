@@ -113,7 +113,7 @@ class CategoryData {
 }
 
 @InputType()
-class CustomTransactionData {
+class AddCustomTransactionData {
   @Field(() => [GraphQLUpload])
   images!: FileUpload[]
 
@@ -125,9 +125,6 @@ class CustomTransactionData {
 
   @Field()
   amount!: number
-
-  @Field()
-  total_price!: number
 }
 
 @InputType()
@@ -146,5 +143,5 @@ export {
   ProductData,
   CategoryData,
   MaterialData,
-  CustomTransactionData,
+  AddCustomTransactionData,
 }
