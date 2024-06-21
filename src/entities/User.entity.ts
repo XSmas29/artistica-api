@@ -3,6 +3,7 @@ import { ObjectType, Field } from 'type-graphql'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { TransactionHeader } from './TransactionHeader.entity'
 import { CustomTransaction } from './CustomTransaction'
+import { ChatMessage } from './ChatMessage.entity'
 
 @ObjectType()
 @Entity({name: 'users'})
@@ -66,4 +67,9 @@ export class User extends BaseEntity {
   @TypeormLoader()
   @OneToMany(() => CustomTransaction, customTransaction => customTransaction.user)
   custom_transactions!: CustomTransaction[]
+
+  @Field(() => [ChatMessage])
+  @TypeormLoader()
+  @OneToMany(() => ChatMessage, chatMessage => chatMessage.user)
+  chat_messages!: ChatMessage[]
 }
