@@ -1,8 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, OneToMany } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, OneToMany, OneToOne, JoinColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { User } from './User.entity'
 import { Image } from './Image.entity'
+import { Chat } from './Chat.entity'
 
 @ObjectType()
 @Entity({name: 'custom_transactions'})
@@ -19,7 +20,13 @@ export class CustomTransaction extends BaseEntity {
   @Field(() => [Image])
   @TypeormLoader()
   @OneToMany(() => Image, image => image.custom_transaction)
-  images!: Image[]  
+  images!: Image[]
+
+  @Field(() => Chat)
+  @TypeormLoader()
+  @JoinColumn()
+  @OneToOne(() => Chat, chat => chat.custom_transaction)
+  chat!: Chat 
 
   @Field()
   @Column()
@@ -34,56 +41,52 @@ export class CustomTransaction extends BaseEntity {
   amount!: number
 
   @Field()
-  @Column()
-  total_price!: number
+  @Column({default: 1})
+  status!: number
 
-  @Field()
-  @Column()
-  total_weight!: number
+  @Field({nullable: true})
+  @Column({nullable: true})
+  total_price?: number
 
-  @Field()
-  @Column()
+  @Field({nullable: true})
+  @Column({nullable: true})
   shipping_cost?: number
 
-  @Field()
-  @Column()
+  @Field({nullable: true})
+  @Column({nullable: true})
   shipping_service?: string
 
-  @Field()
-  @Column()
+  @Field({nullable: true})
+  @Column({nullable: true})
   shipping_address?: string
 
-  @Field()
-  @Column()
+  @Field({nullable: true})
+  @Column({nullable: true})
   shipping_province?: number
 
-  @Field()
-  @Column()
+  @Field({nullable: true})
+  @Column({nullable: true})
   shipping_city?: number
 
-  @Field()
-  @Column()
+  @Field({nullable: true})
+  @Column({nullable: true})
   shipping_postal_code?: string
 
-  @Field()
-  @Column()
+  @Field({nullable: true})
+  @Column({nullable: true})
   customer_phone?: string
 
-  @Field()
-  @Column()
+  @Field({nullable: true})
+  @Column({nullable: true})
   customer_name?: string
 
-  @Field()
-  @Column()
+  @Field({nullable: true})
+  @Column({nullable: true})
   customer_email?: string
 
-  @Field()
-  @Column()
+  @Field({nullable: true})
+  @Column({nullable: true})
   payment_method?: string
-
-  @Field()
-  @Column()
-  status!: number
 
   @Field()
   @CreateDateColumn()
