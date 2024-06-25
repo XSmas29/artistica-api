@@ -113,6 +113,16 @@ class CategoryData {
 }
 
 @InputType()
+class ChatMessageData {
+  @Field(() => String, { nullable: true })
+  message!: string
+  @Field(() => GraphQLUpload, { nullable: true })
+  image!: FileUpload | null
+  @Field()
+  chat_id!: number
+}
+
+@InputType()
 class AddCustomTransactionData {
   @Field(() => [GraphQLUpload])
   images!: FileUpload[]
@@ -144,4 +154,5 @@ export {
   CategoryData,
   MaterialData,
   AddCustomTransactionData,
+  ChatMessageData,
 }

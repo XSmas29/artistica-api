@@ -11,9 +11,13 @@ export class ChatMessage extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number
 
-  @Field()
-  @Column()
-  message!: string
+  @Field({nullable: true})
+  @Column({nullable: true})
+  message?: string
+
+  @Field({nullable: true})
+  @Column({nullable: true})
+  image?: string 
   
   @Field(() => Chat)
   @TypeormLoader()
@@ -27,9 +31,9 @@ export class ChatMessage extends BaseEntity {
 
   @Field()
   @CreateDateColumn()
-  createdAt!: Date
+  created_at!: Date
 
   @Field()
-  @Column()
+  @Column({default: false})
   isRead!: boolean
 }
