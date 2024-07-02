@@ -12,7 +12,7 @@ export class ChatMessage extends BaseEntity {
   id!: number
 
   @Field({nullable: true})
-  @Column({nullable: true})
+  @Column('longtext', {nullable: true})
   message?: string
 
   @Field({nullable: true})
@@ -36,4 +36,4 @@ export class ChatMessage extends BaseEntity {
   @Field()
   @Column({default: false})
   isRead!: boolean
-}
+} 
