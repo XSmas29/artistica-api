@@ -21,6 +21,7 @@ import MidtransREST from '@utils/webhook/midtrans.webhook'
 import { CustomTransactionResolver } from '@resolver/CustomTransaction.resolver'
 import { ChatResolver } from '@resolver/Chat.resolver'
 import createIOInstance from '@utils/socketIO'
+import { ChatMessageResolver } from '@resolver/ChatMessage.resolver'
 
 dotenv.config()
 
@@ -49,6 +50,7 @@ const main = async () => {
         TransactionResolver,
         CustomTransactionResolver,
         ChatResolver,
+        ChatMessageResolver,
       ],
       validate: true,
       authChecker: authChecker,

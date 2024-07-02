@@ -5,6 +5,8 @@ import jwt, { JwtPayload } from 'jsonwebtoken'
 import * as env from 'env-var'
 import { Roles } from './types'
 import { ChatMessage } from '@entity/ChatMessage.entity'
+import { parse } from 'path'
+import { uploadFile } from './files'
 
 const createIOInstance = (app: Express) => {
   const httpServer = createServer(app)
@@ -38,17 +40,29 @@ const createIOInstance = (app: Express) => {
       console.log(args) 
     })
 
-    socket.on('send_message', async args => {
-      const chatMessage = ChatMessage.create({
-        chat: args.chat_id,
-        user: args.sender_id,
-        message: args.message,
-        image: args.image,
-      })
+    socket.on('send_message', async data => {
+      console.log(data)
 
-      await chatMessage.save().then(msg => {
-        socketIO.emit('broadcast_message', msg)
-      })
+      // let path = ''
+      // const imageData = data.image
+      // if (imageData) {
+      //   const { ext } = parse(imageData.filename)
+
+      //   path = `img_${data.chat_id}_${Date.now().toString()}${ext}`
+      //   await uploadFile(imageData, `chat/${data.chat_id}`, path)
+      // }
+
+      // const chatMessage = ChatMessage.create({
+      //   chat: data.chat_id,
+      //   user: data.sender_id,
+      //   message: data.message,
+      //   image: imageData ? path : undefined,
+      // })
+
+      // await chatMessage.save().then(msg => {
+      //   socketIO.emit('broadcast_message', msg)
+      // })
+      socket.broadcast.emit('broadcast_message', data)
     })
   })
 
