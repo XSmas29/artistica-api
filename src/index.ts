@@ -19,20 +19,21 @@ import { TransactionResolver } from '@resolver/Transaction.resolver'
 import graphqlUploadExpress from 'graphql-upload/graphqlUploadExpress.js'
 import MidtransREST from '@utils/webhook/midtrans.webhook'
 import { CustomTransactionResolver } from '@resolver/CustomTransaction.resolver'
-import { Server } from 'socket.io'
-import { createServer } from 'http'
 import { ChatResolver } from '@resolver/Chat.resolver'
+import createIOInstance from '@utils/socketIO'
 
 dotenv.config()
 
 const main = async () => {
   const app = express()
+
   app.use(express.json())
   app.use(cors())
   app.use(express.static('public'))
   app.use(graphqlUploadExpress())
 
   const port = env.get('PORT').required().asPortNumber()
+  const wsPort = env.get('WS_PORT').required().asPortNumber()
 
   await AppDataSource.initialize()
   
@@ -86,18 +87,11 @@ const main = async () => {
     console.log(`Server listening on port ${port}`)
   })
 
-  app.use('/midtrans', MidtransREST)
+  app.use('/midtrans', MidtransREST)  
 
-  const httpServer = createServer(app)
-  const socketIO = new Server(httpServer, {
-    cors: {
-      origin: '*',
-    }
-  })
+  const { httpServer } = createIOInstance(app)
 
-  socketIO.on('connection', socket => {
-    console.log(`a user connected to socket ${socket}`)
-  })
+  httpServer.listen(wsPort)
 }
 
 main().catch(err => {
