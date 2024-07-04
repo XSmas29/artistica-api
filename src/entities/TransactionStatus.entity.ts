@@ -2,6 +2,7 @@ import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { Field, ObjectType, } from 'type-graphql'
 import { Entity, BaseEntity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm'
 import { TransactionHeader } from './TransactionHeader.entity'
+import { CustomTransaction } from './CustomTransaction'
 
 @ObjectType()
 @Entity({name: 'transaction_statuses'})
@@ -18,4 +19,9 @@ export class TransactionStatus extends BaseEntity {
   @TypeormLoader()
   @OneToMany(() => TransactionHeader, header => header.status)
   transactions!: TransactionHeader[]
+
+  @Field(() => [CustomTransaction])
+  @TypeormLoader()
+  @OneToMany(() => CustomTransaction, custom_transaction => custom_transaction.status)
+  custom_transactions!: CustomTransaction[]
 }

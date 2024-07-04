@@ -4,6 +4,7 @@ import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { User } from './User.entity'
 import { Image } from './Image.entity'
 import { Chat } from './Chat.entity'
+import { TransactionStatus } from './TransactionStatus.entity'
 
 @ObjectType()
 @Entity({name: 'custom_transactions'})
@@ -40,9 +41,14 @@ export class CustomTransaction extends BaseEntity {
   @Column()
   amount!: number
 
-  @Field()
-  @Column({default: 1})
-  status!: number
+  @Field(() => TransactionStatus)
+  @TypeormLoader()
+  @ManyToOne(() => TransactionStatus, status => status.custom_transactions)
+  status!: TransactionStatus
+
+  @Field({nullable: true})
+  @Column({nullable: true})
+  price?: number
 
   @Field({nullable: true})
   @Column({nullable: true})

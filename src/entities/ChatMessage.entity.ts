@@ -33,7 +33,11 @@ export class ChatMessage extends BaseEntity {
   @CreateDateColumn()
   created_at!: Date
 
+  @Field({nullable: true})
+  @Column({nullable: true})
+  quotation_price?: number
+
   @Field()
   @Column({default: false})
-  isRead!: boolean
+  is_quotation_active!: boolean
 } 
