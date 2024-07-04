@@ -53,7 +53,7 @@ export class ChatMessageResolver {
 
     return {
       success: true,
-      message: 'Message sent successfully',
+      message: 'Berhasil mengirim pesan',
       data: JSON.stringify(res),
     }
   }
@@ -91,5 +91,27 @@ export class ChatMessageResolver {
     })
 
     return res
+  }
+
+  @Authorized<Roles>(['ADMIN'])
+  @Mutation(() => ServerResponse)
+  async addQuotationMessage(
+    @Arg('id') id: number,
+    @Arg('price') price: number,
+    @Ctx() { auth: { userData } }: Context,
+  ): Promise<ServerResponse> {
+    const chatMessage = ChatMessage.create({
+      chat: await Chat.findOneByOrFail({ id }),
+      user: userData,
+      quotation_price: price,
+      is_quotation_active: true,
+    })
+
+    await chatMessage.save()
+
+    return {
+      success: true,
+      message: 'Berhasil mengirim penawaran harga',
+    }
   }
 }
