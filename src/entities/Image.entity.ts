@@ -3,7 +3,7 @@ import { ObjectType, Field } from 'type-graphql'
 import { Variant } from '@entity/Variant.entity'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { Product } from '@entity/Product.entity'
-import { CustomTransaction } from './CustomTransaction'
+import { CustomTransaction } from './CustomTransaction.entity'
 
 @ObjectType()
 @Entity({name: 'product_images'})

@@ -138,6 +138,18 @@ class AddCustomTransactionData {
 }
 
 @InputType()
+class UpdateCustomTransactionData {
+  @Field()
+  product_name!: string
+
+  @Field()
+  product_description!: string
+
+  @Field()
+  amount!: number
+}
+
+@InputType()
 class MaterialData {
   @Field()
   name!: string
@@ -155,4 +167,5 @@ export {
   MaterialData,
   AddCustomTransactionData,
   ChatMessageData,
+  UpdateCustomTransactionData,
 }

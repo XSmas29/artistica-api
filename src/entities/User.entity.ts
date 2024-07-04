@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, U
 import { ObjectType, Field } from 'type-graphql'
 import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
 import { TransactionHeader } from './TransactionHeader.entity'
-import { CustomTransaction } from './CustomTransaction'
+import { CustomTransaction } from './CustomTransaction.entity'
 import { ChatMessage } from './ChatMessage.entity'
 
 @ObjectType()
