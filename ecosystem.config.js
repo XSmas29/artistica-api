@@ -1,6 +1,7 @@
 export default {
   apps : [{
-    script: 'index.ts',
+    name: 'artistica-api',
+    script: 'npm run dev',
     watch: '.'
   }, {
     script: './service-worker/',
