@@ -30,6 +30,7 @@ jobs:
 
     - name: SSH and deploy
       run: |
+        ssh-keyscan -H ${{ secrets.ECS_HOST }} >> ~/.ssh/known_hosts
         ssh ${{ secrets.ECS_USER }}@${{ secrets.ECS_HOST }} << 'EOF'
           cd ${{ secrets.ECS_PATH }}
           # Pull latest changes
