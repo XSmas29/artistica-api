@@ -35,6 +35,7 @@ jobs:
           # Pull latest changes
           git pull origin main
           # Install dependencies
+          nvm use 20
           npm install
           # Build the project
           npm run build
