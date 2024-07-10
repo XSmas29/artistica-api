@@ -1,4 +1,5 @@
-export default {
+// eslint-disable-next-line no-undef
+module.exports = {
   apps : [{
     name: 'artistica-api',
     script: 'npm run dev',
