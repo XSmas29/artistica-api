@@ -2,7 +2,7 @@ export default {
   apps : [{
     name: 'artistica-api',
     script: 'npm run dev',
-    watch: '.'
+    watch: true
   }],
 
   deploy : {
