@@ -22,24 +22,28 @@ jobs:
     #   run: |
     #     ssh-keyscan -H ${{ secrets.ECS_HOST }} >> ~/.ssh/known_hosts
     #     scp -r ./* ${{ secrets.ECS_USER }}@${{ secrets.ECS_HOST }}:${{ secrets.ECS_PATH }}
-
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 20
-
-    - name: SSH and deploy
+    - name: SSH to Alibaba ECS
       run: |
         ssh-keyscan -H ${{ secrets.ECS_HOST }} >> ~/.ssh/known_hosts
         ssh ${{ secrets.ECS_USER }}@${{ secrets.ECS_HOST }} << 'EOF'
-          cd ${{ secrets.ECS_PATH }}
-          # Pull latest changes
-          git pull origin main
-          # Install dependencies
-          nvm use 20
-          npm install
-          # Build the project
-          npm run build
-          # Restart the application
-          pm2 restart artistica-api
         EOF
+      
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Pull GIT changes
+      run: |
+        cd ${{ secrets.ECS_PATH }}
+        git pull origin main
+        EOF
+        
+    - name: Re-install dependencies
+      run: npm install
+
+    - name: Build App
+      run: npm run build
+
+    - name: Restart App
+      run: pm2 restart artistica-api
