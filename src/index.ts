@@ -23,7 +23,9 @@ import { ChatResolver } from '@resolver/Chat.resolver'
 import createIOInstance from '@utils/socketIO'
 import { ChatMessageResolver } from '@resolver/ChatMessage.resolver'
 import { CourseResolver } from '@resolver/Course.resolver'
-
+import { createServer } from 'https'
+import path from 'path'
+import { readFileSync } from 'fs'
 dotenv.config()
 
 const main = async () => {
@@ -85,14 +87,20 @@ const main = async () => {
   app.get('/', (req, res) => {
     res.send('Hello World!')
   })
-  
-  const httpServer = app.listen(port, () => {
+
+  const options = {
+    key: readFileSync('.ssl/selfsigned/selfsigned.key'),
+    cert: readFileSync('.ssl/selfsigned/selfsigned.crt')
+  }
+
+  const httpsServer = createServer(options, app)
+  httpsServer.listen(port, () => {
     console.log(`Server listening on port ${port}`)
   })
 
   app.use('/midtrans', MidtransREST)  
 
-  createIOInstance(httpServer)
+  createIOInstance(httpsServer)
 }
 
 main().catch(err => {

@@ -1,16 +1,10 @@
 import { Server } from 'socket.io'
-import { createServer } from 'http'
-import { Express } from 'express'
 import jwt, { JwtPayload } from 'jsonwebtoken'
 import * as env from 'env-var'
-import { Roles } from './types'
-import { ChatMessage } from '@entity/ChatMessage.entity'
-import { parse } from 'path'
-import { uploadFile } from './files'
-import { Server as HTTPServer } from 'http'
+import { Server as HTTPSServer } from 'https'
 
-const createIOInstance = (httpServer: HTTPServer) => {
-  const socketIO = new Server(httpServer, {
+const createIOInstance = (httpsServer: HTTPSServer) => {
+  const socketIO = new Server(httpsServer, {
     cors: {
       origin: '*',
     },
