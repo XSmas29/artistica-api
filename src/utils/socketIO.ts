@@ -7,10 +7,9 @@ import { Roles } from './types'
 import { ChatMessage } from '@entity/ChatMessage.entity'
 import { parse } from 'path'
 import { uploadFile } from './files'
+import { Server as HTTPServer } from 'http'
 
-const createIOInstance = (app: Express) => {
-  const httpServer = createServer(app)
-
+const createIOInstance = (httpServer: HTTPServer) => {
   const socketIO = new Server(httpServer, {
     cors: {
       origin: '*',
@@ -65,11 +64,6 @@ const createIOInstance = (app: Express) => {
       socket.broadcast.emit('broadcast_message', data)
     })
   })
-
-  return {
-    httpServer,
-    socketIO,
-  }
 }
 
 export default createIOInstance

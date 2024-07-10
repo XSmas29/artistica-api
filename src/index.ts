@@ -22,6 +22,7 @@ import { CustomTransactionResolver } from '@resolver/CustomTransaction.resolver'
 import { ChatResolver } from '@resolver/Chat.resolver'
 import createIOInstance from '@utils/socketIO'
 import { ChatMessageResolver } from '@resolver/ChatMessage.resolver'
+import { CourseResolver } from '@resolver/Course.resolver'
 
 dotenv.config()
 
@@ -34,7 +35,6 @@ const main = async () => {
   app.use(graphqlUploadExpress())
 
   const port = env.get('PORT').required().asPortNumber()
-  const wsPort = env.get('WS_PORT').required().asPortNumber()
 
   await AppDataSource.initialize()
   
@@ -51,6 +51,7 @@ const main = async () => {
         CustomTransactionResolver,
         ChatResolver,
         ChatMessageResolver,
+        CourseResolver,
       ],
       validate: true,
       authChecker: authChecker,
@@ -85,15 +86,13 @@ const main = async () => {
     res.send('Hello World!')
   })
   
-  app.listen(port, () => {
+  const httpServer = app.listen(port, () => {
     console.log(`Server listening on port ${port}`)
   })
 
   app.use('/midtrans', MidtransREST)  
 
-  const { httpServer } = createIOInstance(app)
-
-  httpServer.listen(wsPort)
+  createIOInstance(httpServer)
 }
 
 main().catch(err => {
