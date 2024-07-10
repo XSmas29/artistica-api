@@ -3,9 +3,6 @@ export default {
     name: 'artistica-api',
     script: 'npm run dev',
     watch: '.'
-  }, {
-    script: './service-worker/',
-    watch: ['./service-worker']
   }],
 
   deploy : {
