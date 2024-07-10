@@ -17,14 +17,14 @@ export class MainSeeder implements Seeder {
 	async run(
 		dataSource: DataSource,
 	): Promise<void> {
-		await runSeeder(dataSource, AttributeSeed)
+		await runSeeder(dataSource, MaterialSeed)
+		await runSeeder(dataSource, CategorySeed)
 		await runSeeder(dataSource, ProductSeed)
+		await runSeeder(dataSource, AttributeSeed)
 		await runSeeder(dataSource, AttributeOptionSeed)
 		await runSeeder(dataSource, VariantSeed)
 		await runSeeder(dataSource, VariantValueSeed)
 		await runSeeder(dataSource, ImageSeeder)
-		await runSeeder(dataSource, MaterialSeed)
-		await runSeeder(dataSource, CategorySeed)
 		await runSeeder(dataSource, DeliveryProviderSeed)
 		await runSeeder(dataSource, UserSeed)
 		await runSeeder(dataSource, TransactionStatusSeed)
