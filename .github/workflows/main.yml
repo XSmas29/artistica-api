@@ -23,6 +23,11 @@ jobs:
         ssh-keyscan -H ${{ secrets.ECS_HOST }} >> ~/.ssh/known_hosts
         scp -r ./* ${{ secrets.ECS_USER }}@${{ secrets.ECS_HOST }}:${{ secrets.ECS_PATH }}
 
+    - name: Set up Node.js
+      uses: actions/setup-node@v4.0.3
+      with:
+        node-version: 20.15.1
+
     - name: SSH and deploy
       run: |
         ssh ${{ secrets.ECS_USER }}@${{ secrets.ECS_HOST }} << 'EOF'
