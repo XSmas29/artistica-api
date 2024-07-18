@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToMan
 import { ObjectType, Field } from 'type-graphql'
 import { Product } from '@entity/Product.entity'
 import { Image } from '@entity/Image.entity'
-import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
+import { TypeormLoader } from '@ejekanshjain/type-graphql-dataloader'
 import { VariantValue } from './VariantValue.entity'
 import { TransactionDetail } from '@entity/TransactionDetail.entity'
 

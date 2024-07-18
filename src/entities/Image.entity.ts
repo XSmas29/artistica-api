@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToOne, JoinColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { Variant } from '@entity/Variant.entity'
-import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
+import { TypeormLoader } from '@ejekanshjain/type-graphql-dataloader'
 import { Product } from '@entity/Product.entity'
 import { CustomTransaction } from './CustomTransaction.entity'
 

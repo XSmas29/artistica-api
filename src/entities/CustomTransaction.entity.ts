@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, OneToMany, OneToOne, JoinColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
-import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
+import { TypeormLoader } from '@ejekanshjain/type-graphql-dataloader'
 import { User } from './User.entity'
 import { Image } from './Image.entity'
 import { Chat } from './Chat.entity'

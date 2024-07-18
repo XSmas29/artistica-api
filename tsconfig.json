@@ -1,32 +1,48 @@
 {
   "compilerOptions": {
     /* Language and Environment */
-    "target": "es2016",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "declaration": false,
+    "noImplicitAny": false,
+    "target": "ES6",
+    "lib": [
+      "ES2016",
+      "DOM"
+    ],
+    "types": [
+      "module",
+    ],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     /* Modules */
-    "module": "NodeNext",
+    "module": "Node16",
     "baseUrl": ".",
     "paths": {
       "@entity/*": [
-        "src/entities/*"
+        "./src/entities/*",
+        "./dist/entities/*",
       ],
       "@resolver/*": [
-        "src/resolvers/*"
+        "./src/resolvers/*",
+        "./dist/resolvers/*",
       ],
       "@utils/*": [
-        "src/utils/*"
+        "./src/utils/*",
+        "./dist/utils/*",
       ],
       "@seeder/*": [
-        "src/seeder/*"
+        "./src/seeder/*",
+        "./dist/seeder/*",
       ],
     },
     /* Emit */
     "outDir": "./dist",
+    "rootDir": "./src",
     /* Interop Constraints */
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     /* Type Checking */
-    "strict": true
+    "strict": true,
   },
 }

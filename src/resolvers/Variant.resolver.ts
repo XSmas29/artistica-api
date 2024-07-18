@@ -1,6 +1,6 @@
 import { Image } from '@entity/Image.entity'
 import { Variant } from '@entity/Variant.entity'
-import { Loader } from '@xsmas29/type-graphql-dataloader'
+import { Loader } from '@ejekanshjain/type-graphql-dataloader'
 import { Arg, Authorized, FieldResolver, Query, Resolver, Root } from 'type-graphql'
 import { In } from 'typeorm'
 import * as env from 'env-var'

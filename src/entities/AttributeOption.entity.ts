@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToMany, DeleteDateColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
-import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
+import { TypeormLoader } from '@ejekanshjain/type-graphql-dataloader'
 import { Attribute } from './Attribute.entity'
 import { VariantValue } from './VariantValue.entity'
 

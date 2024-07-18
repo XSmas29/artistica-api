@@ -1,6 +1,6 @@
 import { Entity, Column, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, OneToMany, PrimaryColumn, BeforeInsert } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
-import { TypeormLoader } from '@xsmas29/type-graphql-dataloader'
+import { TypeormLoader } from '@ejekanshjain/type-graphql-dataloader'
 import { User } from './User.entity'
 import { TransactionDetail } from '@entity/TransactionDetail.entity'
 import { TransactionStatus } from '@entity/TransactionStatus.entity'

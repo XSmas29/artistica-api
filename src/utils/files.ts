@@ -1,4 +1,4 @@
-import { FileUpload } from 'graphql-upload/Upload.js'
+import { FileUpload } from 'graphql-upload-ts'
 import { join } from 'path'
 import { createWriteStream, existsSync, mkdirSync, unlinkSync } from 'fs'
 import { finished } from 'stream/promises'
