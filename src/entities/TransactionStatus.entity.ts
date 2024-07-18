@@ -3,6 +3,7 @@ import { Field, ObjectType, } from 'type-graphql'
 import { Entity, BaseEntity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm'
 import { TransactionHeader } from './TransactionHeader.entity'
 import { CustomTransaction } from './CustomTransaction.entity'
+import { CourseTransaction } from './CourseTransaction.entity'
 
 @ObjectType()
 @Entity({name: 'transaction_statuses'})
@@ -24,4 +25,9 @@ export class TransactionStatus extends BaseEntity {
   @TypeormLoader()
   @OneToMany(() => CustomTransaction, custom_transaction => custom_transaction.status)
   custom_transactions!: CustomTransaction[]
+
+  @Field(() => [CourseTransaction])
+  @TypeormLoader()
+  @OneToMany(() => CourseTransaction, course_transaction => course_transaction.status)
+  course_transactions!: CourseTransaction[]
 }
