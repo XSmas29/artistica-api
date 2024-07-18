@@ -1,3 +1,4 @@
+import { CourseTransaction } from '@entity/CourseTransaction.entity'
 import { TransactionHeader } from '@entity/TransactionHeader.entity'
 import { User } from '@entity/User.entity'
 import { Variant } from '@entity/Variant.entity'
@@ -59,10 +60,10 @@ class CustomerDetailMT {
   email!: string
   @Field()
   phone?: string
-  @Field(() => Address)
-  billing_address?: Address
-  @Field(() => Address)
-  shipping_address?: Address
+  @Field(() => Address, { nullable: true })
+  billing_address?: Address | null
+  @Field(() => Address, { nullable: true })
+  shipping_address?: Address | null
 }
 
 @ObjectType()
@@ -112,6 +113,26 @@ class TransactionItemData {
 }
 
 @InputType()
+class CourseTransactionData {
+  @Field()
+  transaction_id!: string
+  @Field()
+  start_date!: Date
+  @Field()
+  time_slot!: string
+}
+
+@InputType()
+class CourseTransactionItemData {
+  @Field()
+  course_id!: number
+  @Field()
+  price!: number
+  @Field()
+  quantity!: number
+}
+
+@InputType()
 class filterTransaction {
   @Field(() => [Number], {nullable: true})
   status_ids?: []
@@ -125,6 +146,14 @@ class TransactionList {
   transactions!: TransactionHeader[]
 }
 
+@ObjectType()
+class CourseTransactionList {
+  @Field()
+  count!: number
+  @Field(() => [CourseTransaction])
+  course_transactions!: CourseTransaction[]
+}
+
 export {
   Address,
   CreditCardMT,
@@ -136,4 +165,7 @@ export {
   TransactionItemData,
   filterTransaction,
   TransactionList,
+  CourseTransactionItemData,
+  CourseTransactionData,
+  CourseTransactionList,
 }
