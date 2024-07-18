@@ -4,6 +4,7 @@ import crypto from 'crypto'
 import { MidtransStatusNotification } from './types'
 import { TransactionHeader } from '@entity/TransactionHeader.entity'
 import { TransactionStatus } from '@entity/TransactionStatus.entity'
+import { CourseTransaction } from '@entity/CourseTransaction.entity'
 
 const router = Router()
 
@@ -36,11 +37,22 @@ router.post('/status', async (req, res) => {
     payload.fraud_status === 'accept' &&
     (payload.transaction_status === 'settlement' || payload.transaction_status === 'capture')
   ) {
-    const order = await TransactionHeader.findOneBy({ id: payload.order_id })
-    if (order) {
-      order.payment_method = payload.payment_type
-      order.status = await TransactionStatus.findOneByOrFail({ id: 2 })
-      order.save()
+    const order_category = payload.order_id.split('-')[0]
+    if (order_category === 'ORDER') {
+      const order = await TransactionHeader.findOneBy({ id: payload.order_id })
+      if (order) {
+        order.payment_method = payload.payment_type
+        order.status = await TransactionStatus.findOneByOrFail({ id: 2 })
+        order.save()
+      }
+    }
+    else if (order_category === 'COURSE') {
+      const order = await CourseTransaction.findOneBy({ id: payload.order_id })
+      if (order) {
+        order.payment_method = payload.payment_type
+        order.status = await TransactionStatus.findOneByOrFail({ id: 2 })
+        order.save()
+      }
     }
   }
   res.status(200).send('OK')
