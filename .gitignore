@@ -1,6 +1,9 @@
+yarn.lock
 node_modules
 package-lock.json
 .env
 public
+dist/*
+dist
 *.crt
 *.key

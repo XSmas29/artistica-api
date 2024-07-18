@@ -45,6 +45,12 @@
             }
         ],
         "newline-before-return": "error",
-        "global-require": "off"
-    }
+        "global-require": "off",
+    },
+    "ignorePatterns": [
+        "node_modules/",
+        "coverage/",
+        "jest.config.js",
+        "webpack.config.js"
+    ],
 }

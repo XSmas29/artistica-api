@@ -1,20 +1,24 @@
 import { MainSeeder } from '@seeder/MainSeeder.seed'
 import { DataSource, DataSourceOptions } from 'typeorm'
 import { SeederOptions } from 'typeorm-extension'
+import * as env from 'env-var'
+import path from 'path'
+
+const dir = env.get('NODE_ENV').required().asString() === 'development' ? path.join(process.cwd(), "src") : path.join(process.cwd(), "dist")
 
 const config: DataSourceOptions & SeederOptions = {
   type: 'mysql',
-  host: 'localhost',
-  port: 3306,
-  username: 'root',
-  password: '',
-  database: 'artistica',
+  host: env.get('DB_HOST').required().asString(),
+  port: env.get('DB_PORT').required().asPortNumber(),
+  username: env.get('DB_USERNAME').required().asString(),
+  password: env.get('DB_PASSWORD').asString(),
+  database: env.get('DB_NAME').required().asString(),
   synchronize: true,
   logging: false,
   migrationsTableName: 'migrations',
-  entities: [`${__dirname}/**/entities/**/*.ts`],
-  migrations: [`${__dirname}/**/migration/**/*.ts`],
-  subscribers: [`${__dirname}/**/subscriber/**/*.ts`],
+  entities: [`${dir}/**/entities/**/*.ts`],
+  migrations: [`${dir}/**/migration/**/*.ts`],
+  subscribers: [`${dir}/**/subscriber/**/*.ts`],
   seeds: [MainSeeder],
   charset: 'utf8mb4_unicode_ci',
 
