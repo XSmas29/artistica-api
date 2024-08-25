@@ -22,7 +22,7 @@ export class CourseTransactionResolver {
       price: item_data.price,
       amount: item_data.quantity,
       total_price: item_data.price * item_data.quantity,
-      status: await TransactionStatus.findOneByOrFail({ id: 1 }),
+      status: await TransactionStatus.findOneByOrFail({ id: 310 }),
       start_date: transaction_data.start_date,
       time_slot: transaction_data.time_slot,
     }).save()
@@ -45,6 +45,7 @@ export class CourseTransactionResolver {
     if (!userData.is_admin) {
       courseTransactions.where('course_transaction.user = :user', { user: userData.id })
     }
+    courseTransactions.andWhere('crt.status = :status', { status: 320 })
 
     courseTransactions.orderBy(`.${sort.field}`, sort.sort)
       .limit(pagination.limit)

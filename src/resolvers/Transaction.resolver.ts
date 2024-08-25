@@ -49,7 +49,7 @@ export class TransactionResolver {
       customer_phone: transaction_data.customer_phone,
       customer_name: transaction_data.customer_name,
       customer_email: transaction_data.customer_email,
-      status: await TransactionStatus.findOneByOrFail({ id: 1 }),
+      status: await TransactionStatus.findOneByOrFail({ id: 110 }),
     }).save()
 
     item_data.forEach(async item => {
@@ -90,8 +90,6 @@ export class TransactionResolver {
       .limit(pagination.limit)
       .offset((pagination.page - 1) * pagination.limit)
       .getManyAndCount()
-    
-      console.log(transactions.getQueryAndParameters())
 
     const result = await transactions.getManyAndCount()
 

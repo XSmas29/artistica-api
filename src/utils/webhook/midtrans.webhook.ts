@@ -42,7 +42,7 @@ router.post('/status', async (req, res) => {
       const order = await TransactionHeader.findOneBy({ id: payload.order_id })
       if (order) {
         order.payment_method = payload.payment_type
-        order.status = await TransactionStatus.findOneByOrFail({ id: 2 })
+        order.status = await TransactionStatus.findOneByOrFail({ id: 120 })
         order.save()
       }
     }
@@ -50,7 +50,7 @@ router.post('/status', async (req, res) => {
       const order = await CourseTransaction.findOneBy({ id: payload.order_id })
       if (order) {
         order.payment_method = payload.payment_type
-        order.status = await TransactionStatus.findOneByOrFail({ id: 2 })
+        order.status = await TransactionStatus.findOneByOrFail({ id: 320 })
         order.save()
       }
     }
