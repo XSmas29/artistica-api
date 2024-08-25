@@ -124,6 +124,9 @@ class ChatMessageData {
 
 @InputType()
 class AddCustomTransactionData {
+  @Field()
+  id!: string
+  
   @Field(() => [GraphQLUpload])
   images!: FileUpload[]
 

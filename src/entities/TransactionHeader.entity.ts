@@ -66,6 +66,10 @@ export class TransactionHeader extends BaseEntity {
   @Column({ nullable: true })
   payment_method?: string
 
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  purchase_date?: Date
+
   @Field()
   @CreateDateColumn()
   created_at!: Date

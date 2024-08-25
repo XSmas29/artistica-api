@@ -51,6 +51,10 @@ export class CourseTransaction extends BaseEntity {
   @Column()
   time_slot!: string
 
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  purchase_date?: Date
+
   @Field()
   @CreateDateColumn()
   created_at!: Date
