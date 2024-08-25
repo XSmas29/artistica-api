@@ -43,11 +43,11 @@ export class CourseTransactionResolver {
     const courseTransactions = CourseTransaction.createQueryBuilder('crt')
 
     if (!userData.is_admin) {
-      courseTransactions.where('course_transaction.user = :user', { user: userData.id })
+      courseTransactions.where('crt.user = :user', { user: userData.id })
     }
     courseTransactions.andWhere('crt.status = :status', { status: 320 })
 
-    courseTransactions.orderBy(`.${sort.field}`, sort.sort)
+    courseTransactions.orderBy(`${sort.field}`, sort.sort)
       .limit(pagination.limit)
       .offset((pagination.page - 1) * pagination.limit)
       .getManyAndCount()
