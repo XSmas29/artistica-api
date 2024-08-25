@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, OneToMany, OneToOne, JoinColumn } from 'typeorm'
+import { Entity, Column, BaseEntity, CreateDateColumn, UpdateDateColumn, DeleteDateColumn, ManyToOne, OneToMany, OneToOne, JoinColumn, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { TypeormLoader } from '@ejekanshjain/type-graphql-dataloader'
 import { User } from './User.entity'
@@ -10,8 +10,8 @@ import { TransactionStatus } from './TransactionStatus.entity'
 @Entity({name: 'custom_transactions'})
 export class CustomTransaction extends BaseEntity {
   @Field()
-  @PrimaryGeneratedColumn()
-  id!: number
+  @PrimaryColumn()
+  id!: string
 
   @Field(() => User)
   @TypeormLoader()
