@@ -60,6 +60,10 @@ export default class TransactionStatusSeed implements Seeder {
         id: 320,
         status: 'Paid'
       },
+      // {
+      //   id: 330,
+      //   status: 'Completed'
+      // },
     ] as TransactionStatus[]
 
     const transactionStatuses = TransactionStatus.create(data)

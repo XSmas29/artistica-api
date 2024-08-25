@@ -43,6 +43,7 @@ router.post('/status', async (req, res) => {
       if (order) {
         order.payment_method = payload.payment_type
         order.status = await TransactionStatus.findOneByOrFail({ id: 120 })
+        order.purchase_date = new Date()
         order.save()
       }
     }
@@ -51,6 +52,7 @@ router.post('/status', async (req, res) => {
       if (order) {
         order.payment_method = payload.payment_type
         order.status = await TransactionStatus.findOneByOrFail({ id: 320 })
+        order.purchase_date = new Date()
         order.save()
       }
     }

@@ -12,6 +12,7 @@ import { In } from 'typeorm'
 import { groupBy } from 'lodash'
 import DataLoader from 'dataloader'
 import { CustomTransactionList, filterCustomTransaction } from '@utils/transaction.type'
+import { TransactionStatus } from '@entity/TransactionStatus.entity'
 
 @Resolver(CustomTransaction)
 export class CustomTransactionResolver {
@@ -42,6 +43,7 @@ export class CustomTransactionResolver {
 
     const newCustomTransaction = CustomTransaction.create({
       user: userData,
+      status: await TransactionStatus.findOneByOrFail({ id: 210 }),
       ...rest,
     })
 
