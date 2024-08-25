@@ -59,4 +59,12 @@ export class CourseTransactionResolver {
       course_transactions: courseTransactionData[0],
     }
   }
+
+  @Authorized<Roles>(['USER','ADMIN'])
+  @Query(() => CourseTransaction)
+  async courseTransactionDetail(
+    @Arg('id') id: string,
+  ): Promise<CourseTransaction> {
+    return CourseTransaction.findOneByOrFail({ id: id })
+  }
 }

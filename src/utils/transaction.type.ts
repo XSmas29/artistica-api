@@ -1,4 +1,5 @@
 import { CourseTransaction } from '@entity/CourseTransaction.entity'
+import { CustomTransaction } from '@entity/CustomTransaction.entity'
 import { TransactionHeader } from '@entity/TransactionHeader.entity'
 import { User } from '@entity/User.entity'
 import { Variant } from '@entity/Variant.entity'
@@ -147,6 +148,20 @@ class TransactionList {
 }
 
 @ObjectType()
+class CustomTransactionList {
+  @Field()
+  count!: number
+  @Field(() => [CustomTransaction])
+  custom_transactions!: CustomTransaction[]
+}
+
+@InputType()
+class filterCustomTransaction {
+  @Field(() => [Number], {nullable: true})
+  status_ids?: []
+}
+
+@ObjectType()
 class CourseTransactionList {
   @Field()
   count!: number
@@ -168,4 +183,6 @@ export {
   CourseTransactionItemData,
   CourseTransactionData,
   CourseTransactionList,
+  CustomTransactionList,
+  filterCustomTransaction,
 }

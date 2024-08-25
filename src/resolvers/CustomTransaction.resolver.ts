@@ -1,5 +1,5 @@
 import { CustomTransaction } from '@entity/CustomTransaction.entity'
-import { AddCustomTransactionData, UpdateCustomTransactionData } from '@utils/params'
+import { AddCustomTransactionData, pagination, sort, UpdateCustomTransactionData } from '@utils/params'
 import { Context, Roles, ServerResponse } from '@utils/types'
 import { Arg, Authorized, Ctx, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
 import { parse } from 'path'
@@ -11,6 +11,7 @@ import { Loader } from '@ejekanshjain/type-graphql-dataloader'
 import { In } from 'typeorm'
 import { groupBy } from 'lodash'
 import DataLoader from 'dataloader'
+import { CustomTransactionList, filterCustomTransaction } from '@utils/transaction.type'
 
 @Resolver(CustomTransaction)
 export class CustomTransactionResolver {
@@ -27,7 +28,7 @@ export class CustomTransactionResolver {
     return ids.map(id => imagesById[id] ?? [])
   })
   images(@Root() root: CustomTransaction) {
-    return (dataloader: DataLoader<number, Image[]>) =>
+    return (dataloader: DataLoader<string, Image[]>) =>
       dataloader.load(root.id)
   }
 
@@ -80,7 +81,7 @@ export class CustomTransactionResolver {
   @Authorized<Roles>(['ADMIN'])
   @Mutation(() => ServerResponse)
   async updateCustomTransactionBasicInfo(
-    @Arg('id') id: number,
+    @Arg('id') id: string,
     @Arg('data') data: UpdateCustomTransactionData,
   ): Promise<ServerResponse> {
     const customTransaction = await CustomTransaction.findOneByOrFail({ id: id })
@@ -98,8 +99,34 @@ export class CustomTransactionResolver {
   @Authorized<Roles>(['USER','ADMIN'])
   @Query(() => CustomTransaction)
   async customTransactionDetail(
-    @Arg('id') id: number,
+    @Arg('id') id: string,
   ): Promise<CustomTransaction> {
     return CustomTransaction.findOneByOrFail({ id: id })
+  }
+
+  @Authorized<Roles>(['ADMIN', 'USER'])
+  @Query(() => CustomTransactionList)
+  async customTransactions(
+    @Arg('filter') filter: filterCustomTransaction,
+    @Arg('sort') sort: sort,
+    @Arg('pagination') pagination: pagination,
+    @Ctx() { auth: { userData } }: Context,
+  ): Promise<CustomTransactionList> {
+    const transactions = CustomTransaction.createQueryBuilder('ctrans')
+
+    filter.status_ids && filter.status_ids.length > 0 && transactions.where('ctrans.status in (:statuses)', { statuses: filter.status_ids })
+    userData.is_admin === false && transactions.andWhere('ctrans.user = :user_id', { user_id: userData.id })
+
+    transactions.orderBy(`ctrans.${sort.field}`, sort.sort)
+      .limit(pagination.limit)
+      .offset((pagination.page - 1) * pagination.limit)
+      .getManyAndCount()
+
+    const result = await transactions.getManyAndCount()
+
+    return {
+      count: result[1],
+      custom_transactions: result[0],
+    }
   }
 }
