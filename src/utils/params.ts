@@ -141,7 +141,7 @@ class AddCustomTransactionData {
 }
 
 @InputType()
-class UpdateCustomTransactionData {
+class UpdateCustomTransactionBasicInfoData {
   @Field()
   product_name!: string
 
@@ -150,6 +150,30 @@ class UpdateCustomTransactionData {
 
   @Field()
   amount!: number
+}
+
+@InputType()
+class UpdateCustomTransactionPurchaseData {
+  @Field()
+  price!: number
+  @Field()
+  total_price!: number
+  @Field()
+  shipping_cost!: number
+  @Field()
+  shipping_service!: string
+  @Field()
+  shipping_address!: string
+  @Field(() => String)
+  shipping_city!: string
+  @Field()
+  shipping_postal_code!: string
+  @Field()
+  customer_phone!: string
+  @Field()
+  customer_name!: string
+  @Field()
+  customer_email!: string
 }
 
 @InputType()
@@ -170,5 +194,6 @@ export {
   MaterialData,
   AddCustomTransactionData,
   ChatMessageData,
-  UpdateCustomTransactionData,
+  UpdateCustomTransactionBasicInfoData,
+  UpdateCustomTransactionPurchaseData,
 }

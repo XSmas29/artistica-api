@@ -68,11 +68,7 @@ export class CustomTransaction extends BaseEntity {
 
   @Field({nullable: true})
   @Column({nullable: true})
-  shipping_province?: number
-
-  @Field({nullable: true})
-  @Column({nullable: true})
-  shipping_city?: number
+  shipping_city?: string
 
   @Field({nullable: true})
   @Column({nullable: true})

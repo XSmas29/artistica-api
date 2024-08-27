@@ -1,5 +1,5 @@
 import { CustomTransaction } from '@entity/CustomTransaction.entity'
-import { AddCustomTransactionData, pagination, sort, UpdateCustomTransactionData } from '@utils/params'
+import { AddCustomTransactionData, pagination, sort, UpdateCustomTransactionBasicInfoData, UpdateCustomTransactionPurchaseData } from '@utils/params'
 import { Context, Roles, ServerResponse } from '@utils/types'
 import { Arg, Authorized, Ctx, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
 import { parse } from 'path'
@@ -84,10 +84,27 @@ export class CustomTransactionResolver {
   @Mutation(() => ServerResponse)
   async updateCustomTransactionBasicInfo(
     @Arg('id') id: string,
-    @Arg('data') data: UpdateCustomTransactionData,
+    @Arg('data') data: UpdateCustomTransactionBasicInfoData,
   ): Promise<ServerResponse> {
     const customTransaction = await CustomTransaction.findOneByOrFail({ id: id })
 
+    await CustomTransaction.update(customTransaction.id, {
+      ...data,
+    })
+
+    return {
+      success: true,
+      message: 'Berhasil mengubah data Request Perhiasan kustom',
+    }
+  }
+
+  @Authorized<Roles>(['USER', 'ADMIN'])
+  @Mutation(() => ServerResponse)
+  async updateCustomTransactionPurchaseInfo(
+    @Arg('id') id: string,
+    @Arg('data') data: UpdateCustomTransactionPurchaseData,
+  ): Promise<ServerResponse> {
+    const customTransaction = await CustomTransaction.findOneByOrFail({ id: id })
     await CustomTransaction.update(customTransaction.id, {
       ...data,
     })
