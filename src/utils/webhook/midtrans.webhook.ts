@@ -5,6 +5,7 @@ import { MidtransStatusNotification } from './types'
 import { TransactionHeader } from '@entity/TransactionHeader.entity'
 import { TransactionStatus } from '@entity/TransactionStatus.entity'
 import { CourseTransaction } from '@entity/CourseTransaction.entity'
+import { CustomTransaction } from '@entity/CustomTransaction.entity'
 
 const router = Router()
 
@@ -52,6 +53,24 @@ router.post('/status', async (req, res) => {
       if (order) {
         order.payment_method = payload.payment_type
         order.status = await TransactionStatus.findOneByOrFail({ id: 320 })
+        order.purchase_date = new Date()
+        order.save()
+      }
+    }
+    else if (order_category === 'CUSTOM') {
+      const order = await CustomTransaction.createQueryBuilder('ct')
+        .leftJoinAndSelect('ct.chat', 'cht')
+        .leftJoinAndSelect('cht.messages', 'msg')
+        .where('ct.id = :id', { id: payload.order_id })
+        .andWhere('msg.is_quotation_active = true')
+        .getOne()
+      if (order) {
+        order.chat.messages.map(async msg => {
+          msg.is_quotation_active = false
+          await msg.save()
+        })
+        order.payment_method = payload.payment_type
+        order.status = await TransactionStatus.findOneByOrFail({ id: 220 })
         order.purchase_date = new Date()
         order.save()
       }
