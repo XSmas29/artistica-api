@@ -8,6 +8,7 @@ import { Context, Roles, ServerResponse } from '@utils/types'
 import { parse } from 'path'
 import { Arg, Authorized, Ctx, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
 import * as env from 'env-var'
+import { Image } from '@entity/Image.entity'
 
 @Resolver(ChatMessage)
 export class ChatMessageResolver {
@@ -100,6 +101,17 @@ export class ChatMessageResolver {
     @Arg('price') price: number,
     @Ctx() { auth: { userData } }: Context,
   ): Promise<ServerResponse> {
+
+    const previousQuotations = await ChatMessage.createQueryBuilder('cm')
+      .where('cm.chat = :id', { id })
+      .andWhere('cm.is_quotation_active = true')
+      .getMany()
+    
+    await Promise.all(previousQuotations.map(async quotation => {
+      quotation.is_quotation_active = false
+      await quotation.save()
+    }))
+
     const chatMessage = ChatMessage.create({
       chat: await Chat.findOneByOrFail({ id }),
       user: userData,
@@ -109,9 +121,38 @@ export class ChatMessageResolver {
 
     await chatMessage.save()
 
+    const res = await ChatMessage.createQueryBuilder('chm')
+      .where('chm.id = :chatMessageId', { chatMessageId: chatMessage.id })
+      .leftJoinAndSelect('chm.chat', 'cht')
+      .leftJoinAndSelect('chm.user', 'usr')
+      .leftJoinAndSelect('cht.custom_transaction', 'cst')
+      .leftJoinAndSelect('cst.images', 'img')
+      .getOneOrFail()
+
+    res.chat.custom_transaction.images = res.chat.custom_transaction.images.map(image => {
+      const base_url = env.get('BASE_URL').required().asString()
+      return {
+        ...image,
+        path: `${base_url}/custom_transaction/${res.chat.custom_transaction.id.toString()}/${image.path}`
+      } as Image
+    })
+
     return {
       success: true,
       message: 'Berhasil mengirim penawaran harga',
+      data: JSON.stringify(res),
     }
+  }
+
+  @Authorized<Roles>(['ADMIN', 'USER'])
+  @Query(() => ChatMessage)
+  async chatMessageDetail(
+    @Arg('id') id: number,
+  ): Promise<ChatMessage> {
+    const chatMesssage = await ChatMessage.createQueryBuilder('chm')
+    .where('id = :id', { id })
+    .getOneOrFail()
+
+    return chatMesssage
   }
 }
