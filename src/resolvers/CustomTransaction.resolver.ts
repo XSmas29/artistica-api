@@ -137,6 +137,43 @@ export class CustomTransactionResolver {
   ): Promise<CustomTransaction> {
     return CustomTransaction.findOneByOrFail({ id: id })
   }
+  
+  @Authorized<Roles>(['ADMIN'])
+  @Mutation(() => ServerResponse)
+  async sendCustomOrder(
+    @Arg('transaction_id') transaction_id: string,
+    @Arg('resi_number') resi_number: string,
+  ): Promise<ServerResponse> {
+    const transaction = await CustomTransaction.findOneByOrFail({ id: transaction_id })
+
+    transaction.resi_number = resi_number
+    transaction.status = await TransactionStatus.findOneByOrFail({ id: 230 })
+
+    await transaction.save()
+
+    return {
+      success: true,
+      message: 'Berhasil mengirimkan pesanan',
+    }
+  }
+
+  @Authorized<Roles>(['ADMIN', 'USER'])
+  @Mutation(() => ServerResponse)
+  async updateCustomTransactionStatus(
+    @Arg('transaction_id') transaction_id: string,
+    @Arg('status_id') status_id: number,
+  ): Promise<ServerResponse> {
+    const transaction = await CustomTransaction.findOneByOrFail({ id: transaction_id })
+    const status = await TransactionStatus.findOneByOrFail({ id: status_id })
+
+    transaction.status = status
+    await transaction.save()
+
+    return {
+      success: true,
+      message: 'Berhasil mengubah status transaksi',
+    }
+  }
 
   @Authorized<Roles>(['ADMIN', 'USER'])
   @Query(() => CustomTransactionList)
