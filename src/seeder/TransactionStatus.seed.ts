@@ -6,59 +6,73 @@ export default class TransactionStatusSeed implements Seeder {
     const data: TransactionStatus[] = [
       {
         id: 110,
-        status: 'Pending'
+        status: 'Pending',
+        category: 1
       },
       {
         id: 120,
-        status: 'In Progress'
+        status: 'In Progress',
+        category: 1
       },
       {
         id: 130,
-        status: 'Shipping'
+        status: 'Shipping',
+        category: 1
       },
       {
         id: 140,
-        status: 'Arrived'
+        status: 'Arrived',
+        category: 1
       },
       {
         id: 150,
-        status: 'Complaint'
+        status: 'Complaint',
+        category: 1
       },
       {
         id: 160,
-        status: 'Completed'
+        status: 'Completed',
+        category: 1
       },
       {
         id: 210,
-        status: 'Pending'
+        status: 'Pending',
+        category: 2
       },
       {
         id: 220,
-        status: 'In Progress'
+        status: 'In Progress',
+        category: 2
       },
       {
         id: 230,
-        status: 'Shipping'
+        status: 'Shipping',
+        category: 2
       },
       {
         id: 240,
-        status: 'Arrived'
+        status: 'Arrived',
+        category: 2
       },
       {
         id: 250,
-        status: 'Complaint'
+        status: 'Complaint',
+        category: 2
       },
       {
         id: 260,
-        status: 'Completed'
+        status: 'Completed',
+        category: 2
       },
       {
         id: 310,
-        status: 'Pending'
+        status: 'Pending',
+        category: 3
       },
       {
         id: 320,
-        status: 'Paid'
+        status: 'Paid',
+        category: 3
       },
       // {
       //   id: 330,

@@ -95,8 +95,14 @@ export class TransactionResolver {
 
   @Authorized<Roles>(['ADMIN'])
   @Query(() => [TransactionStatus])
-  async transactionStatuses(): Promise<TransactionStatus[]> {
-    return TransactionStatus.find()
+  async transactionStatuses(
+    @Arg('category') category: number,
+  ): Promise<TransactionStatus[]> {
+    const res = TransactionStatus.createQueryBuilder('status')
+      .where('status.category = :category', { category })
+      .getMany()
+
+    return res
   }
 
   @Authorized<Roles>(['ADMIN', 'USER'])
