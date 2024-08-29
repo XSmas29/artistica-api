@@ -181,4 +181,23 @@ export class TransactionResolver {
       message: 'Berhasil mengubah status transaksi',
     }
   }
+
+  @Authorized<Roles>(['ADMIN'])
+  @Mutation(() => ServerResponse)
+  async sendOrder(
+    @Arg('transaction_id') transaction_id: string,
+    @Arg('resi_number') resi_number: string,
+  ): Promise<ServerResponse> {
+    const header = await TransactionHeader.findOneByOrFail({ id: transaction_id })
+
+    header.resi_number = resi_number
+    header.status = await TransactionStatus.findOneByOrFail({ id: 130 })
+
+    await header.save()
+
+    return {
+      success: true,
+      message: 'Berhasil mengirimkan pesanan',
+    }
+  }
 }
