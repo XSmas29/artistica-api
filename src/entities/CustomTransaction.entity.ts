@@ -54,6 +54,10 @@ export class CustomTransaction extends BaseEntity {
   @Column({nullable: true})
   total_price?: number
 
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  resi_number?: string
+
   @Field({nullable: true})
   @Column({nullable: true})
   shipping_cost?: number

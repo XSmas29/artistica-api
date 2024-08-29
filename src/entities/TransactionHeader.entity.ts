@@ -34,6 +34,10 @@ export class TransactionHeader extends BaseEntity {
   @Column()
   shipping_cost!: number
 
+  @Field({ nullable: true })
+  @Column({ nullable: true })
+  resi_number?: string
+
   @Field()
   @Column()
   shipping_service!: string
