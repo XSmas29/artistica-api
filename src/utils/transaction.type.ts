@@ -70,9 +70,11 @@ class CustomerDetailMT {
 @ObjectType()
 class MTCreateTransResp {
   @Field()
-  token!: string
-  @Field()
-  redirect_url!: string
+  success!: boolean
+  @Field({ nullable: true })
+  token?: string
+  @Field({ nullable: true })
+  redirect_url?: string
 }
 
 @InputType()

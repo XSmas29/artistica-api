@@ -80,6 +80,10 @@ export class TransactionResolver {
         price: item.price,
         quantity: item.quantity,
       }).save()
+
+      const variant = await Variant.findOneByOrFail({ id: item.variant_id })
+      variant.stock -= item.quantity
+      await variant.save()
     })
 
     return {
