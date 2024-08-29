@@ -16,6 +16,10 @@ export class TransactionStatus extends BaseEntity {
   @Column()
   status!: string
 
+  @Field()
+  @Column()
+  category!: number
+
   @Field(() => [TransactionHeader])
   @TypeormLoader()
   @OneToMany(() => TransactionHeader, header => header.status)
