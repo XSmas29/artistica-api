@@ -67,6 +67,32 @@ export class TransactionResolver {
     }
   }
 
+  @Authorized<Roles>(['USER', 'ADMIN'])
+  @Mutation(() => ServerResponse)
+  async removeTransaction(
+    @Arg('transaction_id') transaction_id: string,
+  ): Promise<ServerResponse> {
+    const transactionDetails = await TransactionDetail.createQueryBuilder('td')
+      .leftJoinAndSelect('td.variant', 'variant')
+      .where('td.header = :transaction_id', { transaction_id })
+      .getMany()
+
+    transactionDetails.map(async (detail) => {
+      const variant = await Variant.findOneByOrFail({ id: detail.variant.id });
+      variant.stock += detail.quantity;
+      await variant.save();
+    })
+
+    await TransactionDetail.remove(transactionDetails)
+
+    await TransactionHeader.delete({ id: transaction_id })
+
+    return {
+      success: true,
+      message: 'Berhasil menghapus transaksi',
+    }
+  }
+
   @Authorized<Roles>(['ADMIN'])
   @Query(() => [TransactionStatus])
   async transactionStatuses(): Promise<TransactionStatus[]> {

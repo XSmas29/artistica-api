@@ -34,6 +34,19 @@ export class CourseTransactionResolver {
   }
 
   @Authorized<Roles>(['USER', 'ADMIN'])
+  @Mutation(() => ServerResponse)
+  async removeCourseTransaction(
+    @Arg('id') id: string,
+  ): Promise<ServerResponse> {
+    await CourseTransaction.delete({ id })
+
+    return {
+      success: true,
+      message: 'Berhasil menghapus transaksi',
+    }
+  }
+
+  @Authorized<Roles>(['USER', 'ADMIN'])
   @Query(() => CourseTransactionList)
   async courseTransactions(
     @Arg('sort') sort: sort,

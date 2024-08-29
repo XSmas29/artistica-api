@@ -80,6 +80,21 @@ export class CustomTransactionResolver {
     }
   }
 
+  @Authorized<Roles>(['USER', 'ADMIN'])
+  @Mutation(() => ServerResponse)
+  async removeCustomTransaction(
+    @Arg('id') id: string,
+  ): Promise<ServerResponse> {
+    const customTransaction = await CustomTransaction.findOneByOrFail({ id: id })
+
+    await CustomTransaction.delete(customTransaction.id)
+
+    return {
+      success: true,
+      message: 'Berhasil menghapus Request Perhiasan kustom',
+    }
+  }
+
   @Authorized<Roles>(['ADMIN'])
   @Mutation(() => ServerResponse)
   async updateCustomTransactionBasicInfo(
