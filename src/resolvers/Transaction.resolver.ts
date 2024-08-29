@@ -19,14 +19,35 @@ export class TransactionResolver {
     @Arg('customer_detail', { nullable: true }) customer_detail?: CustomerDetailMT,
     @Arg('credit_card', { nullable: true }) credit_card?: CreditCardMT,
   ): Promise<MTCreateTransResp> {
-    const res = await MidTransInstance.createTransaction(
-      transaction_detail,
-      item_details,
-      customer_detail,
-      credit_card,
-    )
+    // checkProductStock
+    let stockCheck = true
+    item_details?.forEach(async item => {
+      if (Number.isInteger(item.id)) {
+        const variant = await Variant.findOneByOrFail({ id: +item.id })
+        if (variant.stock < item.quantity) {
+          stockCheck = false
+        }
+      }
+    })
 
-    return res
+    if (!stockCheck) {
+      return {
+        success: false,
+      }
+    }
+    else {
+      const res = await MidTransInstance.createTransaction(
+        transaction_detail,
+        item_details,
+        customer_detail,
+        credit_card,
+      )
+  
+      return {
+        ...res,
+        success: true,
+      }
+    }
   }
 
   @Authorized<Roles>(['USER'])
