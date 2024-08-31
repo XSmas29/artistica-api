@@ -12,6 +12,7 @@ import AttributeOptionSeed from './AttributeOption.seed'
 import VariantValueSeed from './VariantValue.seed'
 import TransactionStatusSeed from './TransactionStatus.seed'
 import CourseSeed from './Course.seed'
+import ComplaintTypeSeed from './ComplaintType.seed'
 
 export class MainSeeder implements Seeder {
 	async run(
@@ -29,5 +30,6 @@ export class MainSeeder implements Seeder {
 		await runSeeder(dataSource, UserSeed)
 		await runSeeder(dataSource, TransactionStatusSeed)
 		await runSeeder(dataSource, CourseSeed)
+		await runSeeder(dataSource, ComplaintTypeSeed)
 	}
 }

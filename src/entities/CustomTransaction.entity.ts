@@ -5,6 +5,7 @@ import { User } from './User.entity'
 import { Image } from './Image.entity'
 import { Chat } from './Chat.entity'
 import { TransactionStatus } from './TransactionStatus.entity'
+import { Complaint } from './Complaint.entity'
 
 @ObjectType()
 @Entity({name: 'custom_transactions'})
@@ -28,6 +29,11 @@ export class CustomTransaction extends BaseEntity {
   @JoinColumn()
   @OneToOne(() => Chat, chat => chat.custom_transaction)
   chat!: Chat 
+
+  @Field(() => [Complaint])
+  @TypeormLoader()
+  @OneToMany(() => Complaint, complaint => complaint.custom_transaction)
+  complaints!: Complaint[]
 
   @Field()
   @Column()
