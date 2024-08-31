@@ -56,11 +56,16 @@ export default class TransactionStatusSeed implements Seeder {
       },
       {
         id: 250,
-        status: 'Complaint',
+        status: 'Repair',
         category: 2
       },
       {
         id: 260,
+        status: 'Resize',
+        category: 2
+      },
+      {
+        id: 270,
         status: 'Completed',
         category: 2
       },
