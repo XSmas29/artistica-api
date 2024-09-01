@@ -278,7 +278,7 @@ export class ProductResolver {
     images.forEach(image => {
       deleteFile(`products/${product.id}/${image.path}`)
     })
-    await Image.remove(images)
+    await Image.softRemove(images)
 
     //soft delete product attribute options
     if (attributes.length > 0) {
@@ -308,7 +308,7 @@ export class ProductResolver {
         variant_images.forEach(image => {
           deleteFile(`variants/${image.variant!.id}/${image.path}`)
         })
-        await Image.remove(variant_images)
+        await Image.softRemove(variant_images)
       }
 
     await Variant.softRemove(variants)
@@ -327,7 +327,7 @@ export class ProductResolver {
   ): Promise<ServerResponse> {
     const {product, attributes, variants } = data
     
-    const isSKUUnique = await checkUniqueSKU(variants.map(variant => variant.sku))
+    const isSKUUnique = await checkUniqueSKU(variants.map(variant => variant.sku), id)
 
     if (!isSKUUnique) {
       throw new DuplicateEntryError('SKU tidak boleh sama / sudah digunakan sebelumnya')
@@ -361,7 +361,9 @@ export class ProductResolver {
       oldProductImages.forEach(image => {
       deleteFile(`products/${productData.id}/${image.path}`)
     })
-    await Image.remove(oldProductImages)
+    await Image.softRemove(oldProductImages)
+
+    console.log('tes hahahaha')
 
     //soft delete product attribute options
     if (oldAttributes.length > 0) {
@@ -391,7 +393,7 @@ export class ProductResolver {
         old_variant_images.forEach(image => {
           deleteFile(`variants/${image.variant!.id}/${image.path}`)
         })
-        await Image.remove(old_variant_images)
+        await Image.softRemove(old_variant_images)
       }
 
     await Variant.softRemove(oldVariants)
