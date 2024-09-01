@@ -164,10 +164,22 @@ export class CustomTransactionResolver {
     @Arg('status_id') status_id: number,
   ): Promise<ServerResponse> {
     const transaction = await CustomTransaction.findOneByOrFail({ id: transaction_id })
-    const status = await TransactionStatus.findOneByOrFail({ id: status_id })
+    let status = await TransactionStatus.findOneByOrFail({ id: status_id })
+    if (status_id === 240) {
+      //check if 1 month has passed since the purchase date
+
+      const currentDate = new Date()
+      const purchaseDate = transaction.purchase_date!
+      const diffTime = Math.abs(currentDate.getTime() - purchaseDate.getTime())
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+
+      if (diffDays > 30) status = await TransactionStatus.findOneByOrFail({ id: 270 })
+    }
+
 
     transaction.status = status
     await transaction.save()
+    
 
     return {
       success: true,
