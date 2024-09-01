@@ -27,6 +27,7 @@ import { createServer } from 'https'
 import { readFileSync } from 'fs'
 import { CourseTransactionResolver } from '@resolver/CourseTransaction.resolver'
 import { ComplaintResolver } from '@resolver/Complaint.resolver'
+import { checkCustomTransactionStatusCronJob } from '@utils/cron'
 dotenv.config()
 
 const main = async () => {
@@ -36,6 +37,8 @@ const main = async () => {
   app.use(cors())
   app.use(express.static('public'))
   app.use(graphqlUploadExpress())
+
+  checkCustomTransactionStatusCronJob.start()
 
   const port = env.get('PORT').required().asPortNumber()
 
