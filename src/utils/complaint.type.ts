@@ -19,8 +19,8 @@ class ComplaintData {
 
 @InputType()
 class filterComplaints {
-  @Field(() => [Boolean], {nullable: true})
-  is_approved_values?: boolean[]
+  @Field(() => [Boolean], {nullable: 'itemsAndList'})
+  is_approved_values?: (boolean | null)[]
 
   @Field(() => [Number], {nullable: true})
   type_ids?: number[]
