@@ -9,6 +9,7 @@ import { CustomTransaction } from "@entity/CustomTransaction.entity";
 import { ComplaintType } from "@entity/ComplaintType.entity";
 import { TransactionStatus } from "@entity/TransactionStatus.entity";
 import { pagination, sort } from "@utils/params";
+import { Brackets } from "typeorm";
 
 @Resolver(Complaint)
 export class ComplaintResolver {
@@ -84,10 +85,15 @@ export class ComplaintResolver {
     @Arg('sort', {nullable: true}) sort?: sort,
     @Arg('pagination', {nullable: true}) pagination?: pagination,
   ): Promise<ComplaintList> {
+    console.log(filter)
     const complaint = Complaint.createQueryBuilder('cmt')
-    custom_transaction_id && complaint.where('cmt.custom_transaction = :custom_transaction_id', { custom_transaction_id })
-    filter?.is_approved_values && filter.is_approved_values.length > 0 && complaint.where('cmt.is_approved in (:val)', { val: filter.is_approved_values })
-    filter?.type_ids && filter.type_ids.length > 0 && complaint.where('cmt.type in (:val)', { val: filter.type_ids })
+    custom_transaction_id && complaint.andWhere('cmt.custom_transaction = :custom_transaction_id', { custom_transaction_id })
+    filter?.is_approved_values && filter.is_approved_values.length > 0 && complaint.andWhere(new Brackets((qb) => {
+      qb.orWhere('cmt.is_approved in (:is_approved)', { is_approved: filter.is_approved_values })
+      filter?.is_approved_values?.includes(null) && qb.orWhere('cmt.is_approved is NULL')
+    }))
+    filter?.type_ids && filter.type_ids.length > 0 && complaint.andWhere('cmt.type in (:type)', { type: filter.type_ids })
+    console.log(complaint.getQueryAndParameters())
 
     sort && complaint.orderBy(`${sort.field}`, sort.sort)
 
