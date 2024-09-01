@@ -28,7 +28,8 @@ export class Variant extends BaseEntity {
   stock!: number
 
   @Field()
-  @DeleteDateColumn()
+  // @DeleteDateColumn()
+  @Column({nullable: true})
   deleted_at!: Date
 
   @Field(() => Product)

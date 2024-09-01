@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToOne, JoinColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne, OneToOne, JoinColumn, DeleteDateColumn } from 'typeorm'
 import { ObjectType, Field } from 'type-graphql'
 import { Variant } from '@entity/Variant.entity'
 import { TypeormLoader } from '@ejekanshjain/type-graphql-dataloader'
@@ -31,4 +31,8 @@ export class Image extends BaseEntity {
   @TypeormLoader()
   @ManyToOne(() => CustomTransaction, customTransaction => customTransaction.images)
   custom_transaction?: CustomTransaction | null
+
+  @Field()
+  @DeleteDateColumn()
+  deleted_at!: Date
 }
