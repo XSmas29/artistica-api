@@ -26,6 +26,7 @@ import { CourseResolver } from '@resolver/Course.resolver'
 import { createServer } from 'https'
 import { readFileSync } from 'fs'
 import { CourseTransactionResolver } from '@resolver/CourseTransaction.resolver'
+import { ComplaintResolver } from '@resolver/Complaint.resolver'
 dotenv.config()
 
 const main = async () => {
@@ -55,6 +56,7 @@ const main = async () => {
         ChatMessageResolver,
         CourseResolver,
         CourseTransactionResolver,
+        ComplaintResolver,
       ],
       validate: true,
       authChecker: authChecker,

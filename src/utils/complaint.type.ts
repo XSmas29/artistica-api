@@ -1,5 +1,6 @@
+import { Complaint } from "@entity/Complaint.entity"
 import { FileUpload, GraphQLUpload } from "graphql-upload-ts"
-import { Field, InputType } from "type-graphql"
+import { Field, InputType, ObjectType } from "type-graphql"
 
 @InputType()
 class ComplaintData {
@@ -16,4 +17,25 @@ class ComplaintData {
   image?: FileUpload | null
 }
 
-export { ComplaintData }
+@InputType()
+class filterComplaints {
+  @Field(() => [Boolean], {nullable: true})
+  is_approved_values?: boolean[]
+
+  @Field(() => [Number], {nullable: true})
+  type_ids?: number[]
+}
+
+@ObjectType()
+class ComplaintList {
+  @Field()
+  count!: number
+  @Field(() => [Complaint])
+  complaints!: Complaint[]
+}
+
+export { 
+  ComplaintData,
+  filterComplaints,
+  ComplaintList,
+}

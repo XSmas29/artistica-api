@@ -30,7 +30,7 @@ export class Complaint extends BaseEntity {
   image?: string
 
   @Field({nullable: true})
-  @Column()
+  @Column({nullable: true})
   is_approved?: boolean
 
   @Field()
