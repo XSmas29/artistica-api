@@ -7,6 +7,7 @@ import { pagination, sort } from '@utils/params'
 import { CreditCardMT, CustomerDetailMT, ItemDetailMT, MTCreateTransResp, TransactionData, TransactionDetailMT, TransactionItemData, TransactionList, filterTransaction } from '@utils/transaction.type'
 import { Context, Roles, ServerResponse } from '@utils/types'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
+import { IsNull, Not } from 'typeorm'
 
 @Resolver()
 export class TransactionResolver {
@@ -161,7 +162,11 @@ export class TransactionResolver {
   async transactionDetail(
     @Arg('transaction_id') transaction_id: string,
   ): Promise<TransactionHeader> {
-    return TransactionHeader.findOneByOrFail({ id: transaction_id })
+    const res = await TransactionHeader.createQueryBuilder('header')
+      .andWhere('header.id = :transaction_id', { transaction_id })
+      .getOneOrFail()
+
+    return res
   }
 
   @Authorized<Roles>(['ADMIN', 'USER'])
