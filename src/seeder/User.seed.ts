@@ -22,6 +22,16 @@ export default class UserSeed implements Seeder {
         last_name: 'Admin',
         hash: '',
       },
+      {
+        id: 2,
+        email: 'surya@mail.com',
+        password: 'surya123',
+        is_admin: false,
+        is_verified: true,
+        first_name: 'Admin',
+        last_name: 'Admin',
+        hash: '',
+      },
     ] as User[]
 
     const map = data.map(async user => {
