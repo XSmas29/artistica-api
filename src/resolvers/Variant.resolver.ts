@@ -50,4 +50,18 @@ export class VariantResolver {
 
     return ret
   }
+
+  @Authorized<Roles>(['USER'])
+  @Query(() => Variant)
+  async variantDetail(
+    @Arg('id') id: number,
+  ): Promise<Variant> {
+    const variant = await Variant.createQueryBuilder('var')
+    .withDeleted()
+      .where('var.id = :id', { id })
+      .getOneOrFail()
+
+    return variant
+
+  }
 }

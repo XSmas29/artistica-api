@@ -1,10 +1,12 @@
+import { Image } from '@entity/Image.entity'
+import { Product } from '@entity/Product.entity'
 import { TransactionDetail } from '@entity/TransactionDetail.entity'
 import { TransactionHeader } from '@entity/TransactionHeader.entity'
 import { TransactionStatus } from '@entity/TransactionStatus.entity'
 import { Variant } from '@entity/Variant.entity'
 import MidTransInstance from '@utils/api/midtrans.api'
 import { pagination, sort } from '@utils/params'
-import { CreditCardMT, CustomerDetailMT, ItemDetailMT, MTCreateTransResp, TransactionData, TransactionDetailMT, TransactionItemData, TransactionList, filterTransaction } from '@utils/transaction.type'
+import { CreditCardMT, CustomerDetailMT, ItemDetailMT, MTCreateTransResp, TransactionData, TransactionDetailMT, TransactionHistoryHeader, TransactionItemData, TransactionList, filterTransaction } from '@utils/transaction.type'
 import { Context, Roles, ServerResponse } from '@utils/types'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 import { IsNull, Not } from 'typeorm'
@@ -158,15 +160,56 @@ export class TransactionResolver {
   }
 
   @Authorized<Roles>(['ADMIN', 'USER'])
-  @Query(() => TransactionHeader)
+  @Query(() => TransactionHistoryHeader)
   async transactionDetail(
     @Arg('transaction_id') transaction_id: string,
-  ): Promise<TransactionHeader> {
-    const res = await TransactionHeader.createQueryBuilder('header')
+  ): Promise<TransactionHistoryHeader> {
+    const header = await TransactionHeader.createQueryBuilder('header')
+    .withDeleted()
       .andWhere('header.id = :transaction_id', { transaction_id })
+      .leftJoinAndSelect('header.details', 'details')
+      .leftJoinAndSelect('details.variant', 'variant')
+      .leftJoinAndSelect('header.status', 'status')
+      .leftJoinAndSelect('header.user', 'user')
       .getOneOrFail()
 
-    return res
+    const mapping = header.details.map(async detail => {
+      console.log(detail)
+      detail.variant = await Variant.createQueryBuilder('variant')
+        .withDeleted()
+        .where('variant.id = :variant_id', { variant_id: detail.variant.id })
+        .getOneOrFail()
+
+      detail.variant.product = await Product.createQueryBuilder('prod')
+      .withDeleted()
+      .leftJoinAndSelect('prod.variants', 'variants')
+      .leftJoinAndSelect('variants.image', 'image')
+      .where('variants.id = :variant_id', { variant_id: detail.variant.id })
+      .getOneOrFail()
+
+      detail.variant.product.images = await Image.createQueryBuilder('img')
+      .withDeleted()
+      .leftJoinAndSelect('img.product', 'product')
+      .where('product.id = :product_id', { product_id: detail.variant.product.id })
+      .getMany()
+
+      detail.variant.image = await Image.createQueryBuilder('img')
+      .withDeleted()
+      .leftJoinAndSelect('img.variant', 'variant')
+      .where('variant.id = :variant_id', { variant_id: detail.variant.id })
+      .getOne()
+
+      return detail
+    })
+
+    const res = await Promise.all(mapping)
+
+    header.details = res
+
+    const ret = header as TransactionHistoryHeader
+
+    return ret
+
   }
 
   @Authorized<Roles>(['ADMIN', 'USER'])
