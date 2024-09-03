@@ -28,8 +28,7 @@ export class Variant extends BaseEntity {
   stock!: number
 
   @Field()
-  // @DeleteDateColumn()
-  @Column({nullable: true})
+  @DeleteDateColumn()
   deleted_at!: Date
 
   @Field(() => Product)
@@ -41,7 +40,7 @@ export class Variant extends BaseEntity {
   @TypeormLoader()
   @JoinColumn()
   @OneToOne(() => Image, image => image.variant)
-  image?: Image
+  image?: Image | null
 
   @Field(() => [VariantValue])
   @TypeormLoader()
