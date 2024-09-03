@@ -28,8 +28,7 @@ export default class UserSeed implements Seeder {
         password: 'surya123',
         is_admin: false,
         is_verified: true,
-        first_name: 'Admin',
-        last_name: 'Admin',
+        first_name: 'Surya',
         hash: '',
       },
     ] as User[]
