@@ -1,6 +1,8 @@
 import { CourseTransaction } from '@entity/CourseTransaction.entity'
 import { CustomTransaction } from '@entity/CustomTransaction.entity'
+import { Image } from '@entity/Image.entity'
 import { TransactionHeader } from '@entity/TransactionHeader.entity'
+import { TransactionStatus } from '@entity/TransactionStatus.entity'
 import { User } from '@entity/User.entity'
 import { Variant } from '@entity/Variant.entity'
 import { Field, InputType, ObjectType } from 'type-graphql'
@@ -150,6 +152,89 @@ class TransactionList {
 }
 
 @ObjectType()
+class TransactionHistoryImage {
+  @Field()
+  id!: number
+  @Field()
+  path!: string
+}
+
+@ObjectType()
+class TransactionHistoryProductDetail {
+  @Field()
+  id!: number
+  @Field()
+  name!: string
+  @Field()
+  slug!: string
+  @Field(() => [TransactionHistoryImage])
+  images!: TransactionHistoryImage[]
+}
+
+@ObjectType()
+class TransactionHistoryVariantDetail {
+  @Field()
+  id!: number
+  @Field()
+  sku!: string
+  @Field()
+  stock!: number
+  @Field(() => TransactionHistoryImage, {nullable: true})
+  image?: TransactionHistoryImage
+  @Field(() => TransactionHistoryProductDetail)
+  product!: TransactionHistoryProductDetail
+}
+@ObjectType()
+class TransactionHistoryHeader {
+  @Field()
+  id!: string
+  @Field()
+  total_price!: number
+  @Field()
+  created_at!: Date
+  @Field(() => String, { nullable: true })
+  purchase_date?: Date
+  @Field()
+  customer_email!: string
+  @Field()
+  customer_name!: string
+  @Field(() => String, { nullable: true })
+  customer_phone?: string
+  @Field(() => String, { nullable: true })
+  payment_method?: string
+  @Field()
+  shipping_address!: string
+  @Field()
+  shipping_city!: string
+  @Field()
+  shipping_cost!: number
+  @Field()
+  shipping_postal_code!: string
+  @Field()
+  shipping_service!: string
+  @Field(() => String, { nullable: true })
+  resi_number?: string
+  @Field(() => [TransactionHistoryDetail])
+  details!: TransactionHistoryDetail[]
+  @Field(() => User)
+  user!: User
+  @Field(() => TransactionStatus)
+  status!: TransactionStatus
+}
+
+@ObjectType()
+class TransactionHistoryDetail {
+  @Field()
+  id!: number
+  @Field()
+  price!: number
+  @Field()
+  quantity!: number
+  @Field(() => TransactionHistoryVariantDetail)
+  variant!: TransactionHistoryVariantDetail
+}
+
+@ObjectType()
 class CustomTransactionList {
   @Field()
   count!: number
@@ -187,4 +272,5 @@ export {
   CourseTransactionList,
   CustomTransactionList,
   filterCustomTransaction,
+  TransactionHistoryHeader,
 }
