@@ -256,6 +256,20 @@ class CourseTransactionList {
   course_transactions!: CourseTransaction[]
 }
 
+@ObjectType()
+class IncomeReportData {
+  @Field(() => [Number])
+  transaction_income!: number[]
+  @Field(() => [Number])
+  custom_income!: number[]
+  @Field(() => [Number])
+  course_income!: number[]
+  @Field(() => [Number])
+  total_income!: number[]
+  @Field(() => [String])
+  time_label!: string[]
+}
+
 export {
   Address,
   CreditCardMT,
@@ -273,4 +287,5 @@ export {
   CustomTransactionList,
   filterCustomTransaction,
   TransactionHistoryHeader,
+  IncomeReportData,
 }

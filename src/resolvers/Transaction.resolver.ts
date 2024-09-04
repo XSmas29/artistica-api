@@ -1,3 +1,5 @@
+import { CourseTransaction } from '@entity/CourseTransaction.entity'
+import { CustomTransaction } from '@entity/CustomTransaction.entity'
 import { Image } from '@entity/Image.entity'
 import { Product } from '@entity/Product.entity'
 import { TransactionDetail } from '@entity/TransactionDetail.entity'
@@ -6,7 +8,7 @@ import { TransactionStatus } from '@entity/TransactionStatus.entity'
 import { Variant } from '@entity/Variant.entity'
 import MidTransInstance from '@utils/api/midtrans.api'
 import { pagination, sort } from '@utils/params'
-import { CreditCardMT, CustomerDetailMT, ItemDetailMT, MTCreateTransResp, TransactionData, TransactionDetailMT, TransactionHistoryHeader, TransactionItemData, TransactionList, filterTransaction } from '@utils/transaction.type'
+import { CreditCardMT, CustomerDetailMT, IncomeReportData, ItemDetailMT, MTCreateTransResp, TransactionData, TransactionDetailMT, TransactionHistoryHeader, TransactionItemData, TransactionList, filterTransaction } from '@utils/transaction.type'
 import { Context, Roles, ServerResponse } from '@utils/types'
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
 import { IsNull, Not } from 'typeorm'
@@ -247,5 +249,66 @@ export class TransactionResolver {
       success: true,
       message: 'Berhasil mengirimkan pesanan',
     }
+  }
+
+  @Authorized<Roles>(['ADMIN'])
+  @Query(() => IncomeReportData)
+  async incomeReport(
+    @Arg('period_month') period_month: number,
+  ): Promise<IncomeReportData> {
+
+    let current_month = new Date().getMonth() + 1
+    let current_year = new Date().getFullYear()
+
+    const ret: IncomeReportData = {
+      transaction_income: [],
+      custom_income: [],
+      course_income: [],
+      total_income: [],
+      time_label: [],
+    }
+
+    const formatter = Intl.DateTimeFormat('id-ID', {
+      month: 'short',
+      year: 'numeric',
+    })
+    
+    for(period_month; period_month > 0; period_month--) {
+      let total_income = 0
+      const transaction_income = await TransactionHeader.createQueryBuilder('header')
+      .select('SUM(header.total_price)', 'total')
+      .where('MONTH(header.purchase_date) = :month', { month: current_month })
+      .andWhere('YEAR(header.purchase_date) = :year', { year: current_year })
+      .getRawOne()
+
+      const custom_income = await CustomTransaction.createQueryBuilder('cst')
+      .select('SUM(cst.total_price)', 'total')
+      .where('MONTH(cst.purchase_date) = :month', { month: current_month })
+      .andWhere('YEAR(cst.purchase_date) = :year', { year: current_year })
+      .getRawOne()
+
+      const course_income = await CourseTransaction.createQueryBuilder('ct')
+      .select('SUM(ct.total_price)', 'total')
+      .where('MONTH(ct.purchase_date) = :month', { month: current_month })
+      .andWhere('YEAR(ct.purchase_date) = :year', { year: current_year })
+      .getRawOne()
+      
+      total_income = +transaction_income.total + +custom_income.total + +course_income.total
+
+      ret.total_income.unshift(total_income)
+      ret.transaction_income.unshift(+transaction_income.total)
+      ret.custom_income.unshift(+custom_income.total)
+      ret.course_income.unshift(+course_income.total)
+      const date = new Date(current_year, current_month - 1)
+      ret.time_label.unshift(formatter.format(date))
+
+      if (current_month - 1 <= 0) {
+        current_month = 12
+        current_year -= 1
+      } else {
+        current_month -= 1
+      }
+    }
+    return ret
   }
 }
