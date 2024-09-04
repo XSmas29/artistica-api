@@ -9,6 +9,7 @@ import DataLoader from 'dataloader'
 import { CartParams } from '@utils/params'
 import { CartData } from '@utils/product.type'
 import { Roles } from '@utils/types'
+import { NotFoundError } from '@utils/errors'
 
 @Resolver(Variant)
 export class VariantResolver {
@@ -39,7 +40,7 @@ export class VariantResolver {
     const ret: CartData[] = data.map(d => {
       const variant = variants.find(v => v.id === d.variant_id)
       if (!variant) {
-        throw new Error('Variant tidak ditemukan')
+        throw new NotFoundError('Variant tidak ditemukan')
       }
 
       return {
