@@ -17,9 +17,9 @@ export class User extends BaseEntity {
   @Column({nullable: true})
   first_name!: string
 
-  @Field({nullable: true})
-  @Column({nullable: true})
-  last_name?: string
+  @Field()
+  @Column({default: ''})
+  last_name!: string
 
   @Field({nullable: true})
   @Column({nullable: true})
