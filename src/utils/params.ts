@@ -9,7 +9,7 @@ class VerifyData {
   @Field()
   last_name?: string
   @Field()
-  phone?: string
+  phone!: string
   @Field()
   password!: string
   @Field()

@@ -20,6 +20,7 @@ export default class UserSeed implements Seeder {
         is_verified: true,
         first_name: 'Admin',
         last_name: 'Admin',
+        phone: '08123456789',
         hash: '',
       },
       {
@@ -29,6 +30,7 @@ export default class UserSeed implements Seeder {
         is_admin: false,
         is_verified: true,
         first_name: 'Surya',
+        phone: '08123456789',
         hash: '',
       },
     ] as User[]
