@@ -276,7 +276,7 @@ export class ProductResolver {
       .getMany()
     
     images.forEach(image => {
-      deleteFile(`products/${product.id}/${image.path}`)
+      //deleteFile(`products/${product.id}/${image.path}`)
     })
     await Image.softRemove(images)
 
@@ -306,7 +306,7 @@ export class ProductResolver {
           .getMany()
           console.log(variant_images)
         variant_images.forEach(image => {
-          deleteFile(`variants/${image.variant!.id}/${image.path}`)
+          //deleteFile(`variants/${image.variant!.id}/${image.path}`)
         })
         await Image.softRemove(variant_images)
       }
@@ -359,7 +359,7 @@ export class ProductResolver {
       .getMany()
     
       oldProductImages.forEach(image => {
-      deleteFile(`products/${productData.id}/${image.path}`)
+      //deleteFile(`products/${productData.id}/${image.path}`)
     })
     await Image.softRemove(oldProductImages)
 
@@ -391,7 +391,7 @@ export class ProductResolver {
           .getMany()
           console.log(old_variant_images)
         old_variant_images.forEach(image => {
-          deleteFile(`variants/${image.variant!.id}/${image.path}`)
+          //deleteFile(`variants/${image.variant!.id}/${image.path}`)
         })
         await Image.softRemove(old_variant_images)
       }
