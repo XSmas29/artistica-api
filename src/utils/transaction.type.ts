@@ -192,7 +192,7 @@ class TransactionHistoryHeader {
   total_price!: number
   @Field()
   created_at!: Date
-  @Field(() => String, { nullable: true })
+  @Field(() => Date, { nullable: true })
   purchase_date?: Date
   @Field()
   customer_email!: string
