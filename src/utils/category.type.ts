@@ -15,7 +15,16 @@ class filterCategories {
   search?: string | null
 }
 
+@ObjectType()
+class CategoryReportData {
+  @Field(() => [String])
+  labels!: string[]
+  @Field(() => [Number])
+  values!: number[]
+}
+
 export {
   CategoryList,
   filterCategories,
+  CategoryReportData,
 }

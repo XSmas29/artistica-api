@@ -1,9 +1,10 @@
 import { Arg, Authorized, Mutation, Query, Resolver } from 'type-graphql'
 import { Category } from '@entity/Category.entity'
-import { CategoryList, filterCategories } from '@utils/category.type'
+import { CategoryList, CategoryReportData, filterCategories } from '@utils/category.type'
 import { CategoryData, pagination } from '@utils/params'
 import { Roles, ServerResponse } from '@utils/types'
 import { DuplicateEntryError, NotFoundError } from '@utils/errors'
+import { TransactionHeader } from '@entity/TransactionHeader.entity'
 
 @Resolver(Category)
 export class CategoryResolver {
@@ -115,4 +116,35 @@ export class CategoryResolver {
       message: 'Berhasil menghapus kategori',
     }
   }
+
+  @Authorized<Roles>(['ADMIN'])
+  @Query(() => CategoryReportData)
+  async categoryReport(): Promise<CategoryReportData> {
+    const categories = await Category.createQueryBuilder('cat')
+      .leftJoinAndSelect('cat.products', 'products')
+      .getMany()
+
+      let ret: CategoryReportData = {
+        labels: [],
+        values: [],
+      }
+
+    const data = categories.map(async cat => {
+      const totalTransactions = await TransactionHeader.createQueryBuilder('th')
+        .withDeleted()
+        .leftJoin('th.details', 'td')
+        .leftJoin('td.variant', 'var')
+        .leftJoin('var.product', 'prod')
+        .where('prod.category = :category', { category: cat.id })
+        .getCount()
+
+        ret.labels.push(cat.name)
+        ret.values.push(totalTransactions)
+    })
+
+    await Promise.all(data)
+
+    return ret
+  }
+
 }
