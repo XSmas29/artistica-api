@@ -11,9 +11,10 @@ export class ChatResolver {
   ): Promise<Chat[]> {
     const chats = Chat.createQueryBuilder('chat')
       .leftJoinAndSelect('chat.custom_transaction', 'ct')
+      .where('ct.status != :status', { status: 270 })
 
     if (!userData.is_admin) {
-      chats.where('ct.user = :user', { user: userData.id })
+      chats.andWhere('ct.user = :user', { user: userData.id })
     }
 
     const chatData = await chats.getMany()
