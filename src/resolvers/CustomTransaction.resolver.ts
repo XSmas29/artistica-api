@@ -13,6 +13,8 @@ import { groupBy } from 'lodash'
 import DataLoader from 'dataloader'
 import { CustomTransactionList, filterCustomTransaction } from '@utils/transaction.type'
 import { TransactionStatus } from '@entity/TransactionStatus.entity'
+import { ChatMessage } from '@entity/ChatMessage.entity'
+import { User } from '@entity/User.entity'
 
 @Resolver(CustomTransaction)
 export class CustomTransactionResolver {
@@ -58,6 +60,14 @@ export class CustomTransactionResolver {
 
     customTransactionData.chat = chatData
     customTransactionData.save()
+
+    const chatMessage = ChatMessage.create({
+      message: 'Mohon Tunggu Respon dari admin untuk melanjutkan transaksi perhiasan kustom anda.',
+      user: await User.findOneByOrFail({ id: 1 }),
+      chat: chatData,
+    })
+
+    await chatMessage.save()
 
     images.forEach(async image => {
       const data = await image
