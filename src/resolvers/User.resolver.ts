@@ -33,8 +33,6 @@ export class UserResolver {
       )
     }
 
-    console.log(usersQuery.getSql())
-
     if (pagination) {
       usersQuery.limit(pagination.limit)
       usersQuery.offset((pagination.page - 1) * pagination.limit)
@@ -45,6 +43,35 @@ export class UserResolver {
     return {
       count: users[1],
       users: users[0],
+    }
+  }
+
+  @Mutation(() => ServerResponse)
+  async sendForgotPasswordLink(
+    @Arg('email') email: string,
+  ): Promise<ServerResponse> {
+    const user = await User.createQueryBuilder('user')
+      .where('user.email = :email', { email })
+      .andWhere('user.is_verified = true')
+      .getOne()
+
+    if (!user) {
+      throw new NotFoundError('User tidak ditemukan')
+    }
+
+    const gmail = new GmailService()
+
+    const hash = crypto.createHash('sha256')
+    const data = `${email}${Date.now()}`
+    hash.update(data)
+    const sha256Hash = hash.digest('hex')
+    console.log(sha256Hash)
+    
+    await gmail.sendResetPasswordLink(email, sha256Hash)
+
+    return {
+      success: true,
+      message: 'Berhasil mengirim link reset password',
     }
   }
   

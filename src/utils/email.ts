@@ -47,7 +47,7 @@ export class GmailService {
         to: email,
         subject: 'Konfirmasi Akun Artistica Jewelry',
         text: 'Klik link berikut untuk konfirmasi email',
-        html: this.getMailContent(hash),
+        html: this.getConfirmationMailContent(hash),
       }
 
       await transport.sendMail(mailOptions).catch(err => {
@@ -58,7 +58,7 @@ export class GmailService {
     }
   }
 
-  getMailContent(hash: string) {
+  getConfirmationMailContent(hash: string) {
     return `
     <html>
       <head>
@@ -107,11 +107,6 @@ export class GmailService {
         <div class="container">
           <table>
             <tr>
-              <td class="logo"><img src="https://thumbor.sirclocdn.com/unsafe/600x/filters:quality(85)/https://storage.googleapis.com/sirclo-prod-storefront/brands/7ab3eb69-3391-4bc8-b3a0-907bd2bf2f2b-22222.png" width="350px" height="70px/"></td>
-            </tr>
-          </table>
-          <table>
-            <tr>
               <th>
                 <p class="title">Verifikasi Email Anda</p>
               </th>
@@ -135,6 +130,114 @@ export class GmailService {
       </body>
     </html>
     `
+  }
+
+  getResetPasswordMailContent(hash: string) {
+    return `
+    <html>
+      <head>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+          *{
+            font-family: 'Poppins', sans-serif;
+          }
+          body {
+            background-color: #F4F4F4;
+          }
+          .container {
+            border: 1px solid #D8D8D8;
+            border-radius:10px;
+            width: 360px;
+            padding: 10px 30px 40px 30px;
+            margin: 80px auto;
+            background-color: #FFFFFF
+          }
+          .title {
+            font-weight: 900;
+            font-size: 36px;
+          }
+          .button {
+            padding: 20px 36px;
+            font-size: 24px;
+            border-radius: 8px;
+            background-color: #000000;
+            color: #FFFFFF;
+          }
+          .subtitle {
+            margin: 4px 0px;
+            font-weight:100
+          }
+          .logo {
+            padding-top: 25px;
+          }
+          .action {
+            text-decoration: none;
+            margin-top: 60px;
+            margin-bottom: 10px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <table>
+            <tr>
+              <th>
+                <p class="title">Reset Password Anda</p>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <p class="subtitle">Klik tombol dibawah ini untuk mengubah password anda</p>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <div class="action">
+                  <a class="button" style="text-decoration:none;color:#ffffff" href="${env.get('CLIENT').asUrlString()}change-password?code=${hash}" target="_blank">
+                    Ubah Password
+                  </a>
+                </div>
+              </th>
+            </tr>
+          </table>
+        </div>
+      </body>
+    </html>
+    `
+  }
+
+  async sendResetPasswordLink(email: string, hash: string) {
+    const access_token = await this.oAuthClient.getAccessToken()
+    console.log('access token: ', access_token.token)
+    if (!access_token.token) {
+      throw new GmailTokenError('Gagal mendapatkan access token')
+    } else {
+      
+      const transport = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          type: 'OAuth2',
+          user: 'bumantara.surya2213@gmail.com',
+          clientId: this.client_id,
+          clientSecret: this.client_secret,
+          refreshToken: this.refresh_token,
+          accessToken: access_token.token,
+        },
+      })
+      const mailOptions = {
+        from: 'bumantara.surya2213@gmail.com',
+        to: email,
+        subject: 'Reset Password Akun Artistica Jewelry',
+        text: 'Klik link berikut untuk reset password anda',
+        html: this.getResetPasswordMailContent(hash),
+      }
+
+      await transport.sendMail(mailOptions).catch(err => {
+        throw new GmailTokenError(err.message)
+      }).then(() => {
+        console.log('Email sent')
+      })
+    }
   }
 }
 

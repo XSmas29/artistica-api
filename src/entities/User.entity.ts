@@ -40,6 +40,10 @@ export class User extends BaseEntity {
   @Column()
   hash!: string
 
+  @Field({nullable: true})
+  @Column({nullable: true})
+  reset_password_hash?: string
+
   @Field()
   @Column({ default: false })
   is_admin!: boolean
