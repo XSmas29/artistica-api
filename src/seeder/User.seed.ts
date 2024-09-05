@@ -33,6 +33,16 @@ export default class UserSeed implements Seeder {
         phone: '08123456789',
         hash: '',
       },
+      {
+        id: 3,
+        email: 'user1@mail.com',
+        password: 'password',
+        is_admin: false,
+        is_verified: true,
+        first_name: 'User',
+        phone: '08123456788',
+        hash: '',
+      },
     ] as User[]
 
     const map = data.map(async user => {
