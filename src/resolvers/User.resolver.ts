@@ -4,7 +4,7 @@ import { AuthToken, Context, LoginResponse, Roles, ServerResponse } from '@utils
 import { DuplicateEntryError, InvalidInputError, NotFoundError, UnauthorizedError } from '@utils/errors'
 import { GmailService } from '@utils/email'
 import crypto from 'crypto'
-import { EditPasswordData, EditProfileData, VerifyData, pagination } from '@utils/params'
+import { EditPasswordData, EditProfileData, ResetPasswordData, VerifyData, pagination } from '@utils/params'
 import { hashPassword } from '@utils/hash'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
@@ -144,6 +144,34 @@ export class UserResolver {
     return {
       success: true,
       message: 'Berhasil update password',
+      data: JSON.stringify(user),
+    }
+  }
+
+  @Mutation(() => ServerResponse, { nullable: true })
+  async resetPassword(
+    @Arg('data') data: ResetPasswordData,
+  ): Promise<ServerResponse> {
+    const user = await User.createQueryBuilder('user')
+      .where('user.reset_password_hash = :hash', { hash: data.reset_password_hash })
+      .andWhere('user.is_verified = true')
+      .getOne()
+
+    if (!user) {
+      throw new NotFoundError('User tidak ditemukan')
+    }
+
+    if (data.new_password !== data.password_confirmation) {
+      throw new InvalidInputError('Password dan konfirmasi tidak sama')
+    }
+
+    await User.update(user.id, {
+      password: await hashPassword(data.new_password),
+    })
+
+    return {
+      success: true,
+      message: 'Berhasil reset password',
       data: JSON.stringify(user),
     }
   }

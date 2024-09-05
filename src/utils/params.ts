@@ -37,6 +37,16 @@ class EditPasswordData {
 }
 
 @InputType()
+class ResetPasswordData {
+  @Field()
+  reset_password_hash!: string
+  @Field()
+  new_password!: string
+  @Field()
+  password_confirmation!: string
+}
+
+@InputType()
 class pagination {
   @Field()
   limit!: number
@@ -196,4 +206,5 @@ export {
   ChatMessageData,
   UpdateCustomTransactionBasicInfoData,
   UpdateCustomTransactionPurchaseData,
+  ResetPasswordData
 }
