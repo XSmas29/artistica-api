@@ -136,10 +136,11 @@ export class CategoryResolver {
         .leftJoin('td.variant', 'var')
         .leftJoin('var.product', 'prod')
         .where('prod.category = :category', { category: cat.id })
-        .getCount()
+        .select('SUM(td.quantity)', 'total')
+        .getRawOne()
 
         ret.labels.push(cat.name)
-        ret.values.push(totalTransactions)
+        ret.values.push(totalTransactions.total ? totalTransactions.total : 0)
     })
 
     await Promise.all(data)
