@@ -148,13 +148,28 @@ export class UserResolver {
     }
   }
 
+  @Query(() => User, { nullable: true })
+  async checkResetPasswordCode(
+    @Arg('reset_password_hash') reset_password_hash: string,
+  ): Promise<User> {
+    const user = await User.findOneBy({ reset_password_hash })
+
+    if (!user) {
+      throw new NotFoundError('Kode tidak valid atau sudah kadaluarsa')
+    }
+
+    return user
+  }
+
   @Mutation(() => ServerResponse, { nullable: true })
   async resetPassword(
+    @Arg('id') id: number,
     @Arg('data') data: ResetPasswordData,
   ): Promise<ServerResponse> {
     const user = await User.createQueryBuilder('user')
       .where('user.reset_password_hash = :hash', { hash: data.reset_password_hash })
       .andWhere('user.is_verified = true')
+      .andWhere('user.id = :id', { id })
       .getOne()
 
     if (!user) {
@@ -167,6 +182,7 @@ export class UserResolver {
 
     await User.update(user.id, {
       password: await hashPassword(data.new_password),
+      reset_password_hash: null,
     })
 
     return {

@@ -40,9 +40,9 @@ export class User extends BaseEntity {
   @Column()
   hash!: string
 
-  @Field({nullable: true})
-  @Column({nullable: true})
-  reset_password_hash?: string
+  @Field(() => String, {nullable: true})
+  @Column("varchar", {nullable: true})
+  reset_password_hash?: string | null
 
   @Field()
   @Column({ default: false })
