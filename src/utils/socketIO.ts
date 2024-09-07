@@ -1,10 +1,10 @@
 import { Server } from 'socket.io'
 import jwt, { JwtPayload } from 'jsonwebtoken'
 import * as env from 'env-var'
-import { Server as HTTPSServer } from 'https'
+import { Server as HTTPServer } from 'http'
 
-const createIOInstance = (httpsServer: HTTPSServer) => {
-  const socketIO = new Server(httpsServer, {
+const createIOInstance = (httpServer: HTTPServer) => {
+  const socketIO = new Server(httpServer, {
     cors: {
       origin: '*',
     },

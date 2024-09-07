@@ -23,7 +23,7 @@ import { ChatResolver } from '@resolver/Chat.resolver'
 import createIOInstance from '@utils/socketIO'
 import { ChatMessageResolver } from '@resolver/ChatMessage.resolver'
 import { CourseResolver } from '@resolver/Course.resolver'
-import { createServer } from 'https'
+import { createServer } from 'http'
 import { readFileSync } from 'fs'
 import { CourseTransactionResolver } from '@resolver/CourseTransaction.resolver'
 import { ComplaintResolver } from '@resolver/Complaint.resolver'
@@ -94,19 +94,14 @@ const main = async () => {
     res.send('Hello World!')
   })
 
-  const options = {
-    key: readFileSync('.ssl/selfsigned/selfsigned.key'),
-    cert: readFileSync('.ssl/selfsigned/selfsigned.crt')
-  }
-
-  const httpsServer = createServer(options, app)
-  httpsServer.listen(port, () => {
+  const httpServer = createServer(app)
+  httpServer.listen(port, () => {
     console.log(`Server listening on port ${port}`)
   })
 
   app.use('/midtrans', MidtransREST)  
 
-  createIOInstance(httpsServer)
+  createIOInstance(httpServer)
 }
 
 main().catch(err => {
