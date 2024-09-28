@@ -46,6 +46,7 @@
     "graphql": "^16.8.0",
     "graphql-scalars": "^1.23.0",
     "graphql-upload-ts": "^2.1.2",
+    "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
     "koa": "^2.15.3",
     "locter": "^2.1.0",
