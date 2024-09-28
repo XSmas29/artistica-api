@@ -48,4 +48,4 @@ jobs:
       run: pm2 status
 
     - name: Restart App
-      run: pm2 restart artistica-api
+      run: pm2 start /home/ta/artistica-api/src/index.ts --name artistica-api
