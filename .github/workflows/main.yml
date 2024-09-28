@@ -46,6 +46,9 @@ jobs:
 
     - name: List PM2 process
       run: pm2 status
+      
+    - name: delete all PM2 process
+      run: pm2 delete all
 
     - name: Restart App
-      run: pm2 start src/index.ts --name artistica-api
+      run: pm2 start ecosystem.config.js
