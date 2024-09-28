@@ -34,10 +34,9 @@ const main = async () => {
   const app = express()
 
   app.use(express.json())
+
   app.use(cors({
     origin: '*', // or use "*" for all origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
   }))
 
   app.use(express.static('public'))

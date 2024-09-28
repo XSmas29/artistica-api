@@ -70,8 +70,6 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     app.use(express_1.default.json());
     app.use((0, cors_1.default)({
         origin: '*', // or use "*" for all origins
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders: ['Content-Type', 'Authorization']
     }));
     app.use(express_1.default.static('public'));
     app.use((0, graphql_upload_ts_1.graphqlUploadExpress)());
