@@ -13,9 +13,6 @@ exports.City = exports.Province = exports.LoginResponse = exports.AuthToken = ex
 const type_graphql_1 = require("type-graphql");
 // Define a type for the server response data
 let ServerResponse = class ServerResponse {
-    success;
-    message;
-    data;
 };
 exports.ServerResponse = ServerResponse;
 __decorate([
@@ -34,8 +31,6 @@ exports.ServerResponse = ServerResponse = __decorate([
     (0, type_graphql_1.ObjectType)()
 ], ServerResponse);
 let LoginResponse = class LoginResponse extends ServerResponse {
-    token;
-    refresh_token;
 };
 exports.LoginResponse = LoginResponse;
 __decorate([
@@ -50,8 +45,6 @@ exports.LoginResponse = LoginResponse = __decorate([
     (0, type_graphql_1.ObjectType)()
 ], LoginResponse);
 let AuthToken = class AuthToken {
-    token;
-    refresh_token;
 };
 exports.AuthToken = AuthToken;
 __decorate([
@@ -66,8 +59,6 @@ exports.AuthToken = AuthToken = __decorate([
     (0, type_graphql_1.ObjectType)()
 ], AuthToken);
 let Province = class Province {
-    province_id;
-    province;
 };
 exports.Province = Province;
 __decorate([
@@ -82,12 +73,6 @@ exports.Province = Province = __decorate([
     (0, type_graphql_1.ObjectType)()
 ], Province);
 let City = class City {
-    city_id;
-    province_id;
-    province;
-    type;
-    city_name;
-    postal_code;
 };
 exports.City = City;
 __decorate([

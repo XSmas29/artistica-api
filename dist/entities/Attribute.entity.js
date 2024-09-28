@@ -17,12 +17,6 @@ const type_graphql_dataloader_1 = require("@ejekanshjain/type-graphql-dataloader
 const AttributeOption_entity_1 = require("./AttributeOption.entity");
 const VariantValue_entity_1 = require("./VariantValue.entity");
 let Attribute = class Attribute extends typeorm_1.BaseEntity {
-    id;
-    name;
-    deleted_at;
-    product;
-    options;
-    attribute_values;
 };
 exports.Attribute = Attribute;
 __decorate([

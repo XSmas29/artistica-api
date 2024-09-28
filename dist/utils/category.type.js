@@ -9,12 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.filterCategories = exports.CategoryList = void 0;
+exports.CategoryReportData = exports.filterCategories = exports.CategoryList = void 0;
 const Category_entity_1 = require("@entity/Category.entity");
 const type_graphql_1 = require("type-graphql");
 let CategoryList = class CategoryList {
-    count;
-    categories;
 };
 exports.CategoryList = CategoryList;
 __decorate([
@@ -29,7 +27,6 @@ exports.CategoryList = CategoryList = __decorate([
     (0, type_graphql_1.ObjectType)()
 ], CategoryList);
 let filterCategories = class filterCategories {
-    search;
 };
 exports.filterCategories = filterCategories;
 __decorate([
@@ -39,3 +36,17 @@ __decorate([
 exports.filterCategories = filterCategories = __decorate([
     (0, type_graphql_1.InputType)()
 ], filterCategories);
+let CategoryReportData = class CategoryReportData {
+};
+exports.CategoryReportData = CategoryReportData;
+__decorate([
+    (0, type_graphql_1.Field)(() => [String]),
+    __metadata("design:type", Array)
+], CategoryReportData.prototype, "labels", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(() => [Number]),
+    __metadata("design:type", Array)
+], CategoryReportData.prototype, "values", void 0);
+exports.CategoryReportData = CategoryReportData = __decorate([
+    (0, type_graphql_1.ObjectType)()
+], CategoryReportData);

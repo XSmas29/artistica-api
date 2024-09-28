@@ -12,10 +12,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DeliveryService = exports.ParamDeliveryService = void 0;
 const type_graphql_1 = require("type-graphql");
 let ParamDeliveryService = class ParamDeliveryService {
-    origin;
-    destination;
-    weight;
-    courier;
 };
 exports.ParamDeliveryService = ParamDeliveryService;
 __decorate([
@@ -38,11 +34,6 @@ exports.ParamDeliveryService = ParamDeliveryService = __decorate([
     (0, type_graphql_1.InputType)()
 ], ParamDeliveryService);
 let DeliveryService = class DeliveryService {
-    service;
-    description;
-    cost;
-    etd;
-    note;
 };
 exports.DeliveryService = DeliveryService;
 __decorate([

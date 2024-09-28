@@ -47,6 +47,8 @@ const config = {
     subscribers: [`${dir}/**/subscriber/**/*.ts`],
     seeds: [MainSeeder_seed_1.MainSeeder],
     charset: 'utf8mb4_unicode_ci',
+    // logger: 'file',
+    // debug: true,
     // cli: {
     //   "entitiesDir": "src/entity",
     //   "migrationsDir": "src/migration",

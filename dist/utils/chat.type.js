@@ -13,7 +13,6 @@ exports.ChatMessageList = void 0;
 const ChatMessage_entity_1 = require("@entity/ChatMessage.entity");
 const type_graphql_1 = require("type-graphql");
 let ChatMessageList = class ChatMessageList extends ChatMessage_entity_1.ChatMessage {
-    is_my_message;
 };
 exports.ChatMessageList = ChatMessageList;
 __decorate([

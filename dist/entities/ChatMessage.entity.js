@@ -16,14 +16,6 @@ const typeorm_1 = require("typeorm");
 const Chat_entity_1 = require("./Chat.entity");
 const User_entity_1 = require("./User.entity");
 let ChatMessage = class ChatMessage extends typeorm_1.BaseEntity {
-    id;
-    message;
-    image;
-    chat;
-    user;
-    created_at;
-    quotation_price;
-    is_quotation_active;
 };
 exports.ChatMessage = ChatMessage;
 __decorate([

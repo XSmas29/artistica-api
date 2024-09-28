@@ -15,11 +15,8 @@ const type_graphql_1 = require("type-graphql");
 const typeorm_1 = require("typeorm");
 const TransactionHeader_entity_1 = require("./TransactionHeader.entity");
 const CustomTransaction_entity_1 = require("./CustomTransaction.entity");
+const CourseTransaction_entity_1 = require("./CourseTransaction.entity");
 let TransactionStatus = class TransactionStatus extends typeorm_1.BaseEntity {
-    id;
-    status;
-    transactions;
-    custom_transactions;
 };
 exports.TransactionStatus = TransactionStatus;
 __decorate([
@@ -33,6 +30,11 @@ __decorate([
     __metadata("design:type", String)
 ], TransactionStatus.prototype, "status", void 0);
 __decorate([
+    (0, type_graphql_1.Field)(),
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", Number)
+], TransactionStatus.prototype, "category", void 0);
+__decorate([
     (0, type_graphql_1.Field)(() => [TransactionHeader_entity_1.TransactionHeader]),
     (0, type_graphql_dataloader_1.TypeormLoader)(),
     (0, typeorm_1.OneToMany)(() => TransactionHeader_entity_1.TransactionHeader, header => header.status),
@@ -44,6 +46,12 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => CustomTransaction_entity_1.CustomTransaction, custom_transaction => custom_transaction.status),
     __metadata("design:type", Array)
 ], TransactionStatus.prototype, "custom_transactions", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(() => [CourseTransaction_entity_1.CourseTransaction]),
+    (0, type_graphql_dataloader_1.TypeormLoader)(),
+    (0, typeorm_1.OneToMany)(() => CourseTransaction_entity_1.CourseTransaction, course_transaction => course_transaction.status),
+    __metadata("design:type", Array)
+], TransactionStatus.prototype, "course_transactions", void 0);
 exports.TransactionStatus = TransactionStatus = __decorate([
     (0, type_graphql_1.ObjectType)(),
     (0, typeorm_1.Entity)({ name: 'transaction_statuses' })

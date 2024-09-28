@@ -13,7 +13,6 @@ exports.filterUsers = exports.UserList = void 0;
 const User_entity_1 = require("@entity/User.entity");
 const type_graphql_1 = require("type-graphql");
 let filterUsers = class filterUsers {
-    search;
 };
 exports.filterUsers = filterUsers;
 __decorate([
@@ -24,8 +23,6 @@ exports.filterUsers = filterUsers = __decorate([
     (0, type_graphql_1.InputType)()
 ], filterUsers);
 let UserList = class UserList {
-    count;
-    users;
 };
 exports.UserList = UserList;
 __decorate([

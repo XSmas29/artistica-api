@@ -10,9 +10,6 @@
       "ES2016",
       "DOM"
     ],
-    "types": [
-      "module",
-    ],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     /* Modules */

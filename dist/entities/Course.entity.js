@@ -10,16 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Course = void 0;
+const type_graphql_dataloader_1 = require("@ejekanshjain/type-graphql-dataloader");
 const type_graphql_1 = require("type-graphql");
 const typeorm_1 = require("typeorm");
+const CourseTransaction_entity_1 = require("./CourseTransaction.entity");
 let Course = class Course extends typeorm_1.BaseEntity {
-    id;
-    name;
-    description;
-    price;
-    price_promo;
-    promo_min_amount;
-    time;
 };
 exports.Course = Course;
 __decorate([
@@ -32,6 +27,12 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Course.prototype, "name", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(() => [CourseTransaction_entity_1.CourseTransaction]),
+    (0, type_graphql_dataloader_1.TypeormLoader)(),
+    (0, typeorm_1.OneToMany)(() => CourseTransaction_entity_1.CourseTransaction, courseTransaction => courseTransaction.course),
+    __metadata("design:type", Array)
+], Course.prototype, "course_transactions", void 0);
 __decorate([
     (0, type_graphql_1.Field)(),
     (0, typeorm_1.Column)({ length: '1000', collation: 'utf8mb4_bin' }),

@@ -17,36 +17,14 @@ const User_entity_1 = require("./User.entity");
 const Image_entity_1 = require("./Image.entity");
 const Chat_entity_1 = require("./Chat.entity");
 const TransactionStatus_entity_1 = require("./TransactionStatus.entity");
+const Complaint_entity_1 = require("./Complaint.entity");
 let CustomTransaction = class CustomTransaction extends typeorm_1.BaseEntity {
-    id;
-    user;
-    images;
-    chat;
-    product_name;
-    product_description;
-    amount;
-    status;
-    price;
-    total_price;
-    shipping_cost;
-    shipping_service;
-    shipping_address;
-    shipping_province;
-    shipping_city;
-    shipping_postal_code;
-    customer_phone;
-    customer_name;
-    customer_email;
-    payment_method;
-    created_at;
-    updated_at;
-    deleted_at;
 };
 exports.CustomTransaction = CustomTransaction;
 __decorate([
     (0, type_graphql_1.Field)(),
-    (0, typeorm_1.PrimaryGeneratedColumn)(),
-    __metadata("design:type", Number)
+    (0, typeorm_1.PrimaryColumn)(),
+    __metadata("design:type", String)
 ], CustomTransaction.prototype, "id", void 0);
 __decorate([
     (0, type_graphql_1.Field)(() => User_entity_1.User),
@@ -67,6 +45,12 @@ __decorate([
     (0, typeorm_1.OneToOne)(() => Chat_entity_1.Chat, chat => chat.custom_transaction),
     __metadata("design:type", Chat_entity_1.Chat)
 ], CustomTransaction.prototype, "chat", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(() => [Complaint_entity_1.Complaint]),
+    (0, type_graphql_dataloader_1.TypeormLoader)(),
+    (0, typeorm_1.OneToMany)(() => Complaint_entity_1.Complaint, complaint => complaint.custom_transaction),
+    __metadata("design:type", Array)
+], CustomTransaction.prototype, "complaints", void 0);
 __decorate([
     (0, type_graphql_1.Field)(),
     (0, typeorm_1.Column)(),
@@ -101,6 +85,11 @@ __decorate([
 __decorate([
     (0, type_graphql_1.Field)({ nullable: true }),
     (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], CustomTransaction.prototype, "resi_number", void 0);
+__decorate([
+    (0, type_graphql_1.Field)({ nullable: true }),
+    (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", Number)
 ], CustomTransaction.prototype, "shipping_cost", void 0);
 __decorate([
@@ -116,12 +105,7 @@ __decorate([
 __decorate([
     (0, type_graphql_1.Field)({ nullable: true }),
     (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
-], CustomTransaction.prototype, "shipping_province", void 0);
-__decorate([
-    (0, type_graphql_1.Field)({ nullable: true }),
-    (0, typeorm_1.Column)({ nullable: true }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CustomTransaction.prototype, "shipping_city", void 0);
 __decorate([
     (0, type_graphql_1.Field)({ nullable: true }),
@@ -148,6 +132,11 @@ __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
 ], CustomTransaction.prototype, "payment_method", void 0);
+__decorate([
+    (0, type_graphql_1.Field)({ nullable: true }),
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", Date)
+], CustomTransaction.prototype, "purchase_date", void 0);
 __decorate([
     (0, type_graphql_1.Field)(),
     (0, typeorm_1.CreateDateColumn)(),

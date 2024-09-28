@@ -19,17 +19,6 @@ const Category_entity_1 = require("@entity/Category.entity");
 const Material_entity_1 = require("@entity/Material.entity");
 const Attribute_entity_1 = require("./Attribute.entity");
 let Product = class Product extends typeorm_1.BaseEntity {
-    id;
-    name;
-    description;
-    slug;
-    single_variant;
-    deleted_at;
-    category;
-    material;
-    attributes;
-    variants;
-    images;
 };
 exports.Product = Product;
 __decorate([

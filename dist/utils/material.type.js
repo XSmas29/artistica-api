@@ -13,8 +13,6 @@ exports.filterMaterials = exports.MaterialList = void 0;
 const Material_entity_1 = require("@entity/Material.entity");
 const type_graphql_1 = require("type-graphql");
 let MaterialList = class MaterialList {
-    count;
-    materials;
 };
 exports.MaterialList = MaterialList;
 __decorate([
@@ -29,7 +27,6 @@ exports.MaterialList = MaterialList = __decorate([
     (0, type_graphql_1.ObjectType)()
 ], MaterialList);
 let filterMaterials = class filterMaterials {
-    search;
 };
 exports.filterMaterials = filterMaterials;
 __decorate([

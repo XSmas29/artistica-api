@@ -17,11 +17,6 @@ const type_graphql_dataloader_1 = require("@ejekanshjain/type-graphql-dataloader
 const Product_entity_1 = require("@entity/Product.entity");
 const CustomTransaction_entity_1 = require("./CustomTransaction.entity");
 let Image = class Image extends typeorm_1.BaseEntity {
-    id;
-    path;
-    variant;
-    product;
-    custom_transaction;
 };
 exports.Image = Image;
 __decorate([
@@ -53,6 +48,11 @@ __decorate([
     (0, typeorm_1.ManyToOne)(() => CustomTransaction_entity_1.CustomTransaction, customTransaction => customTransaction.images),
     __metadata("design:type", Object)
 ], Image.prototype, "custom_transaction", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    (0, typeorm_1.DeleteDateColumn)(),
+    __metadata("design:type", Date)
+], Image.prototype, "deleted_at", void 0);
 exports.Image = Image = __decorate([
     (0, type_graphql_1.ObjectType)(),
     (0, typeorm_1.Entity)({ name: 'product_images' })

@@ -29,8 +29,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 const env = __importStar(require("env-var"));
 class MidTrans {
-    is_production;
-    base_url;
     constructor(is_production) {
         this.is_production = is_production;
         this.base_url = this.is_production ? 'https://app.midtrans.com/snap/v1' : 'https://app.sandbox.midtrans.com/snap/v1';

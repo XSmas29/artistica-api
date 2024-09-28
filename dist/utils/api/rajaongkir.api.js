@@ -31,8 +31,6 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const axios_1 = __importDefault(require("axios"));
 dotenv_1.default.config();
 class RajaOngkir {
-    api_key;
-    tier;
     constructor(key, tier) {
         this.api_key = key;
         this.tier = tier;

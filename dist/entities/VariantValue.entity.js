@@ -17,11 +17,6 @@ const Variant_entity_1 = require("./Variant.entity");
 const Attribute_entity_1 = require("./Attribute.entity");
 const AttributeOption_entity_1 = require("./AttributeOption.entity");
 let VariantValue = class VariantValue extends typeorm_1.BaseEntity {
-    id;
-    deleted_at;
-    variant;
-    attribute;
-    option;
 };
 exports.VariantValue = VariantValue;
 __decorate([

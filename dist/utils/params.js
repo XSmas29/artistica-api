@@ -9,15 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateCustomTransactionData = exports.ChatMessageData = exports.AddCustomTransactionData = exports.MaterialData = exports.CategoryData = exports.ProductData = exports.CartParams = exports.sort = exports.pagination = exports.EditPasswordData = exports.EditProfileData = exports.VerifyData = void 0;
+exports.ResetPasswordData = exports.UpdateCustomTransactionPurchaseData = exports.UpdateCustomTransactionBasicInfoData = exports.ChatMessageData = exports.AddCustomTransactionData = exports.MaterialData = exports.CategoryData = exports.ProductData = exports.CartParams = exports.sort = exports.pagination = exports.EditPasswordData = exports.EditProfileData = exports.VerifyData = void 0;
 const type_graphql_1 = require("type-graphql");
 const graphql_upload_ts_1 = require("graphql-upload-ts");
 let VerifyData = class VerifyData {
-    first_name;
-    last_name;
-    phone;
-    password;
-    password_confirmation;
 };
 exports.VerifyData = VerifyData;
 __decorate([
@@ -44,9 +39,6 @@ exports.VerifyData = VerifyData = __decorate([
     (0, type_graphql_1.InputType)()
 ], VerifyData);
 let EditProfileData = class EditProfileData {
-    first_name;
-    last_name;
-    phone;
 };
 exports.EditProfileData = EditProfileData;
 __decorate([
@@ -65,9 +57,6 @@ exports.EditProfileData = EditProfileData = __decorate([
     (0, type_graphql_1.InputType)()
 ], EditProfileData);
 let EditPasswordData = class EditPasswordData {
-    old_password;
-    new_password;
-    password_confirmation;
 };
 exports.EditPasswordData = EditPasswordData;
 __decorate([
@@ -85,9 +74,25 @@ __decorate([
 exports.EditPasswordData = EditPasswordData = __decorate([
     (0, type_graphql_1.InputType)()
 ], EditPasswordData);
+let ResetPasswordData = class ResetPasswordData {
+};
+exports.ResetPasswordData = ResetPasswordData;
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], ResetPasswordData.prototype, "reset_password_hash", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], ResetPasswordData.prototype, "new_password", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], ResetPasswordData.prototype, "password_confirmation", void 0);
+exports.ResetPasswordData = ResetPasswordData = __decorate([
+    (0, type_graphql_1.InputType)()
+], ResetPasswordData);
 let pagination = class pagination {
-    limit;
-    page;
 };
 exports.pagination = pagination;
 __decorate([
@@ -102,8 +107,6 @@ exports.pagination = pagination = __decorate([
     (0, type_graphql_1.InputType)()
 ], pagination);
 let sort = class sort {
-    field;
-    sort;
 };
 exports.sort = sort;
 __decorate([
@@ -118,9 +121,6 @@ exports.sort = sort = __decorate([
     (0, type_graphql_1.InputType)()
 ], sort);
 let CartParams = class CartParams {
-    product_id;
-    variant_id;
-    quantity;
 };
 exports.CartParams = CartParams;
 __decorate([
@@ -139,11 +139,6 @@ exports.CartParams = CartParams = __decorate([
     (0, type_graphql_1.InputType)()
 ], CartParams);
 let AddProductDataProduct = class AddProductDataProduct {
-    name;
-    description;
-    category_id;
-    material_id;
-    images;
 };
 __decorate([
     (0, type_graphql_1.Field)(),
@@ -169,8 +164,6 @@ AddProductDataProduct = __decorate([
     (0, type_graphql_1.InputType)()
 ], AddProductDataProduct);
 let AddProductDataAttributes = class AddProductDataAttributes {
-    name;
-    values;
 };
 __decorate([
     (0, type_graphql_1.Field)(),
@@ -184,10 +177,6 @@ AddProductDataAttributes = __decorate([
     (0, type_graphql_1.InputType)()
 ], AddProductDataAttributes);
 let AddProductDataVariants = class AddProductDataVariants {
-    price;
-    stock;
-    sku;
-    image;
 };
 __decorate([
     (0, type_graphql_1.Field)(),
@@ -209,9 +198,6 @@ AddProductDataVariants = __decorate([
     (0, type_graphql_1.InputType)()
 ], AddProductDataVariants);
 let ProductData = class ProductData {
-    product;
-    attributes;
-    variants;
 };
 exports.ProductData = ProductData;
 __decorate([
@@ -230,7 +216,6 @@ exports.ProductData = ProductData = __decorate([
     (0, type_graphql_1.InputType)()
 ], ProductData);
 let CategoryData = class CategoryData {
-    name;
 };
 exports.CategoryData = CategoryData;
 __decorate([
@@ -241,9 +226,6 @@ exports.CategoryData = CategoryData = __decorate([
     (0, type_graphql_1.InputType)()
 ], CategoryData);
 let ChatMessageData = class ChatMessageData {
-    message;
-    image;
-    chat_id;
 };
 exports.ChatMessageData = ChatMessageData;
 __decorate([
@@ -262,12 +244,12 @@ exports.ChatMessageData = ChatMessageData = __decorate([
     (0, type_graphql_1.InputType)()
 ], ChatMessageData);
 let AddCustomTransactionData = class AddCustomTransactionData {
-    images;
-    product_name;
-    product_description;
-    amount;
 };
 exports.AddCustomTransactionData = AddCustomTransactionData;
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], AddCustomTransactionData.prototype, "id", void 0);
 __decorate([
     (0, type_graphql_1.Field)(() => [graphql_upload_ts_1.GraphQLUpload]),
     __metadata("design:type", Array)
@@ -287,29 +269,71 @@ __decorate([
 exports.AddCustomTransactionData = AddCustomTransactionData = __decorate([
     (0, type_graphql_1.InputType)()
 ], AddCustomTransactionData);
-let UpdateCustomTransactionData = class UpdateCustomTransactionData {
-    product_name;
-    product_description;
-    amount;
+let UpdateCustomTransactionBasicInfoData = class UpdateCustomTransactionBasicInfoData {
 };
-exports.UpdateCustomTransactionData = UpdateCustomTransactionData;
+exports.UpdateCustomTransactionBasicInfoData = UpdateCustomTransactionBasicInfoData;
 __decorate([
     (0, type_graphql_1.Field)(),
     __metadata("design:type", String)
-], UpdateCustomTransactionData.prototype, "product_name", void 0);
+], UpdateCustomTransactionBasicInfoData.prototype, "product_name", void 0);
 __decorate([
     (0, type_graphql_1.Field)(),
     __metadata("design:type", String)
-], UpdateCustomTransactionData.prototype, "product_description", void 0);
+], UpdateCustomTransactionBasicInfoData.prototype, "product_description", void 0);
 __decorate([
     (0, type_graphql_1.Field)(),
     __metadata("design:type", Number)
-], UpdateCustomTransactionData.prototype, "amount", void 0);
-exports.UpdateCustomTransactionData = UpdateCustomTransactionData = __decorate([
+], UpdateCustomTransactionBasicInfoData.prototype, "amount", void 0);
+exports.UpdateCustomTransactionBasicInfoData = UpdateCustomTransactionBasicInfoData = __decorate([
     (0, type_graphql_1.InputType)()
-], UpdateCustomTransactionData);
+], UpdateCustomTransactionBasicInfoData);
+let UpdateCustomTransactionPurchaseData = class UpdateCustomTransactionPurchaseData {
+};
+exports.UpdateCustomTransactionPurchaseData = UpdateCustomTransactionPurchaseData;
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], UpdateCustomTransactionPurchaseData.prototype, "price", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], UpdateCustomTransactionPurchaseData.prototype, "total_price", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", Number)
+], UpdateCustomTransactionPurchaseData.prototype, "shipping_cost", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], UpdateCustomTransactionPurchaseData.prototype, "shipping_service", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], UpdateCustomTransactionPurchaseData.prototype, "shipping_address", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(() => String),
+    __metadata("design:type", String)
+], UpdateCustomTransactionPurchaseData.prototype, "shipping_city", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], UpdateCustomTransactionPurchaseData.prototype, "shipping_postal_code", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], UpdateCustomTransactionPurchaseData.prototype, "customer_phone", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], UpdateCustomTransactionPurchaseData.prototype, "customer_name", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(),
+    __metadata("design:type", String)
+], UpdateCustomTransactionPurchaseData.prototype, "customer_email", void 0);
+exports.UpdateCustomTransactionPurchaseData = UpdateCustomTransactionPurchaseData = __decorate([
+    (0, type_graphql_1.InputType)()
+], UpdateCustomTransactionPurchaseData);
 let MaterialData = class MaterialData {
-    name;
 };
 exports.MaterialData = MaterialData;
 __decorate([

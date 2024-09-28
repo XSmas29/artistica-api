@@ -22,6 +22,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -29,8 +38,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const socket_io_1 = require("socket.io");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const env = __importStar(require("env-var"));
-const createIOInstance = (httpsServer) => {
-    const socketIO = new socket_io_1.Server(httpsServer, {
+const createIOInstance = (httpServer) => {
+    const socketIO = new socket_io_1.Server(httpServer, {
         cors: {
             origin: '*',
         },
@@ -55,7 +64,7 @@ const createIOInstance = (httpsServer) => {
         socket.on('connect_to_chat', args => {
             console.log(args);
         });
-        socket.on('send_message', async (data) => {
+        socket.on('send_message', (data) => __awaiter(void 0, void 0, void 0, function* () {
             console.log(data);
             // let path = ''
             // const imageData = data.image
@@ -74,7 +83,7 @@ const createIOInstance = (httpsServer) => {
             //   socketIO.emit('broadcast_message', msg)
             // })
             socket.broadcast.emit('broadcast_message', data);
-        });
+        }));
     });
 };
 exports.default = createIOInstance;

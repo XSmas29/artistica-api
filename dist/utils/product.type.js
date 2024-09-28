@@ -14,10 +14,6 @@ const Product_entity_1 = require("@entity/Product.entity");
 const Variant_entity_1 = require("@entity/Variant.entity");
 const type_graphql_1 = require("type-graphql");
 let ProductList = class ProductList {
-    count;
-    products;
-    price_min;
-    price_max;
 };
 exports.ProductList = ProductList;
 __decorate([
@@ -40,11 +36,6 @@ exports.ProductList = ProductList = __decorate([
     (0, type_graphql_1.ObjectType)()
 ], ProductList);
 let filterProducts = class filterProducts {
-    price_min;
-    price_max;
-    category_ids;
-    material_ids;
-    search;
 };
 exports.filterProducts = filterProducts;
 __decorate([
@@ -71,8 +62,6 @@ exports.filterProducts = filterProducts = __decorate([
     (0, type_graphql_1.InputType)()
 ], filterProducts);
 let CartData = class CartData {
-    variant;
-    quantity;
 };
 exports.CartData = CartData;
 __decorate([

@@ -16,23 +16,8 @@ const type_graphql_dataloader_1 = require("@ejekanshjain/type-graphql-dataloader
 const TransactionHeader_entity_1 = require("./TransactionHeader.entity");
 const CustomTransaction_entity_1 = require("./CustomTransaction.entity");
 const ChatMessage_entity_1 = require("./ChatMessage.entity");
+const CourseTransaction_entity_1 = require("./CourseTransaction.entity");
 let User = class User extends typeorm_1.BaseEntity {
-    id;
-    first_name;
-    last_name;
-    phone;
-    email;
-    password;
-    is_verified;
-    hash;
-    is_admin;
-    created_at;
-    updated_at;
-    deleted_at;
-    refresh_token;
-    transactions;
-    custom_transactions;
-    chat_messages;
 };
 exports.User = User;
 __decorate([
@@ -46,8 +31,8 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "first_name", void 0);
 __decorate([
-    (0, type_graphql_1.Field)({ nullable: true }),
-    (0, typeorm_1.Column)({ nullable: true }),
+    (0, type_graphql_1.Field)(),
+    (0, typeorm_1.Column)({ default: '' }),
     __metadata("design:type", String)
 ], User.prototype, "last_name", void 0);
 __decorate([
@@ -74,6 +59,11 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], User.prototype, "hash", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(() => String, { nullable: true }),
+    (0, typeorm_1.Column)("varchar", { nullable: true }),
+    __metadata("design:type", Object)
+], User.prototype, "reset_password_hash", void 0);
 __decorate([
     (0, type_graphql_1.Field)(),
     (0, typeorm_1.Column)({ default: false }),
@@ -110,6 +100,12 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => CustomTransaction_entity_1.CustomTransaction, customTransaction => customTransaction.user),
     __metadata("design:type", Array)
 ], User.prototype, "custom_transactions", void 0);
+__decorate([
+    (0, type_graphql_1.Field)(() => [CourseTransaction_entity_1.CourseTransaction]),
+    (0, type_graphql_dataloader_1.TypeormLoader)(),
+    (0, typeorm_1.OneToMany)(() => CourseTransaction_entity_1.CourseTransaction, courseTransaction => courseTransaction.user),
+    __metadata("design:type", Array)
+], User.prototype, "course_transactions", void 0);
 __decorate([
     (0, type_graphql_1.Field)(() => [ChatMessage_entity_1.ChatMessage]),
     (0, type_graphql_dataloader_1.TypeormLoader)(),

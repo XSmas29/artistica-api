@@ -11,6 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MaterialResolver = void 0;
 const type_graphql_1 = require("type-graphql");
@@ -20,76 +29,84 @@ const types_1 = require("@utils/types");
 const errors_1 = require("@utils/errors");
 const material_type_1 = require("@utils/material.type");
 let MaterialResolver = class MaterialResolver {
-    async materials(filter, pagination) {
-        const materialsQuery = Material_entity_1.Material.createQueryBuilder('mat');
-        if (filter?.search) {
-            materialsQuery.where('mat.name LIKE :search', { search: `%${filter.search}%` });
-        }
-        if (pagination) {
-            materialsQuery.limit(pagination.limit);
-            materialsQuery.offset((pagination.page - 1) * pagination.limit);
-        }
-        const materials = await materialsQuery.getManyAndCount();
-        return {
-            count: materials[1],
-            materials: materials[0],
-        };
-    }
-    async addMaterial(data) {
-        const material = await Material_entity_1.Material.findOneBy({ name: data.name });
-        if (material) {
-            throw new errors_1.DuplicateEntryError('Material sudah ada');
-        }
-        if (!data.name) {
-            throw new Error('Nama material tidak boleh kosong');
-        }
-        await Material_entity_1.Material.insert({
-            name: data.name,
+    materials(filter, pagination) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const materialsQuery = Material_entity_1.Material.createQueryBuilder('mat');
+            if (filter === null || filter === void 0 ? void 0 : filter.search) {
+                materialsQuery.where('mat.name LIKE :search', { search: `%${filter.search}%` });
+            }
+            if (pagination) {
+                materialsQuery.limit(pagination.limit);
+                materialsQuery.offset((pagination.page - 1) * pagination.limit);
+            }
+            const materials = yield materialsQuery.getManyAndCount();
+            return {
+                count: materials[1],
+                materials: materials[0],
+            };
         });
-        return {
-            success: true,
-            message: 'Berhasil menambahkan material',
-        };
     }
-    async updateMaterial(id, data) {
-        const material = await Material_entity_1.Material.findOneBy({ id: id });
-        if (!material) {
-            throw new errors_1.NotFoundError('Material tidak ditemukan');
-        }
-        if (!data.name) {
-            throw new Error('Nama kategori tidak boleh kosong');
-        }
-        const sameName = await Material_entity_1.Material.createQueryBuilder('mat')
-            .where('mat.name = :name', { name: data.name })
-            .andWhere('mat.id != :id', { id: id })
-            .getOne();
-        if (sameName) {
-            throw new errors_1.DuplicateEntryError('Material sudah ada');
-        }
-        await Material_entity_1.Material.update(material.id, {
-            name: data.name,
+    addMaterial(data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const material = yield Material_entity_1.Material.findOneBy({ name: data.name });
+            if (material) {
+                throw new errors_1.DuplicateEntryError('Material sudah ada');
+            }
+            if (!data.name) {
+                throw new Error('Nama material tidak boleh kosong');
+            }
+            yield Material_entity_1.Material.insert({
+                name: data.name,
+            });
+            return {
+                success: true,
+                message: 'Berhasil menambahkan material',
+            };
         });
-        return {
-            success: true,
-            message: 'Berhasil mengubah material',
-        };
     }
-    async deleteMaterial(id) {
-        const material = await Material_entity_1.Material.createQueryBuilder('cat')
-            .where('cat.id = :id', { id: id })
-            .leftJoinAndSelect('cat.products', 'products')
-            .getOne();
-        if (!material) {
-            throw new errors_1.NotFoundError('Material tidak ditemukan');
-        }
-        if (material.products.length > 0) {
-            throw new Error('Material tidak dapat dihapus karena masih memiliki produk');
-        }
-        await Material_entity_1.Material.delete(material.id);
-        return {
-            success: true,
-            message: 'Berhasil menghapus material',
-        };
+    updateMaterial(id, data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const material = yield Material_entity_1.Material.findOneBy({ id: id });
+            if (!material) {
+                throw new errors_1.NotFoundError('Material tidak ditemukan');
+            }
+            if (!data.name) {
+                throw new Error('Nama kategori tidak boleh kosong');
+            }
+            const sameName = yield Material_entity_1.Material.createQueryBuilder('mat')
+                .where('mat.name = :name', { name: data.name })
+                .andWhere('mat.id != :id', { id: id })
+                .getOne();
+            if (sameName) {
+                throw new errors_1.DuplicateEntryError('Material sudah ada');
+            }
+            yield Material_entity_1.Material.update(material.id, {
+                name: data.name,
+            });
+            return {
+                success: true,
+                message: 'Berhasil mengubah material',
+            };
+        });
+    }
+    deleteMaterial(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const material = yield Material_entity_1.Material.createQueryBuilder('cat')
+                .where('cat.id = :id', { id: id })
+                .leftJoinAndSelect('cat.products', 'products')
+                .getOne();
+            if (!material) {
+                throw new errors_1.NotFoundError('Material tidak ditemukan');
+            }
+            if (material.products.length > 0) {
+                throw new Error('Material tidak dapat dihapus karena masih memiliki produk');
+            }
+            yield Material_entity_1.Material.delete(material.id);
+            return {
+                success: true,
+                message: 'Berhasil menghapus material',
+            };
+        });
     }
 };
 exports.MaterialResolver = MaterialResolver;

@@ -7,7 +7,9 @@
     "dev": "NODE_ENV=development ts-node-dev -r tsconfig-paths/register --watch --transpile-only src/index.ts",
     "seed:initial": "ts-node -r tsconfig-paths/register ./node_modules/typeorm-extension/bin/cli.cjs seed:run -d ./src/data-source.ts",
     "build": "rm -rf dist && tsc --build tsconfig.json",
-    "staging": "NODE_ENV=staging node -r tsconfig-paths/register ./dist/index.js"
+    "build-windows": "rmdir /s /q dist && tsc --build tsconfig.json",
+    "staging": "NODE_ENV=staging node -r tsconfig-paths/register ./dist/index.js",
+    "staging-windows": "set NODE_ENV=staging && node -r tsconfig-paths/register ./dist/index.js"
   },
   "author": "",
   "license": "ISC",

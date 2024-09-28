@@ -18,15 +18,6 @@ const type_graphql_dataloader_1 = require("@ejekanshjain/type-graphql-dataloader
 const VariantValue_entity_1 = require("./VariantValue.entity");
 const TransactionDetail_entity_1 = require("@entity/TransactionDetail.entity");
 let Variant = class Variant extends typeorm_1.BaseEntity {
-    id;
-    price;
-    sku;
-    stock;
-    deleted_at;
-    product;
-    image;
-    attribute_values;
-    transaction_details;
 };
 exports.Variant = Variant;
 __decorate([
@@ -65,7 +56,7 @@ __decorate([
     (0, type_graphql_dataloader_1.TypeormLoader)(),
     (0, typeorm_1.JoinColumn)(),
     (0, typeorm_1.OneToOne)(() => Image_entity_1.Image, image => image.variant),
-    __metadata("design:type", Image_entity_1.Image)
+    __metadata("design:type", Object)
 ], Variant.prototype, "image", void 0);
 __decorate([
     (0, type_graphql_1.Field)(() => [VariantValue_entity_1.VariantValue]),

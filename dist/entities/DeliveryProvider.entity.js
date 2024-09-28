@@ -13,9 +13,6 @@ exports.DeliveryProvider = void 0;
 const typeorm_1 = require("typeorm");
 const type_graphql_1 = require("type-graphql");
 let DeliveryProvider = class DeliveryProvider extends typeorm_1.BaseEntity {
-    id;
-    name;
-    code;
 };
 exports.DeliveryProvider = DeliveryProvider;
 __decorate([

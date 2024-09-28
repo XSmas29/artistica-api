@@ -15,9 +15,6 @@ const type_graphql_1 = require("type-graphql");
 const type_graphql_dataloader_1 = require("@ejekanshjain/type-graphql-dataloader");
 const Product_entity_1 = require("@entity/Product.entity");
 let Material = class Material extends typeorm_1.BaseEntity {
-    id;
-    name;
-    products;
 };
 exports.Material = Material;
 __decorate([

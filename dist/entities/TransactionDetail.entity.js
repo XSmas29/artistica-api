@@ -16,11 +16,6 @@ const typeorm_1 = require("typeorm");
 const TransactionHeader_entity_1 = require("./TransactionHeader.entity");
 const Variant_entity_1 = require("./Variant.entity");
 let TransactionDetail = class TransactionDetail extends typeorm_1.BaseEntity {
-    id;
-    header;
-    variant;
-    price;
-    quantity;
 };
 exports.TransactionDetail = TransactionDetail;
 __decorate([
