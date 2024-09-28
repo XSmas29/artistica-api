@@ -38,8 +38,8 @@ jobs:
     - name: Re-install dependencies
       run: npm install
 
-    - name: Build App
-      run: npm run build
+    # - name: Build App
+    #   run: npm run build
 
     - name: Install PM2
       run: npm install -g pm2
