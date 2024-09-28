@@ -35,9 +35,11 @@ const main = async () => {
 
   app.use(express.json())
   app.use(cors({
-    origin: '*',
-    allowedHeaders: ['Credentials', 'Content-Type', 'Authorization', 'Accept-Version'],
+    origin: '*', // or use "*" for all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
   }))
+  
   app.use(express.static('public'))
   app.use(graphqlUploadExpress())
 
