@@ -41,5 +41,8 @@ jobs:
     - name: Build App
       run: npm run build
 
+    - name: Install PM2
+      run: npm install -g pm2
+
     - name: Restart App
       run: pm2 restart artistica-api
