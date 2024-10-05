@@ -13,7 +13,7 @@ export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id!: number
 
-  @Field()
+  @Field({nullable: true})
   @Column({nullable: true})
   first_name!: string
 
