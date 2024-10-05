@@ -193,8 +193,8 @@ export class GmailService {
             <tr>
               <th>
                 <div class="action">
-                  <a class="button" style="text-decoration:none;color:#ffffff" href="${env.get('CLIENT').asUrlString()}change-password?code=${hash}" target="_blank">
-                    Ubah Password
+                  <a class="button" style="text-decoration:none;color:#ffffff" href="${env.get('CLIENT').asUrlString()}reset-password?code=${hash}" target="_blank">
+                    Reset Password
                   </a>
                 </div>
               </th>
