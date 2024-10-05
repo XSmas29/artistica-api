@@ -66,6 +66,8 @@ export class UserResolver {
     hash.update(data)
     const sha256Hash = hash.digest('hex')
     console.log(sha256Hash)
+    user.reset_password_hash = sha256Hash
+    await user.save()
     
     await gmail.sendResetPasswordLink(email, sha256Hash)
 
