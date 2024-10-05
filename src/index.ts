@@ -28,7 +28,6 @@ import { readFileSync } from 'fs'
 import { CourseTransactionResolver } from '@resolver/CourseTransaction.resolver'
 import { ComplaintResolver } from '@resolver/Complaint.resolver'
 import { checkCustomTransactionStatusCronJob } from '@utils/cron'
-import helmet from 'helmet'
 dotenv.config()
 
 const main = async () => {
@@ -39,8 +38,6 @@ const main = async () => {
   app.use(cors({
     origin: '*', // or use "*" for all origins
   }))
-
-  app.use(helmet({crossOriginResourcePolicy: {policy: 'cross-origin'}}))
 
   app.use(express.static('public'))
   app.use(graphqlUploadExpress())
