@@ -10,9 +10,8 @@ import MidTransInstance from '@utils/api/midtrans.api'
 import { pagination, sort } from '@utils/params'
 import { CreditCardMT, CustomerDetailMT, IncomeReportData, ItemDetailMT, MTCreateTransResp, TransactionData, TransactionDetailMT, TransactionHistoryHeader, TransactionItemData, TransactionList, filterTransaction } from '@utils/transaction.type'
 import { Context, Roles, ServerResponse } from '@utils/types'
-import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from 'type-graphql'
-import { IsNull, Not } from 'typeorm'
-
+import { Arg, Authorized, Ctx, FieldResolver, Mutation, Query, Resolver, Root } from 'type-graphql'
+import * as env from 'env-var'
 @Resolver()
 export class TransactionResolver {
 
@@ -166,6 +165,7 @@ export class TransactionResolver {
   async transactionDetail(
     @Arg('transaction_id') transaction_id: string,
   ): Promise<TransactionHistoryHeader> {
+    const base_url = env.get('BASE_URL').required().asString()
     const header = await TransactionHeader.createQueryBuilder('header')
     .withDeleted()
       .andWhere('header.id = :transaction_id', { transaction_id })
@@ -176,7 +176,6 @@ export class TransactionResolver {
       .getOneOrFail()
 
     const mapping = header.details.map(async detail => {
-      console.log(detail)
       detail.variant = await Variant.createQueryBuilder('variant')
         .withDeleted()
         .where('variant.id = :variant_id', { variant_id: detail.variant.id })
@@ -200,6 +199,13 @@ export class TransactionResolver {
       .leftJoinAndSelect('img.variant', 'variant')
       .where('variant.id = :variant_id', { variant_id: detail.variant.id })
       .getOne()
+
+      if (detail.variant.image) {
+        detail.variant.image.path = `${base_url}/variants/${detail.variant.id.toString()}/${detail.variant.image.path}`
+      }
+      detail.variant.product.images.forEach(image => {
+        image.path = `${base_url}/products/${detail.variant.product.id.toString()}/${image.path}`
+      })
 
       return detail
     })
