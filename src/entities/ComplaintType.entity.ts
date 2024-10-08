@@ -16,6 +16,6 @@ export class ComplaintType extends BaseEntity {
   complaints!: Complaint[]
 
   @Field()
-  @Column()
+  @Column({length: 20})
   name!: string
 }

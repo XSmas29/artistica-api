@@ -12,7 +12,7 @@ export class Chat extends BaseEntity {
   id!: number
 
   @Field()
-  @Column()
+  @Column({length: 50})
   title!: string
   
   @Field(() => CustomTransaction)

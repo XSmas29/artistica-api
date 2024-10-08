@@ -13,7 +13,7 @@ export class Image extends BaseEntity {
   id!: number
 
   @Field()
-  @Column()
+  @Column({length: 50})
   path!: string
 
   @Field(() => Variant, {nullable: true})

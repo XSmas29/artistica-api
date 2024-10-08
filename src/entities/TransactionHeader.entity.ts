@@ -8,7 +8,7 @@ import { TransactionStatus } from '@entity/TransactionStatus.entity'
 @Entity({name: 'transaction_headers'})
 export class TransactionHeader extends BaseEntity {
   @Field()
-  @PrimaryColumn()
+  @PrimaryColumn({length: 50})
   id!: string
 
   @Field(() => User)
@@ -35,39 +35,39 @@ export class TransactionHeader extends BaseEntity {
   shipping_cost!: number
 
   @Field({ nullable: true })
-  @Column({ nullable: true })
+  @Column({ nullable: true, length: 40 })
   resi_number?: string
 
   @Field()
-  @Column()
+  @Column({length: 25})
   shipping_service!: string
 
   @Field()
-  @Column()
+  @Column({length: 50})
   shipping_address!: string
 
   @Field()
-  @Column()
+  @Column({length: 25})
   shipping_city!: string
 
   @Field()
-  @Column()
+  @Column({length: 10})
   shipping_postal_code!: string
 
   @Field()
-  @Column()
+  @Column({length: 15})
   customer_phone?: string
 
   @Field()
-  @Column()
+  @Column({length: 50})
   customer_name!: string
 
   @Field()
-  @Column()
+  @Column({length: 50})
   customer_email!: string
 
   @Field({ nullable: true })
-  @Column({ nullable: true })
+  @Column({ nullable: true, length: 20 })
   payment_method?: string
 
   @Field({ nullable: true })

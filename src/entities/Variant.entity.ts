@@ -20,7 +20,7 @@ export class Variant extends BaseEntity {
   price!: number
 
   @Field()
-  @Column()
+  @Column({length: 50})
   sku!: string
 
   @Field()

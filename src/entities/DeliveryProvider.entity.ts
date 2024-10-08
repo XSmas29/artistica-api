@@ -9,10 +9,10 @@ export class DeliveryProvider extends BaseEntity {
   id!: number
 
   @Field()
-  @Column()
+  @Column({length: 25})
   name!: string
 
   @Field()
-  @Column()
+  @Column({length: 10})
   code!: string
 }

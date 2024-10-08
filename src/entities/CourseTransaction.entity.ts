@@ -35,7 +35,7 @@ export class CourseTransaction extends BaseEntity {
   total_price!: number
 
   @Field({ nullable: true })
-  @Column({ nullable: true })
+  @Column({ nullable: true, length: 20 })
   payment_method?: string
 
   @Field(() => TransactionStatus)
@@ -48,7 +48,7 @@ export class CourseTransaction extends BaseEntity {
   start_date!: Date
 
   @Field()
-  @Column()
+  @Column({length: 20})
   time_slot!: string
 
   @Field({ nullable: true })

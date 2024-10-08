@@ -15,15 +15,15 @@ export class Product extends BaseEntity {
   id!: number
 
   @Field()
-  @Column()
+  @Column({length: 50})
   name!: string
 
   @Field()
-  @Column({length: '1000', collation: 'utf8mb4_bin'})
+  @Column({length: 1000, collation: 'utf8mb4_bin'})
   description!: string
 
   @Field()
-  @Column()
+  @Column({length: 50})
   slug!: string
 
   @Field()

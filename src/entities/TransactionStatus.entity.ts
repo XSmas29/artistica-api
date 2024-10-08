@@ -13,7 +13,7 @@ export class TransactionStatus extends BaseEntity {
   id!: number
 
   @Field()
-  @Column()
+  @Column({length: 25})
   status!: string
 
   @Field()

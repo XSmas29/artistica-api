@@ -11,7 +11,7 @@ export class Category extends BaseEntity {
   id!: number
 
   @Field()
-  @Column()
+  @Column({length: 50})
   name!: string
 
 	@Field(() => [Product])

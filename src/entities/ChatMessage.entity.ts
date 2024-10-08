@@ -12,11 +12,11 @@ export class ChatMessage extends BaseEntity {
   id!: number
 
   @Field({nullable: true})
-  @Column('longtext', {nullable: true})
+  @Column({nullable: true, length: 1000})
   message?: string
 
   @Field({nullable: true})
-  @Column({nullable: true})
+  @Column({nullable: true, length: 50})
   image?: string 
   
   @Field(() => Chat)

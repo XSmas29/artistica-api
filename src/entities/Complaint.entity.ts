@@ -22,11 +22,11 @@ export class Complaint extends BaseEntity {
   type!: ComplaintType
 
   @Field()
-  @Column()
+  @Column({length: 1000})
   description!: string
 
   @Field({nullable: true})
-  @Column({nullable: true})
+  @Column({nullable: true, length: 50})
   image?: string
 
   @Field({nullable: true})

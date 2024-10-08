@@ -14,22 +14,22 @@ export class User extends BaseEntity {
   id!: number
 
   @Field({nullable: true})
-  @Column({nullable: true})
+  @Column({nullable: true, default: '', length: 25})
   first_name!: string
 
   @Field()
-  @Column({default: ''})
+  @Column({default: '', length: 25})
   last_name!: string
 
   @Field({nullable: true})
-  @Column({nullable: true})
+  @Column({nullable: true, length: 25})
   phone?: string
 
   @Field()
-  @Column({unique: true})
+  @Column({unique: true, length: 50})
   email!: string
 
-  @Column({nullable: true})
+  @Column({nullable: true, length: 100})
   password!: string
 
   @Field()
@@ -37,11 +37,11 @@ export class User extends BaseEntity {
   is_verified!: boolean
 
   @Field()
-  @Column()
+  @Column({ length: 255 })
   hash!: string
 
   @Field(() => String, {nullable: true})
-  @Column("varchar", {nullable: true})
+  @Column("varchar", {nullable: true, length: 255})
   reset_password_hash?: string | null
 
   @Field()
@@ -60,7 +60,7 @@ export class User extends BaseEntity {
   @DeleteDateColumn()
   deleted_at!: Date
 
-  @Column({nullable: true, length: 1000})
+  @Column({nullable: true, length: 500})
   refresh_token!: string
 
   @Field(() => [TransactionHeader])

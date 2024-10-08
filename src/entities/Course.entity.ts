@@ -11,7 +11,7 @@ export class Course extends BaseEntity {
   id!: number
 
   @Field()
-  @Column()
+  @Column({length: 25})
   name!: string
 
   @Field(() => [CourseTransaction])
@@ -20,7 +20,7 @@ export class Course extends BaseEntity {
   course_transactions!: CourseTransaction[]
 
   @Field()
-  @Column({length: '1000', collation: 'utf8mb4_bin'})
+  @Column({length: 1000, collation: 'utf8mb4_bin'})
   description!: string
 
   @Field()
@@ -36,6 +36,6 @@ export class Course extends BaseEntity {
   promo_min_amount!: number
 
   @Field()
-  @Column()
+  @Column({length: 20})
   time!: string
 }
