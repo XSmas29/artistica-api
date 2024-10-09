@@ -15,7 +15,7 @@ export class Product extends BaseEntity {
   id!: number
 
   @Field()
-  @Column({length: 50})
+  @Column({length: 100})
   name!: string
 
   @Field()

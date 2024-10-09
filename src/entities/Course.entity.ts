@@ -36,6 +36,6 @@ export class Course extends BaseEntity {
   promo_min_amount!: number
 
   @Field()
-  @Column({length: 20})
+  @Column({length: 100})
   time!: string
 }

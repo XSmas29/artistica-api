@@ -9,7 +9,7 @@ import { TransactionStatus } from "./TransactionStatus.entity";
 @Entity({name: 'course_transactions'})
 export class CourseTransaction extends BaseEntity {
   @Field()
-  @PrimaryColumn()
+  @PrimaryColumn({length: 50})
   id!: string
 
   @Field(() => User)
@@ -48,7 +48,7 @@ export class CourseTransaction extends BaseEntity {
   start_date!: Date
 
   @Field()
-  @Column({length: 20})
+  @Column({length: 100})
   time_slot!: string
 
   @Field({ nullable: true })

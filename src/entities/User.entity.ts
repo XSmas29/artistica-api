@@ -22,7 +22,7 @@ export class User extends BaseEntity {
   last_name!: string
 
   @Field({nullable: true})
-  @Column({nullable: true, length: 25})
+  @Column({nullable: true, length: 15})
   phone?: string
 
   @Field()
@@ -60,7 +60,7 @@ export class User extends BaseEntity {
   @DeleteDateColumn()
   deleted_at!: Date
 
-  @Column({nullable: true, length: 500})
+  @Column({nullable: true, length: 1000})
   refresh_token!: string
 
   @Field(() => [TransactionHeader])
