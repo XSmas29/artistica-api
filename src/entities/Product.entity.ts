@@ -23,7 +23,7 @@ export class Product extends BaseEntity {
   description!: string
 
   @Field()
-  @Column({length: 50})
+  @Column({length: 150})
   slug!: string
 
   @Field()
