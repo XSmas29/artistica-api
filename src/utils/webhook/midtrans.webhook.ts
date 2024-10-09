@@ -40,6 +40,7 @@ router.post('/status', async (req, res) => {
     (payload.transaction_status === 'settlement' || payload.transaction_status === 'capture')
   ) {
     const order_category = payload.order_id.split('-')[0]
+    console.log(order_category)
     if (order_category === 'ORDER') {
       const order = await TransactionHeader.findOneBy({ id: payload.order_id })
       if (order) {
