@@ -36,7 +36,7 @@ router.post('/status', async (req, res) => {
   console.log(payload)
   if (
     payload.status_code === '200' && 
-    payload.fraud_status === 'accept' &&
+    (!payload.fraud_status || payload.fraud_status === 'accept') &&
     (payload.transaction_status === 'settlement' || payload.transaction_status === 'capture')
   ) {
     const order_category = payload.order_id.split('-')[0]
