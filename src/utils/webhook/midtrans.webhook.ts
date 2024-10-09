@@ -33,6 +33,7 @@ router.post('/success', (req, res) => {
 
 router.post('/status', async (req, res) => {
   const payload = req.body as MidtransStatusNotification
+  console.log(payload)
   if (
     payload.status_code === '200' && 
     payload.fraud_status === 'accept' &&
