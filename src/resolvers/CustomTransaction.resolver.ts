@@ -74,7 +74,7 @@ export class CustomTransactionResolver {
       const { ext } = parse(data.filename)
       const path = `img_${customTransactionData.id}_${Date.now().toString()}${ext}`
 
-      // await uploadFile(image, `custom_transaction/${customTransactionData.id}`, path)
+      await uploadFile(image, `custom_transaction/${customTransactionData.id}`, path)
       
       const newImage = Image.create({
         path: path,
