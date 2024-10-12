@@ -69,20 +69,20 @@ export class CustomTransactionResolver {
 
     await chatMessage.save()
 
-    // images.forEach(async image => {
-    //   const data = await image
-    //   const { ext } = parse(data.filename)
-    //   const path = `img_${customTransactionData.id}_${Date.now().toString()}${ext}`
+    images.forEach(async image => {
+      const data = await image
+      const { ext } = parse(data.filename)
+      const path = `img_${customTransactionData.id}_${Date.now().toString()}${ext}`
 
-    //   await uploadFile(image, `custom_transaction/${customTransactionData.id}`, path)
+      // await uploadFile(image, `custom_transaction/${customTransactionData.id}`, path)
       
-    //   const newImage = Image.create({
-    //     path: path,
-    //     custom_transaction: customTransactionData,
-    //   })
+      const newImage = Image.create({
+        path: path,
+        custom_transaction: customTransactionData,
+      })
 
-    //   await Image.save(newImage)
-    // })
+      await Image.save(newImage)
+    })
 
     return {
       success: true,
