@@ -80,7 +80,6 @@ export class CustomTransactionResolver {
         path: path,
         custom_transaction: customTransactionData,
       })
-
       await Image.save(newImage)
     })
 
