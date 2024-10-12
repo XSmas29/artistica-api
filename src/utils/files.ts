@@ -20,6 +20,9 @@ export const uploadFile = async (file: FileUpload, uploadDir: string, fileName: 
   const result = createWriteStream(join(__dirname, `../../public/${filePath}`))
   stream.pipe(result)
   await finished(result)
+  console.log('file uploaded')
+  console.log(result)
+  console.log(filePath)
 
   //       part.file.pipe(writeStream);
 
