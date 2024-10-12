@@ -3,7 +3,8 @@ module.exports = {
   apps : [{
     name: 'artistica-api',
     script: 'npm run dev',
-    watch: true
+    watch: "src",
+    ignore_watch: "public",
   }],
 
   deploy : {
