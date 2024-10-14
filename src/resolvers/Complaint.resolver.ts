@@ -61,6 +61,7 @@ export class ComplaintResolver {
 
       await uploadFile(imageData, `complaint/${complaintData.id}`, path)
       complaintData.image = path
+      complaintData.save()
     }
 
     return {
